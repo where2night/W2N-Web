@@ -1,0 +1,2 @@
+# database files must be personal, therefore ignore them
+config/database.yml
