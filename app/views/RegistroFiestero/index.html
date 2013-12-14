@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="js/fecha.js"></script>
+        <script type="text/javascript" src="js/submit.js"></script>
+        <title>Where2Night</title>
+    </head>
+    <body>
+        <h1>Where2Night</h1>
+        <button type="button">Iniciar Sesión</button>
+       
+        <table width="600" align="center" border="0">
+         
+          <tr>
+            <td>Nombre:</td>
+            <td><input name="name" type="text" size="50" /></td>
+          </tr>
+         
+          <tr>
+            <td>Apellido</td>
+            <td><input name="surname" type="text" size="50"   /></td>
+          </tr>
+          
+           <tr>
+            <td>Fecha de nacimiento</td>
+            <td>
+            	<select name="day">
+            		<option value="0" selected="1">Día</option>
+          				<script>
+        					SelectOptionRange(1,32);
+        				</script>	
+            	 		
+            	</select>
+            	
+            	<select name="month">
+            		
+            		<option value="0" selected="1">Mes</option>
+            			<script>
+        					SelectOptionRange(1,13);
+        				</script>
+                </select>
+            	
+            	<select name="year">
+            		<option value="0" selected="1">Año</option>
+        				<script>
+        					SelectOptionRange(1905,2013);
+        				</script>    		
+            		
+            	</select>
+            	
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Sexo</td>
+            <td>
+            	<input  name="man" type="checkbox" /> Hombre
+            	<input  name="woman" type="checkbox"  /> Mujer 
+            	
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Correo Electrónico:</td>
+            <td><input name="email" type="text" size="50" /></td>
+          </tr>
+          
+          <tr>
+            <td>Confirmación Correo Electrónico:</td>
+            <td><input name="confirmation email" type="text" size="50"  /></td>
+          </tr>
+          
+            <tr>
+            <td>Contraseña:</td>
+            <td><input name="password" type="password" size="50" /></td>
+          </tr>
+          
+          <tr>
+            <td>Confirmación Contraseña:</td>
+            <td><input name="confirmation password" type="password" size="50" /></td>
+          </tr>
+            
+          <tr>
+            <td><input name="Terms & Conditions" type="checkbox"/> Acepto los términos y condiciones </td>
+            <td align="center"><input id="register" type="button" value="¡REGISTRATE!" onclick="ButtonRegister()"/></td>
+          </tr>
+        </table>
+         
+    </body>
+</html>
