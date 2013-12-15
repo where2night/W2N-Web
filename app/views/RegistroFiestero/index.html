@@ -3,90 +3,125 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+         <!-- JavaScript -->
         <script type="text/javascript" src="js/fecha.js"></script>
         <script type="text/javascript" src="js/submit.js"></script>
+        <!-- Bootstrap -->
+        <link href="./styles/dist/css/bootstrap.css" rel="stylesheet">
+        <script src="./styles/assets/js/jquery.js"></script>
+        <script src="./styles/dist/js/bootstrap.js"></script>
+		<script src="./styles/assets/js/holder.js"></script>
+		<script src="./styles/assets/js/application.js"></script>
+        
         <title>Where2Night</title>
     </head>
-    <body>
-        <h1>Where2Night</h1>
-        <button type="button">Iniciar Sesión</button>
-       
-        <table width="600" align="center" border="0">
-         
-          <tr>
-            <td>Nombre:</td>
-            <td><input name="name" type="text" size="50" /></td>
-          </tr>
-         
-          <tr>
-            <td>Apellido</td>
-            <td><input name="surname" type="text" size="50"   /></td>
-          </tr>
-          
-           <tr>
-            <td>Fecha de nacimiento</td>
-            <td>
-            	<select name="day">
-            		<option value="0" selected="1">Día</option>
-          				<script>
-        					SelectOptionRange(1,32);
-        				</script>	
-            	 		
-            	</select>
-            	
-            	<select name="month">
-            		
-            		<option value="0" selected="1">Mes</option>
-            			<script>
-        					SelectOptionRange(1,13);
-        				</script>
-                </select>
-            	
-            	<select name="year">
-            		<option value="0" selected="1">Año</option>
-        				<script>
-        					SelectOptionRange(1905,2013);
-        				</script>    		
-            		
-            	</select>
-            	
-            </td>
-          </tr>
-          
-          <tr>
-            <td>Sexo</td>
-            <td>
-            	<input  name="man" type="checkbox" /> Hombre
-            	<input  name="woman" type="checkbox"  /> Mujer 
-            	
-            </td>
-          </tr>
-          
-          <tr>
-            <td>Correo Electrónico:</td>
-            <td><input name="email" type="text" size="50" /></td>
-          </tr>
-          
-          <tr>
-            <td>Confirmación Correo Electrónico:</td>
-            <td><input name="confirmation email" type="text" size="50"  /></td>
-          </tr>
-          
-            <tr>
-            <td>Contraseña:</td>
-            <td><input name="password" type="password" size="50" /></td>
-          </tr>
-          
-          <tr>
-            <td>Confirmación Contraseña:</td>
-            <td><input name="confirmation password" type="password" size="50" /></td>
-          </tr>
+    <body style="background-color: #00003f">>
             
-          <tr>
-            <td><input name="Terms & Conditions" type="checkbox"/> Acepto los términos y condiciones </td>
-            <td align="center"><input id="register" type="button" value="¡REGISTRATE!" onclick="ButtonRegister()"/></td>
-          </tr>
-        </table>
-         
+            <div class="jumbotron" style="background-color: #00003f">
+            	
+            	<table  width="600" align="center" border="0">   	
+        		
+        			<tr>
+        				<td><h1 style="color: #FFFFCC">Where2Night</h1></td>
+        				<td align="right"><p><a class="btn btn-primary btn-lg" type="button">Iniciar sesión</a></p></td>
+        			</tr>
+        		</table>
+        		
+        	</div>
+        	
+        	<table width="600" align="center" border="0">
+         	  
+         	  <tr>
+	            <td><input name="name" type="text" size="100" class="form-control" placeholder="Nombre"/></td>
+	          </tr>
+	         
+	          <tr>
+	            <td><input name="surname" type="text" size="100" class="form-control" placeholder="Apellidos"/></td>
+	          </tr>
+	          
+	   
+	          <tr>
+	            <td><input name="email" type="text" size="100" class="form-control" placeholder="Correo electrónico"/></td>
+	          </tr>
+	          
+	          <tr>
+				<td><input name="confirmation email" type="text" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico"  /></td>
+	          </tr>
+	          
+	          <tr>
+	            <td><input name="password" type="password" size="100" class="form-control" placeholder="Contraseña" /></td>
+	          </tr>
+	          
+	          <tr>
+	           	<td><input name="confirmation password" type="password" size="100" class="form-control" placeholder="Repite contraseña" /></td>
+	          </tr>
+	          
+	          <tr>
+	            <td>
+	            	<div class="checkbox">
+						<label>
+							<p class="navbar-text">
+								<input type="checkbox" value="" name="man">
+								<b style="color: #FFFFCC">Hombre</b>
+							</p>
+							
+							<p class="navbar-text">
+								<input type="checkbox" value="" name="woman">
+								<b style="color: #FFFFCC">Mujer</b>
+							</p>
+							
+						</label>
+					</div>
+	            </td>
+	          </tr>
+	          
+	          <tr>
+	           	<td>
+	            	<p class="navbar-text"><b style="color: #FFFFCC"> Fecha de nacimiento</b></p>
+
+	            	<p class="navbar-text">
+						<select name="day">
+	            			<option value="0" selected="1">Día</option>
+	          					<script>
+	        						SelectOptionRange(1,32);
+	        					</script>	
+	            	 	</select>
+	            	
+	            		<select name="month">
+	            			<option value="0" selected="1">Mes</option>
+	            				<script>
+	        						SelectOptionRange(1,13);
+	        					</script>
+	                	</select>
+	            	
+	            		<select name="year">
+	            			<option value="0" selected="1">Año</option>
+	        					<script>
+	        						SelectOptionRange(1905,2013);
+	        					</script>    		
+	            		</select>
+	            	</p>	
+	            </td>
+	          </tr>
+	            
+	          <tr>
+	            <td>
+	            	<div class="checkbox">
+							<label>
+								<p class="navbar-text">
+									<input type="checkbox" value="" name="Terms & Conditions">
+									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
+								</p>
+							</label>
+						</div>
+	            </td>		 
+	            
+	          </tr>
+	          
+	          <tr align="center">
+	          	<td><input name="register" class="btn btn-primary btn-lg" type="button" value="¡Registrate!" onclick="ButtonRegister()"/></td>
+	          </tr>
+	   		</table>
+        
     </body>
 </html>
