@@ -4,7 +4,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="P�gina principal">
+    <meta name="description" content="Página principal">
     <meta name="author" content="Where2night">
     <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png"> -->
 	
@@ -24,21 +24,63 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../assets/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    
+    <script type="text/javascript">  
+		$(document).ready(function(){ 
+		  
+			$('.resize').hover(
+				function() {
+					$(this).animate({width: 300});;
+				},
+				function() {
+					$(this).animate({width: 250});
+				}
+			);
+			
+			$('.phrase1').hover(
+				function() {
+					$('#image1').animate({width: 300});;
+				},
+				function() {
+					$('#image1').animate({width: 250});
+				}
+			);
+			
+			$('.phrase2').hover(
+				function() {
+					$('#image2').animate({width: 300});;
+				},
+				function() {
+					$('#image2').animate({width: 250});
+				}
+			);
+			
+			$('.phrase3').hover(
+				function() {
+					$('#image3').animate({width: 300});;
+				},
+				function() {
+					$('#image3').animate({width: 250});
+				}
+			);
+			
+		});//end $(document).ready(function()
+    </script>
+
+    
   </head>
   <body>
-    <h1>Where2Night</h1>
-	
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-	  <!---- ---->
-	    <!--<div id="head">
-			
-			<div class="buttonIniSes" align="right"><button type="button">Iniciar Sesi�n</button></div>
-		</div> -->
-
-	<!---- ---->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-top">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -46,7 +88,7 @@
           </button>
           <a class="navbar-brand" href="#">Where2Night</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" id="bs-navbar-collapse-top">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
@@ -59,38 +101,56 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+	
       <div class="container">
         <div id="tablePhrases">
 			<table width="90%" align="center" border="0">
 				<tr>
-					<td>¿Quieres promocionar tu local?</td>    
+					<td class="phrase1">¿No sabes dónde ir de fiesta ni con quién?</td>    
 				</tr>
 			</table>
 			<table width="90%" align="center" border="0">
 				<tr>
-					<td width="25%"></td>   
-					<td>¿Eres DJ y quieres darte a conocer?</td> 
+					<td width="30%"></td>   
+					<td class="phrase2">¿Quieres promocionar tu local?</td> 
 				</tr>
 			</table>
 			<table width="100%" align="center" border="0">
 				<tr>
 					<td width="55%"></td>   
-					<td>¿No sabes dónde ir de fiesta ni con quién?</td>     
+					<td class="phrase3">¿Eres DJ y quieres darte a conocer?</td>     
 				</tr>
 			</table>
 		</div>
+		<div id="tableIcons">
+			<div class="row">
+					<div class="col-md-4">
+						<img id="image1" src= "../assets/images/icons/fiestero.png" class="resize" width="250" alt="Usuario Fiestero" title="Fiestero">
+					</div>  
+					<div class="col-md-4">
+						<table width = "100%" cellpadding="0" cellspacing="0" border="0" >
+							<tr>
+								<td height= "75px"></td>
+							</tr>
+							<tr><td>
+								<img id="image2" src= "../assets/images/icons/local.gif" class="resize" width="250" alt="Usuario Local" title="Local">
+							</td></tr>
+							<tr>
+								<td height= "75px"></td>
+							</tr>
+						</table>
+					</div> 
+					<div class="col-md-4">
+						<img id="image3" src= "../assets/images/icons/dj.gif" class="resize" width="250" alt="Usuario DJ" title="DJ">	
+					</div>  
+			</div>
+		</div>
         <!--<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p> -->
-      </div>
-    </div>
-
-    <div class="container">
+      <!--</div> -->
       <!-- Example row of columns -->
-      <div class="row">
+     <!-- <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
+         <h2>Heading</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -104,18 +164,31 @@
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
-      </div>
+      </div>-->
 
-      <hr>
-
-      <footer>
+     <!-- <footer>
         <p>&copy; Company 2013</p>
-      </footer>
+      </footer>-->
+      
+	  <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-bottom">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="bs-navbar-collapse-bottom">
+             <ul class="nav navbar-nav">
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Diseñado por</a></li>
+                <li><a href="#">Móvil</a></li>
+                <li><a href="#">Privacidad y Condiciones</a></li>
+                <li><a href="#">¿Qúe es Where2Night?</a></li>
+                <li><a href="#">Imagen AppStore</a></li>
+             </ul>
+          </div>
+	  </div>
     </div> <!-- /container -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../assets/javascripts/bootstrap.min.js"></script>
   </body>
 </html>

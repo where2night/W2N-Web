@@ -4,14 +4,19 @@ body {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 14px;
 	color: #333;
-	background-color: #FFF;
+	background: url(../images/fondo1.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	/*background-color: #FFF;
 	background-attachment: scroll;
-	background-image: url(../images/fondo1.jpg);
-	/*background-repeat: inherit;*/
-	background-position: center;
+	background-image: url(../images/fondo3.jpg);
+	/*background-repeat: inherit;
+	background-position: center;*/
 	/*From jumbotron.css*/
 	padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 #container {
@@ -41,6 +46,17 @@ body {
 }
 
 #tablePhrases{
+	margin-top: 20px;
+	margin-bottom: 20px;
 	font-size: 20px;
+	color: #ffffff;
 }
 
+#tablePhrases table{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#tableIcons{
+	text-align: center;
+}
