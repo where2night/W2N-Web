@@ -9,6 +9,9 @@ body {
 	background-image: url(../images/fondo1.jpg);
 	/*background-repeat: inherit;*/
 	background-position: center;
+	/*From jumbotron.css*/
+	padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 #container {
@@ -35,5 +38,9 @@ body {
 	/*background-image: url(../images/fondo1.jpg);*/
 	background-repeat: repeat;
 	position: relative;
+}
+
+#tablePhrases{
+	font-size: 20px;
 }
 
