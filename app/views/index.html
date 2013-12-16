@@ -14,6 +14,7 @@
 	
 	<!--Own css-->
 	<link href="../assets/stylesheets/home.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/stylesheets/login.css" rel="stylesheet" type="text/css" />
 	
     <!-- Bootstrap -->
     <link href="../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +72,28 @@
 				}
 			);
 			
+			////////////////////////////////////////////////////
+			    var button = $('#loginButton');
+				var box = $('#loginBox');
+				var form = $('#loginForm');
+				button.removeAttr('href');
+				button.mouseup(function(login) {
+					box.toggle();
+					button.toggleClass('active');
+				});
+				form.mouseup(function() { 
+					return false;
+				});
+				$(this).mouseup(function(login) {
+					if(!($(login.target).parent('#loginButton').length > 0)) {
+						button.removeClass('active');
+						box.hide();
+					}
+				});
+			
 		});//end $(document).ready(function()
+		
+		
     </script>
 
     
@@ -80,16 +102,44 @@
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-top">
+         <!--- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-top">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button> -->
           <a class="navbar-brand" href="#">Where2Night</a>
         </div>
-        <div class="navbar-collapse collapse" id="bs-navbar-collapse-top">
-          <form class="navbar-form navbar-right" role="form">
+        <!--<div class="navbar-collapse collapse" id="bs-navbar-collapse-top">-->
+        <div id="bar">
+            <div id="loginContainer">
+                <a href="#" id="loginButton"><span>Login</span><em></em></a>
+                <div style="clear:both"></div>
+                <div id="loginBox">                
+                    <form id="loginForm">
+                        <fieldset id="body">
+                            <fieldset>
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico">
+                            </fieldset>
+                            <fieldset>
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+                            </fieldset>
+                            <fieldset style="text-align:left">
+                            	<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
+                            </fieldset>
+                            <button type="submit" class="btn btn-default">Entrar</button>
+                        </fieldset>
+                        <a href="#">¿Olvidó su contraseña?</a>
+                        <fieldset>
+                        	<p> Iniciar sesión usando: </p>
+                        	<a href="#"><img src="../assets/images/login/facebook.jpe"></a>
+                            <a href="#"><img src="../assets/images/login/gmail.jpe"></a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+       <!-- </div>-->
+        <!--  <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
               <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico">
             </div>
@@ -104,15 +154,19 @@
            	<p> Iniciar sesión usando: </p>
            </div>
            <div class="form-group">
-               <button name="boton" type="submit" style="border:0;padding:0;"><img src="../assets/images/facebook.jpe"> </button> 
-               <button name="boton" type="submit" style="border:0;padding:0;"><img src="../assets/images/gmail.jpe"> </button>  
+               <button name="boton" type="submit" style="border:0;padding:0;"><img src="../assets/images/login/facebook.jpe"> </button> 
+               <button name="boton" type="submit" style="border:0;padding:0;"><img src="../assets/images/login/gmail.jpe"> </button>  
            </div>      
-          </form>
+          </form> -->
+          <!-- Login Starts Here -->
+            <!-- Login Ends Here -->
         </div><!--/.navbar-collapse -->
       </div>
     </div>
 	
       <div class="container">
+      	 
+        <!-- -->
         <div id="tablePhrases">
 			<table width="90%" align="center" border="0">
 				<tr>
