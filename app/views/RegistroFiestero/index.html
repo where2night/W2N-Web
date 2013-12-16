@@ -9,8 +9,10 @@
 		<!-- Bootstrap -->
 		<link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
-        
-        <title>Where2Night</title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    
+    <title>Where2Night</title>
     </head>
     <body style="background-color: #00003f">>
             
@@ -29,28 +31,28 @@
         	<table width="600" align="center" border="0">
          	  
          	  <tr>
-	            <td><input name="name" type="text" size="100" class="form-control" placeholder="Nombre"/></td>
+	            <td><input id="name" type="text" size="100" class="form-control" placeholder="Nombre"/></td>
 	          </tr>
 	         
 	          <tr>
-	            <td><input name="surname" type="text" size="100" class="form-control" placeholder="Apellidos"/></td>
+	            <td><input id="surname" type="text" size="100" class="form-control" placeholder="Apellidos"/></td>
 	          </tr>
 	          
 	   
 	          <tr>
-	            <td><input name="email" type="text" size="100" class="form-control" placeholder="Correo electrónico"/></td>
+	            <td><input id="email" type="email" size="100" class="form-control" placeholder="Correo electrónico"/></td>
 	          </tr>
 	          
 	          <tr>
-				<td><input name="confirmation email" type="text" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico"  /></td>
+				<td><input id="confirmation email" type="text" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico"  /></td>
 	          </tr>
 	          
 	          <tr>
-	            <td><input name="password" type="password" size="100" class="form-control" placeholder="Contraseña" /></td>
+	            <td><input id="password" type="password" size="100" class="form-control" placeholder="Contraseña" /></td>
 	          </tr>
 	          
 	          <tr>
-	           	<td><input name="confirmation password" type="password" size="100" class="form-control" placeholder="Repite contraseña" /></td>
+	           	<td><input id="confirmation password" type="password" size="100" class="form-control" placeholder="Repite contraseña" /></td>
 	          </tr>
 	          
 	          <tr>
@@ -58,12 +60,12 @@
 	            	<div class="checkbox">
 						<label>
 							<p class="navbar-text">
-								<input type="checkbox" value="" name="man">
+								<input type="checkbox" value="" id="man">
 								<b style="color: #FFFFCC">Hombre</b>
 							</p>
 							
 							<p class="navbar-text">
-								<input type="checkbox" value="" name="woman">
+								<input type="checkbox" value="" id="woman">
 								<b style="color: #FFFFCC">Mujer</b>
 							</p>
 							
@@ -77,21 +79,21 @@
 	            	<p class="navbar-text"><b style="color: #FFFFCC"> Fecha de nacimiento</b></p>
 
 	            	<p class="navbar-text">
-						<select name="day">
+						<select id="day">
 	            			<option value="0" selected="1">Día</option>
 	          					<script>
 	        						SelectOptionRange(1,32);
 	        					</script>	
 	            	 	</select>
 	            	
-	            		<select name="month">
+	            		<select id="month">
 	            			<option value="0" selected="1">Mes</option>
 	            				<script>
 	        						SelectOptionRange(1,13);
 	        					</script>
 	                	</select>
 	            	
-	            		<select name="year">
+	            		<select id="year">
 	            			<option value="0" selected="1">Año</option>
 	        					<script>
 	        						SelectOptionRange(1905,2013);
@@ -106,7 +108,7 @@
 	            	<div class="checkbox">
 							<label>
 								<p class="navbar-text">
-									<input type="checkbox" value="" name="Terms & Conditions">
+									<input type="checkbox" value="" id="Terms & Conditions">
 									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
 								</p>
 							</label>
