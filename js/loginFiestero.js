@@ -1,5 +1,4 @@
 function loginFiestero(){
-	console.log("mierda");
 	var email = document.getElementById('inputEmail').value;
 	var password = document.getElementById('inputPassword').value;
 	if (email == ""){
@@ -10,8 +9,9 @@ function loginFiestero(){
 }
 
 function login(email2,password2){
+	console.log("login");
 	$.ajax({
-			url: "http://where2night.es/login.php",
+			url: "login.php",
 			dataType: "json",
 			type: "POST",
 			timeout: 5000,
@@ -28,5 +28,7 @@ function login(email2,password2){
 }
 
 function redirect(){
-	console.log("hola");
+	console.log("LOGIN");
+	window.location.href="http://www.google.es";
+	
 }
