@@ -3,7 +3,7 @@
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '411574272306093', // Set YOUR APP ID
-      channelUrl : 'http://www.simplife.co.nf/', // Channel File
+      channelUrl : 'http://www.where2night.es/', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
@@ -34,18 +34,46 @@
  
     function loginFacebook()
     {
- 
+ 		
         FB.login(function(response) {
+		
            if (response.authResponse) 
            {
-                getUserInfo();
-            } else 
+                //getUserInfo();
+				FB.api('/me', function(response) {
+					var email2 = response.email;
+						$.ajax({
+								url: "loginfb.php",
+								dataType: "json",
+								type: "POST",
+								timeout: 5000,
+								data: {
+									email:email2
+								},
+								
+								success: redirect,
+								onerror: function(e,val){
+									alert("Hay error");
+								}
+						});
+				
+				});
+				
+
+				
+           } else 
             {
              console.log('User cancelled login or did not fully authorize.');
             }
          },{scope: 'email,user_photos,user_videos'});
+		 
+		 
  
     }
+	
+  function redirect(){
+	window.location.href="http://www.google.es";	
+  }
  
   function getUserInfo() {
         FB.api('/me', function(response) {

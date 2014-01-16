@@ -9,7 +9,6 @@ function loginFiestero(){
 }
 
 function login(email2,password2){
-	console.log("login");
 	$.ajax({
 			url: "login.php",
 			dataType: "json",
@@ -28,7 +27,5 @@ function login(email2,password2){
 }
 
 function redirect(){
-	console.log("LOGIN");
-	window.location.href="http://www.google.es";
-	
+	window.location.href="http://www.google.es";	
 }
