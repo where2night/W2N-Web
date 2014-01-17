@@ -9,7 +9,8 @@ function loginFiestero(){
 }
 
 function login(email2,password2){
-	$.ajax({
+	
+	 console.log($.ajax({
 			url: "login.php",
 			dataType: "json",
 			type: "POST",
@@ -18,14 +19,18 @@ function login(email2,password2){
 				email:email2,
 				password: password2
 			},
-			
-			success: redirect,
+			complete: function(r){
+					var json = JSON.parse(r.responseText);
+       				console.log(json.Token);
+					if(json.Token!=0){
+						redirect();
+					}
+    		},
 			onerror: function(e,val){
 				alert("Hay error");
 			}
-	});
+	}));
 }
-
 function redirect(){
 	window.location.href="http://www.google.es";	
 }

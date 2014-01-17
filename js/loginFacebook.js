@@ -2,8 +2,8 @@
  
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '411574272306093', // Set YOUR APP ID
-      channelUrl : 'http://www.where2night.es/', // Channel File
+      appId      : '424508544315541', // Set YOUR APP ID
+      channelUrl : 'http://www.where2night.es', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
@@ -40,9 +40,11 @@
            if (response.authResponse) 
            {
                 //getUserInfo();
+				
 				FB.api('/me', function(response) {
 					var email2 = response.email;
-						$.ajax({
+					console.log(email2);
+					$.ajax({
 								url: "loginfb.php",
 								dataType: "json",
 								type: "POST",
@@ -50,13 +52,19 @@
 								data: {
 									email:email2
 								},
-								
-								success: redirect,
+								complete: function(r){
+								var json = JSON.parse(r.responseText);
+								console.log(json.Token);
+									if(json.Token!=0){
+										redirect();
+									}else{
+										Logout();
+									}
+								},
 								onerror: function(e,val){
 									alert("Hay error");
 								}
 						});
-				
 				});
 				
 
