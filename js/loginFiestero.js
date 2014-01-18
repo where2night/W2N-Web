@@ -24,7 +24,7 @@ function login(email2,password2){
        				console.log(json.Token);
 					if(json.Token!=0){
 						redirect();
-					}
+					} else alert("Login no efectuado correctamente");
     		},
 			onerror: function(e,val){
 				alert("Hay error");

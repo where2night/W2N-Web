@@ -6,7 +6,8 @@
       channelUrl : 'http://www.where2night.es', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
+      xfbml      : true, // parse XFBML
+       oauth      : true
     });
  
     FB.Event.subscribe('auth.authResponseChange', function(response) 
@@ -15,17 +16,18 @@
     {
         document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
         //SUCCESS
+		//testAPI();
  
     }    
     else if (response.status === 'not_authorized') 
     {
         document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
- 
+  		//FB.login();
         //FAILED
     } else 
     {
         document.getElementById("message").innerHTML +=  "<br>Logged Out";
- 
+ 		//FB.login();
         //UNKNOWN ERROR
     }
     }); 
@@ -35,45 +37,60 @@
     function loginFacebook()
     {
  		
-        FB.login(function(response) {
-		
+         (FB.login(function(response) {
            if (response.authResponse) 
            {
                 //getUserInfo();
 				
 				FB.api('/me', function(response) {
 					var email2 = response.email;
-					console.log(email2);
+					alert(email2);
+					var firstName2 = response.first_name;
+					alert(firstName2);
+					var last_name2 = response.last_name;
+					alert(last_name2);
+					var sex2 = response.gender;
+					alert(sex2);
+					var birthday_date2 = response.birthday;
+					alert(birthday_date2);
+					
 					$.ajax({
 								url: "loginfb.php",
 								dataType: "json",
 								type: "POST",
-								timeout: 5000,
 								data: {
 									email:email2
 								},
 								complete: function(r){
-								var json = JSON.parse(r.responseText);
-								console.log(json.Token);
-									if(json.Token!=0){
-										redirect();
-									}else{
-										Logout();
-									}
+									var json = JSON.parse(r.responseText);
+									alert(json.Token);
+									if (json.Token ==0){
+											//redirect();
+											alert("error");
+									} else {
+											alert("no error");
+											if(json.New == "true") alert("new usser");
+											else alert("old usser");
+											redirect();
+										}
+										
 								},
 								onerror: function(e,val){
 									alert("Hay error");
 								}
-						});
-				});
+					});
+			});
 				
 
 				
-           } else 
-            {
-             console.log('User cancelled login or did not fully authorize.');
-            }
-         },{scope: 'email,user_photos,user_videos'});
+		 } else 
+			{
+			 alert("Ha cancelado el login con Facebook");
+			 Logout();
+			 console.log('User cancelled login or did not fully authorize.');
+			}
+         },{scope: 'email,user_birthday'}) );
+		 
 		 
 		 
  
@@ -111,6 +128,8 @@
     {
         FB.logout(function(){document.location.reload();});
     }
+	
+
  
   // Load the SDK asynchronously
   (function(d){
