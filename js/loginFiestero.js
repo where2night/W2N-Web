@@ -1,7 +1,8 @@
 function loginFiestero(){
-	var email = document.getElementById('inputEmail').value;
-	var password = document.getElementById('inputPassword').value;
+	var email = document.getElementById('inputEmail3').value;
+	var password = document.getElementById('inputPassword3').value;
 	if (email == ""){
+		
 		alert("Se debe introcucir un nombre de usuario");
 	}else if ( password == ""){
 		alert("Se debe introducir una contraseña");
@@ -23,7 +24,7 @@ function login(email2,password2){
 					var json = JSON.parse(r.responseText);
        				console.log(json.Token);
 					if(json.Token!=0){
-						redirect();
+						redirectLoginFiestero();
 					} else alert("Login no efectuado correctamente");
     		},
 			onerror: function(e,val){
@@ -31,6 +32,6 @@ function login(email2,password2){
 			}
 	}));
 }
-function redirect(){
-	window.location.href="http://www.google.es";	
+function redirectLoginFiestero(){
+	window.location.href="http://www.where2night.es/homeFiestero.html";		
 }

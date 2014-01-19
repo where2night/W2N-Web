@@ -1,13 +1,13 @@
    
- 
+ var email2;
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '424508544315541', // Set YOUR APP ID
       channelUrl : 'http://www.where2night.es', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true, // parse XFBML
-       oauth      : true
+      xfbml      : true // parse XFBML
+       //oauth      : true
     });
  
     FB.Event.subscribe('auth.authResponseChange', function(response) 
@@ -40,26 +40,30 @@
          (FB.login(function(response) {
            if (response.authResponse) 
            {
-                //getUserInfo();
+              //  getUserInfo();
 				
 				FB.api('/me', function(response) {
-					var email2 = response.email;
-					alert(email2);
+					email2 = response.email;
+					//alert(email2);
 					var firstName2 = response.first_name;
-					alert(firstName2);
+					//alert(firstName2);
 					var last_name2 = response.last_name;
-					alert(last_name2);
-					var sex2 = response.gender;
-					alert(sex2);
+					//alert(last_name2);
+					var gender2 = response.gender;
+					//alert(sex2);
 					var birthday_date2 = response.birthday;
-					alert(birthday_date2);
-					
+					//alert(birthday_date2);
 					$.ajax({
 								url: "loginfb.php",
 								dataType: "json",
 								type: "POST",
 								data: {
+									name: firstName2,
+									surnames: last_name2,
+									gender: gender2,
+									birthdate: birthday_date2,
 									email:email2
+									
 								},
 								complete: function(r){
 									var json = JSON.parse(r.responseText);
@@ -71,7 +75,7 @@
 											alert("no error");
 											if(json.New == "true") alert("new usser");
 											else alert("old usser");
-											redirect();
+											redirectLoginFb();
 										}
 										
 								},
@@ -89,31 +93,33 @@
 			 Logout();
 			 console.log('User cancelled login or did not fully authorize.');
 			}
-         },{scope: 'email,user_birthday'}) );
+         },{scope: 'email,user_photos,user_videos,user_birthday'}) );
 		 
 		 
-		 
+
  
     }
 	
-  function redirect(){
-	window.location.href="http://www.google.es";	
+  function redirectLoginFb(){
+	window.location.href="http://www.where2night.es/homeFiestero.html";	
+	//document.getElementById("logFb").innerHTML=email2;
   }
  
   function getUserInfo() {
         FB.api('/me', function(response) {
+ 		  	var str="<b>Name</b> : "+response.first_name+"<br>";
+		  
+			 // str +="<b>Link: </b>"+response.link+"<br>";
+			  //str +="<b>Username:</b> "+response.username+"<br>";
+			  //str +="<b>id: </b>"+response.id+"<br>";
+			  str +="<b>Email:</b> "+response.email+"<br>";
+			  //str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+			  //str +="<input type='button' value='Logout' onclick='Logout();'/>";
+			  document.getElementById("status").innerHTML=str;
  
-      var str="<b>Name</b> : "+response.name+"<br>";
-          str +="<b>Link: </b>"+response.link+"<br>";
-          str +="<b>Username:</b> "+response.username+"<br>";
-          str +="<b>id: </b>"+response.id+"<br>";
-          str +="<b>Email:</b> "+response.email+"<br>";
-          str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-          str +="<input type='button' value='Logout' onclick='Logout();'/>";
-          document.getElementById("status").innerHTML=str;
- 
-    });
-    }
+    	});
+   }
+	
     function getPhoto()
     {
       FB.api('/me/picture?type=normal', function(response) {
