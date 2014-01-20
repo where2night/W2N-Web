@@ -1,6 +1,6 @@
  function ButtonRegister()
 {
-
+	
 var terms=document.getElementById("Terms & Conditions").checked;
 
 if(terms){
@@ -10,48 +10,74 @@ if(terms){
 
 	if(man && !woman || !man&&woman){
 
-		var email= document.getElementById("email").value;
+		var email2= document.getElementById("email").value;
 		var confirmationemail= document.getElementById("confirmation email").value;
 		
+		if(email2==confirmationemail && email2!=""){
 		
-		if(email==confirmationemail && email!=""){
-		
-		
-			var password=document.getElementById("password").value;
+			var password2=document.getElementById("password").value;
 			var confirmationpassword=document.getElementById("confirmation password").value;
 
-				if(password==confirmationpassword && password!=""){
+				if(password2==confirmationpassword && password2!=""){
 			
-						var list_day= document.getElementById("day");
-						var day = list_day.options[list_day.selectedIndex].text;
+					var list_day= document.getElementById("day");
+					var day = list_day.options[list_day.selectedIndex].text;
 
-						var list_month= document.getElementById("month");
-						var month = list_month.options[list_month.selectedIndex].text;
+					var list_month= document.getElementById("month");
+					var month = list_month.options[list_month.selectedIndex].text;
 
-						var list_year= document.getElementById("year");
-						var year = list_year.options[list_year.selectedIndex].text;
-						
-						var bisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
-
-                          if (bisiesto) var FebruaryDay=29;
-                            else var FebruaryDay=28;
-
-                         if(((month==11 || month==4 || month==6 || month==9) && day>30)||(month==2 && day>FebruaryDay) || year=="Año" || day=="Día" || month=="Mes")
-                            alert("Introduce una fecha de nacimiento correcta");
-                         else{
-                         		var name= document.getElementById("name").value;
-								var surname= document.getElementById("surname").value;
-					      
-					         	if(name!="" && surname!=""){
+					var list_year= document.getElementById("year");
+					var year = list_year.options[list_year.selectedIndex].text;
 					
-										//parent.location.href='mailto:'+"javieralejos89@gmail.com"+'?subject='+"prueba"+'';
-										//document.write('<script type="text/javascript" src="2.js"></script>');
+					var bisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
 
-                                  		alert("registro correcto");
-										//alert("Se ha enviado un correo electrónico de verificación de la cuenta creada") ;
+					  if (bisiesto) var FebruaryDay=29;
+					  else var FebruaryDay=28;
+
+					 if(((month==11 || month==4 || month==6 || month==9) && day>30)||(month==2 && day>FebruaryDay)
+					 	 || year=="Año" || day=="Día" || month=="Mes")
+						alert("Introduce una fecha de nacimiento correcta");
+					 else{
+						var name2= document.getElementById("name").value;
+						var surname2= document.getElementById("surname").value;
+						
+						var birthday_date2 = day+"/"+month+"/"+year;
+				  
+						if(name2!="" && surname2!=""){
+							var man2;
+							if(man)
+								man2 = "male";
+							else man2 = "female";
+							$.ajax({
+									url: "registerFiestero.php",
+									dataType: "json",
+									type: "POST",
+									timeout: 5000,
+									data: {
+										name: name2,
+										surnames: surname2,
+										pass:password2,
+										gender: man2,
+										birthdate: birthday_date2,
+										email:email2
+									},
+									complete: function(r){
+											var json = JSON.parse(r.responseText);
+											console.log(json.Token);
+											if(json.Token!=0){
+												redirectHomeFiestero();
+											} else alert("Registro incorrecto");
+									},
+									onerror: function(e,val){
+										alert("Hay error");
+									}
+							});
+								alert("registro correcto");
 								
-								}else alert("Introduce nombre y apellidos");
-							} 
+								//alert("Se ha enviado un correo electrónico de verificación de la cuenta creada") ;
+						
+						}else alert("Introduce nombre y apellidos");
+						} 
 							
 			}else alert("Introduce la misma contraseña en los dos campos");
 		} else alert("Introduce el mismo email en los dos campos");
@@ -63,11 +89,10 @@ if(terms){
 } else alert("No has aceptado los terminos y condiciones");
 
 
+}
 
-
-
-
-
+function redirectHomeFiestero(){
+	window.location.href="http://www.where2night.es/homeFiestero.html";		
 }
 
 

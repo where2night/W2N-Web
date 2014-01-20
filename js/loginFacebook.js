@@ -69,12 +69,9 @@
 									var json = JSON.parse(r.responseText);
 									alert(json.Token);
 									if (json.Token ==0){
-											//redirect();
 											alert("error");
 									} else {
-											alert("no error");
-											if(json.New == "true") alert("new usser");
-											else alert("old usser");
+											alert("Inicio de sesion correcto");
 											redirectLoginFb();
 										}
 										
