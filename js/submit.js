@@ -1,10 +1,8 @@
  function ButtonRegister()
 {
-	
 var terms=document.getElementById("Terms & Conditions").checked;
 
 if(terms){
-
 	var man=document.getElementById("man").checked;
 	var woman=document.getElementById("woman").checked;
 
@@ -52,7 +50,6 @@ if(terms){
 									url: "registerFiestero.php",
 									dataType: "json",
 									type: "POST",
-									timeout: 5000,
 									data: {
 										name: name2,
 										surnames: surname2,
@@ -63,7 +60,7 @@ if(terms){
 									},
 									complete: function(r){
 											var json = JSON.parse(r.responseText);
-											console.log(json.Token);
+										
 											if(json.Token!=0){
 												redirectHomeFiestero();
 											} else alert("Registro incorrecto");
@@ -72,7 +69,6 @@ if(terms){
 										alert("Hay error");
 									}
 							});
-								alert("registro correcto");
 								
 								//alert("Se ha enviado un correo electrónico de verificación de la cuenta creada") ;
 						
@@ -92,6 +88,7 @@ if(terms){
 }
 
 function redirectHomeFiestero(){
+	alert("registro efectuado correctamente");
 	window.location.href="http://www.where2night.es/homeFiestero.html";		
 }
 

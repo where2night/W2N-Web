@@ -68,7 +68,7 @@
 								complete: function(r){
 									var json = JSON.parse(r.responseText);
 									if (json.Token ==0){
-											alert("error");
+										alert("error");
 									} else {
 											alert("Inicio de sesion correcto");
 											redirectLoginFb();
@@ -97,6 +97,7 @@
     }
 	
   function redirectLoginFb(){
+	alert("Login correcto con facebook");
 	window.location.href="http://www.where2night.es/perfilFiestero.html";	
 	//document.getElementById("logFb").innerHTML=email2;
   }
