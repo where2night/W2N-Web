@@ -10,7 +10,6 @@ function loginFiestero(){
 }
 
 function login(email2,password2){
-	alert("login");
 	 console.log($.ajax({
 			url: "login.php",
 			dataType: "json",
@@ -21,12 +20,9 @@ function login(email2,password2){
 			},
 			complete: function(r){
 					var json = JSON.parse(r.responseText);
-					alert("antes resposive");
-					alert(r.responseText);
-					alert("después resposive");
 					if(json.Token!=0){
 						redirectLoginFiestero();
-					} else alert("Login no efectuado correctamente");
+					} else alert("Login incorrecto");
     		},
 			onerror: function(e,val){
 				alert("Hay error");
@@ -34,5 +30,5 @@ function login(email2,password2){
 	}));
 }
 function redirectLoginFiestero(){
-	window.location.href="http://www.where2night.es/homeFiestero.html";		
+	window.location.href="http://www.where2night.es/perfilFiestero.html";		
 }
