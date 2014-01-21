@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Where2Night"/>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    	<meta name="format-detection" content="telephone=no" />
+
+        <!-- Styles -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- JavaScript -->
+	    <script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/loginFacebook.js"></script>
+	    <script type="text/javascript" src="js/loginFiestero.js"></script>-->
+		<script type="text/javascript" src="js/submit.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+		<script type="text/javascript" src="js/fecha.js"></script>
+    	
+		<title>Where2Night - Editar Perfil Fiestero</title>
+    	
+    	<script type="text/javascript">  
+		$(document).ready(function(){ 
+			
+			
+						
+			$("#change-data").on("click", function (event) {
+				
+			        var name = $('#name').val();
+			        var surnames = $('#surname').val();
+			        var day = $('#day').val();
+			        if (day.length < 2){
+			        	day = "0"+day;
+			        } 
+			        var month = $('#month').val();
+			        if (month.length < 2){
+			        	month = "0"+day;
+			        }
+			        var year = $('#year').val();
+			        var birthdate = day+"/"+month+"/"+year;
+			        var genre = ($("input[type='radio']:checked").val();
+			        var music = $('#favourite-music').val();
+			        var civil_state = $('#marital-status').val();
+			        var city = $('#city').val();
+			        var drink = $('#favourite-drink').val();
+			        var about = $('#about-you').val();
+		 	
+					/* console.log($.ajax({
+							url: "editprofile.php",
+							dataType: "json",
+							type: "POST",
+							timeout: 5000,
+							data: {
+								name:name,
+								surnames: surnames,
+								birthdate: birthdate,
+								gender: gender,
+								music: music,
+								civil_state: civil_state,
+								city: city,
+								drink: drink,
+								about: about,
+							},
+							complete: function(r){
+									var json = JSON.parse(r.responseText);
+				       				console.log(json.Token);
+									/*if(json.Token!=0){
+										redirectLoginFiestero();
+									} else alert("Login no efectuado correctamente");
+				    		},
+							onerror: function(e,val){
+								alert("Hay error");
+							}
+					}));*/
+					
+			}));
+	});
+		    
+		    
+		    /*    var button = $('#loginButton');
+				var box = $('#loginBox');
+				var form = $('#loginForm');
+				
+				button.removeAttr('href');
+				
+				button.mouseup(function(login) {
+					box.toggle();
+					button.toggleClass('active');
+				});
+				
+				form.mouseup(function() { 
+					return false;
+				});
+				
+				$(this).mouseup(function(login) {
+					if(!($(login.target).parent('#loginButton').length > 0)) {
+						button.removeClass('active');
+						box.hide();
+					}
+				});
+			*/
+			
+		});//end $(document).ready(function()
+		
+		
+    </script>
+    	
+    </head>
+    
+    
+    	<style>
+  			body {
+    			padding-top: 60px;
+				padding-bottom: 60px;
+    			background:url(images/party1.jpg) no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			label { 
+				display: inline-block; 
+				text-align: right; 
+			}
+			input {
+				float: right;	 
+			}​
+		</style>
+            
+        <script type="text/javascript" src="js/registro.js"></script>
+            
+           
+   		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
+			<div class="container">
+    			<div class="navbar-header">
+        			<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt=""></a> 
+        		</div> 
+        		<!-- Iniciar sesión  
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right"> 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="registroFiestero.html"style="color: #F59236" onmouseover=			"javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';">Iniciar sesión<img src="images/logoarrow.png" alt=""></a>
+                  
+               </li>    
+            </ul>
+            </nav> 
+            <!-- /Iniciar sesión  -->
+			</div>
+		</header>	
+        	
+        <body background="images/party1.jpg">
+        	<div align="center">
+	        	<form class="form-horizontal" role="form" id="edit-profile">
+				  <div class="form-group">
+				    <label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="surname" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Apellidos: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="surname" placeholder="Apellidos">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label" style="color: #FFFFCC"><b>Fecha de nacimiento: </b></label>
+				    <div class="col-sm-2">
+				   		<select id="day" class="form-control">
+		        			<option value="0" selected="selected">Día</option>
+		      					<script>
+		    						SelectOptionRange(1,32);
+		    					</script>	
+		        	 	</select>
+		        	 </div>
+		        	
+		        	<div class="col-sm-2">
+		        		<select id="month" class="form-control">
+		        			<option value="0" selected="selected">Mes</option>
+		        				<script>
+		    						SelectOptionRange(1,13);
+		    					</script>
+		            	</select>
+		        	</div>
+		        	
+		        	<div class="col-sm-2">
+		        		<select id="year" class="form-control">
+		        			<option value="0" selected="selected">Año</option>
+		    					<script>
+		    						SelectOptionRange(1905,2013);
+		    					</script>    		
+		        		</select>
+		        	</div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
+				    <div class="col-sm-8">
+				        <label class="radio-inline">
+				          <input name="radioGroup" id="radio1" value="male" type="radio"><span style="color: #FFFFCC">Hombre</span>
+				        </label>
+				        <label class="radio-inline">
+				          <input name="radioGroup" id="radio2" value="female" type="radio"><span style="color: #FFFFCC">Mujer</span>
+				        </label>
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="favourite-music" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Música favorita: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="favourite-music" name="favourite-music" placeholder="Música favorita">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="favourite-drink" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Bebida favorita: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="favourite-drink" name="favourite-drink" placeholder="Bebida favorita">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="marital-status" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Estado civil: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="marital-status" placeholder="Estado civil">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="city" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Ciudad actual: </b></label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="about-you" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Acerca de ti: </b></label>
+				    <div class="col-sm-8">
+				      <textarea id="about-you" class="form-control" rows="3" placeholder="Cuéntanos sobre ti"></textarea>
+				    </div>
+				  </div>
+				  
+				  <button type="button" class="btn btn-default" id="change-data">Editar perfil</button>
+				  
+				</form>
+			</div>
+      
+    <!-- NavbarFooter -->
+    <footer class="navbar navbar-inverse navbar-fixed-bottom bs-docs-nav" style="background-color:#000" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Iniciar sesión  -->
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-left">
+                 <li>
+                    <a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" 
+                    onmouseout="javascript:this.style.color='#F59236';">Ayuda</a>
+                </li>
+                 <li>
+                    <a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+                     onmouseout="javascript:this.style.color='#F59236';">Condiciones</a>
+                </li>
+        
+                <li>
+                    <a href="" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" 
+                    onmouseout=	"javascript:this.style.color='#F59236';">Privacidad</a>
+                </li>
+               <li>
+                    <a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+                     onmouseout="javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
+                </li>
+                </ul>
+                </nav> 
+                <!-- /Iniciar sesión  -->
+                 
+            </div>
+        </div>
+    </footer>
+            
+
+     
+    </body>
+</html>
