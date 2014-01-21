@@ -3,30 +3,30 @@
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '424508544315541', // Set YOUR APP ID
-      channelUrl : 'http://www.where2night.es', // Channel File
+      //channelUrl : 'http://www.where2night.es', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true // parse XFBML
-       //oauth      : true
+      xfbml      : true// parse XFBML
+     
     });
  
     FB.Event.subscribe('auth.authResponseChange', function(response) 
     {
      if (response.status === 'connected') 
     {
-        document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
+        //document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
         //SUCCESS
 		//testAPI();
  
     }    
     else if (response.status === 'not_authorized') 
     {
-        document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
+        //document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
   		//FB.login();
         //FAILED
     } else 
     {
-        document.getElementById("message").innerHTML +=  "<br>Logged Out";
+      //  document.getElementById("message").innerHTML +=  "<br>Logged Out";
  		//FB.login();
         //UNKNOWN ERROR
     }
@@ -40,7 +40,7 @@
          (FB.login(function(response) {
            if (response.authResponse) 
            {
-              //  getUserInfo();
+               //getUserInfo();
 				
 				FB.api('/me', function(response) {
 					email2 = response.email;
@@ -67,7 +67,6 @@
 								},
 								complete: function(r){
 									var json = JSON.parse(r.responseText);
-									alert(json.Token);
 									if (json.Token ==0){
 											alert("error");
 									} else {
@@ -98,11 +97,20 @@
     }
 	
   function redirectLoginFb(){
-	window.location.href="http://www.where2night.es/homeFiestero.html";	
+	window.location.href="http://www.where2night.es/perfilFiestero.html";	
 	//document.getElementById("logFb").innerHTML=email2;
   }
  
   function getUserInfo() {
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '424508544315541', // Set YOUR APP ID
+		  //channelUrl : 'http://www.where2night.es', // Channel File
+		  status     : true, // check login status
+		  cookie     : true, // enable cookies to allow the server to access the session
+		  xfbml      : true// parse XFBML
+		 
+		});
         FB.api('/me', function(response) {
  		  	var str="<b>Name</b> : "+response.first_name+"<br>";
 		  
@@ -115,7 +123,8 @@
 			  document.getElementById("status").innerHTML=str;
  
     	});
-   }
+	};
+  }
 	
     function getPhoto()
     {
@@ -127,19 +136,22 @@
     });
  
     }
-    function Logout()
+    function logOut()
     {
-        FB.logout(function(){document.location.reload();});
+		
+		FB.logout(function(){window.location.href="http://www.where2night.es";});
+
     }
 	
 
  
   // Load the SDK asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
- 
+
+(function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+  

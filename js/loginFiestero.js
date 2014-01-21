@@ -15,14 +15,12 @@ function login(email2,password2){
 			url: "login.php",
 			dataType: "json",
 			type: "POST",
-			timeout: 5000,
 			data: {
 				email:email2,
 				password: password2
 			},
 			complete: function(r){
 					var json = JSON.parse(r.responseText);
-       				console.log(json.Token);
 					if(json.Token!=0){
 						redirectLoginFiestero();
 					} else alert("Login no efectuado correctamente");
