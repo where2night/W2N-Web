@@ -9,7 +9,13 @@
     	<meta name="format-detection" content="telephone=no" />
 
         <!-- Styles -->
+		
+		
         <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-combined.min.css" rel="stylesheet">
+		<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+		
+		
         <!-- JavaScript -->
 	    <script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -17,7 +23,14 @@
 	    <script type="text/javascript" src="js/loginFiestero.js"></script>-->
 		<script type="text/javascript" src="js/submit.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
-		<script type="text/javascript" src="js/fecha.js"></script>
+		<script type="text/javascript" src="js/fecha.js"></script> 
+		
+		<script type="text/javascript" src="js/keepSession.js"></script> 
+		<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+		
+		 
+   
+    
     	
 		<title>Where2Night - Editar Perfil Fiestero</title>
     	
@@ -28,79 +41,73 @@
 						
 			$("#change-data").on("click", function (event) {
 				
-			        var name = $('#name').val();
-			        var surnames = $('#surname').val();
-			        var day = $('#day').val();
-			        if (day.length < 2){
-			        	day = "0"+day;
-			        } 
-			        var month = $('#month').val();
-			        if (month.length < 2){
-			        	month = "0"+day;
-			        }
-			        var year = $('#year').val();
-			        var birthdate = day+"/"+month+"/"+year;
-			        var genre = $("input[type='radio']:checked").val();
-			        var music = $('#favourite-music').val();
-			        var civil_state = $('#marital-status').val();
-			        var city = $('#city').val();
-			        var drink = $('#favourite-drink').val();
-			        var about = $('#about-you').val();
-		 	
-					/* console.log($.ajax({
+		 			var email = $.cookie("email_log");
+		 			var idProfile = '';
+		 			
+		 			console.log($.ajax({
 							url: "editprofile.php",
 							dataType: "json",
 							type: "POST",
 							timeout: 5000,
 							data: {
-								name:name,
-								surnames: surnames,
-								birthdate: birthdate,
-								gender: gender,
-								music: music,
-								civil_state: civil_state,
-								city: city,
-								drink: drink,
-								about: about,
+								email: email
 							},
 							complete: function(r){
 									var json = JSON.parse(r.responseText);
-				       				console.log(json.Token);
-									/*if(json.Token!=0){
-										redirectLoginFiestero();
-									} else alert("Login no efectuado correctamente");
+									idProfile = json.id_Profile;
+									var name = $('#name').val();
+							        var surnames = $('#surname').val();
+							        var day = $('#day').val();
+							        if (day.length < 2){
+							        	day = "0"+day;
+							        } 
+							        var month = $('#month').val();
+							        if (month.length < 2){
+							        	month = "0"+day;
+							        }
+							        var year = $('#year').val();
+							        var birthdate = day+"/"+month+"/"+year;
+							        var gender = $("input[type='radio']:checked").val();
+							        var music = $('#favourite-music').val();
+							        var civil_state = $('#marital-status').val();
+							        var city = $('#city').val();
+							        var drink = $('#favourite-drink').val();
+							        var about = $('#about-you').val();
+						 			
+									 console.log($.ajax({
+											url: "editprofile.php",
+											dataType: "json",
+											type: "POST",
+											timeout: 5000,
+											data: {
+												idProfile:idProfile,
+												name:name,
+												surnames: surnames,
+												birthdate: birthdate,
+												gender: gender,
+												music: music,
+												civil_state: civil_state,
+												city: city,
+												drink: drink,
+												about: about
+											},
+											complete: function(r){
+													alert('datos enviados');
+								    		},
+											onerror: function(e,val){
+												alert("Hay error");
+											}
+									}));
 				    		},
 							onerror: function(e,val){
 								alert("Hay error");
 							}
-					}));*/
+					}));
+				
+			        
 					
 			
-	});
-		    
-		    
-		    /*    var button = $('#loginButton');
-				var box = $('#loginBox');
-				var form = $('#loginForm');
-				
-				button.removeAttr('href');
-				
-				button.mouseup(function(login) {
-					box.toggle();
-					button.toggleClass('active');
-				});
-				
-				form.mouseup(function() { 
-					return false;
-				});
-				
-				$(this).mouseup(function(login) {
-					if(!($(login.target).parent('#loginButton').length > 0)) {
-						button.removeClass('active');
-						box.hide();
-					}
-				});
-			*/
+			});
 			
 		});//end $(document).ready(function()
 		
@@ -111,52 +118,137 @@
     
     
     	<style>
-  			body {
-    			padding-top: 60px;
-				padding-bottom: 60px;
-    			background:url(images/party1.jpg) no-repeat center center fixed;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-			label { 
-				display: inline-block; 
-				text-align: right; 
-			}
-			input {
-				float: right;	 
-			}​
+	navbar-fixed-top{
+		z-index:1030;
+	  }
+	@media (max-width: 979px);
+		body{
+			background:#000;
+			padding:0px;
+		}
+		.navbar-fixed-top {
+			margin-bottom: 0px;
+		}
+		.navbar-fixed-top, .navbar-fixed-bottom {
+			position: fixed;
+		}	
+		.navbar .container {
+			width: auto;
+			padding: 0px 20px;
+			color:#000;
+		}
+		.container{
+			padding:20px 20px;
+		}
+		.main-content{
+		    background:url('images/party1.jpg');
+		}
+	
 		</style>
             
-        <script type="text/javascript" src="js/registro.js"></script>
+        <!--<script type="text/javascript" src="js/registro.js"></script>-->
             
            
-   		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
-			<div class="container">
-    			<div class="navbar-header">
-        			<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt=""></a> 
-        		</div> 
-        		<!-- Iniciar sesión  
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav navbar-right"> 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="registroFiestero.html"style="color: #F59236" onmouseover=			"javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';">Iniciar sesión<img src="images/logoarrow.png" alt=""></a>
-                  
-               </li>    
-            </ul>
-            </nav> 
-            <!-- /Iniciar sesión  -->
-			</div>
-		</header>	
+
         	
-        <body background="images/party1.jpg">
+<body>
+		
+		<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+		 </div>
+</div>
+</div>		 
+
+		<!-- SideBar -->
+<div class="sidebar-background">
+  <div class="primary-sidebar-background"></div>
+</div>
+<div class="primary-sidebar">
+  <ul class="nav navbar-collapse collapse navbar-collapse-primary">
+		<li class="">
+          <span class="glow"></span>
+          <a href="">
+              <span>&nbsp;</span>
+          </a>
+        </li>
+        <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
+              <span>Mi Perfil</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+              <span>Eventos</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+              <span>Fotos</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
+              <span>Amigos</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+              <span>Locales</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+              <span>DJ's</span>
+          </a>
+        </li> 
+        <li class="">
+         <span class="glow"></span>
+          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
+              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+                    <span>
+                      Configuración&nbsp;&nbsp;&nbsp;
+                      <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                    </span>
+          </a>
+          <ul id="tnnmk7rjLZ" class="collapse "> 
+                <li class="">
+                  <a href="" >
+                      <i class="glyphicon glyphicon-edit"></i> Editar Perfil
+                  </a>
+                </li>
+                <li class="">
+                  <a href="">
+                      <i class="glyphicon glyphicon-lock"></i> Privacidad
+                  </a>
+                </li>
+          </ul>
+        </li>
+</div>
+<!-- /SideBar -->
+
+<div class="main-content" >
+  <div class="container"> <!--Container-->
         	<div align="center">
+        		<p>&nbsp;</p>
 	        	<form class="form-horizontal" role="form" id="edit-profile">
 				  <div class="form-group">
 				    <label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+				      <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" >
 				    </div>
 				  </div>
 				  
@@ -247,7 +339,10 @@
 				  <button type="button" class="btn btn-default" id="change-data">Editar perfil</button>
 				  
 				</form>
+				<p>&nbsp;</p>
 			</div>
+		</div>
+	</div>
       
     <!-- NavbarFooter -->
     <footer class="navbar navbar-inverse navbar-fixed-bottom bs-docs-nav" style="background-color:#000" role="banner">
