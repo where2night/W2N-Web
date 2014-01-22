@@ -59,6 +59,7 @@ if(terms){
 										email:email2
 									},
 									complete: function(r){
+										alert(r.responseText);
 											var json = JSON.parse(r.responseText);
 										
 											if(json.Token!=0){
@@ -89,7 +90,7 @@ if(terms){
 
 function redirectHomeFiestero(){
 	alert("registro efectuado correctamente");
-	window.location.href="http://www.where2night.es/homeFiestero.html";		
+	window.location.href="http://www.where2night.es/perfilFiestero.html";		
 }
 
 
