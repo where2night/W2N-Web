@@ -1,0 +1,75 @@
+	.carousel.fade
+{
+    opacity: 1;
+
+    .item
+    {
+        -moz-transition: opacity ease-in-out .7s;
+        -o-transition: opacity ease-in-out .7s;
+        -webkit-transition: opacity ease-in-out .7s;
+        transition: opacity ease-in-out .7s;
+        left: 0 !important;
+        opacity: 0;
+        top:0;
+        position:absolute;
+        width: 100%;
+        display:block !important;
+        z-index:1;
+        &:first-child{
+            top:auto;
+            position:relative;
+        }
+
+        &.active
+        {
+            opacity: 1;
+            -moz-transition: opacity ease-in-out .7s;
+            -o-transition: opacity ease-in-out .7s;
+            -webkit-transition: opacity ease-in-out .7s;
+            transition: opacity ease-in-out .7s;
+            z-index:2;
+        }
+    }
+}
+/* Subscribe */
+.subscribe{
+	text-shadow:none;
+	margin:0;
+	position:fixed;
+	max-width:600px;
+	margin-left:26%;
+	margin-right:0;
+	height:0;
+	margin-top:34%;
+}
+.subscribe span{
+	display:inline-block;
+	padding:8px 12px 8px 12px;
+	border:8px solid #000);
+	margin-right:5px;
+	margin-top:25px;
+	margin-bottom:25px;
+	text-shadow:none;
+	font:"Comic Sans MS", cursive;
+	color:#FF6B24;
+	font-size:14px;	
+}
+.styled-button-11 {
+	background:#000;	
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEDA71',endColorstr='#FEBB49',GradientType=0);
+	padding:8px 18px;
+	color:#623F1D;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:16px;
+	border-radius:48px;
+	-moz-border-radius:48px;
+	-webkit-border-radius:48px;
+	border:2px solid #D41F00
+}
+.styled-button-11:hover{
+	background:#FF6B24;
+	color:#000;
+}
+/* Desktop */
+@media (max-width: 991px){
+}

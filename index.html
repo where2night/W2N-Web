@@ -15,6 +15,7 @@
      <link href="css/login.css" rel="stylesheet" type="text/css">
       <link href="css/home.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="css/carouselStyle.css" rel="stylesheet">
 	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
  
@@ -70,31 +71,6 @@
 			padding:0px 20px;
 		}
 	}	
-		
-		.btn.btn-registro{
-			
-			background:#000;
-			border:2px solid #D41F00;
-			color:#F59236;
-			
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 8%;
-  			right: 0.5%;
-			font-weight: 50;
-			z-index:2;
-		}		
-		.btn.btn-registro:hover{
-			background:#000;
-			color:#FF6B24;
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 8%;
-  			right: 0.5%;
-			font-size: 15px;
-			font-weight: 50;
-			z-index:2;
-		}	
     </style>
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
@@ -105,7 +81,7 @@
         <!--<div class="navbar-collapse collapse" id="bs-navbar-collapse-top">-->
         <div id="bar">
             <div id="loginContainer">
-              <a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
+              <a id="loginButton" class="dropdown-toggle" data-toggle="dropdown" href=""style="color: #F59236" onmouseover=			"javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';">Iniciar sesión<img src="images/logoarrow.png" alt=""></a>
                 
                 <div style="clear:both"></div>
                 <div id="loginBox" style="border-bottom-color:#D41F00">                
@@ -137,39 +113,39 @@
     </div>
 <!-- /NavbarHeader -->
 <!-- Carousel -->
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	<div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="images/party1.jpg" alt="" />
+				<img src="images/party4.jpg" alt="" />
                 <div class="container">
-                	 
-					<button id="local" type="button" class="btn btn-registro btn-default" onclick="registroLocal();">¿Quiénes Somos?</button>
-					
-
+                <div class="subscribe " style="position:fixed">
+				<!-- Labels -->
+				<span id="dj" class=" styled-button-11 btn  " onclick="registroDj();"><strong>Registro DJ</strong></span>
+				<span id="fiestero" class=" styled-button-11 btn " onclick="registroFiestero();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" styled-button-11 btn" onclick="registroLocal();"><strong>Registro Local</strong></span>
+				</div>	
 				</div>
 			</div>
 			<div class="item">
 				<img src="images/party2.jpg" alt="" />
                 <div class="container">
-                	
-					<button id="local" type="button" class="btn btn-registro btn-default" onclick="registroLocal();">Registrar Local</button>
-						
+				<div class="subscribe ">
+				
+				<span id="dj" class=" styled-button-11 btn  " onclick="registroDj();"><strong>Registro DJ</strong></span>
+				<span id="fiestero" class=" styled-button-11 btn " onclick="registroFiestero();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" styled-button-11 btn" onclick="registroLocal();"><strong>Registro Local</strong></span>
+				</div>	
 				</div>
 			</div>
             <div class="item">
 				<img src="images/party3.jpg" alt="" />
                 <div class="container">
-                	<span class="" id="registro">
-					<button id="dj" type="button" class="btn btn-registro btn-default" onclick="registroDj();">Registrar DJ</button>
-					</span>	
-				</div>
-			</div>
-            <div class="item">
-				<img src="images/party4.jpg" alt="" />
-                <div class="container">
-                	<span class="" id="registro">
-					<button id="fiestero" type="button" class="btn btn-registro btn-default" onclick="registroFiestero();">Registrar Fiestero</button>
-					</span>	
+				<div class="subscribe">
+				
+				<span id="dj" class=" styled-button-11 btn  " onclick="registroDj();"><strong>Registro DJ</strong></span>
+				<span id="fiestero" class=" styled-button-11 btn " onclick="registroFiestero();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" styled-button-11 btn" onclick="registroLocal();"><strong>Registro Local</strong></span>
+				</div>	
 				</div>
 			</div>
 		</div> 
@@ -208,9 +184,7 @@
 	 	</div>
 	</div>
 </footer>
-
 <!-- /NavbarFooter --> 
-
 	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/registro.js"></script>
