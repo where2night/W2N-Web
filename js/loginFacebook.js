@@ -70,7 +70,6 @@
 									if (json.Token ==0){
 										alert("error");
 									} else {
-											alert("Inicio de sesion correcto");
 											redirectLoginFb();
 										}
 										
