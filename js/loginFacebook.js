@@ -97,7 +97,7 @@
 	
   function redirectLoginFb(){
 	alert("Login correcto con facebook");
-	window.location.href="http://www.where2night.es/perfilFiestero.html";	
+	window.location.href="http://www.where2night.es/perfilFiestero.php";	
 	//document.getElementById("logFb").innerHTML=email2;
   }
  

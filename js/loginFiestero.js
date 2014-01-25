@@ -62,5 +62,5 @@ function login(email2,password2){
 	}));
 }
 function redirectLoginFiestero(){
-	window.location.href="http://www.where2night.es/perfilFiestero.html";		
+	window.location.href="http://www.where2night.es/perfilFiestero.php";		
 }

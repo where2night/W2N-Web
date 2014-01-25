@@ -38,7 +38,7 @@
                 <ul class="nav navbar-nav navbar-right" style="width:20em; height:5em;"> 
                 	 <button  style="color: #F59236; margin-top:0.5em; margin-left:5em;" onmouseover="javascript:this.style.color='#FF6B24';" 
                      onmouseout="javascript:this.style.color='#F59236';  " type="button" onClick="logOut();">Fiestero</button>
-                     <a href='http://www.where2night.es/registroFiestero.html' style=" margin-right:1em; margin-top:2.5em;"> Editar Perfil</a>  
+                     <a href='http://www.where2night.es/registroFiestero.php' style=" margin-right:1em; margin-top:2.5em;"> Editar Perfil</a>  
                  </ul>
                
                 

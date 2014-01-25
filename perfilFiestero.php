@@ -128,7 +128,7 @@
                 <li class="divider"></li>
 
                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editarPerfilFiestero.html"><i class="glyphicon glyphicon-edit"></i> <span>Editar Perfil</span></a></li>
+                <li><a href="http://www.where2night.es/editarPerfilFiestero.php"><i class="glyphicon glyphicon-edit"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> <span>Configuración</span></a></li>
                 <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>
               </ul>

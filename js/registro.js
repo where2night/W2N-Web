@@ -1,11 +1,11 @@
 function registroFiestero(){
-	window.location.href="http://www.where2night.es/registroFiestero.html";
+	window.location.href="http://www.where2night.es/registroFiestero.php";
 	
 }
 function registroLocal(){
-	window.location.href="http://www.where2night.es/registroLocal.html";
+	window.location.href="http://www.where2night.es/registroLocal.php";
 }
 
 function registroDj(){
-	window.location.href="http://www.where2night.es/registroDj.html";
+	window.location.href="http://www.where2night.es/registroDj.php";
 }
