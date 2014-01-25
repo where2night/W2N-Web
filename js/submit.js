@@ -59,7 +59,6 @@ if(terms){
 										email:email2
 									},
 									complete: function(r){
-										alert(r.responseText);
 											var json = JSON.parse(r.responseText);
 										
 											if(json.Token!=0){

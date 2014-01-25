@@ -42,7 +42,6 @@
 			$("#change-data").on("click", function (event) {
 				
 		 			var email = $.cookie("email_log");
-		 			var idProfile = '';
 		 			
 		 			console.log($.ajax({
 							url: "editprofile.php",
@@ -54,7 +53,7 @@
 							},
 							complete: function(r){
 									var json = JSON.parse(r.responseText);
-									idProfile = json.id_Profile;
+									var idProfile = json.idProfile;
 									var name = $('#name').val();
 							        var surnames = $('#surname').val();
 							        var day = $('#day').val();
