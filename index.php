@@ -102,7 +102,8 @@
                         <fieldset>
                         	<p style="color:#FFF"> Iniciar sesión usando: </p>
                                <img src="images/facebook.jpe" style="cursor:pointer;" onclick="loginFacebook();"/>
-                               <img src="images/g2.png">
+                               <img src="images/g2.png" style="cursor:pointer;" onclick="loginGoogle();" />
+                              
                         </fieldset>
                     </form>
                 </div>
@@ -191,7 +192,8 @@
     <script type="text/javascript" src="js/loginFiestero.js"></script>
     <script type="text/javascript" src="js/loginFacebook.js"></script>
     <script type="text/javascript" src="js/connectFacebook.js"></script>
-
+    <script type="text/javascript" src="js/loginGoogle.js"></script>
+ 
 
 </body>
 </html>
