@@ -16,8 +16,8 @@
         display:block !important;
         z-index:1;
         &:first-child{
-            top:auto;
-            position:relative;
+        top:auto;
+        position:relative;
         }
 
         &.active
@@ -50,7 +50,7 @@
 	margin-top:25px;
 	margin-bottom:25px;
 	text-shadow:none;
-	font:"Comic Sans MS", cursive;
+	font:"MS Serif", "New York", serif;
 	color:#FF6B24;
 	font-size:14px;	
 }
@@ -59,12 +59,12 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEDA71',endColorstr='#FEBB49',GradientType=0);
 	padding:8px 18px;
 	color:#623F1D;
-	font-family:'Helvetica Neue',sans-serif;
+	font-family:"MS Serif", "New York", serif;
 	font-size:16px;
 	border-radius:48px;
 	-moz-border-radius:48px;
 	-webkit-border-radius:48px;
-	border:2px solid #D41F00
+	border:1px solid #D41F00
 }
 .styled-button-11:hover{
 	background:#FF6B24;
