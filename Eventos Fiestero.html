@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>Fotos Fiestero</title>
+ <title>Eventos Fiestero</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -12,26 +12,29 @@
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Estilos Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="css/login.css" rel="stylesheet" type="text/css">
-      <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/home.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
 	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+  	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/FotosFiestero.js"></script>
+
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
 </head>
 
 <body>
-
+	
 <style>
 
 body{
 	
-	background-color: #000000;
+	background-color:#999999;
 }
-  
- navbar-fixed-top{
+
+navbar-fixed-top{
 		z-index:1030;
 	  }
 	@media (max-width: 979px){
@@ -53,34 +56,8 @@ body{
 			padding:0px 20px;
 		}
 	}	
-		
-		.btn.btn-registro{
-			
-			background:#000;
-			border:2px solid #D41F00;
-			color:#F59236;
-			
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 7.5%;
-  			right: 0.5%;
-			font-weight: 50;
-			z-index:2;
-		}		
-		.btn.btn-registro:hover{
-			background:#000;
-			color:#FF6B24;
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 7.5%;
-  			right: 0.5%;
-			font-size: 15px;
-			font-weight: 50;
-			z-index:2;
-		}	
-		
-		
-    <!--div#name {}-->
+	
+	
  #fuente{ 
  	font-size: 1.7em;
 	color:#F59236;
@@ -89,8 +66,6 @@ body{
     -moz-text-decoration-line: none;
     -moz-text-decoration-style: solid;
 
-	
-	
 	}
 	
 .elementosconhover:hover {
@@ -99,9 +74,7 @@ opacity:0.6;
 filter:alpha(opacity=19);
 
 }
-
-
-
+			
     </style>
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
@@ -249,106 +222,50 @@ filter:alpha(opacity=19);
           </ul>
         </li>
 </div>
+<!-- /SideBar -->
+<!-- MiPerfil -->
+
+
+<!-- /MiPerfil --> 
 </tr>
 
-<tr></tr>
-
-
 <tr>
-	<td width="45%">
+	<!--<td>
 		
 		<br/> <br/>
 		
-		    <img src="images/photos_24.png" /> 
-			<label id="fuente" style="margin-left: 2px"> Fotos </label>
+		    <img style="margin-left: 5px" src="fotos/photos_24.png" /> 
+			<label id="fuente" style="margin-left: 2px"> Eventos </label>
+			
+			
 			
 			<!-- <input class="button" name="hola" /> --->
-	</td>
+	<!--</td>-->
 	
-	<td width="20%">
-		<br/> <br/>
-		<a id="loginButton" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Subir Fotos</span><img src="images/logoarrow.png" alt=""></a></td>
-</tr>
-
-
-<tr>
+	<td bgcolor="#000000">
 	
-	<td ><br />  
-			
-			
-			
-			<img src="images/bin3_opt.png" onclick="Delete();"/> 
-			<label style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Delete();">Borrar fotos seleccionadas</label>
-			
-			
-			<img style="margin-left: 100px" src="images/cancel_opt.png" onclick="Forbidden();"/> 
-			<label style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Forbidden();">Denunciar fotos seleccionadas</label>
-	</td>
+	<ul class="nav nav-tabs">
+  		<li><a href="#">Proximos Eventos</a></li>
+  		<li><a href="#">Listas de locales</a></li>
+  		<li><a href="#">Mis eventos</a></li>
+	</ul>
+  </td>
 	
-	<td>
-		<input type="checkbox" style="margin-top: -2px"  id="selectall" onclick="SelectAll();"/>
-			<label style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';" >Elegir Todas</label>
-		
-	</td>
 	
 </tr>
 
 
-
-<tr>
-	
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px"  name="select" id="foto1"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto2" /><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto3" /><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-<tr>
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px" name="select" id="foto4"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto5"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto6"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-<tr>
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px" name="select" id="foto7"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto8"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto9"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-
-<!--<tr>
-	<td>
-		
-		
-		    <img src="fotos/bin3_opt.png" /> 
-			<label>Borrar seleccionadas</label>
-			<!-- <input class="button" name="hola" /> --->
-			
-		
-	<!--</td>
-</tr>--->
 
 
 </table>
-
-
-
-
+<!-- script -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/registro.js"></script>
 <script type="text/javascript" src="js/loginFiestero.js"></script>
 <script type="text/javascript" src="js/loginFacebook.js"></script>
 <script type="text/javascript" src="js/connectFacebook.js"></script>
-
+<!-- /script -->
 
 </body>
 </html>
