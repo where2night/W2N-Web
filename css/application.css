@@ -5422,7 +5422,8 @@ i {
 /* line 58, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 .main-content {
   position: relative;
-  margin-left: 201px; }
+  margin-left: 200px;
+  }
 
 /* line 63, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 .padded {
@@ -8377,7 +8378,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
-  font-size: 12px;
+  font-size: 13px;
   color: #858585;
   padding: 0 0 0 5px;
   border: 1px solid #d7d7d7;
@@ -8390,7 +8391,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    border: 1px solid #68A6CE; }
+    border: 1px solid #FF6B24; }
 
 /* line 291, /home/andrei/core-admin-release/core-admin/source/stylesheets/form_elements.scss */
 textarea {
@@ -8767,7 +8768,8 @@ label {
         background:#AA2708;
         -webkit-box-shadow: 0 0 2px 1px #F59236 inset;
         -moz-box-shadow: 0 0 2px 1px #F59236 inset;
-        box-shadow: 0 0 2px 1px #F59236 inset; }
+        box-shadow: 0 0 2px 1px #F59236 inset; 
+		color:#F9BC85;}
       /* line 80, /home/andrei/core-admin-release/core-admin/source/stylesheets/sidebar.scss */
       .primary-sidebar .nav > li:hover .glow {
         background:#F2780C ;
@@ -8782,7 +8784,8 @@ label {
         background: #F2780C;
         -webkit-box-shadow: 0 0 2px 1px #F9BC85 inset;
         -moz-box-shadow: 0 0 2px 1px #F9BC85 inset;
-        box-shadow: 0 0 2px 1px #F9BC85 inset; }
+        box-shadow: 0 0 2px 1px #F9BC85 inset;
+		 }
       /* line 96, /home/andrei/core-admin-release/core-admin/source/stylesheets/sidebar.scss */
       .primary-sidebar .nav > li.active > a {
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
@@ -8825,7 +8828,8 @@ label {
   -webkit-box-shadow: -10px 0 15px 23px rgba(122, 171, 216, 0.15);
   -moz-box-shadow: -10px 0 15px 23px rgba(122, 171, 216, 0.15);
   box-shadow: -10px 0 15px 23px rgba(122, 171, 216, 0.15);
-  background: rgba(124, 190, 215, 0.2); }
+  background: rgba(124, 190, 215, 0.2);
+ }
 
 /* line 150, /home/andrei/core-admin-release/core-admin/source/stylesheets/sidebar.scss */
 .user-avatar {
@@ -12755,7 +12759,7 @@ table.dataTable th:active {
 /* line 46, /home/andrei/core-admin-release/core-admin/source/stylesheets/accordion.scss */
 .accordion-heading .accordion-toggle {
   padding: 10px;
-  color: #636363;
+  color: #F9BC85;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
