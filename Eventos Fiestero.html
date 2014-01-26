@@ -21,7 +21,8 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
+   <script src="js/tab.js"></script>
+   
 
 </head>
 
@@ -76,6 +77,16 @@ filter:alpha(opacity=19);
 }
 			
     </style>
+    
+ <script>
+    $('#myTab a').click(function (e) {
+  		e.preventDefault()
+  		$(this).tab('show')
+	})
+	
+	   
+ </script>
+    
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">
@@ -244,12 +255,20 @@ filter:alpha(opacity=19);
 	
 	<td bgcolor="#000000">
 	
+	<!-- Nav tabs -->
 	<ul class="nav nav-tabs">
-  		<li><a href="#">Proximos Eventos</a></li>
-  		<li><a href="#">Listas de locales</a></li>
-  		<li><a href="#">Mis eventos</a></li>
+  		<li><a href="#Eventos" data-toggle="tab">Proximos Eventos</a></li>
+  		<li><a href="#Listas" data-toggle="tab">Listas de locales</a></li>
+  		<li><a href="#MisEventos" data-toggle="tab">Mis eventos</a></li>
 	</ul>
-  </td>
+	
+	<!-- Tab panes -->
+	<div class="tab-content" style="background-color: #999999">
+  		<div class="tab-pane" id="Eventos">Proximos Eventos</div>
+  		<div class="tab-pane" id="Listas"> Listas de Locales</div>
+  		<div class="tab-pane" id="MisEventos">Mis Eventos</div>
+  	</div>
+ </td>
 	
 	
 </tr>
