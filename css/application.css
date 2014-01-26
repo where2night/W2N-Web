@@ -5482,6 +5482,10 @@ h1, h2, h3, h4, h5, h6, th {
 .avatar-small {
   max-width: 32px;
   max-height: 32px; }
+.avatar-medium{
+	max-width: 100px;
+  	max-height: 100px; 
+}
 
 /* line 118, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 .twitter-color {
