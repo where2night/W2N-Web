@@ -19,8 +19,10 @@
     <link href="css/custom.css" rel="stylesheet" media="screen">
   	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="css/InicioFiesteroStyles.css" type="text/css" />
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
    <script src="js/tab.js"></script>
    
 
@@ -31,8 +33,8 @@
 <style>
 
 body{
-	
-	background-color:#999999;
+	background-image:url(images/wall.jpg);
+	background-color: #000000;
 }
 
 navbar-fixed-top{
@@ -155,12 +157,6 @@ filter:alpha(opacity=19);
     </div>
 <!-- /NavbarHeader -->
 
-<table style="margin-left:200px" border=0 width="100%" >
-
-
-
-
-<tr>
 
 <!-- SideBar -->
 <div class="sidebar-background">
@@ -234,37 +230,70 @@ filter:alpha(opacity=19);
         </li>
 </div>
 <!-- /SideBar -->
-<!-- MiPerfil -->
+<!-- Eventos -->
 
 
-<!-- /MiPerfil --> 
-</tr>
-
+<table style="margin-left:200px" border=0 width="100%" >
 <tr>
-	<!--<td>
-		
-		<br/> <br/>
-		
-		    <img style="margin-left: 5px" src="fotos/photos_24.png" /> 
-			<label id="fuente" style="margin-left: 2px"> Eventos </label>
-			
-			
-			
-			<!-- <input class="button" name="hola" /> --->
-	<!--</td>-->
 	
-	<td bgcolor="#000000">
+	<td>
 	
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs">
-  		<li><a href="#Eventos" data-toggle="tab">Proximos Eventos</a></li>
+	<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
+  		<li class="active"><a href="#Eventos" data-toggle="tab" >Proximos Eventos</a></li>
   		<li><a href="#Listas" data-toggle="tab">Listas de locales</a></li>
   		<li><a href="#MisEventos" data-toggle="tab">Mis eventos</a></li>
 	</ul>
 	
 	<!-- Tab panes -->
-	<div class="tab-content" style="background-color: #999999">
-  		<div class="tab-pane" id="Eventos">Proximos Eventos</div>
+	<div class="tab-content">
+  		
+  		<div class="tab-pane active" id="Eventos" style="margin-left: 35px; margin-right: 200px;">
+  			
+  			<!-- Eventos -->
+                    <div  class="timeline">
+						<ul>
+							<li>
+								<div class="timeline-title orangeBox1 ">
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/party2.jpg" alt="" />
+									<h6>NOMBRE CLUB</h6>
+									<i class="glyphicon glyphicon-time"style="color:#FF6B24">31/01/2014</i>
+									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
+								</div>
+								<div class="timeline-content orangeBox1">
+									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
+								</div>
+							</li>
+							<li>
+								<div class="timeline-title orangeBox1">
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/party3.jpg" alt="" />
+									<h6>NOMBRE DJ</h6>
+                                    <i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
+									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
+                                    
+								</div>
+								<div class="timeline-content orangeBox1">
+									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
+								</div>
+							</li>
+                            <li>
+								<div class="timeline-title orangeBox1">
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/party2.jpg" alt="" />
+									<h6>NOMBRE CLUB</h6>
+									<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
+									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
+								</div>
+								<div class="timeline-content orangeBox1">
+									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
+                                    <img src="images/copas.jpg" alt="" />
+								</div>
+							</li>
+						</ul>
+					</div>
+                    </div><!-- col-md-5-->
+                	
+  			
+  		
   		<div class="tab-pane" id="Listas"> Listas de Locales</div>
   		<div class="tab-pane" id="MisEventos">Mis Eventos</div>
   	</div>
@@ -273,10 +302,10 @@ filter:alpha(opacity=19);
 	
 </tr>
 
-
-
-
 </table>
+
+<!--/eventos>
+
 <!-- script -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
