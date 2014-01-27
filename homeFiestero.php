@@ -151,7 +151,7 @@
      <script type="text/javascript" src="js/connectFacebook.js"></script>
      <script type="text/javascript" src="js/loginFacebook.js"></script>
      <script type="text/javascript" src="js/loginFiestero.js"></script>
-	 <script type="text/javascript" src="js/submit.js"></script>
+	 <script type="text/javascript" src="js/registrar.js"></script>
       <script type="text/javascript" src="js/application.js"></script>
 	 <script type="text/javascript" src="js/holder.js"></script>
      

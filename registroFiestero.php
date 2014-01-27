@@ -237,7 +237,7 @@
 	 <script src="js/bootstrap.min.js"></script>
      <script type="text/javascript" src="js/loginFacebook.js"></script>
      <script type="text/javascript" src="js/loginFiestero.js"></script>
-	 <script type="text/javascript" src="js/submit.js"></script>
+	 <script type="text/javascript" src="js/registrar.js"></script>
       
      
     </body>

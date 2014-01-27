@@ -33,7 +33,7 @@ function login(email2,password2){
 			complete: function(r){
 					var json = JSON.parse(r.responseText);
 					if(json.Token!=0){
-						setCookie('email_log',email2);
+						//setCookie('email_log',email2);
 			 			$.ajax({
 								url: "editprofile.php",
 								dataType: "json",
@@ -44,16 +44,43 @@ function login(email2,password2){
 								},
 								complete: function(r2){
 									var json = JSON.parse(r2.responseText);
+									var id = json.idProfile;
+									var picture = json.picture;
 									var name = json.name;
 									var surnames = json.surnames;
-									setCookie('w2n_name',name);
-									setCookie('w2n_surn',surnames);
+									var birthdate = json.birthdate;
+									var gender = json.gender;
+									var music = json.music;
+									var civil_state = json.civil_state;
+									var city = json.city;
+									var drink = json.drink;
+									var about = json.about;
+									//setCookie('w2n_name',name);
+									//setCookie('w2n_surn',surnames);
+									$.post("framework/session_start.php",
+									  {
+									    type_login: 'normal',
+									    id_user: id,
+										picture: picture,
+										name: name,
+										surnames: surnames,
+										birthdate: birthdate,
+										gender: gender,
+										music: music,
+										civil_state: civil_state,
+										city: city,
+										drink: drink,
+										about: about
+									  },
+									  function(data,status){
+									/*	alert("Data: " + data + "\nStatus: " + status);*/
+										redirectLoginFiestero();
+									  });
 					    		},
 								onerror: function(e,val){
 									alert("Hay error");
 								}
 						});
-						redirectLoginFiestero();
 					} else alert("Login no efectuado correctamente");
     		},
 			onerror: function(e,val){

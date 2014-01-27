@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,6 +25,23 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
+
+	<script type="text/javascript">  
+		$(document).ready(function(){ 
+			
+			$("#close_session").on("click", function (event) {
+				$.post("framework/session_end.php",
+				  {},
+				  function(data,status){
+				/*	alert("Data: " + data + "\nStatus: " + status);*/
+					//redirectLoginFiestero();
+					var url = "http://www.where2night.es";
+					$(location).attr('href',url);
+				  });
+			});
+		});//end $(document).ready(function()
+		
+	</script>
 
 </head>
 
@@ -111,7 +132,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="images/party4.jpg" /> <span>Nombre Fiestero<i class="glyphicon glyphicon-cog"></i></span>
+                <img class="menu-avatar" src="images/party4.jpg" /> <span> 
+				<?php 
+					echo "NAME: ".$_SESSION['name']."SURNAME: ".$_SESSION['surnames'];
+				?>
+				<i class="glyphicon glyphicon-cog"></i></span>
               </span>
               </a>
               <ul class="dropdown-menu">
@@ -130,7 +155,8 @@
                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> <span>Perfil</span></a></li>
                 <li><a href="http://www.where2night.es/editarPerfilFiestero.php"><i class="glyphicon glyphicon-edit"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> <span>Configuración</span></a></li>
-                <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>
+               <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
+			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
               </ul>
             </li>
           </ul>
@@ -158,7 +184,7 @@
                         <div class="row push"> <!--Row -->
                           <!--First Line Panel -->
                           <div class="span3 offset2 "> 
-                            <p class="name"> Nombre del fiestero </p>
+                            <p class="name"> Nombre del fiestero <?php echo $_SESSION['birthdate'];?> </p>
                           </div>
                            <div class="span2"> 
                             <p class="panelButton"> Sígueme <i class=""></i> </p>
