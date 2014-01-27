@@ -28,6 +28,7 @@
 
 body{
 	
+	background-image:url(images/wall.jpg);
 	background-color: #000000;
 }
   
@@ -170,14 +171,6 @@ filter:alpha(opacity=19);
       </div>
     </div>
 <!-- /NavbarHeader -->
-
-<table style="margin-left:200px" border=0 width="100%" >
-
-
-
-
-<tr>
-
 <!-- SideBar -->
 <div class="sidebar-background">
   <div class="primary-sidebar-background"></div>
@@ -249,17 +242,16 @@ filter:alpha(opacity=19);
           </ul>
         </li>
 </div>
-</tr>
 
-<tr></tr>
 
+<table   style="margin-left:200px" border=0 width="100%" >
 
 <tr>
 	<td width="45%">
 		
 		<br/> <br/>
 		
-		    <img src="images/photos_24.png" /> 
+		    <img style="margin-left: 5px" src="images/photos_24.png" /> 
 			<label id="fuente" style="margin-left: 2px"> Fotos </label>
 			
 			<!-- <input class="button" name="hola" /> --->
@@ -267,7 +259,7 @@ filter:alpha(opacity=19);
 	
 	<td width="20%">
 		<br/> <br/>
-		<a id="loginButton" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Subir Fotos</span><img src="images/logoarrow.png" alt=""></a></td>
+		<a id="loginButton" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Subir Fotos</span><img src="images/logoarrowgris.png" alt=""></a></td>
 </tr>
 
 
@@ -278,11 +270,11 @@ filter:alpha(opacity=19);
 			
 			
 			<img src="images/bin3_opt.png" onclick="Delete();"/> 
-			<label style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Delete();">Borrar fotos seleccionadas</label>
+			<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Delete();">Borrar fotos seleccionadas</label>
 			
 			
 			<img style="margin-left: 100px" src="images/cancel_opt.png" onclick="Forbidden();"/> 
-			<label style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Forbidden();">Denunciar fotos seleccionadas</label>
+			<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Forbidden();">Denunciar fotos seleccionadas</label>
 	</td>
 	
 	<td>
@@ -298,27 +290,27 @@ filter:alpha(opacity=19);
 <tr>
 	
 	
-	<td ><br /><input type="checkbox" style="margin-top: -100px"  name="select" id="foto1"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto2" /><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto3" /><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;"  name="select" id="foto1"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto2" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto3" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
 	</td>
     
 </tr>
 
 <tr>
 	
-	<td ><br /><input type="checkbox" style="margin-top: -100px" name="select" id="foto4"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto5"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto6"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="foto4"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto5"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto6"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
 	</td>
     
 </tr>
 
 <tr>
 	
-	<td ><br /><input type="checkbox" style="margin-top: -100px" name="select" id="foto7"/> <img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto8"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto9"/><img class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="foto7"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto8"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto9"/><img class="elementosconhover" style="border: 1.5px solid #FF6B24;" class="img-rounded" src="images/party4_opt.jpg" >
 	</td>
     
 </tr>
