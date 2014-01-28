@@ -1,5 +1,5 @@
 function registroFiestero(){
-	window.location.href="http://www.where2night.es/registroFiestero.php";
+	window.location.href="http://www.where2night.es/registro-fiestero.php";
 	
 }
 function registroLocal(){

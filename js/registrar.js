@@ -89,7 +89,7 @@ if(terms){
 
 function redirectHomeFiestero(){
 	alert("registro efectuado correctamente");
-	window.location.href="http://www.where2night.es/perfilFiestero.php";		
+	window.location.href="http://www.where2night.es/perfil-fiestero.php";		
 }
 
 

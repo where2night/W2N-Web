@@ -32,7 +32,7 @@
 	var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
 	var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
 	var CLIENTID    =   '570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com';
-	var REDIRECT    =   'http://www.where2night.es/perfilFiestero.php'
+	var REDIRECT    =   'http://www.where2night.es/perfil-fiestero.php'
 	var LOGOUT      =   'http://accounts.google.com/Logout';
 	var TYPE        =   'token';
 	var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
@@ -72,7 +72,7 @@
                     loggedIn = true;
                     $('#loginText').hide();
                     $('#logoutText').show();*/
-					window.location.href="http://www.where2night.es/perfilFiestero.php";	
+					window.location.href="http://www.where2night.es/perfil-fiestero.php";	
                 },  
                 dataType: "jsonp"  
             });
@@ -100,7 +100,7 @@
         var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
         var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
         var CLIENTID    =   '570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com';
-        var REDIRECT    =   'http://www.where2night.es/homeFiestero.html'
+        var REDIRECT    =   'http://www.where2night.es/home-fiestero.html'
         var LOGOUT      =   'http://accounts.google.com/Logout';
         var TYPE        =   'token';
         var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
