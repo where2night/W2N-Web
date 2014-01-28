@@ -134,7 +134,7 @@ session_start();
               <span>
                 <img class="menu-avatar" src="images/party4.jpg" /> <span> 
 				<?php 
-					echo "NAME: ".$_SESSION['name']."SURNAME: ".$_SESSION['surnames'];
+					echo $_SESSION['name']." ".$_SESSION['surnames'];
 				?>
 				<i class="glyphicon glyphicon-cog"></i></span>
               </span>
@@ -147,7 +147,9 @@ session_start();
                   <div class="avatar">
                     <img src="images/party4.jpg" />
                   </div>
-                  <span>Nombre Fiestero</span>
+                  <span>
+				  <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+				  </span>
                 </li>
 
                 <li class="divider"></li>
@@ -184,7 +186,7 @@ session_start();
                         <div class="row push"> <!--Row -->
                           <!--First Line Panel -->
                           <div class="span3 offset2 "> 
-                            <p class="name"> Nombre del fiestero <?php echo $_SESSION['birthdate'];?> </p>
+                            <p class="name"> <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?> </p>
                           </div>
                            <div class="span2"> 
                             <p class="panelButton"> Sígueme <i class=""></i> </p>
@@ -197,8 +199,11 @@ session_start();
                           <!--Details -->
                           <div class="span4 details "> 
                             <p> Datos del perfil que se quieran mostrar </p>
-                            <p> Acerca de mí: </p>
-                            <p> Música favorita </p>
+                            <p> Fecha de nacimiento: <?php echo $_SESSION['birthdate']; ?></p>
+                            <p> Estado civil: <?php echo $_SESSION['civil_state']; ?></p>
+                            <p> Música favorita: <?php echo $_SESSION['music']; ?></p>
+                            <p> Bebida favorita: <?php echo $_SESSION['drink']; ?></p>
+                            <p> Acerca de mí: <?php echo $_SESSION['about']; ?> </p>
                           </div> 
                          <div class="row">
   <div class="col-md-12">

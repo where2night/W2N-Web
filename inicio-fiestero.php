@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,6 +27,22 @@
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" /><!-- Responsive -->	
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
+  <script type="text/javascript">  
+    $(document).ready(function(){ 
+      
+      $("#close_session").on("click", function (event) {
+        $.post("framework/session_end.php",
+          {},
+          function(data,status){
+        /*  alert("Data: " + data + "\nStatus: " + status);*/
+          //redirectLoginFiestero();
+          var url = "http://www.where2night.es";
+          $(location).attr('href',url);
+          });
+      });
+    });//end $(document).ready(function()
+    
+  </script>
 
 </head>
 
@@ -93,7 +113,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">Nombre Fiestero&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+                <img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+				<?php 
+					echo $_SESSION['name']." ".$_SESSION['surnames'];
+				?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
               <ul class="dropdown-menu">
@@ -103,7 +126,9 @@
                   <div class="avatar">
                     <img src="images/profile.jpg" />
                   </div>
-                  <span>Nombre Fiestero</span>
+                  <span>
+					 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+				  </span>
                 </li>
 
                 <li class="divider"></li>
@@ -111,7 +136,8 @@
                 <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
                 <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
-                <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>
+                <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
+			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
               </ul>
             </li>
           </ul>
@@ -206,8 +232,10 @@
                 	<!-- Cabecera Perfil -->
 					<div class="profile-sec-head orangeBox ">
 						<img src="images/profile.jpg" alt="" />
-						<h1>Nombre Fiestero</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>CIUDAD,PAIS</p>
+						<h1>
+							<?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+						</h1>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo $_SESSION['city']; ?></p>
 					</div>
                     <!-- Seguidores -->
 					<div class="profile-details orangeBox " style="margin-top:5px;background:#000" >
@@ -216,11 +244,11 @@
                         </div>
                       <!-- Información -->
                      <div class="profile-details orangeBox " style="margin-top:5px" >
-					<p><i><strong>ACERCA DE MI :</strong></i>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitu sollicitudin ve din venenatis ipsum action.
+					<p><i><strong>ACERCA DE MI : </strong><?php echo $_SESSION['about']; ?></i>
+					
                     <i></i>
-                    <i><strong>MÚSICA FAVORITA :</strong></i>
-                   	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitu sollicitudin ve din venenatis ipsum action.
+                    <i><strong>MÚSICA FAVORITA : </strong><?php echo $_SESSION['music']; ?></i>
+                   	
 					</p>
 					</div>
 				</div><!-- col-md-4 -->
