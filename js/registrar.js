@@ -13,7 +13,9 @@ if(terms){
 		
 		if(email2==confirmationemail && email2!=""){
 		
-			var password2=document.getElementById("password").value;
+		
+			var password2=document.getElementById("password").value; 
+			
 			var confirmationpassword=document.getElementById("confirmation password").value;
 
 				if(password2==confirmationpassword && password2!=""){
@@ -88,8 +90,9 @@ if(terms){
 }
 
 function redirectHomeFiestero(){
-	alert("registro efectuado correctamente");
-	window.location.href="http://www.where2night.es/perfil-fiestero.php";		
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
 }
 
 
