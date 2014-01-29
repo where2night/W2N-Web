@@ -111,7 +111,7 @@ filter:alpha(opacity=19);
         <div class="navbar-right">
 		
           <ul class="nav navbar-nav navbar-left">
-           <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
+           <a href="http://www.where2night.es/inicio-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
 				<li>
               <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
               	
@@ -130,7 +130,11 @@ filter:alpha(opacity=19);
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="images/party4.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">Nombre Fiestero&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+                <img class="menu-avatar" src="images/party4.jpg" /> 
+					<span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+						<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i>
+					</span>
               </span>
               </a>
               <ul class="dropdown-menu">
@@ -140,15 +144,16 @@ filter:alpha(opacity=19);
                   <div class="avatar">
                     <img src="images/party4.jpg" />
                   </div>
-                  <span>Nombre Fiestero</span>
+                  <span><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></span>
                 </li>
 
                 <li class="divider"></li>
 
-                <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+                <li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
                 <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
-                <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>
+                <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
+			    <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
               </ul>
             </li>
           </ul>
@@ -158,32 +163,32 @@ filter:alpha(opacity=19);
     </div>
 <!-- /NavbarHeader -->
 
-
 <!-- SideBar -->
 <div class="sidebar-background">
   <div class="primary-sidebar-background"></div>
 </div>
 <div class="primary-sidebar">
   <ul class="nav navbar-collapse collapse navbar-collapse-primary">
-        <li class="">
+       
+         <li class="">
           <span class="glow"></span>
           <a href="">
-              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
-              <span>Mi Perfil</span>
+              <i class=""><img class="menu-avatar" src="images/profile.jpg" /></i>
+              <span> <a href="http://www.where2night.es/perfil-fiestero.php">Mi Perfil </a> </span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
               <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
-              <span>Eventos</span>
+              <span><a href="http://www.where2night.es/eventos-fiestero.php">Eventos </a></span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
               <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-              <span>Fotos</span>
+              <span><a href="http://www.where2night.es/fotos-fiestero.php">Fotos </a></span>
           </a>
         </li>
          <li class="">
@@ -218,7 +223,7 @@ filter:alpha(opacity=19);
           </a>
           <ul id="tnnmk7rjLZ" class="collapse "> 
                
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+                  <a href="http://www.where2night.es/editar-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
                       <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
                   </a>
                 <br>
@@ -228,10 +233,11 @@ filter:alpha(opacity=19);
                   </a>
                 
           </ul>
-		  </li>
-<img src="images/logo3_opt.png" />
-		  </div>
+        </li>
+		<img src="images/logo3_opt.png" />
+</div>
 <!-- /SideBar -->
+
 <!-- Eventos -->
 
 

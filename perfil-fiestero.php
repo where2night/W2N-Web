@@ -95,6 +95,8 @@ session_start();
 			z-index:2;
 		}	
     </style>
+	
+	
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">
@@ -114,17 +116,20 @@ session_start();
          <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-collapse-top">
         <div class="navbar-right">
-
+		
           <ul class="nav navbar-nav navbar-left">
+           <a href="http://www.where2night.es/inicio-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
 				<li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-            </li>
+              <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
+              	
+            	</li>
+               
           </ul>
-
+			
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="search-query animated" placeholder="Buscar">
-             <!-- <span class="glyphicon glyphicon-search"></span>--> 
+              <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
+            <i class="glyphicon glyphicon-search" style="color:#FF6B24; margin-top:0px"></i>
             </div>
           </form>
 
@@ -132,33 +137,28 @@ session_start();
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="images/party4.jpg" /> <span> 
-				<?php 
-					echo $_SESSION['name']." ".$_SESSION['surnames'];
-				?>
-				<i class="glyphicon glyphicon-cog"></i></span>
+                <img class="menu-avatar" src="images/party4.jpg" /> 
+					<span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?><i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i>
+					</span>
               </span>
               </a>
               <ul class="dropdown-menu">
 
-                <!-- the first element is the one with the big avatar, add a with-image class to it -->
 
                 <li class="with-image">
                   <div class="avatar">
                     <img src="images/party4.jpg" />
                   </div>
-                  <span>
-				  <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
-				  </span>
+                  <span><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></span>
                 </li>
 
                 <li class="divider"></li>
 
-                <li><a href="#"><i class="glyphicon glyphicon-user"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"></i> <span>Editar Perfil</span></a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> <span>Configuración</span></a></li>
-               <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
-			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
+                <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
+                 <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
               </ul>
             </li>
           </ul>
@@ -167,6 +167,7 @@ session_start();
       </div>
     </div>
 <!-- /NavbarHeader -->
+
 
 <!-- MiPerfil -->
 <div class="main-content" >

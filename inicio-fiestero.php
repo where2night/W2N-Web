@@ -133,7 +133,7 @@ session_start();
 
                 <li class="divider"></li>
 
-                <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+                <li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
                 <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
                 <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
@@ -157,21 +157,21 @@ session_start();
           <span class="glow"></span>
           <a href="">
               <i class=""><img class="menu-avatar" src="images/profile.jpg" /></i>
-              <span>Mi Perfil</span>
+              <span> <a href="http://www.where2night.es/perfil-fiestero.php">Mi Perfil </a> </span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
               <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
-              <span>Eventos</span>
+              <span><a href="http://www.where2night.es/eventos-fiestero.php">Eventos </a></span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
               <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-              <span>Fotos</span>
+              <span><a href="http://www.where2night.es/fotos-fiestero.php">Fotos </a></span>
           </a>
         </li>
          <li class="">
@@ -206,7 +206,7 @@ session_start();
           </a>
           <ul id="tnnmk7rjLZ" class="collapse "> 
                
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+                  <a href="http://www.where2night.es/editar-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
                       <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
                   </a>
                 <br>
