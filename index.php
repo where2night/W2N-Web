@@ -17,8 +17,8 @@
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="css/carouselStyle.css" rel="stylesheet">
 	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	 <script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
  
     
     <script type="text/javascript">  
@@ -103,17 +103,18 @@
                         <fieldset>
                         	<p style="color:#FFF"> Iniciar sesión usando: </p>
                                <img src="images/facebook.jpe" style="cursor:pointer;" onclick="loginFacebook();"/>
-                               <img src="images/g2.png" style="cursor:pointer;" onclick="loginGoogle();" />
-							  <!-- <div id="signin-button" class="show">
+                               <!--<img src="images/g2.png" style="cursor:pointer;" onclick="loginGoogle();" />-->
+							   <div id="signin-button" class="show">
 								 <div class="g-signin"
 								  data-callback="loginFinishedCallback"
+								  data-requestvisibleactions="http://schemas.google.com/AddActivity"
 								  data-approvalprompt="force"
 								  data-clientid="570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com"
-								  data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read"
+								  data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/plus.me "
 								  data-height="short"
 								  data-cookiepolicy="single_host_origin"
 								  >
-								</div>-->
+								</div>
 								<!-- In most cases, you don't want to use approvalprompt=force. Specified
 								here to facilitate the demo.-->
 							</div>
