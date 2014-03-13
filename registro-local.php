@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+	<head>
         <title>RegistroLocal</title> 
         <meta name="description" content="Where2Night"/>
         <meta charset="utf-8">
@@ -11,12 +11,12 @@
         <!-- Icon W2N -->
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-        <!-- Estilos Bootstrap -->
+        <!-- Bootstrap Styles-->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-         <link href="css/login.css" rel="stylesheet" type="text/css">
-          <link href="css/home.css" rel="stylesheet" type="text/css">
+        <link href="css/login.css" rel="stylesheet" type="text/css">
+        <link href="css/home.css" rel="stylesheet" type="text/css">
         <link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
@@ -45,11 +45,11 @@
 		});//end $(document).ready(function()
 		
 		
-    </script>
+		</script>
     	
     </head>
     
-<body>
+	<body>
     	<style>
   			body {
     			padding-top: 60px;
@@ -64,18 +64,18 @@
             
            
     <!-- NavbarHeader -->
-	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+		<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
+			<div class="container">
+			<div class="navbar-header">
+			<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
         </div>
-        <!--<div class="navbar-collapse collapse" id="bs-navbar-collapse-top">-->
+        
         <div id="bar">
             <div id="loginContainer">
-              <a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
+				<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
                 
-                <div style="clear:both"></div>
-                <div id="loginBox" style="border-bottom-color:#D41F00">                
+				<div style="clear:both"></div>
+				<div id="loginBox" style="border-bottom-color:#D41F00">                
                     <form id="loginForm">
                         <fieldset id="body">
                             <fieldset>

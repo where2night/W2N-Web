@@ -211,7 +211,3 @@ fieldset#body {
 input:focus {
     outline:none;
 }
-
-.fb_iframe_widget iframe {
-position :relative;
-}
