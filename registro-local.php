@@ -16,7 +16,8 @@
         <link href="css/login.css" rel="stylesheet" type="text/css">
         <link href="css/home.css" rel="stylesheet" type="text/css">
         <link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
     	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
@@ -50,6 +51,31 @@
     </head>
     
 	<body>
+	<div class="face">
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+		FB.init({
+		appId      : '424508544315541',
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+		});
+
+
+		};
+
+		// Load the SDK asynchronously
+		(function(d){
+		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement('script'); js.id = id; js.async = true;
+		js.src = "//connect.facebook.net/es_LA/all.js";
+		ref.parentNode.insertBefore(js, ref);
+		}(document));
+
+	</script>
+	</div>
     	<style>
   			body {
     			padding-top: 60px;
