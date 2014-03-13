@@ -50,6 +50,31 @@
 </head>
 
 <body background="#000">
+<div class="face">
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '424508544315541',
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
+
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/es_LA/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+</script>
+</div>
 <style>  
  navbar-fixed-top{
 		z-index:1030;
@@ -71,6 +96,8 @@
 		.container{
 			padding:0px 20px;
 		}
+		
+	
 	}	
     </style>
 <!-- NavbarHeader -->
@@ -100,27 +127,54 @@
                             <button type="button" class="btn" onclick="loginFiestero();" style="alignment-adjust:central">Entrar</button>
                         </fieldset>
                         <a href="#">¿Olvidó su contraseña?</a>
+						<p style="color:#FFF"> Iniciar sesión usando: </p>
                         <fieldset>
-                        	<p style="color:#FFF"> Iniciar sesión usando: </p>
-                               <img src="images/facebook.jpe" style="cursor:pointer;" onclick="loginFacebook();"/>
+                        	
+                              <!--<div><fb:login-button show-faces="false" width="200" max-rows="1" onlogin=loginFacebook(); auto_logout_link="true"></fb:login-button></div>-->
+							  
                                <!--<img src="images/g2.png" style="cursor:pointer;" onclick="loginGoogle();" />-->
-							   <div id="signin-button" class="show">
-								 <div class="g-signin"
-								  data-callback="loginFinishedCallback"
-								  data-requestvisibleactions="http://schemas.google.com/AddActivity"
-								  data-approvalprompt="force"
-								  data-clientid="570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com"
-								  data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/plus.me "
-								  data-height="short"
-								  data-cookiepolicy="single_host_origin"
-								  >
-								</div>
-								<!-- In most cases, you don't want to use approvalprompt=force. Specified
-								here to facilitate the demo.-->
-							</div>
-                              
-                        </fieldset>
-                    </form>
+							 
+                      
+<tr align="center" valign="top">
+	<td height="30">
+        <div style="width:300px; height:22px;">
+          
+            <div style=" position:relative; width:100px; height:22px; margin-left:48px; padding: 0;">
+                 <div id="signin-button" class="show">
+										 <div class="g-signin"
+										  data-callback="loginFinishedCallback"
+										  data-requestvisibleactions="http://schemas.google.com/AddActivity"
+										  data-approvalprompt="force"
+										  data-clientid="570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com"
+										  data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/plus.me "
+										  data-height="short"
+										  data-cookiepolicy="single_host_origin"
+										  >
+										</div>
+										<!-- In most cases, you don't want to use approvalprompt=force. Specified
+										here to facilitate the demo.-->
+								</div> 
+            </div>
+        </div>
+    </td>
+  
+	<td height="30">
+        <div style="width:300px; height:22px;">
+          
+            <div style=" position:relative;  width:100px; height:22px; margin: 0; padding: 0;">
+                <div  class="fb-login-button" 
+								data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin=loginFacebook();></div>
+            </div>
+        </div>
+    </td>
+</tr>
+ </fieldset>
+								
+							
+								
+								
+								
+					</form>
                 </div>
             </div>
        
@@ -201,12 +255,13 @@
 	</div>
 </footer>
 <!-- /NavbarFooter --> 
+	
 	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/registro.js"></script>
     <script type="text/javascript" src="js/login-fiestero.js"></script>
     <script type="text/javascript" src="js/login-facebook.js"></script>
-    <script type="text/javascript" src="js/connectFacebook.js"></script>
+    <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
     <script type="text/javascript" src="js/loginGoogle.js"></script>
  
 
