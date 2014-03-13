@@ -64,46 +64,73 @@
             
            
     <!-- NavbarHeader -->
-		<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
-			<div class="container">
+	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
+		<div class="container">
 			<div class="navbar-header">
-			<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
-        </div>
+			  <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+			</div>
         
-        <div id="bar">
-            <div id="loginContainer">
-				<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
-                
-				<div style="clear:both"></div>
-				<div id="loginBox" style="border-bottom-color:#D41F00">                
-                    <form id="loginForm">
-                        <fieldset id="body">
-                            <fieldset>
-                                <input type="email"  class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
-                            </fieldset>
-                            <fieldset>
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
-                            </fieldset>
-                            <fieldset style="text-align:left">
-                            	<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
-                            </fieldset>
-                            <button type="button" class="btn" onclick="loginFiestero();" style="alignment-adjust:central">Entrar</button>
-                        </fieldset>
-                        <a href="#">¿Olvidó su contraseña?</a>
-                        <fieldset>
-                        	<p style="color:#FFF"> Iniciar sesión usando: </p>
-                               <img src="images/facebook.jpe" style="cursor:pointer;" onclick="loginFacebook();"/>
-                               <img src="images/g2.png">
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-       
-        </div><!--/.navbar-collapse -->
+			<div id="bar">
+				<div id="loginContainer">
+					<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
+					
+					<div style="clear:both"></div>
+					<div id="loginBox" style="border-bottom-color:#D41F00">                
+						<form id="loginForm">
+							<fieldset id="body">
+								<fieldset>
+									<input type="email"  class="form-control" id="inputEmail3" placeholder="Correo electrónico" required="required">
+								</fieldset>
+								<fieldset>
+									<input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+								</fieldset>
+								<fieldset style="text-align:left">
+									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
+								</fieldset>
+								<button type="button" class="btn" onclick="loginFiestero();" style="alignment-adjust:central">Entrar</button>
+							</fieldset>
+							<a href="#">¿Olvidó su contraseña?</a>
+							<p style="color:#FFF"> Iniciar sesión usando: </p>
+							<fieldset> 
+								<tr align="center" valign="top">
+									<td height="30">
+										<div style="width:300px; height:22px;">
+											<div style=" position:relative; width:100px; height:22px; margin-left:48px; padding: 0;">
+												<div id="signin-button" class="show">
+													<div class="g-signin"
+													  data-callback="loginFinishedCallback"
+													  data-requestvisibleactions="http://schemas.google.com/AddActivity"
+													  data-approvalprompt="force"
+													  data-clientid="570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com"
+													  data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/plus.me "
+													  data-height="short"
+													  data-cookiepolicy="single_host_origin">
+													</div>
+												</div> 
+											</div>
+										</div>
+									</td>
+								  
+									<td height="30">
+										<div style="width:300px; height:22px;">
+										 	<div style=" position:relative;  width:100px; height:22px; margin: 0; padding: 0;">
+												<div  class="fb-login-button" 
+													data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin=loginFacebook();>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</fieldset>							
+						</form>
+					</div>
+				</div>
+		   
+			</div><!--/.navbar-collapse -->
       </div>
     </div>
 	<!-- /NavbarHeader -->
-        <!-- Datos del registro -->
+        <!-- Log data -->
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr >
@@ -177,7 +204,7 @@
 	          	<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onclick="ButtonRegisterLocal()"/></td>
 	          </tr>
 	   	</table>
-        <!-- /Datos del registro -->
+        <!-- /Log data -->
         
      <!-- NavbarFooter -->
     <footer class="navbar navbar-inverse navbar-fixed-bottom bs-docs-nav" style="background-color:#000" role="banner">

@@ -176,9 +176,9 @@
                 <div class="container">
                 <div class="subscribe " style="position:fixed">
 				<!-- Labels -->
-				<span id="dj" class=" styled-button-11 btn  " onclick="registroDj();"><strong>Registro DJ</strong></span>
-				<span id="fiestero" class=" styled-button-11 btn " onclick="registroFiestero();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" styled-button-11 btn" onclick="registroLocal();"><strong>Registro Local</strong></span>
+				<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
+				<span id="fiestero" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
 				</div>	
 				</div>
 			</div>
@@ -187,9 +187,9 @@
                 <div class="container">
 				<div class="subscribe ">
 				
-				<span id="dj" class=" styled-button-11 btn  " onclick="registroDj();"><strong>Registro DJ</strong></span>
-				<span id="fiestero" class=" styled-button-11 btn " onclick="registroFiestero();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" styled-button-11 btn" onclick="registroLocal();"><strong>Registro Local</strong></span>
+				<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
+				<span id="fiestero" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
 				</div>	
 				</div>
 			</div>

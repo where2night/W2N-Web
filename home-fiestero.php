@@ -44,7 +44,7 @@
                 
 			</div>
             
-            <input class="input-group" id="bsuquedaFiestero" style="margin-top:-3%;margin-left:40%; width:20em"  placeholder="Búsquedas" />
+            <input class="input-group" id="searchPartier" style="margin-top:-3%;margin-left:40%; width:20em"  placeholder="Búsquedas" />
 		</header>	
         	
    
@@ -101,7 +101,7 @@
     <footer class="navbar navbar-inverse navbar-fixed-bottom bs-docs-nav" style="background-color:#000" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <!-- Iniciar sesión  -->
+                <!-- Login  -->
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-left">
                  <li>
@@ -123,37 +123,21 @@
                 </li>
                 </ul>
                 </nav> 
-                <!-- /Iniciar sesión  -->
+                <!-- /Login -->
                  
             </div>
         </div>
     </footer>
-           
-      <!--
-     <div id="message" style="background-color:#CCC;">
-        	Logs:<br/>
-            
-      </div>
-      
-       <div id="status" style="background-color:#CCC">
-       		
-	   </div>
-       
-       <div id="logFb" >
-       		Details:<br/>
-	   </div> -->
-      
-    
-  
-      <!-- JavaScript -->
-     <script src="js/jquery.js"></script>
-	 <script src="js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="js/connectFacebook.js"></script>
-     <script type="text/javascript" src="js/login-facebook.js"></script>
-     <script type="text/javascript" src="js/login-fiestero.js"></script>
-	 <script type="text/javascript" src="js/registrar.js"></script>
-      <script type="text/javascript" src="js/application.js"></script>
-	 <script type="text/javascript" src="js/holder.js"></script>
+ 
+    <!-- JavaScript -->
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/connectFacebook.js"></script>
+    <script type="text/javascript" src="js/login-facebook.js"></script>
+    <script type="text/javascript" src="js/login-fiestero.js"></script>
+	<script type="text/javascript" src="js/registrar.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+	<script type="text/javascript" src="js/holder.js"></script>
      
     </body>
 </html>

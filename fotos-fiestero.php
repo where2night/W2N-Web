@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>Fotos Fiestero</title>
+	<title>Fotos Fiestero</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -10,339 +10,337 @@
     <!-- Icon W2N -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Estilos Bootstrap -->
+    <!-- Bootstrap Style -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="css/login.css" rel="stylesheet" type="text/css">
-      <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/home.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
 	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
 	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="js/fotos-fiestero.js"></script>
 </head>
 
 <body>
 
-<style>
+	<style>
 
-body{
-	
-	background-image:url(images/wall.jpg);
-	background-color: #000000;
-}
-  
- navbar-fixed-top{
-		z-index:1030;
-	  }
-	@media (max-width: 979px){
-		body{
-			padding:0px;
-		}
-		.navbar-fixed-top {
-			margin-bottom: 0px;
-		}
-		.navbar-fixed-top, .navbar-fixed-bottom {
-			position: fixed;
-		}	
-		.navbar .container {
-			width: auto;
-			padding: 0px 20px;
-			color:#000;
-		}
-		.container{
-			padding:0px 20px;
-		}
-	}	
+	body{
 		
-		.btn.btn-registro{
-			
-			background:#000;
-			border:2px solid #D41F00;
-			color:#F59236;
-			
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 7.5%;
-  			right: 0.5%;
-			font-weight: 50;
-			z-index:2;
-		}		
-		.btn.btn-registro:hover{
-			background:#000;
-			color:#FF6B24;
-			padding: 17px 22px;
-			position: fixed;
-			bottom: 7.5%;
-  			right: 0.5%;
-			font-size: 15px;
-			font-weight: 50;
-			z-index:2;
-		}	
-		
-		
-    <!--div#name {}-->
- #fuente{ 
- 	font-size: 1.7em;
-	color:#F59236;
-    text-decoration: none;
-    -moz-text-decoration-color: -moz-use-text-color;
-    -moz-text-decoration-line: none;
-    -moz-text-decoration-style: solid;
-
-	
-	
+		background-image:url(images/wall.jpg);
+		background-color: #000000;
 	}
-	
-.elementosconhover:hover {
-opacity:0.6;
--ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=29)";
-filter:alpha(opacity=19);
+	  
+	 navbar-fixed-top{
+			z-index:1030;
+		  }
+		@media (max-width: 979px){
+			body{
+				padding:0px;
+			}
+			.navbar-fixed-top {
+				margin-bottom: 0px;
+			}
+			.navbar-fixed-top, .navbar-fixed-bottom {
+				position: fixed;
+			}	
+			.navbar .container {
+				width: auto;
+				padding: 0px 20px;
+				color:#000;
+			}
+			.container{
+				padding:0px 20px;
+			}
+		}	
+			
+			.btn.btn-registro{
+				
+				background:#000;
+				border:2px solid #D41F00;
+				color:#F59236;
+				
+				padding: 17px 22px;
+				position: fixed;
+				bottom: 7.5%;
+				right: 0.5%;
+				font-weight: 50;
+				z-index:2;
+			}		
+			.btn.btn-registro:hover{
+				background:#000;
+				color:#FF6B24;
+				padding: 17px 22px;
+				position: fixed;
+				bottom: 7.5%;
+				right: 0.5%;
+				font-size: 15px;
+				font-weight: 50;
+				z-index:2;
+			}	
+			
+			
+		<!--div#name {}-->
+	 #fuente{ 
+		font-size: 1.7em;
+		color:#F59236;
+		text-decoration: none;
+		-moz-text-decoration-color: -moz-use-text-color;
+		-moz-text-decoration-line: none;
+		-moz-text-decoration-style: solid;
 
-}
+		
+		
+		}
+		
+	.elementosconhover:hover {
+	opacity:0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=29)";
+	filter:alpha(opacity=19);
+
+	}
 
 
 
-    </style>
+		</style>
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
-          <span class="sr-only">Toggle Side Navigation</span>
-          <i class="icon-th-list"></i>
-        </button>
-
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
-          <span class="sr-only">Toggle Top Navigation</span>
-          <i class="icon-align-justify"></i>
-        </button>
-    
-        </div>  
-         <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-collapse-top">
-        <div class="navbar-right">
-		
-          <ul class="nav navbar-nav navbar-left">
-           <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
-				<li>
-              <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
-              	
-            	</li>
-               
-          </ul>
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
+					<span class="sr-only">Toggle Side Navigation</span>
+					<i class="icon-th-list"></i>
+				</button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
+					<span class="sr-only">Toggle Top Navigation</span>
+					<i class="icon-align-justify"></i>
+				</button>
+			</div>  
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-collapse-top">
+				<div class="navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+						<a href="http://www.where2night.es/inicio-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
+						<li>
+							<a href= class="dropdown-toggle" data-toggle="dropdown"></a>	
+						</li>
+					</ul>
 			
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
-            <i class="glyphicon glyphicon-search" style="color:#FF6B24; margin-top:0px"></i>
-            </div>
-          </form>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+						  <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
+						<i class="glyphicon glyphicon-search" style="color:#FF6B24; margin-top:0px"></i>
+						</div>
+					</form>
 
-          <ul class="nav navbar-nav navbar-left">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
-              <span>
-                <img class="menu-avatar" src="images/party4.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">Nombre Fiestero&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
-              </span>
-              </a>
-              <ul class="dropdown-menu">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
+								<span>
+									<img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+									<?php 
+										echo $_SESSION['name']." ".$_SESSION['surnames'];
+									?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+								</span>
+							</a>
+							<ul class="dropdown-menu">
 
 
-                <li class="with-image">
-                  <div class="avatar">
-                    <img src="images/party4.jpg" />
-                  </div>
-                  <span>Nombre Fiestero</span>
-                </li>
+								<li class="with-image">
+								  <div class="avatar">
+									<img src="images/profile.jpg" />
+								  </div>
+								  <span>
+									 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+								  </span>
+								</li>
 
-                <li class="divider"></li>
+								<li class="divider"></li>
 
-                <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
-                <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.navbar-collapse -->
-      </div>
-    </div>
-<!-- /NavbarHeader -->
-<!-- SideBar -->
-<div class="sidebar-background">
-  <div class="primary-sidebar-background"></div>
-</div>
-<div class="primary-sidebar">
-  <ul class="nav navbar-collapse collapse navbar-collapse-primary">
-        <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
-              <span>Mi Perfil</span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
-              <span>Eventos</span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-              <span>Fotos</span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
-              <span>Amigos</span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-              <span>Locales</span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
-              <span>DJ's</span>
-          </a>
-        </li> 
-        <li class="">
-         <span class="glow"></span>
-          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-                    <span>
-                      Configuración&nbsp;&nbsp;&nbsp;
-                      <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                    </span>
-          </a>
-          <ul id="tnnmk7rjLZ" class="collapse "> 
-               
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
-                      <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
-                  </a>
-                <br>
-                
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
-                      <i class="glyphicon glyphicon-lock"style="color:#FF6B24"></i> Privacidad
-                  </a>
-                
-          </ul>
-        </li>
-		<img src="images/logo3_opt.png" />
+								<li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+								<li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+								<li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
+								<li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div><!-- /.navbar-collapse -->
+		</div>
 	</div>
+	<!-- /NavbarHeader -->
+<!-- SideBar -->
+	<div class="sidebar-background">
+	  <div class="primary-sidebar-background"></div>
+	</div>
+	<div class="primary-sidebar">
+		<ul class="nav navbar-collapse collapse navbar-collapse-primary">	   
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/profile.jpg" /></i>
+					<span>Mi Perfil</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+					<span>Eventos</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+					<span>Fotos</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
+					<span>Amigos</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+					<span>Locales</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+					<span>DJ's</span>
+				</a>
+			</li> 
+			<li class="">
+				<span class="glow"></span>
+				<a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
+					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+					<span>
+						Configuración&nbsp;&nbsp;&nbsp;
+						<i class="glyphicon glyphicon-circle-arrow-down"></i>
+					</span>
+				</a>
+				<ul id="tnnmk7rjLZ" class="collapse "> 
+					<a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+						<i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
+					</a>
+					<br>
+					<a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+						<i class="glyphicon glyphicon-lock"style="color:#FF6B24"></i> Privacidad
+					</a>	
+				</ul>
+			</li>
+			<img src="images/logo3_opt.png" />
+	</div>
+	<!-- /SideBar -->
 
 
-<table   style="margin-left:200px" border=0 width="100%" >
+	<table   style="margin-left:200px" border=0 width="100%" >
 
-<tr>
-	<td width="45%">
-		
-		<br/> <br/>
-		
-		    <img style="margin-left: 5px" src="images/photos_24.png" /> 
-			<label id="fuente" style="margin-left: 2px"> Fotos </label>
+	<tr>
+		<td width="45%">
 			
-			<!-- <input class="button" name="hola" /> --->
-	</td>
-	
-	<td width="20%">
-		<br/> <br/>
-		<i class="glyphicon glyphicon-circle-arrow-up"style="color:#FF6B24; margin-left:5px;"></i>		
-		<label id="loginButton" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Subir Fotos</span></label>
-		
-		
+			<br/> <br/>
+			
+				<img style="margin-left: 5px" src="images/photos_24.png" /> 
+				<label id="font" style="margin-left: 2px"> Fotos </label>
+				
+				<!-- <input class="button" name="hola" /> --->
 		</td>
-</tr>
-
-
-<tr>
-	
-	<td ><br />  
-			
-			<i class="glyphicon glyphicon-trash"style="color:red; margin-left: 5px" onclick="Delete();"></i> 
-			<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Delete();">Borrar fotos seleccionadas</label>
+		
+		<td width="20%">
+			<br/> <br/>
+			<i class="glyphicon glyphicon-circle-arrow-up"style="color:#FF6B24; margin-left:5px;"></i>		
+			<label id="loginButton" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Subir Fotos</span></label>
 			
 			
-			<i class="glyphicon glyphicon-ban-circle"style="color:red; margin-left:100px" onclick="Forbidden();"></i>
-			<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Forbidden();">Denunciar fotos seleccionadas</label>
-	</td>
-	
-	<td>
-		<input type="checkbox" style="margin-top: -2px"  id="selectall" onclick="SelectAll();"/>
-			<label style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';" >Elegir Todas</label>
+			</td>
+	</tr>
+
+
+	<tr>
 		
-	</td>
-	
-</tr>
-
-
-
-<tr>
-	
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;"  name="select" id="foto1"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto2" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px"  name="select" id="foto3" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-<tr>
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="foto4"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto5"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto6"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-<tr>
-	
-	<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="foto7"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto8"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-			   <input type="checkbox" style="margin-top: -100px" name="select" id="foto9"/><img class="elementosconhover" style="border: 1.5px solid #FF6B24;" class="img-rounded" src="images/party4_opt.jpg" >
-	</td>
-    
-</tr>
-
-
-<!--<tr>
-	<td>
+		<td ><br />  
+				
+				<i class="glyphicon glyphicon-trash"style="color:red; margin-left: 5px" onclick="Delete();"></i> 
+				<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Delete();">Borrar fotos seleccionadas</label>
+				
+				
+				<i class="glyphicon glyphicon-ban-circle"style="color:red; margin-left:100px" onclick="Forbidden();"></i>
+				<label style="font-size:12px ;color:#F59236" onmouseout="javascript:this.style.color='#F59236';"onmouseover="javascript:this.style.color='#F2A116';" onclick="Forbidden();">Denunciar fotos seleccionadas</label>
+		</td>
 		
-		
-		    <img src="fotos/bin3_opt.png" /> 
-			<label>Borrar seleccionadas</label>
-			<!-- <input class="button" name="hola" /> --->
+		<td>
+			<input type="checkbox" style="margin-top: -2px"  id="selectall" onclick="SelectAll();"/>
+				<label style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';" >Elegir Todas</label>
 			
+		</td>
 		
-	<!--</td>
-</tr>--->
-
-
-</table>
+	</tr>
 
 
 
+	<tr>
+		
+		
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;"  name="select" id="photo1"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo2" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo3" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+		</td>
+		
+	</tr>
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/registro.js"></script>
-<script type="text/javascript" src="js/login-fiestero.js"></script>
-<script type="text/javascript" src="js/login-facebook.js"></script>
-<script type="text/javascript" src="js/connectFacebook.js"></script>
+	<tr>
+		
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo4"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo5"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo6"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+		</td>
+		
+	</tr>
+
+	<tr>
+		
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo7"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo8"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo9"/><img class="elementosconhover" style="border: 1.5px solid #FF6B24;" class="img-rounded" src="images/party4_opt.jpg" >
+		</td>
+		
+	</tr>
+
+
+	<!--<tr>
+		<td>
+			
+			
+				<img src="fotos/bin3_opt.png" /> 
+				<label>Borrar seleccionadas</label>
+				<!-- <input class="button" name="hola" /> --->
+				
+			
+		<!--</td>
+	</tr>--->
+
+
+	</table>
+
+
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/registro.js"></script>
+	<script type="text/javascript" src="js/login-fiestero.js"></script>
+	<script type="text/javascript" src="js/login-facebook.js"></script>
+	<script type="text/javascript" src="js/connectFacebook.js"></script>
 
 
 </body>

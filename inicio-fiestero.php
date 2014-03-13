@@ -220,7 +220,7 @@ session_start();
 		<img src="images/logo3_opt.png" />
 </div>
 <!-- /SideBar -->
-<!-- MiPerfil -->
+<!-- My Profile-->
 <div class="main-content" style="background-image:url(images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
 
 
@@ -229,7 +229,7 @@ session_start();
 		<div class="row">
 			<div class="col-md-12 profile-margin">
 				<div class="col-md-4">
-                	<!-- Cabecera Perfil -->
+                	<!-- header profile -->
 					<div class="profile-sec-head orangeBox ">
 						<img src="images/profile.jpg" alt="" />
 						<h1>
@@ -237,12 +237,12 @@ session_start();
 						</h1>
 						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo $_SESSION['city']; ?></p>
 					</div>
-                    <!-- Seguidores -->
+                    <!-- Followers -->
 					<div class="profile-details orangeBox " style="margin-top:5px;background:#000" >
 						<span ><i>245</i>SEGUIDORES</span>
 						<span><i>98</i>SIGUIENDO</span>
                         </div>
-                      <!-- Información -->
+                      <!-- Information -->
                      <div class="profile-details orangeBox " style="margin-top:5px" >
 					<p><i><strong>ACERCA DE MI : </strong><?php echo $_SESSION['about']; ?></i>
 					
@@ -254,7 +254,7 @@ session_start();
 				</div><!-- col-md-4 -->
                 
                 <div class="col-md-5">
-                	<!-- Estado -->
+                	<!-- State -->
 					<div id="tabmenu" class="orangeBox1">
 						
                         <div class="share-sec ">
@@ -269,7 +269,7 @@ session_start();
 							</div>
 						</div>
 					</div>
-                    <!-- Amigos -->
+                    <!-- Friends -->
                     <div class="total-members orangeBox1">
 						<div class="total-memeber-head">
 							<span><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i>AMIGOS FIESTEROS</span>
@@ -294,7 +294,7 @@ session_start();
 						</ul>
 					</div>
                     
-                    <!-- Eventos -->
+                    <!-- Events -->
                     <div  class="timeline">
 						<ul>
 							<li>
@@ -336,7 +336,7 @@ session_start();
 					</div>
                     </div><!-- col-md-5-->
                 	<div class="col-md-3">
-                    <!-- Mis Eventos --> 
+                    <!-- My Events --> 
                     <div class="latest-tweets orangeBox1 " >
 						<div class="latest-tweets-head" >
 							<span ><i class="glyphicon glyphicon-glass"style="color:#FF6B24"></i>EVENTOS</span>
@@ -350,7 +350,7 @@ session_start();
 								</li>
 							</ul>
 					</div>
-                    <!-- Mis Fotos --> 
+                    <!-- My Photos --> 
                     <div class="my-photos orangeBox1">
 						<div class="my-photo-head">
 							<span><i class="glyphicon glyphicon-camera" style="color:#FF6B24"></i>FOTOS FIESTERO</span>
@@ -430,7 +430,7 @@ session_start();
 	</div><!-- Wrapper -->
 
 </div>
-<!-- /MiPerfil --> 
+<!-- /My Profile --> 
 
 
 
