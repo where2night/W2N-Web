@@ -89,11 +89,6 @@ if(terms){
 
 }
 
-function redirectHomeFiestero(){
-/////////////////////////////CAMBIAR
-	alert("registro efectuado correctamente!!");
-	window.location.href="http://www.where2night.es";		
-}
 
 
 function ButtonRegisterDJ()
@@ -123,9 +118,9 @@ if(terms){
 						var list_year= document.getElementById("year");
 						var year = list_year.options[list_year.selectedIndex].text;
 						
-						var bisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
+						var leapYear = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
 
-                          if (bisiesto) var FebruaryDay=29;
+                          if (leapYear) var FebruaryDay=29;
                             else var FebruaryDay=28;
 
                          if(((month==11 || month==4 || month==6 || month==9) && day>30)||(month==2 && day>FebruaryDay) || year=="Año" || day=="Día" || month=="Mes")
@@ -139,8 +134,40 @@ if(terms){
 					
 
                                      var telephone=document.getElementById("telephoneDJ").value;
-									  if(telephone!="")
+									  if(telephone!=""){
+										var birthday_date = day+"/"+month+"/"+year;
+										var gender;
+										if(man)
+											man2 = "male";
+										else man2 = "female";
 										alert("registro correcto");
+										$.ajax({
+												url: "registerDj.php",
+												dataType: "json",
+												type: "POST",
+												data: {
+													coolname: coolname,
+													name: name,
+													surname:surname,
+													telephone: telephone,
+													email: email,
+													gender:gender,
+													birthday_date:birthday_date
+													
+												},
+												complete: function(r){
+														var json = JSON.parse(r.responseText);
+													
+														if(json.Token!=0){
+															redirectHomeDj();
+														} else alert("Registro incorrecto");
+												},
+												onerror: function(e,val){
+													alert("Hay error");
+												}
+										});
+									  }
+										
 								      else alert("Introduce telefono");
 									  
 									  
@@ -174,46 +201,76 @@ function ButtonRegisterLocal()
 if(terms){
 
 
-		var email= document.getElementById("emailLocal").value;
+		var emailLocal= document.getElementById("emailLocal").value;
 		var confirmationemail= document.getElementById("confirmationEmailLocal").value;
 		
-		
-		if(email==confirmationemail && email!=""){
+		if(emailLocal==confirmationemail && emailLocal!=""){
 			
-			               		var nameLocal= document.getElementById("localName").value;
-								var nameCompany= document.getElementById("companyNameLocal").value;
+			               		var localName= document.getElementById("localName").value;
+								var companyNameLocal= document.getElementById("companyNameLocal").value;
 								
-					         	if(nameLocal!="" && nameCompany!=""){
+					         	if(localName!="" && companyNameLocal!=""){
 		
 
 								var cif= document.getElementById("cif").value;
 								  if(cif=="")alert("introduce cif");
 					              else{
 					
-                                     var telephone=document.getElementById("telephoneLocal").value;
-									  if(telephone!=""){
+                                     var telephoneLocal=document.getElementById("telephoneLocal").value;
+									  if(telephoneLocal!=""){
 									 
-									  var poblacion= document.getElementById("poblationLocal").value;
-									  var cp=document.getElementById("cpLocal").value;
+									  var poblationLocal= document.getElementById("poblationLocal").value;
+									  var cpLocal=document.getElementById("cpLocal").value;
 											
-											if(poblacion!="" && cp!=""){
+											if(poblationLocal!="" && cpLocal!=""){
 									 
-													var nombrecalle= document.getElementById("nombreCalleLocal").value;
-													var numerocalle=document.getElementById("numeroCalleLocal").value;
+													var streetNameLocal = document.getElementById("streetNameLocal").value;
+													var streetNumberLocal = document.getElementById("streetNumberLocal").value;
+													var street = document.getElementById("street").value;
+													
+											        if(streetNameLocal!="" && streetNumberLocal!=""){
+													  alert("registro correcto");
+													  
+													  alert(street);	  
+													  $.ajax({
+																	url: "registerFiestero.php",
+																	dataType: "json",
+																	type: "POST",
+																	data: {
+																		companyNameLocal: companyNameLocal,
+																		localName: localName,
+																		cif:cif,
+																		poblationLocal: poblationLocal,
+																		cpLocal: cpLocal,
+																		telephoneLocal:telephoneLocal,
+																		emailLocal: emailLocal,
+																		street: street,
+																		streetNameLocal: streetNameLocal,
+																		streetNumberLocal: streetNumberLocal
+																	},
+																	complete: function(r){
+																			var json = JSON.parse(r.responseText);
+																		
+																			if(json.Token!=0){
+																				redirectLocal();
+																			} else alert("Registro incorrecto");
+																	},
+																	onerror: function(e,val){
+																		alert("Hay error");
+																	}
+																});
+													 }
+													else alert ("Introduce dirección");
 											
-											        if(nombrecalle!="" && numerocalle!="")
-													  alert("registro correcto"); 
-													else alert ("introduce dirección");
 											
 											
-											
-											}else alert("introduce poblacion y cp")
+											}else alert("Introduce población y cp")
 									  
 									  
-									  }else alert("Introduce telefono");
+									  }else alert("Introduce teléfono");
 									  
 									  }
-								}else alert("Introduce nombre local y compañia");
+								}else alert("Introduce nombre local y compañía");
 							
 							
 		} else alert("Introduce el mismo email en los dos campos");
@@ -221,15 +278,24 @@ if(terms){
 
 
 
-} else alert("No has aceptado los terminos y condiciones");
-
-
-
-
-
-
+} else alert("No has aceptado los términos y condiciones");
 
 }
 
+function redirectHomeFiestero(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
 
+function redirectHomeLocal(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
  
+ function redirectHomeDj(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
