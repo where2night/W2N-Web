@@ -157,78 +157,80 @@
     </div>
 	<!-- /NavbarHeader -->
         <!-- Log data -->
-        <table width="700" height="100" align="center" border="0" >
-         	  
-         	  <tr >
-	            <td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required/></td>
-	          </tr>
-	         
-	          <tr>
-	            <td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local"/></td>
-	          </tr>
-	          
-	   
-	          <tr>
-	            <td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF"/></td>
-	          </tr>
-         
-	          
-	          <tr>
-				<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población"  /></td>
-	          </tr>
-	          
-	          <tr>
-	            <td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" /></td>
-	          </tr>
-	          
-	          <tr>
-	           	<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" /></td>
-	          </tr>
-              
-              <tr>
-	           	<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" /></td>
-	          </tr>
-	          
-               <tr>
-	           	<td><input id="confirmationEmailLocal" type="password" size="100" class="form-control" placeholder="Confirmación correo electrónico" /></td>
-	          </tr>
-          
-	          
-	          <tr>
-              	<td>
-	            	<p class="navbar-text"><b style="color: #FFFFCC"> Dirección </b></p>
+		<form>
+			<table width="700" height="100" align="center" border="0" >
+				  
+				  <tr >
+					<td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required/></td>
+				  </tr>
+				 
+				  <tr>
+					<td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local" required/></td>
+				  </tr>
+				  
+		   
+				  <tr>
+					<td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF" required/></td>
+				  </tr>
+			 
+				  
+				  <tr>
+					<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población" required /></td>
+				  </tr>
+				  
+				  <tr>
+					<td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" required /></td>
+				  </tr>
+				  
+				  <tr>
+					<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" required/></td>
+				  </tr>
+				  
+				  <tr>
+					<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" required /></td>
+				  </tr>
+				  
+				   <tr>
+					<td><input id="confirmationEmailLocal" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required /></td>
+				  </tr>
+			  
+				  
+				  <tr>
+					<td>
+						<p class="navbar-text"><b style="color: #FFFFCC"> Dirección </b></p>
 
-	            	<p class="navbar-text">
-						<select id="street">
-	            			<option value="0" selected="1">Calle</option>
-                            <option value="1" >Avd.</option>
-                            <option value="2" >Plaza</option>
-	            	 	</select>
-                     <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" /></p>
-                     <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" /></p>
-                   </p>
-                 </td>
-                  	
-              </tr>
-	            
-	          <tr>
-	            <td>
-	            	<div class="checkbox">
-							<label>
-								<p class="navbar-text">
-									<input type="checkbox" value="" id="Terms & Conditions">
-									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
-								</p>
-							</label>
-						</div>
-	            </td>		 
-	            
-	          </tr>
-	          
-	          <tr align="center">
-				<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onclick="ButtonRegisterLocal()"/></td>
-	          </tr>
-	   	</table>
+						<p class="navbar-text">
+							<select id="street">
+								<option value="0" selected="1">Calle</option>
+								<option value="1" >Avd.</option>
+								<option value="2" >Plaza</option>
+							</select>
+						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" /></p>
+						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" /></p>
+					   </p>
+					 </td>
+						
+				  </tr>
+					
+				  <tr>
+					<td>
+						<div class="checkbox">
+								<label>
+									<p class="navbar-text">
+										<input type="checkbox" value="" id="Terms & Conditions">
+										<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
+									</p>
+								</label>
+							</div>
+					</td>		 
+					
+				  </tr>
+				  
+				  <tr align="center">
+					<td><input name="registerLocal"  class="btn" type="submit" value="Enviar solicitud" onclick="ButtonRegisterDJ()/></td>
+				  </tr>
+			</table>
+		</form>
         <!-- /Log data -->
         
      <!-- NavbarFooter -->
