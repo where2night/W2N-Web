@@ -160,7 +160,7 @@
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr >
-	            <td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa"/></td>
+	            <td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required/></td>
 	          </tr>
 	         
 	          <tr>
@@ -199,14 +199,13 @@
 	            	<p class="navbar-text"><b style="color: #FFFFCC"> Dirección </b></p>
 
 	            	<p class="navbar-text">
-						<select id="calle">
+						<select id="street">
 	            			<option value="0" selected="1">Calle</option>
                             <option value="1" >Avd.</option>
                             <option value="2" >Plaza</option>
-                            <option value="3" >Calle</option>
 	            	 	</select>
-                     <p class="navbar-text"><input id="nombreCalleLocal" type="text" class="form-control" placeholder="Nombre" /></p>
-                     <p class="navbar-text"><input id="numeroCalleLocal" type="text" class="form-control" placeholder="Número" /></p>
+                     <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" /></p>
+                     <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" /></p>
                    </p>
                  </td>
                   	
@@ -227,7 +226,7 @@
 	          </tr>
 	          
 	          <tr align="center">
-	          	<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onclick="ButtonRegisterLocal()"/></td>
+				<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onclick="ButtonRegisterLocal()"/></td>
 	          </tr>
 	   	</table>
         <!-- /Log data -->
@@ -269,4 +268,5 @@
      <script type="text/javascript" src="js/login-fiestero.js"></script>
 	 <script type="text/javascript" src="js/registrar.js"></script>
      <script type="text/javascript" src="js/fecha.js"></script>
+	
     </body>
