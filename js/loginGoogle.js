@@ -12,7 +12,7 @@
     if (authResult) {
       if (authResult['error'] == undefined){
         //toggleElement('signin-button'); // Hide the sign-in button after successfully signing in the user.
-		//window.location.href="http://www.where2night.es/perfil-fiestero.php";
+		//window.location.href="http://www.where2night.es/user/profile.php";
         gapi.client.load('plus','v1', loadProfile);  // Trigger request to get the email address.
       } else {
         console.log('An error occurred');
@@ -82,7 +82,7 @@
   
   function redirectLoginGp(){
 	alert("Login correcto con gmail");
-	window.location.href="http://www.where2night.es/perfil-fiestero.php";	
+	window.location.href="http://www.where2night.es/user/profile.php";	
   }
   /**
    * Display the user's basic profile information from the profile object.

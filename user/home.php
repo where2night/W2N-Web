@@ -12,26 +12,26 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
     <!-- Icon W2N -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Estilos Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet" type="text/css">
-    <link href="css/home.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-    <link href="css/custom.css" rel="stylesheet" media="screen">
-  	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
+	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+    <link href="../css/custom.css" rel="stylesheet" media="screen">
+  	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="css/inicio-fiestero.css" type="text/css" /><!-- Style -->	
-	<link rel="stylesheet" href="css/responsive.css" type="text/css" /><!-- Responsive -->	
+    <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" /><!-- Style -->	
+	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
       
       $("#close_session").on("click", function (event) {
-        $.post("framework/session_end.php",
+        $.post("../framework/session_end.php",
           {},
           function(data,status){
         /*  alert("Data: " + data + "\nStatus: " + status);*/
@@ -77,7 +77,7 @@ session_start();
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">
         <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+          <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
           <span class="sr-only">Toggle Side Navigation</span>
           <i class="icon-th-list"></i>
@@ -113,7 +113,7 @@ session_start();
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 				<?php 
 					echo $_SESSION['name']." ".$_SESSION['surnames'];
 				?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
@@ -124,7 +124,7 @@ session_start();
 
                 <li class="with-image">
                   <div class="avatar">
-                    <img src="images/profile.jpg" />
+                    <img src="../images/profile.jpg" />
                   </div>
                   <span>
 					 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
@@ -133,8 +133,8 @@ session_start();
 
                 <li class="divider"></li>
 
-                <li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+                <li><a href="profile.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+                <li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
                 <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
 			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
@@ -155,50 +155,50 @@ session_start();
        
          <li class="">
           <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/profile.jpg" /></i>
-              <span> <a href="http://www.where2night.es/perfil-fiestero.php">Mi Perfil </a> </span>
+          <a href="profile.php">
+              <i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
+              <span> <a href="profile.php">Mi Perfil </a> </span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="events.php">
+              <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
+              <span><a href="events.php">Eventos </a></span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="photos.php">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+              <span><a href="photos.php">Fotos </a></span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
-              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
-              <span><a href="http://www.where2night.es/eventos-fiestero.php">Eventos </a></span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
-              <span><a href="http://www.where2night.es/fotos-fiestero.php">Fotos </a></span>
-          </a>
-        </li>
-         <li class="">
-          <span class="glow"></span>
-          <a href="">
-              <i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
+              <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
               <span>Amigos</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
               <span>Locales</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="">
-              <i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+              <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
               <span>DJ's</span>
           </a>
         </li> 
         <li class="">
          <span class="glow"></span>
           <a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
-              <i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
                     <span>
                       Configuración&nbsp;&nbsp;&nbsp;
                       <i class="glyphicon glyphicon-circle-arrow-down"></i>
@@ -206,7 +206,7 @@ session_start();
           </a>
           <ul id="tnnmk7rjLZ" class="collapse "> 
                
-                  <a href="http://www.where2night.es/editar-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+                  <a href="edit.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
                       <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
                   </a>
                 <br>
@@ -217,11 +217,11 @@ session_start();
                 
           </ul>
         </li>
-		<img src="images/logo3_opt.png" />
+		<img src="../images/logo3_opt.png" />
 </div>
 <!-- /SideBar -->
 <!-- My Profile-->
-<div class="main-content" style="background-image:url(images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
+<div class="main-content" style="background-image:url(../images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
 
 
 <div class="wrapper">
@@ -231,7 +231,7 @@ session_start();
 				<div class="col-md-4">
                 	<!-- header profile -->
 					<div class="profile-sec-head orangeBox ">
-						<img src="images/profile.jpg" alt="" />
+						<img src="../images/profile.jpg" alt="" />
 						<h1>
 							<?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
 						</h1>
@@ -275,22 +275,22 @@ session_start();
 							<span><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i>AMIGOS FIESTEROS</span>
 						</div>
 						<ul class="orangeBox1">
-						<li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                       	<li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="images/profile.jpg" alt="" /></a></li>
+						<li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                       	<li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
+                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
 						</ul>
 					</div>
                     
@@ -299,7 +299,7 @@ session_start();
 						<ul>
 							<li>
 								<div class="timeline-title orangeBox1 ">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/profile.jpg" alt="" />
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
 									<h6>NOMBRE CLUB</h6>
 									<i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
 									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
@@ -310,7 +310,7 @@ session_start();
 							</li>
 							<li>
 								<div class="timeline-title orangeBox1">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/profile.jpg" alt="" />
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
 									<h6>NOMBRE DJ</h6>
                                     <i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
 									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
@@ -322,14 +322,14 @@ session_start();
 							</li>
                             <li>
 								<div class="timeline-title orangeBox1">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="images/profile.jpg" alt="" />
+                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
 									<h6>NOMBRE CLUB</h6>
 									<i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
 									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
 								</div>
 								<div class="timeline-content orangeBox1">
 									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-                                    <img src="images/copas.jpg" alt="" />
+                                    <img src="../images/copas.jpg" alt="" />
 								</div>
 							</li>
 						</ul>
@@ -346,7 +346,7 @@ session_start();
 								</li>
 								<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
 								</li>
-								<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="images/copas.jpg" alt="" /></a>
+								<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
 								</li>
 							</ul>
 					</div>
@@ -356,63 +356,63 @@ session_start();
 							<span><i class="glyphicon glyphicon-camera" style="color:#FF6B24"></i>FOTOS FIESTERO</span>
 						</div>
 							<ul class="orangeBox1">
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a ><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-                                <li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-                                <li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a ><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-								<li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
 								</div>
 								<p>Mensaje</p>
 								</li>
-                                <li><img class="menu-avatar orangeBox1" src="images/photo.jpg" alt="" />
+                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
 								<div class="my-photo-hover">
 									<a ><i class="glyphicon glyphicon-picture"></i></a>
 									<a><i class="glyphicon glyphicon-trash"></i></a>
@@ -435,12 +435,12 @@ session_start();
 
 
 <!-- script -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/registro.js"></script>
-<script type="text/javascript" src="js/login-fiestero.js"></script>
-<script type="text/javascript" src="js/login-facebook.js"></script>
-<script type="text/javascript" src="js/connectFacebook.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/registro.js"></script>
+<script type="text/javascript" src="../js/login-fiestero.js"></script>
+<script type="text/javascript" src="../js/login-facebook.js"></script>
+<script type="text/javascript" src="../js/connectFacebook.js"></script>
 <!-- /script -->
 
 </body>

@@ -12,16 +12,16 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
     <!-- Icon W2N -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Styles -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet" type="text/css">
-    <link href="css/home.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-    <link href="css/custom.css" rel="stylesheet" media="screen">
-	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
+	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+    <link href="../css/custom.css" rel="stylesheet" media="screen">
+	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -30,7 +30,7 @@ session_start();
 		$(document).ready(function(){ 
 			
 			$("#close_session").on("click", function (event) {
-				$.post("framework/session_end.php",
+				$.post("../framework/session_end.php",
 				  {},
 				  function(data,status){
 				/*	alert("Data: " + data + "\nStatus: " + status);*/
@@ -101,7 +101,7 @@ session_start();
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+				<a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
 					<span class="sr-only">Toggle Side Navigation</span>
 					<i class="icon-th-list"></i>
@@ -115,7 +115,7 @@ session_start();
 			<div class="collapse navbar-collapse navbar-collapse-top">
 				<div class="navbar-right">
 					<ul class="nav navbar-nav navbar-left">
-						<a href="http://www.where2night.es/inicio-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
+						<a href="home.php" style="font-size:12px;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
 						<li>
 							<a href= class="dropdown-toggle" data-toggle="dropdown"></a>	
 						</li>
@@ -132,7 +132,7 @@ session_start();
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
 								<span>
-									<img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+									<img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 									<?php 
 										echo $_SESSION['name']." ".$_SESSION['surnames'];
 									?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
@@ -143,7 +143,7 @@ session_start();
 
 								<li class="with-image">
 								  <div class="avatar">
-									<img src="images/profile.jpg" />
+									<img src="../images/profile.jpg" />
 								  </div>
 								  <span>
 									 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
@@ -152,8 +152,8 @@ session_start();
 
 								<li class="divider"></li>
 
-								<li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-								<li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+								<li><a href="profile.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+								<li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
 								<li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
 								<!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
 								<li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
@@ -173,7 +173,7 @@ session_start();
 	  <div class="container"> <!--Container-->
 	  <div class="row"> <!--Row -->
 		  <div class="fb span9 offset1">  <!--Cover-->
-		  <div class=""><img class="profilePhoto" src="images/profile.jpg" /></div>
+		  <div class=""><img class="profilePhoto" src="../images/profile.jpg" /></div>
 		  </div>  <!--Cover-->
 		  <div class="span2"><!--Advertisement-->
 		  </div> <!--Advertisement-->
@@ -210,7 +210,7 @@ session_start();
 	<ul class="chat-box timeline">
 
 	  <li class="arrow-box-left gray">
-		<div class="avatar"><img class="avatar-small" src="images/party2.jpg" /></div>
+		<div class="avatar"><img class="avatar-small" src="../images/party2.jpg" /></div>
 		<div class="info">
 		  <span class="name">
 			<span class="label label-green">PROMOCION</span> <strong class="indent">CATS CLUB</strong>
@@ -234,7 +234,7 @@ session_start();
 	<ul class="chat-box timeline">
 
 	  <li class="arrow-box-left grey">
-		<div class="avatar"><img class="avatar-small" src="images/party2.jpg" /></div>
+		<div class="avatar"><img class="avatar-small" src="../images/party2.jpg" /></div>
 		<div class="info">
 		  <span class="name">
 			<span class="label label-dark-red">PROMOCION</span> <strong class="indent">PACHA CLUB</strong>
@@ -270,12 +270,12 @@ session_start();
 
 
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/registro.js"></script>
-	<script type="text/javascript" src="js/login-fiestero.js"></script>
-	<script type="text/javascript" src="js/login-facebook.js"></script>
-	<script type="text/javascript" src="js/connectFacebook.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/registro.js"></script>
+	<script type="text/javascript" src="../js/login-fiestero.js"></script>
+	<script type="text/javascript" src="../js/login-facebook.js"></script>
+	<script type="text/javascript" src="../js/connectFacebook.js"></script>
 
 
 </body>

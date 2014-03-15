@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
     <!-- Icon W2N -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Style -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet" type="text/css">
-    <link href="css/home.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-	<link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
+	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/fotos-fiestero.js"></script>
+	<script src="../js/fotos-fiestero.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
 	body{
 		
-		background-image:url(images/wall.jpg);
+		background-image:url(../images/wall.jpg);
 		background-color: #000000;
 	}
 	  
@@ -108,7 +108,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
+				<a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
 					<span class="sr-only">Toggle Side Navigation</span>
 					<i class="icon-th-list"></i>
@@ -122,7 +122,7 @@
 			<div class="collapse navbar-collapse navbar-collapse-top">
 				<div class="navbar-right">
 					<ul class="nav navbar-nav navbar-left">
-						<a href="http://www.where2night.es/inicio-fiestero.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
+						<a href="home.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
 						<li>
 							<a href= class="dropdown-toggle" data-toggle="dropdown"></a>	
 						</li>
@@ -139,7 +139,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
 								<span>
-									<img class="menu-avatar" src="images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+									<img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 									<?php 
 										echo $_SESSION['name']." ".$_SESSION['surnames'];
 									?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
@@ -150,7 +150,7 @@
 
 								<li class="with-image">
 								  <div class="avatar">
-									<img src="images/profile.jpg" />
+									<img src="../images/profile.jpg" />
 								  </div>
 								  <span>
 									 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
@@ -159,8 +159,8 @@
 
 								<li class="divider"></li>
 
-								<li><a href="http://www.where2night.es/perfil-fiestero.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-								<li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+								<li><a href="profile.php" ><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
+								<li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
 								<li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
 								<li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
 							</ul>
@@ -179,57 +179,57 @@
 		<ul class="nav navbar-collapse collapse navbar-collapse-primary">	   
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
-					<i class=""><img class="menu-avatar" src="images/profile.jpg" /></i>
+				<a href="profile.php">
+					<i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
 					<span>Mi Perfil</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
-					<i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+				<a href="events.php">
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Eventos</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
-					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+				<a href="photos.php">
+					<i class="photos.php"><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Fotos</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
 				<a href="">
-					<i class=""><img class="menu-avatar" src="images/party4.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
 					<span>Amigos</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
 				<a href="">
-					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Locales</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
 				<a href="">
-					<i class=""><img class="menu-avatar" src="images/party3.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>DJ's</span>
 				</a>
 			</li> 
 			<li class="">
 				<span class="glow"></span>
 				<a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
-					<i class=""><img class="menu-avatar" src="images/party2.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>
 						Configuración&nbsp;&nbsp;&nbsp;
 						<i class="glyphicon glyphicon-circle-arrow-down"></i>
 					</span>
 				</a>
 				<ul id="tnnmk7rjLZ" class="collapse "> 
-					<a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+					<a href="edit.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
 						<i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
 					</a>
 					<br>
@@ -238,7 +238,7 @@
 					</a>	
 				</ul>
 			</li>
-			<img src="images/logo3_opt.png" />
+			<img src="../images/logo3_opt.png" />
 	</div>
 	<!-- /SideBar -->
 
@@ -291,27 +291,27 @@
 	<tr>
 		
 		
-		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;"  name="select" id="photo1"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo2" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo3" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;"  name="select" id="photo1"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo2" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px"  name="select" id="photo3" /><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg" >
 		</td>
 		
 	</tr>
 
 	<tr>
 		
-		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo4"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo5"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo6"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo4"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo5"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo6"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg" >
 		</td>
 		
 	</tr>
 
 	<tr>
 		
-		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo7"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg">
-				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo8"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="images/party4_opt.jpg" >
-				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo9"/><img class="elementosconhover" style="border: 1.5px solid #FF6B24;" class="img-rounded" src="images/party4_opt.jpg" >
+		<td ><br /><input type="checkbox" style="margin-top: -100px; margin-left: 5px;" name="select" id="photo7"/> <img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg">
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo8"/><img style="border: 1.5px solid #FF6B24;" class="elementosconhover" class="img-rounded" src="../images/party4_opt.jpg" >
+				   <input type="checkbox" style="margin-top: -100px" name="select" id="photo9"/><img class="elementosconhover" style="border: 1.5px solid #FF6B24;" class="img-rounded" src="../images/party4_opt.jpg" >
 		</td>
 		
 	</tr>
@@ -321,7 +321,7 @@
 		<td>
 			
 			
-				<img src="fotos/bin3_opt.png" /> 
+				<img src="../fotos/bin3_opt.png" /> 
 				<label>Borrar seleccionadas</label>
 				<!-- <input class="button" name="hola" /> --->
 				
@@ -335,12 +335,12 @@
 
 
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/registro.js"></script>
-	<script type="text/javascript" src="js/login-fiestero.js"></script>
-	<script type="text/javascript" src="js/login-facebook.js"></script>
-	<script type="text/javascript" src="js/connectFacebook.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/registro.js"></script>
+	<script type="text/javascript" src="../js/login-fiestero.js"></script>
+	<script type="text/javascript" src="../js/login-facebook.js"></script>
+	<script type="text/javascript" src="../js/connectFacebook.js"></script>
 
 
 </body>
