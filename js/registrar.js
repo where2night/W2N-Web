@@ -89,11 +89,6 @@ if(terms){
 
 }
 
-function redirectHomeFiestero(){
-/////////////////////////////CAMBIAR
-	alert("registro efectuado correctamente!!");
-	window.location.href="http://www.where2night.es";		
-}
 
 
 function ButtonRegisterDJ()
@@ -123,9 +118,9 @@ if(terms){
 						var list_year= document.getElementById("year");
 						var year = list_year.options[list_year.selectedIndex].text;
 						
-						var bisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
+						var leapYear = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
 
-                          if (bisiesto) var FebruaryDay=29;
+                          if (leapYear) var FebruaryDay=29;
                             else var FebruaryDay=28;
 
                          if(((month==11 || month==4 || month==6 || month==9) && day>30)||(month==2 && day>FebruaryDay) || year=="Año" || day=="Día" || month=="Mes")
@@ -139,8 +134,40 @@ if(terms){
 					
 
                                      var telephone=document.getElementById("telephoneDJ").value;
-									  if(telephone!="")
+									  if(telephone!=""){
+										var birthday_date = day+"/"+month+"/"+year;
+										var gender;
+										if(man)
+											man2 = "male";
+										else man2 = "female";
 										alert("registro correcto");
+										$.ajax({
+												url: "registerDj.php",
+												dataType: "json",
+												type: "POST",
+												data: {
+													coolname: coolname,
+													name: name,
+													surname:surname,
+													telephone: telephone,
+													email: email,
+													gender:gender,
+													birthday_date:birthday_date
+													
+												},
+												complete: function(r){
+														var json = JSON.parse(r.responseText);
+													
+														if(json.Token!=0){
+															redirectHomeDj();
+														} else alert("Registro incorrecto");
+												},
+												onerror: function(e,val){
+													alert("Hay error");
+												}
+										});
+									  }
+										
 								      else alert("Introduce telefono");
 									  
 									  
@@ -225,7 +252,7 @@ if(terms){
 																			var json = JSON.parse(r.responseText);
 																		
 																			if(json.Token!=0){
-																				redirectHomeFiestero();
+																				redirectLocal();
 																			} else alert("Registro incorrecto");
 																	},
 																	onerror: function(e,val){
@@ -253,13 +280,22 @@ if(terms){
 
 } else alert("No has aceptado los términos y condiciones");
 
-
-
-
-
-
-
 }
 
+function redirectHomeFiestero(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
 
+function redirectHomeLocal(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
  
+ function redirectHomeDj(){
+/////////////////////////////CAMBIAR
+	alert("registro efectuado correctamente!!");
+	window.location.href="http://www.where2night.es";		
+}
