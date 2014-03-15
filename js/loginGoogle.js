@@ -53,7 +53,7 @@
 	alert(email2);
 	image2 = profile.image.url;
 		$.ajax({
-								url: "logingp.php",
+								url: "api/logingp.php",
 								dataType: "json",
 								type: "POST",
 								data: {

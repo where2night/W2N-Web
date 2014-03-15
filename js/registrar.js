@@ -49,7 +49,7 @@ if(terms){
 								man2 = "male";
 							else man2 = "female";
 							$.ajax({
-									url: "registerFiestero.php",
+									url: "api/registerFiestero.php",
 									dataType: "json",
 									type: "POST",
 									data: {

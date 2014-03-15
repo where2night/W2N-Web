@@ -23,7 +23,7 @@ function loginFiestero(){
 function login(email2,password2){
 	
 		$.ajax({
-			url: "login.php",
+			url: "api/login.php",
 			dataType: "json",
 			type: "POST",
 			data: {
@@ -35,7 +35,7 @@ function login(email2,password2){
 					if(json.Token!=0){
 						//setCookie('email_log',email2);
 			 			$.ajax({
-								url: "editprofile.php",
+								url: "api/editprofile.php",
 								dataType: "json",
 								type: "POST",
 								timeout: 5000,

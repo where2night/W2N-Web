@@ -64,7 +64,7 @@ session_start();
             var about = $('#about-you').val();
         
          console.log($.ajax({
-            url: "editprofile.php",
+            url: "api/editprofile.php",
             dataType: "json",
             type: "POST",
             timeout: 5000,
