@@ -248,7 +248,7 @@
 		<!-- Tab panes -->
 		<div class="tab-content">
 			
-			<div class="tab-pane active" id="Eventos" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane active" id="Events" style="margin-left: 35px; margin-right: 200px;">
 				
 				<!-- Next Events -->
 						<div  class="timeline">
@@ -294,7 +294,7 @@
 						
 				
 			
-			<div class="tab-pane" id="Listas" style="margin-left: 120px" > 
+			<div class="tab-pane" id="Lists" style="margin-left: 120px" > 
 			
 			  <div class="latest-tweets orangeBox1 " style="width:80%; margin-top:15px">
 					
@@ -340,7 +340,7 @@
 			
 			
 			
-			<div class="tab-pane" id="MisEventos" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
 				
 				<div  class="timeline">
 							<ul>
