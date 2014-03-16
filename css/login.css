@@ -117,8 +117,8 @@
 #loginForm {
 	text-align: center;
     width:248px; 
-    border:1px solid #899caa;
-    border-radius:3px 0 3px 3px;
+  /*  border:1px solid #899caa;
+    border-radius:3px 0 3px 3px;*/
     -moz-border-radius:3px 0 3px 3px;
     margin-top:-1px;
     background:#000000;
