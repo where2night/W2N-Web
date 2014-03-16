@@ -8,15 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
     <!-- Icon W2N -->
-	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Styles -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet" type="text/css">
-    <link href="../css/home.css" rel="stylesheet" type="text/css">
-    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="../css/carouselStyle.css" rel="stylesheet">
-	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="css/carouselStyle.css" rel="stylesheet">
+	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
  
@@ -104,12 +104,12 @@
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
 		<div class="container">
 			<div class="navbar-header">
-			  <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
+			  <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
 			</div>
         
 			<div id="bar">
 				<div id="loginContainer">
-					<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="../images/logoarrow.png" alt=""></a>
+					<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
 					
 					<div style="clear:both"></div>
 					<div id="loginBox" style="border-bottom-color:#D41F00">                
@@ -172,7 +172,7 @@
 	<div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="../images/party4.jpg" alt="" />
+				<img src="images/party4.jpg" alt="" />
                 <div class="container">
                 <div class="subscribe " style="position:fixed">
 				<!-- Labels -->
@@ -183,7 +183,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img src="../images/party2.jpg" alt="" />
+				<img src="images/party2.jpg" alt="" />
                 <div class="container">
 				<div class="subscribe ">
 				
@@ -194,7 +194,7 @@
 				</div>
 			</div>
             <div class="item">
-				<img src="../images/party3.jpg" alt="" />
+				<img src="images/party3.jpg" alt="" />
                 <div class="container">
 				<div class="subscribe">
 				
@@ -210,8 +210,8 @@
 		
 	</div>
 	<!-- Important that they are here -->
-	<script src="../js/jquery-1.10.0.min.js"></script>
-	<script src="../js/jquery.carousel.fullscreen.js"></script>
+	<script src="js/jquery-1.10.0.min.js"></script>
+	<script src="js/jquery.carousel.fullscreen.js"></script>
 	<!-- /Important that they are here -->
 	<!-- /Carousel-->
 	
@@ -233,7 +233,7 @@
 					<a href="" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';">Privacidad</a>
 				</li>
 			   <li>
-					<a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="../images/alogo.png" alt=""></a>
+					<a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
 				</li>
 				</ul>
 				</nav> 
@@ -243,13 +243,13 @@
 	</footer>
 	<!-- /NavbarFooter --> 
 	
-	<script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/registro.js"></script>
-    <script type="text/javascript" src="../js/login-fiestero.js"></script>
-    <script type="text/javascript" src="../js/login-facebook.js"></script>
-    <!--<script type="text/javascript" src="../js/connectFacebook.js"></script>-->
-    <script type="text/javascript" src="../js/loginGoogle.js"></script>
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/registro.js"></script>
+    <script type="text/javascript" src="js/login-web.js"></script>
+    <script type="text/javascript" src="js/login-facebook.js"></script>
+    <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
+    <script type="text/javascript" src="js/loginGoogle.js"></script>
 
 </body>
 </html>
