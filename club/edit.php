@@ -176,7 +176,7 @@ session_start();
 								<span>
 									<img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 									<?php 
-										echo $_SESSION['name']." ".$_SESSION['surnames'];
+										//echo $_SESSION['name']." ".$_SESSION['surnames'];
 									?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
 								</span>
 							</a>
@@ -188,7 +188,7 @@ session_start();
 									<img src="../images/profile.jpg" />
 								  </div>
 								  <span>
-									 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+									 <?php //echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
 								  </span>
 								</li>
 
@@ -239,14 +239,14 @@ session_start();
 				<span class="glow"></span>
 				<a href="">
 					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
-					<span>Amigos</span>
+					<span>Seguidores</span>
 				</a>
 			</li>
 			<li class="">
 				<span class="glow"></span>
 				<a href="">
 					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
-					<span>Locales</span>
+					<span>Listas</span>
 				</a>
 			</li>
 			<li class="">
@@ -280,117 +280,66 @@ session_start();
 	<!-- /SideBar -->
 	
 	<!-- My Profile -->
-	<div class="main-content" style="background-image:url(../images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
+	<div class="main-content" style="background-image:url(images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
 		<div class="wrapper">
 			<div class="container">
 				<div align= "center">
 					<form class="form-horizontal" role="form" id="edit-profile">
 						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
+							<label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre Empresa: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['name']; ?>" >
-							</div>
-						</div>
-					  
-						<div class="form-group">
-							<label for="surname" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Apellidos: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="surname" value="<?php echo $_SESSION['surnames']; ?>">
-							</div>
-						</div>
-
-						<?php
-						 $birth_array = explode ('/',$_SESSION['birthdate']);
-						 $day = $birth_array[0];
-						 $month = $birth_array[1];
-						 $year = $birth_array[2];
-						?>
-				  
-						<div class="form-group">
-							<label class="col-sm-2 control-label" style="color: #FFFFCC"><b>Fecha de nacimiento: </b></label>
-							<div class="col-sm-2">
-							  <select id="day" class="form-control">
-								  <option value="0">Día</option>
-								  <?php 
-									for ($i=1; $i<32; $i++){
-									  if ($i == $day) {
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>  
-								</select>
-							</div>
-							  
-							<div class="col-sm-2">
-								<select id="month" class="form-control">
-								  <option value="0">Mes</option>
-									<?php  
-									for ($i=1; $i<13; $i++){
-									  if ($i == $month) {
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>
-								  </select>
-							</div>
-							  
-							<div class="col-sm-2">
-								<select id="year" class="form-control">
-								  <option value="0">Año</option>
-									<?php 
-									for ($i=1905; $i<2013; $i++){
-									  if ($i == $day) {
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>    
-								</select>
+							  <input type="text" class="form-control" id="name" name="name" value="<?php //echo $_SESSION['name']; ?>" >
 							</div>
 						</div>
 				  
-						<div class="form-group">
-							<label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
-							<div class="col-sm-8">
-								<label class="radio-inline">
-								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "selected=selected" ?>><span style="color: #FFFFCC">Hombre</span>
-								</label>
-								<label class="radio-inline">
-								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "selected=selected" ?>><span style="color: #FFFFCC">Mujer</span>
-								</label>
+				  		<div class="form-group">
+							<label class="col-sm-2 control-label" style="color: #FFFFCC"><b>Dirección: </b></label>
+							<div class="col-sm-1">
+									<select id="street" class="form-control">
+										<option value="0" selected="1">Calle</option>
+										<option value="1" >Avd.</option>
+										<option value="2" >Plaza</option>
+									</select>
 							</div>
+							<div class="col-sm-1">
+							 <label control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
+							</div>
+							<div class="col-sm-4">
+							 <input id="streetNameLocal" type="text" class="form-control" />
+							</div>
+							<div class="col-sm-1">
+							 <label control-label" style="color: #FFFFCC"><b>Número: </b></label>
+							</div>
+							<div class="col-sm-1">
+							 <input id="streetNumberLocal" type="text" class="form-control"/>
+							</div> 
 						</div>
 				  
 						<div class="form-group">
-							<label for="favourite-music" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Música favorita: </b></label>
+							<label for="poblation" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Población: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="favourite-music" name="favourite-music" value="<?php echo $_SESSION['music']; ?>">
-							</div>
-						</div>
-				  
-						<div class="form-group">
-							<label for="favourite-drink" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Bebida favorita: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="favourite-drink" name="favourite-drink" value="<?php echo $_SESSION['drink']; ?>">
-							</div>
-						</div>
-				  
-						<div class="form-group">
-							<label for="marital-status" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Estado civil: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="marital-status" value="<?php echo $_SESSION['civil_state']; ?>">
+							  <input type="text" class="form-control" id="poblation" value="<?php //echo $_SESSION['poblation']; ?>">
 							</div>
 						</div>
 						  
 						<div class="form-group">
-							<label for="city" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Ciudad actual: </b></label>
+							<label for="postal-code" class="col-sm-2 control-label" style="color: #FFFFCC"><b>C.P.: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="city" name="city" value="<?php echo $_SESSION['city']; ?>">
+							  <input type="text" class="form-control" id="postal-code" name="postal-code" value="<?php //echo $_SESSION['postal-code']; ?>">
+							</div>
+						</div>
+						  
+						<div class="form-group">
+							<label for="prices" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Precio bebidas: </b></label>
+							<div class="col-sm-8">
+							  <input type="text" class="form-control" id="prices" name="prices" value="<?php //echo $_SESSION['drink-price']; ?>">
+							</div>
+						</div>
+				  
+						<div class="form-group">
+							<label for="music-style" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Estilo de música: </b></label>
+							<div class="col-sm-8">
+							  <input type="text" class="form-control" id="music-style" name="music-style" value="<?php echo $_SESSION['music']; ?>">
 							</div>
 						</div>
 						  
