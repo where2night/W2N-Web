@@ -12,7 +12,6 @@
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Style -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
 	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
@@ -337,11 +336,6 @@
 
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/registro.js"></script>
-	<script type="text/javascript" src="../js/login-web.js"></script>
-	<script type="text/javascript" src="../js/login-facebook.js"></script>
-	<script type="text/javascript" src="../js/connectFacebook.js"></script>
-
 
 </body>
 </html>
