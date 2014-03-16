@@ -16,7 +16,6 @@ session_start();
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Styles -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
 	<link href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
