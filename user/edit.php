@@ -222,14 +222,14 @@ session_start();
 			</li>
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
+				<a href="events.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Eventos</span>
 				</a>
 			</li>
 			<li class="photos.php">
 				<span class="glow"></span>
-				<a href="">
+				<a href="photos.php">
 					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Fotos</span>
 				</a>
