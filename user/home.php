@@ -156,21 +156,21 @@ session_start();
           <span class="glow"></span>
           <a href="profile.php">
               <i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
-              <span> <a href="profile.php">Mi Perfil </a> </span>
+              <span>Mi Perfil</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="events.php">
               <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
-              <span><a href="events.php">Eventos </a></span>
+              <span>Eventos</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
           <a href="photos.php">
               <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
-              <span><a href="photos.php">Fotos </a></span>
+              <span>Fotos </span>
           </a>
         </li>
          <li class="">
