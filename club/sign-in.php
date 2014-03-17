@@ -197,16 +197,16 @@
 				  
 				  <tr>
 					<td>
-						<p class="navbar-text"><b style="color: #FFFFCC"> Dirección </b></p>
+						<p class="navbar-text"><b style="color: #FFFFCC" required> Dirección </b></p>
 
 						<p class="navbar-text">
-							<select id="street">
+							<select id="street" required>
 								<option value="0" selected="1">Calle</option>
 								<option value="1" >Avd.</option>
 								<option value="2" >Plaza</option>
 							</select>
-						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" /></p>
-						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" /></p>
+						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" required /></p>
+						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" required /></p>
 					   </p>
 					 </td>
 						
@@ -217,8 +217,8 @@
 						<div class="checkbox">
 								<label>
 									<p class="navbar-text">
-										<input type="checkbox" value="" id="Terms & Conditions">
-										<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
+										<input type="checkbox" value="" id="Terms & Conditions" required>
+										<b style="color: #FFFFCC">Acepto los términos y condiciones </b>
 									</p>
 								</label>
 							</div>
@@ -227,7 +227,7 @@
 				  </tr>
 				  
 				  <tr align="center">
-					<td><input name="registerLocal"  class="btn" type="submit" value="Enviar solicitud" onclick="ButtonRegisterDJ()/></td>
+					<td><input name="registerLocal"  class="btn" type="submit" value="Enviar solicitud" onClick="ButtonRegisterLocal();"/></td>
 				  </tr>
 			</table>
 		</form>
