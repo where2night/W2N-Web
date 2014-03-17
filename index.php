@@ -205,8 +205,6 @@
 				</div>
 			</div>
 		</div> 
-		<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">&lsaquo;</a>	
-		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">&rsaquo;</a>
 		
 	</div>
 	<!-- Important that they are here -->
