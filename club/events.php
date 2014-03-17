@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Eventos Fiestero</title>
+	<title>Eventos Club</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -239,123 +239,21 @@
 		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
-			<li class="active"><a href="#Events" data-toggle="tab" >Proximos Eventos</a></li>
-			<li><a href="#Lists" data-toggle="tab">Listas de locales</a></li>
-			<li><a href="#MyEvents" data-toggle="tab">Mis eventos</a></li>
+			<li class="active"><a href="#MyEvents" data-toggle="tab">Eventos club</a></li>
+			<li><a href="#NewEvent" data-toggle="tab" >Crear evento</a></li>
 		</ul>
 		
 		<!-- Tab panes -->
 		<div class="tab-content">
 			
-			<div class="tab-pane active" id="Events" style="margin-left: 35px; margin-right: 200px;">
-				
-				<!-- Next Events -->
-						<div  class="timeline">
-							<ul>
-								<li>
-									<div class="timeline-title orangeBox1 ">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>NOMBRE CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">31/01/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-									</div>
-								</li>
-								<li>
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>NOMBRE DJ</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-										
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-									</div>
-								</li>
-								<li>
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>NOMBRE CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-										<img src="../images/copas.jpg" alt="" />
-									</div>
-								</li>
-							</ul>
-						</div>
-						</div><!-- col-md-5-->
-						
-				
-			
-			<div class="tab-pane" id="Lists" style="margin-left: 120px" > 
-			
-			  <div class="latest-tweets orangeBox1 " style="width:80%; margin-top:15px">
-					
-							<div class="latest-tweets-head" >
-								<span ><i class="glyphicon glyphicon-glass" style="color:#FF6B24"></i>LISTA LOCAL 1</span>
-								<label style=" color:#FF6B24; float: right; margin-top: 6px; margin-left: 5px"> Me apunto</label> <i class="glyphicon glyphicon-ok"style="color:#FF6B24; float: right; top: 6px"></i>
-							</div> 
-							
-					
-						 
-						 <ul class="orangeBox1">
-									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i></a>
-									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
-									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
-									</li>
-								</ul>
-								
-							  
-						</div> 
-						
-						 
-						
-						 <div class="latest-tweets orangeBox1" style="width:80%; margin-top:15px">
-							
-							<div class="latest-tweets-head" >
-								<span ><i class="glyphicon glyphicon-glass"style="color:#FF6B24"></i>LISTA LOCAL 2</span>
-								<label style=" color:#FF6B24; float: right; margin-top: 6px; margin-left: 5px"> Me apunto</label> <i class="glyphicon glyphicon-ok"style="color:#FF6B24; float: right; top: 6px"></i>
-							</div>
-								<ul class="orangeBox1">
-									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i></a>
-									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
-									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
-									</li>
-								</ul>
-					
-						</div>
-			
-			</div>
-			
-			
-			
-			<div class="tab-pane" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane active" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
 				
 				<div  class="timeline">
 							<ul>
 								<li>
-									<div class="timeline-title orangeBox1 ">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">31/01/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-									</div>
-									
-								</li>
-								<li>
 									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ</h6>
+										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
+										<h6>EVENTO CLUB 1</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
 										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 										
@@ -365,9 +263,20 @@
 								<li>
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
+										<h6>EVENTO CLUB 2</h6>
+										<i class="glyphicon glyphicon-time" style="color:#FF6B24">02/02/2014</i>
+										<a class="orangeBox1"><i class="glyphicon glyphicon-trash" style="color:#000"></i>Borrar</a>
+										
+									</div>
+									
+								</li>
+								<li>
+									<div class="timeline-title orangeBox1">
+										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
+										<h6>EVENTO CLUB 3</h6>
+										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
 										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										
 									</div>
 									
 								</li>
@@ -375,9 +284,10 @@
 								<li>
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>LISTA LOCAL</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
+										<h6>EVENTO CLUB 4</h6>
+										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
 										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										
 									</div>
 									
 								</li>
@@ -385,6 +295,60 @@
 						</div>
 						</div><!-- col-md-5-->
 				
+				
+				<div class="tab-pane" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
+				
+				<!-- New Events -->
+				
+				<table border="0" style="margin-top: 1%; margin-left: 5%">
+				
+					<tr>
+						<td>
+							<h3 style="color: #F4A460; margin-left: 15%;"><em>TÍTULO</em></h3>
+						</td>
+						
+						<td>
+							<input id="Title"  type="text" size="50%" class="form-control" placeholder="Título del evento" required style="margin-left: 5%; margin-top: 5%; color: #000000;background-color: #d3d3d3"/>
+						</td>
+					</tr>
+					
+						<td colspan="2">
+							<h3 style="color: #F4A460; margin-left: 30% "><em>DESCRIPCIÓN</em></h3>
+						</td>
+					
+					
+					<tr>
+					     <td colspan="2">
+							<textarea id="Description"  class="form-control"  size="50%"  style="margin-left: 5%; margin-top: 5%; height:200px;color: #000000;background-color: #d3d3d3"></textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2">
+							<h3 style="color: #F4A460; margin-left: 5%; margin-top: 8% "><em>FOTO DE PROMOCIÓN</em></h3>
+						</td>
+				
+					</tr>
+					
+					<tr>
+					   <td colspan="2">
+							<input type=file size=50 style="color: #F4A460; margin-left: 5% "/>
+						</td>
+					</tr>
+				
+				<tr>
+						<td colspan="2">
+							 <button type="submit" class="btn btn-default" onClick="NewEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
+						</td>
+				
+					
+				</tr>
+				
+				
+				</table>
+				
+						
+			    </div>
 				
 				</div>
 	 </td>

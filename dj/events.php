@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Eventos Fiestero</title>
+	<title>Eventos DJ</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -299,10 +299,62 @@
 				<div class="tab-pane" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
 				
 				<!-- New Events -->
+				
+
+				<table border="0" style="margin-top: 1%; margin-left: 5%">
+				
+					<tr>
+						<td>
+							<h3 style="color: #F4A460; margin-left: 15%;"><em>TÍTULO</em></h3>
+						</td>
 						
+						<td>
+							<input id="Title"  type="text" size="50%" class="form-control" placeholder="Título del evento" required style="margin-left: 5%; margin-top: 5%; color: #000000;background-color: #d3d3d3"/>
+						</td>
+					</tr>
+					
+						<td colspan="2">
+							<h3 style="color: #F4A460; margin-left: 30% "><em>DESCRIPCIÓN</em></h3>
+						</td>
+					
+					
+					<tr>
+					     <td colspan="2">
+							<textarea id="Description"  class="form-control"  size="50%"  style="margin-left: 5%; margin-top: 5%; height:200px;color: #000000;background-color: #d3d3d3"></textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2">
+							<h3 style="color: #F4A460; margin-left: 5%; margin-top: 8% "><em>FOTO DE PROMOCIÓN</em></h3>
+						</td>
+				
+					</tr>
+					
+					<tr>
+					   <td colspan="2">
+							<input type=file size=50 style="color: #F4A460; margin-left: 5% "/>
+						</td>
+					</tr>
+				
+				<tr>
+						<td colspan="2">
+							 <button type="submit" class="btn btn-default" onClick="NewEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
+						</td>
+				
+					
+				</tr>
+				
+				
+				</table>
+				
+
+
+
+				
 			    </div>
 				
-				</div>
+		</div>
 	 </td>
 		
 		
