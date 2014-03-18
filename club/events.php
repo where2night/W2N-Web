@@ -93,7 +93,9 @@
 	   
 	</script>
     
-	
+	<script type='text/javascript'>
+    id = 4;
+	</script>
 
 <?php 
   	/*NavbarHeader*/
@@ -115,7 +117,7 @@
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
 			<li class="active"><a href="#MyEvents" data-toggle="tab">Eventos club</a></li>
-			<li><a href="#NewEvent" data-toggle="tab" >Crear evento</a></li>
+			<li><a href="#NewEvent" data-toggle="tab" onclick="clean();">Crear evento</a></li>
 		</ul>
 		
 		<!-- Tab panes -->
@@ -124,7 +126,7 @@
 			<div class="tab-pane active" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
 				
 				<div  class="timeline">
-							<ul>
+							<ul id="ul">
 								<li id="button1">
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
@@ -207,13 +209,13 @@
 					
 					<tr>
 					   <td colspan="2">
-							<input type=file size=50 style="color: #F4A460; margin-left: 5% "/>
+							<input type=file size=50 style="color: #F4A460; margin-left: 5% " id="upload"/>
 						</td>
 					</tr>
 				
 				<tr>
 						<td colspan="2">
-							 <button type="submit" class="btn btn-default" onClick="NewEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
+							 <button type="submit" class="btn btn-default" onClick="newEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
 						</td>
 				
 					

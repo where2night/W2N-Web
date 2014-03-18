@@ -101,7 +101,7 @@ session_start();
 	include "templates/navbar-header.php";
 
  	 /*Sidebar*/
-  	include "templates/sidebar.php";
+  	//include "templates/sidebar.php";
 ?>
 
 	<!-- My profile -->
