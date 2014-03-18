@@ -23,7 +23,7 @@
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
    <script src="../js/tab.js"></script>
-   
+   <script src="../js/events.js"></script>
 
 </head>
 
@@ -211,41 +211,41 @@
 				
 				<div  class="timeline">
 							<ul>
-								<li>
+								<li id="button1">
 									<div class="timeline-title orangeBox1 ">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
 										<h6>EVENTO CLUB</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">31/01/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										<a class="orangeBox1" id="button1" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 									</div>
 									
 								</li>
-								<li>
+								<li id="button2">
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
 										<h6>EVENTO DJ</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										<a class="orangeBox1" id="button2" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 										
 									</div>
 									
 								</li>
-								<li>
+								<li id="button3">
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
 										<h6>EVENTO CLUB</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										<a class="orangeBox1" id="button3" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 									</div>
 									
 								</li>
 								
-								<li>
+								<li id="button4">
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
 										<h6>LISTA LOCAL</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
+										<a class="orangeBox1" id="button4" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 									</div>
 									
 								</li>
