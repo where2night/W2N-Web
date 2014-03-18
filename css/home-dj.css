@@ -891,6 +891,52 @@ border: 1px solid #FF6B24 ;
 	border-right-color: #FF6B24;
 	border-top-color: #FF6B24;
 	border-bottom-color: #FF6B24;}
+.botonanadir{
+	
+	padding:5px 10px 5px 10px;
+	background:#4B36AF;color:#FF6B24;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px;
+}
 
+.botonanadir:hover{
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#404040;
+}
+
+.botoneditar{
+	
+	padding:5px 10px 5px 10px;
+	background:#4B36AF;color:#FF6B24;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px;
+}
+
+.botoneditar:hover{
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#404040;
+}
 
 	
