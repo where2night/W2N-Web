@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-	<title>Eventos DJ</title>
+	<title>W2N-Events DJ</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -18,12 +18,47 @@
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    
     <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.7.2.custom.css" />
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-   <script src="../js/tab.js"></script>
-   <script src="../js/events.js"></script>
+    <!-- script -->
+	<script src="../js/tab.js"></script>
+	<script src="../js/fecha.js"></script>
+   	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/events.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+ 	<script type="text/javascript">
+jQuery(function($){
+	$.datepicker.regional['es'] = {
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+
+        $(document).ready(function() {
+           $("#datepicker").datepicker();
+        });
+    </script>
+
+	<!-- /script -->
 
 </head>
 
@@ -70,12 +105,46 @@
 
 		}
 		
-	.elementosconhover:hover {
-	opacity:0.6;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=29)";
-	filter:alpha(opacity=19);
+		
+.Mybutton {
+    background-color:#F4A460;
+    padding:10px;
+    position:relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#000;
+    box-shadow: inset 0px 1px 0px #b2f17f, 0px 6px 0px ##F4A460;
+    border-radius: 5px;
+}
+ 
+.Mybutton:active {
+    top:7px;
+    box-shadow: inset 0px 1px 0px #b2f17f, inset 0px -1px 0px ##F4A460;
+    color: #000;
+}
+    
 
-	}
+.Mybutton::before {
+    background-color:#F4A460;
+    content:"";
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    padding-left:2px;
+    padding-right:2px;
+    padding-bottom:4px;
+    left:-2px;
+    top:5px;
+    z-index:-1;
+    border-radius: 6px;
+    box-shadow: 0px 1px 0px #fff;
+}
+ 
+.Mybutton:active::before {
+    top:-2px;
+}
 
 
 	 </style>
@@ -89,8 +158,6 @@
 	   
 	</script>
     
-	
-	
 <?php 
   	/*NavbarHeader*/
  	include "templates/navbar-header.php";
@@ -110,122 +177,113 @@
 		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
-			<li class="active"><a href="#MyEvents" data-toggle="tab">Eventos DJ</a></li>
-			<li><a href="#NewEvent" data-toggle="tab" >Crear evento</a></li>
+			<li class="active"><a href="#NewEvent" data-toggle="tab" onclick="clean();">Crear evento</a></li>
+			<li ><a href="#MyEvents" data-toggle="tab">Eventos DJ</a></li>
+			
 		</ul>
 		
 		<!-- Tab panes -->
 		<div class="tab-content">
 			
-			<div class="tab-pane active" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
 				
 				<div  class="timeline">
-							<ul>
-								<li id="button1">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ 1</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button1" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
-								<li id="button2">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ 2</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1"id="button2" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
-								<li id="button3">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ 3</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button3" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
+							<ul id="ul">
 								
-								<li id="button4">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ 4</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button4" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
 							</ul>
-						</div>
-						</div><!-- col-md-5-->
+				</div>
+			</div><!-- col-md-5-->
 				
 				
-				<div class="tab-pane" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane active" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
 				
 				<!-- New Events -->
+				<div style="float: left">
+					<h3 style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>TÍTULO</em></h3>
+				</div>
 				
-
-				<table border="0" style="margin-top: 1%; margin-left: 5%">
+				<div style="float: left;margin-top: 2%;margin-left:5%; margin-bottom: 5%">
+					<input id="Title" type="text" style="width: 400px;background-color: #d3d3d3" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
+				</div>
 				
-					<tr>
-						<td>
-							<h3 style="color: #F4A460; margin-left: 15%;"><em>TÍTULO</em></h3>
-						</td>
+				<div style="float: right; margin-top: 3%; margin-right: 2%">
+				 	<img src="../images/logo7_opt.png">
+				 </div>		
+				
+				<div style="clear: left" >
+					<h3 style="color: #F4A460; margin-left: 25%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>DESCRIPCIÓN</em></h3>
+				    <div style="float: right">
+				    	<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">Fecha</label>
+				        <input type="text" id="datepicker" readonly="readonly" size="12" style="width: 40%;background-color: #d3d3d3;color: #000" />
+				    </div>
+				</div>		
 						
-						<td>
-							<input id="Title"  type="text" size="50%" class="form-control" placeholder="Título del evento" required style="margin-left: 5%; margin-top: 5%; color: #000000;background-color: #d3d3d3"/>
-						</td>
-					</tr>
-					
-						<td colspan="2">
-							<h3 style="color: #F4A460; margin-left: 30% "><em>DESCRIPCIÓN</em></h3>
-						</td>
-					
-					
-					<tr>
-					     <td colspan="2">
-							<textarea id="Description"  class="form-control"  size="50%"  style="margin-left: 5%; margin-top: 5%; height:200px;color: #000000;background-color: #d3d3d3"></textarea>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<h3 style="color: #F4A460; margin-left: 5%; margin-top: 8% "><em>FOTO DE PROMOCIÓN</em></h3>
-						</td>
 				
-					</tr>
-					
-					<tr>
-					   <td colspan="2">
-							<input type=file size=50 style="color: #F4A460; margin-left: 5% "/>
-						</td>
-					</tr>
+				<div style="clear: left; margin-top: 5%"> 
+					<textarea id="Description"  class="form-control" style="height:200px; width:525px ;color: #000000;background-color: #d3d3d3"></textarea>
+				</div>
 				
-				<tr>
-						<td colspan="2">
-							 <button type="submit" class="btn btn-default" onClick="NewEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
-						</td>
+					<div style="clear: left;margin-top: 5%;margin-right: 8%">
+				 
+				   	<div>
+				 		<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">inicio evento</label>
+						<label style="color: #F4A460;margin-left:15%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">fin evento</label>
+					</div>
+					<div>
+						<select id="hour-init" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
+	            		<select id="minutes-init" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
+	            
+						<select id="hour" style="width: 10%; margin-left: 15%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
+	            		<select id="minutes" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
+	            	</div>
+				</div>
+			
 				
-					
-				</tr>
 				
+				<div style="float: right;margin-top: 5%;margin-right: 8%">
+				 	<img src="../images/logo3_opt.png">
+				 </div>
 				
-				</table>
+				<div style="clear: left; margin-top: 5%"> 
+					<h3 style="color: #F4A460; margin-left: 5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>FOTO DE PROMOCIÓN</em></h3>
+				</div>
 				
-
-
-
+				<div style="clear: left; margin-top: 3%"> 
+					<input type=file size=50 style="color: #F4A460; margin-left: 5% " id="upload"/>
+				 </div>
+				 
+				 
 				
-			    </div>
+				<div style="float: left">
+					<button type="submit" class="Mybutton" onClick="newEvent('dj');" style="margin-left: 70%;margin-top: 8%">crear evento</button>
+				</div>
+			
+			
+			</div>
 				
-		</div>
+				</div>
 	 </td>
 		
 		
@@ -233,12 +291,9 @@
 
 	</table>
 
-	<!--/Events>
+	<!--/Events>-->
 
-	<!-- script -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- /script -->
+	
 
 </body>
 </html>

@@ -23,6 +23,7 @@
     
     <!-- script -->
 	<script src="../js/tab.js"></script>
+	<script src="../js/fecha.js"></script>
    	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>
@@ -104,12 +105,46 @@ jQuery(function($){
 
 		}
 		
-	.elementosconhover:hover {
-	opacity:0.6;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=29)";
-	filter:alpha(opacity=19);
+		
+.Mybutton {
+    background-color:#F4A460;
+    padding:10px;
+    position:relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#000;
+    box-shadow: inset 0px 1px 0px #b2f17f, 0px 6px 0px ##F4A460;
+    border-radius: 5px;
+}
+ 
+.Mybutton:active {
+    top:7px;
+    box-shadow: inset 0px 1px 0px #b2f17f, inset 0px -1px 0px ##F4A460;
+    color: #000;
+}
+    
 
-	}
+.Mybutton::before {
+    background-color:#F4A460;
+    content:"";
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    padding-left:2px;
+    padding-right:2px;
+    padding-bottom:4px;
+    left:-2px;
+    top:5px;
+    z-index:-1;
+    border-radius: 6px;
+    box-shadow: 0px 1px 0px #fff;
+}
+ 
+.Mybutton:active::before {
+    top:-2px;
+}
 
 
 	 </style>
@@ -164,11 +199,11 @@ jQuery(function($){
 				
 				<!-- New Events -->
 				<div style="float: left">
-					<h3 style="color: #F4A460"><em>TÍTULO</em></h3>
+					<h3 style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>TÍTULO</em></h3>
 				</div>
 				
 				<div style="float: left;margin-top: 2%;margin-left:5%; margin-bottom: 5%">
-					<input id="Title" type="text" style="width: 400px" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
+					<input id="Title" type="text" style="width: 400px;background-color: #d3d3d3" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
 				</div>
 				
 				<div style="float: right; margin-top: 3%; margin-right: 2%">
@@ -176,10 +211,10 @@ jQuery(function($){
 				 </div>		
 				
 				<div style="clear: left" >
-					<h3 style="color: #F4A460; margin-left: 25%"><em>DESCRIPCIÓN</em></h3>
+					<h3 style="color: #F4A460; margin-left: 25%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>DESCRIPCIÓN</em></h3>
 				    <div style="float: right">
-				    	<label style="color: #F4A460;margin-right:5% ">Fecha</label>
-				        <input type="text" id="datepicker" readonly="readonly" size="12" style="width: 50%" />
+				    	<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">Fecha</label>
+				        <input type="text" id="datepicker" readonly="readonly" size="12" style="width: 40%;background-color: #d3d3d3;color: #000" />
 				    </div>
 				</div>		
 						
@@ -188,12 +223,52 @@ jQuery(function($){
 					<textarea id="Description"  class="form-control" style="height:200px; width:525px ;color: #000000;background-color: #d3d3d3"></textarea>
 				</div>
 				
+				<div style="clear: left;margin-top: 5%;margin-right: 8%">
+				 
+				   	<div>
+				 		<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">inicio evento</label>
+						<label style="color: #F4A460;margin-left:15%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">fin evento</label>
+					</div>
+					<div>
+						<select id="hour-init" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
+	            		<select id="minutes-init" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
+	            
+						<select id="hour" style="width: 10%; margin-left: 15%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
+	            		<select id="minutes" style="width: 10%;background-color: #d3d3d3">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
+	            	</div>
+				</div>
+				 
+				
 				<div style="float: right;margin-top: 5%;margin-right: 8%">
 				 	<img src="../images/logo3_opt.png">
 				 </div>
 				
+				
+				
 				<div style="clear: left; margin-top: 5%"> 
-					<h3 style="color: #F4A460; margin-left: 5%"><em>FOTO DE PROMOCIÓN</em></h3>
+					<h3 style="color: #F4A460; margin-left: 5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>FOTO DE PROMOCIÓN</em></h3>
 				</div>
 				
 				<div style="clear: left; margin-top: 3%"> 
@@ -203,7 +278,7 @@ jQuery(function($){
 				 
 				
 				<div style="float: left">
-					<button type="submit" class="btn btn-default" onClick="newEvent();" style="color: #000000;margin-left: 70%;margin-top: 8%">Crear evento</button>
+					<button type="submit" class="Mybutton" onClick="newEvent('club');" style="margin-left: 70%;margin-top: 8%">crear evento</button>
 				</div>
 			
 			
