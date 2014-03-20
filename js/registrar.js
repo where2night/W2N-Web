@@ -49,7 +49,7 @@ if(terms){
 								man2 = "male";
 							else man2 = "female";
 							$.ajax({
-									url: "api/registerFiestero.php",
+									url: "../api/registerFiestero.php",
 									dataType: "json",
 									type: "POST",
 									data: {
@@ -81,8 +81,6 @@ if(terms){
 		} else alert("Introduce el mismo email en los dos campos");
 		
 	} else alert("Tienes que selecionar hombre o mujer");
-
-
 
 } else alert("No has aceptado los terminos y condiciones");
 
@@ -141,8 +139,9 @@ if(terms){
 											man2 = "male";
 										else man2 = "female";
 										alert("registro correcto");
+										
 										$.ajax({
-												url: "registerDj.php",
+												url: "../api/registerDj.php",
 												dataType: "json",
 												type: "POST",
 												data: {
@@ -195,76 +194,88 @@ if(terms){
 
 function ButtonRegisterLocal()
 {
-	/* Getting the data entered by the user in the request 
-	*/
-	var terms=document.getElementById("Terms & Conditions").checked;
-	var emailLocal= document.getElementById("emailLocal").value;
-	var confirmationemail= document.getElementById("confirmationEmailLocal").value;
-	var localName= document.getElementById("localName").value;
-	var companyNameLocal= document.getElementById("companyNameLocal").value;
-	var cif= document.getElementById("cif").value;
-	var telephoneLocal=document.getElementById("telephoneLocal").value;
-	var poblationLocal= document.getElementById("poblationLocal").value;
-	var cpLocal=document.getElementById("cpLocal").value;
-	var streetNameLocal = document.getElementById("streetNameLocal").value;
-	var streetNumberLocal = document.getElementById("streetNumberLocal").value;
-	var street = document.getElementById("street").value;
-	if (emailLocal!="")	{
-		if(emailLocal==confirmationemail ){
-			if (terms!="" && localName!="" && companyNameLocal!="" && cif!="" && telephoneLocal!="" && poblationLocal!=""
-				&& cpLocal!="" && streetNameLocal!="" && streetNumberLocal!="" && street!=""){
-					alert("registro correcto");	  
-					/* If  have filled in all the required data, they are sent to our database to be verified
-					*/
-					$.ajax({
-							url: "api/registerLocal.php",
-							dataType: "json",
-							type: "POST",
-							data: {
-									companyNameLocal: companyNameLocal,
-									localName: localName,
-									cif:cif,
-									poblationLocal: poblationLocal,
-									cpLocal: cpLocal,
-									telephoneLocal:telephoneLocal,
-									emailLocal: emailLocal,
-									street: street,
-									streetNameLocal: streetNameLocal,
-									streetNumberLocal: streetNumberLocal
-								},
-							complete: function(r){
-										var json = JSON.parse(r.responseText);
-									
-										if(json.Token!=0){
-										/*If the data are correct, it has made a successful registration*/
-											redirectLocal();
-										} else alert("Registro incorrecto");
-								},
-							onerror: function(e,val){
-									alert("Hay error");
-								}
-					});
-			}
-																				
-		} else alert("Introduce el mismo email en los dos campos");
-	}					
+	 var terms=document.getElementById("Terms & Conditions").checked;
+
+	if(terms){
+
+		var emailLocal= document.getElementById("emailLocal").value;
+		var confirmationemail= document.getElementById("confirmationEmailLocal").value;
+		
+		if(emailLocal==confirmationemail && emailLocal!=""){
+			
+			var localName= document.getElementById("localName").value;
+			var companyNameLocal= document.getElementById("companyNameLocal").value;
+								
+			if(localName!="" && companyNameLocal!=""){
+				var cif= document.getElementById("cif").value;
+				if(cif=="")alert("introduce cif");
+				else{
+
+					var telephoneLocal=document.getElementById("telephoneLocal").value;
+					if(telephoneLocal!=""){
+				 
+						var poblationLocal= document.getElementById("poblationLocal").value;
+						var cpLocal=document.getElementById("cpLocal").value;
+						
+						if(poblationLocal!="" && cpLocal!=""){
+				 
+							var streetNameLocal = document.getElementById("streetNameLocal").value;
+							var streetNumberLocal = document.getElementById("streetNumberLocal").value;
+							var street = document.getElementById("street").value;
+							
+							if(streetNameLocal!="" && streetNumberLocal!=""){
+							  alert("registro correcto");
+							  
+							  alert(street);	  
+							  $.ajax({
+											url: "../api/registerLocal.php",
+											dataType: "json",
+											type: "POST",
+											data: {
+												companyNameLocal: companyNameLocal,
+												localName: localName,
+												cif:cif,
+												poblationLocal: poblationLocal,
+												cpLocal: cpLocal,
+												telephoneLocal:telephoneLocal,
+												emailLocal: emailLocal,
+												street: street,
+												streetNameLocal: streetNameLocal,
+												streetNumberLocal: streetNumberLocal
+											},
+											complete: function(r){
+													var json = JSON.parse(r.responseText);
+												
+													if(json.Token!=0){
+														redirectLocal();
+													} else alert("Registro incorrecto");
+											},
+											onerror: function(e,val){
+												alert("Hay error");
+											}
+										});
+							 }else alert ("Introduce dirección");					
+						}else alert("Introduce población y cp")		  
+				  }else alert("Introduce teléfono");
+				  
+				  }
+			}else alert("Introduce nombre local y compañía");
+		} else alert("Introduce el mismo email en los dos campos");	
+	} else alert("No has aceptado los términos y condiciones");					
 	
 }
 
 function redirectHomeFiestero(){
-/////////////////////////////CAMBIAR
 	alert("registro efectuado correctamente!!");
 	window.location.href="http://www.where2night.es";		
 }
 
 function redirectHomeLocal(){
-/////////////////////////////CAMBIAR
-	alert("registro efectuado correctamente!!");
+	alert("registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web !!");
 	window.location.href="http://www.where2night.es";		
 }
  
  function redirectHomeDj(){
-/////////////////////////////CAMBIAR
 	alert("registro efectuado correctamente!!");
 	window.location.href="http://www.where2night.es";		
 }
