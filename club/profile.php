@@ -135,14 +135,19 @@
 						</h1>
 						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localizacón local</p>
 					</div>
+					<div>
+						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
+					</div>
                    	 </div>
 		</div><!-- col-md-12 -->
         </div><!-- row -->
-           	<div class="row">
+			
+			<div class="row">
 			<div class="col-md-12 the-timeline-margin">
                         <div class="col-md-6">
                         
 					<!-- Begin timeline Events -->
+						
                   		<div class="titulos">
                         <ul><li>EVENTOS</li></ul>
                        
@@ -301,7 +306,10 @@
                        
                         </div>
               <div class="mapa">
-              	<li>Dirección,número de télefono,MAPA...</li>
+              	<li>
+				<?php include "map.php";?>
+				
+				</li>
               </div>
 					    
              </div><!-- col-md-12 -->
