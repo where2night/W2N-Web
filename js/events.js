@@ -6,24 +6,20 @@ var parent = element.parentNode;
 parent.removeChild(element);
 
 //aqui habria que eliminar el evento de la base de datos
-// habria que pasarle el id
-
-
+// habria que pasarle el id evento y el id del profile
 }
 
 function newEvent() {
 
-id=id+1;
-
 var title = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
-var fileName = document.getElementById('upload').value;
-
-var date = new Date();
-var actualdate=date.getDate() + "/" + (date.getMonth() +1) + "/" + date.getFullYear();
-
+//var fileName = document.getElementById('upload').value;
+var id=1;
 
 if (!(title=="")){
+
+//le paso el idProfile,title,text,Date,StartHour,closehour y me devuelve el id
+
 
 var events=document.getElementById('ul').innerHTML;
 events=events.concat("<li id='button");

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
 	<title>W2N-Events Club</title>
     <meta name="description" content="Where2Night"/>
@@ -18,15 +18,45 @@
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    
     <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.7.2.custom.css" />
     
     <!-- script -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-   <script src="../js/tab.js"></script>
-   <script src="../js/jquery.js"></script>
+	<script src="../js/tab.js"></script>
+   	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+ 	<script type="text/javascript">
+jQuery(function($){
+	$.datepicker.regional['es'] = {
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+
+        $(document).ready(function() {
+           $("#datepicker").datepicker();
+        });
+    </script>
+
 	<!-- /script -->
 
 </head>
@@ -93,10 +123,6 @@
 	   
 	</script>
     
-	<script type='text/javascript'>
-    id = 4;
-	</script>
-
 <?php 
   	/*NavbarHeader*/
  	include "templates/navbar-header.php";
@@ -116,116 +142,72 @@
 		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
-			<li class="active"><a href="#MyEvents" data-toggle="tab">Eventos club</a></li>
-			<li><a href="#NewEvent" data-toggle="tab" onclick="clean();">Crear evento</a></li>
+			<li class="active"><a href="#NewEvent" data-toggle="tab" onclick="clean();">Crear evento</a></li>
+			<li ><a href="#MyEvents" data-toggle="tab">Eventos club</a></li>
+			
 		</ul>
 		
 		<!-- Tab panes -->
 		<div class="tab-content">
 			
-			<div class="tab-pane active" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane" id="MyEvents" style="margin-left: 35px; margin-right: 200px;">
 				
 				<div  class="timeline">
 							<ul id="ul">
-								<li id="button1">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB 1</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button1" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
-								<li id="button2">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB 2</h6>
-										<i class="glyphicon glyphicon-time" style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button2" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash" style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
-								<li id="button3">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB 3</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button3" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
 								
-								<li id="button4">
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>EVENTO CLUB 4</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1" id="button4" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
-										
-									</div>
-									
-								</li>
 							</ul>
-						</div>
-						</div><!-- col-md-5-->
+				</div>
+			</div><!-- col-md-5-->
 				
 				
-				<div class="tab-pane" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
+			<div class="tab-pane active" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
 				
 				<!-- New Events -->
+				<div style="float: left">
+					<h3 style="color: #F4A460"><em>TÍTULO</em></h3>
+				</div>
 				
-				<table border="0" style="margin-top: 1%; margin-left: 5%">
+				<div style="float: left;margin-top: 2%;margin-left:5%; margin-bottom: 5%">
+					<input id="Title" type="text" style="width: 400px" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
+				</div>
 				
-					<tr>
-						<td>
-							<h3 style="color: #F4A460; margin-left: 15%;"><em>TÍTULO</em></h3>
-						</td>
+				<div style="float: right; margin-top: 3%; margin-right: 2%">
+				 	<img src="../images/logo7_opt.png">
+				 </div>		
+				
+				<div style="clear: left" >
+					<h3 style="color: #F4A460; margin-left: 25%"><em>DESCRIPCIÓN</em></h3>
+				    <div style="float: right">
+				    	<label style="color: #F4A460;margin-right:5% ">Fecha</label>
+				        <input type="text" id="datepicker" readonly="readonly" size="12" style="width: 50%" />
+				    </div>
+				</div>		
 						
-						<td>
-							<input id="Title"  type="text" size="50%" class="form-control" placeholder="Título del evento" required style="margin-left: 5%; margin-top: 5%; color: #000000;background-color: #d3d3d3"/>
-						</td>
-					</tr>
-					
-						<td colspan="2">
-							<h3 style="color: #F4A460; margin-left: 30% "><em>DESCRIPCIÓN</em></h3>
-						</td>
-					
-					
-					<tr>
-					     <td colspan="2">
-							<textarea id="Description"  class="form-control"  size="50%"  style="margin-left: 5%; margin-top: 5%; height:200px;color: #000000;background-color: #d3d3d3"></textarea>
-						</td>
-					</tr>
-					
-					<tr>
-						<td colspan="2">
-							<h3 style="color: #F4A460; margin-left: 5%; margin-top: 8% "><em>FOTO DE PROMOCIÓN</em></h3>
-						</td>
 				
-					</tr>
-					
-					<tr>
-					   <td colspan="2">
-							<input type=file size=50 style="color: #F4A460; margin-left: 5% " id="upload"/>
-						</td>
-					</tr>
+				<div style="clear: left; margin-top: 5%"> 
+					<textarea id="Description"  class="form-control" style="height:200px; width:525px ;color: #000000;background-color: #d3d3d3"></textarea>
+				</div>
 				
-				<tr>
-						<td colspan="2">
-							 <button type="submit" class="btn btn-default" onClick="newEvent();" style="color: #000000;margin-left: 80%;margin-top: 8%">Crear evento</button>
-						</td>
+				<div style="float: right;margin-top: 5%;margin-right: 8%">
+				 	<img src="../images/logo3_opt.png">
+				 </div>
 				
-					
-				</tr>
+				<div style="clear: left; margin-top: 5%"> 
+					<h3 style="color: #F4A460; margin-left: 5%"><em>FOTO DE PROMOCIÓN</em></h3>
+				</div>
 				
+				<div style="clear: left; margin-top: 3%"> 
+					<input type=file size=50 style="color: #F4A460; margin-left: 5% " id="upload"/>
+				 </div>
+				 
+				 
 				
-				</table>
-				
-						
-			    </div>
+				<div style="float: left">
+					<button type="submit" class="btn btn-default" onClick="newEvent();" style="color: #000000;margin-left: 70%;margin-top: 8%">Crear evento</button>
+				</div>
+			
+			
+			</div>
 				
 				</div>
 	 </td>
