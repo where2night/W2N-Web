@@ -203,24 +203,28 @@ jQuery(function($){
 				</div>
 				
 				<div style="float: left;margin-top: 2%;margin-left:5%; margin-bottom: 5%">
-					<input id="Title" type="text" style="width: 400px;background-color: #d3d3d3" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
+					<input id="Title" type="text" style="width: 350px;background-color: #d3d3d3" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
 				</div>
 				
 				<div style="float: right; margin-top: 3%; margin-right: 2%">
-				 	<img src="../images/logo7_opt.png">
+				 	<img src="../images/logo7_gris.png">
 				 </div>		
 				
 				<div style="clear: left" >
-					<h3 style="color: #F4A460; margin-left: 25%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>DESCRIPCIÓN</em></h3>
+					<h3 style="color: #F4A460; margin-left: 10%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>DESCRIPCIÓN</em></h3>
 				    <div style="float: right">
-				    	<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">Fecha</label>
-				        <input type="text" id="datepicker" readonly="readonly" size="12" style="width: 40%;background-color: #d3d3d3;color: #000" />
-				    </div>
+				    	<div>
+							<label style="color: #F4A460;margin-right:3%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">Fecha</label>
+				        </div>
+						<div>
+							<input type="text" id="datepicker" readonly="readonly" size="12" style="width: 35%;background-color: #d3d3d3;color: #000;margin-right:50%" />
+						</div>
+				   </div>
 				</div>		
 						
 				
 				<div style="clear: left; margin-top: 5%"> 
-					<textarea id="Description"  class="form-control" style="height:200px; width:525px ;color: #000000;background-color: #d3d3d3"></textarea>
+					<textarea id="Description"  class="form-control" style="height:200px; width:500px ;color: #000000;background-color: #d3d3d3"></textarea>
 				</div>
 				
 				<div style="clear: left;margin-top: 5%;margin-right: 8%">
@@ -262,7 +266,7 @@ jQuery(function($){
 				 
 				
 				<div style="float: right;margin-top: 5%;margin-right: 8%">
-				 	<img src="../images/logo3_opt.png">
+				 	<img src="../images/logo3_gris.png">
 				 </div>
 				
 				
