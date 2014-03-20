@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Where2Night</title>
+	<title>W2N-Where2Night</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -172,7 +172,7 @@
 	<div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="images/party4.jpg" alt="" />
+				<img src="images/party4.jpg"  alt="" />
                 <div class="container">
                 <div class="subscribe " style="position:fixed">
 				<!-- Labels -->
@@ -198,9 +198,9 @@
                 <div class="container">
 				<div class="subscribe">
 				
-				<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
-				<span id="partier" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
+				<span id="dj" class=" btn styled-button-11"   onclick="registerDj();"><strong>Registro DJ</strong></span>
+				<span id="partier" class=" btn styled-button-11"  "onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
+				<span id="local" class=" btn styled-button-11 "  onclick="registerLocal();"><strong>Registro Local</strong></span>
 				</div>	
 				</div>
 			</div>

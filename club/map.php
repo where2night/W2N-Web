@@ -36,7 +36,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
-    <div id="map-canvas" style="width: 400px; height: 300px;left:410px;"></div>
+    <div id="map-canvas" style="width: 400px; height: 300px;left:400px;top:2px;"></div>
     <div id="pano" style="position:absolute; left:0px; top: 8px; width: 400px; height: 300px;"></div>
   </body>
 </html>

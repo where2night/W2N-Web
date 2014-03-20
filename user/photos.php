@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Fotos Fiestero</title>
+	<title>W2N-Photos User</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -120,7 +120,7 @@
 			
 			<br/> <br/>
 			
-				<img style="margin-left: 5px" src="images/photos_24.png" /> 
+				<img style="margin-left: 5px" src="../images/photos_24.png" /> 
 				<label id="font" style="margin-left: 2px"> Fotos </label>
 				
 				<!-- <input class="button" name="hola" /> --->

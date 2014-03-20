@@ -936,7 +936,7 @@ border: 1px solid #FF6B24 ;
 .botonseguir{
 	
 	padding:8px 20px 8px 20px;
-	
+	text-shadow:none;
 	border-left:0px;
 	border-right:0px;
 	border-bottom:0px;
@@ -957,5 +957,60 @@ border: 1px solid #FF6B24 ;
 	-moz-box-shadow: 0px 0px 10px #ff3ede;
 	box-shadow: 0px 0px 10px #ff3ede;
 	background:#FF6B24;color:#000;
-	color:#1B1E24;
+	color:#000;
+}
+.botonMeApunto{
+	
+	padding:6px 10px 8px 6px;
+	text-shadow:none;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#1B1E24;
+	color:#FF6B24;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+		border: 1px solid #FF6B24 ;
+}
+
+.botonMeApunto:hover{
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#330099;
+	color:#FF6B24;
+}
+.iconColor{
+	color:#FF6B24;
+	margin-left:5%;
+	margin-bottom:5%;
+}
+.contactBox{
+	width:345px;
+	height:300px;
+	margin-top:-320px;
+	margin-left:820px;
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#000;
+	
+}
+.contactBox h1{
+	
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color:#FF6B24;	
+	font-size:18px;
+	margin-left:15px;
+}
+.contactBox p{
+	margin-left:15px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color:#fff;
+	font-size:13px;
 }

@@ -161,6 +161,8 @@
 									<p>
 												
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									
 								</li>
 								<li>
 									<div class="the-date">
@@ -174,6 +176,7 @@
 									<p>
 								
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -184,6 +187,7 @@
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
@@ -205,6 +209,7 @@
 									<p>
 												
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -215,6 +220,7 @@
 									<p>
 												
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -225,6 +231,7 @@
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -235,6 +242,7 @@
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -245,27 +253,21 @@
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
-                                <li>
+								<li>
 									<div class="the-date">
-										<span>12</span>
-										<small>Marz</small>
+										<span>03</span>
+										<small>May</small>
 									</div>
                                     <h4>show Lista!!</h4>
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
-                                <li>
-									<div class="the-date">
-										<span>22</span>
-										<small>Feb</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-								</li>
+                           
+                           
 							</ul>
 						</div><!-- End div .the-timeline -->
 								
@@ -308,10 +310,21 @@
               <div class="mapa">
               	<li>
 				<?php include "map.php";?>
+				<div  class="contactBox">
+					<h1>Dirección:</h1>
+					<p>Calle Cenicero número 31,
+					<br>
+						Madrid 28002<br>
+					</p>
+					<h1>Teléfono:</h1>
+					<p>918762329 / 708892773
+					<h1>Horario:</h1>
+					<p>J,V,S,D 22:00 - 6:00</p>
+				</div>
 				
 				</li>
               </div>
-					    
+					   
              </div><!-- col-md-12 -->
         </div><!-- row -->
 		</div><!-- Container -->
