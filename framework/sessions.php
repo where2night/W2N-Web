@@ -4,7 +4,7 @@ include_once "functions.php";
 
 
 /**
- * $_SESSION['type_login'] = "normal"; indicates that it's w2n login, not with facebook or google+
+ * $_SESSION['w2n_type_login'] = "normal"; indicates that it's w2n login, not with facebook or google+
  * $_SESSION['user_type'] indicates type of user (user, club or dj)
  */
 function w2n_session_start($remember_me = false){
@@ -15,7 +15,7 @@ function w2n_session_start($remember_me = false){
 
 	 switch ($session_type) {
 	 	case 'user':
-			 $_SESSION['type_login'] = "normal";
+			 $_SESSION['w2n_type_login'] = "normal";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['picture'] = $_POST['picture'];
 			 $_SESSION['name'] = $_POST['name'];
@@ -30,7 +30,7 @@ function w2n_session_start($remember_me = false){
 		break;
 
 	 	case 'club':
-			 $_SESSION['type_login'] = "normal";
+			 $_SESSION['w2n_type_login'] = "normal";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['company_name'] = $_POST['companyName'];
 			 $_SESSION['local_name'] = $_POST['localName'];
@@ -47,7 +47,7 @@ function w2n_session_start($remember_me = false){
 	 	break;
 	 	
 	 	case 'dj':
-			 $_SESSION['type_login'] = "normal";
+			 $_SESSION['w2n_type_login'] = "normal";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['nameDJ'] = $_POST['nameDJ'];
 			 $_SESSION['surname'] = $_POST['surname'];
@@ -72,6 +72,9 @@ function w2n_session_start($remember_me = false){
 	 }
 }
 
+/**
+ * Destroys w2n session
+ */
 function w2n_session_end(){
 	 session_start();
 	 $session_type = $_POST['user_type'];
@@ -135,10 +138,25 @@ function w2n_session_end(){
 
 		////////////////////////////////////////////////////////////
 		echo 'before';
-	if ($_SESSION['type_login'] == "normal"){
-		unset($_SESSION['type_login']);
+	if ($_SESSION['w2n_type_login'] == "normal"){
+		unset($_SESSION['w2n_type_login']);
  		session_destroy ();
  		//$_SESSION = array();
+	}
+}
+/**
+ * Check if there's a session started in where2night
+ * If it isn't, redirect to index
+ */
+function w2n_session_check(){
+	session_start();
+
+	if(!isset($_SESSION['w2n_type_login']) 
+		|| !($_SESSION['w2n_type_login']) == "normal" 
+		|| !($_SESSION['w2n_type_login']) == "facebook"
+		|| !($_SESSION['w2n_type_login']) == "googleplus"){
+
+		 header("Location: http://www.where2night.es");
 	}
 }
 

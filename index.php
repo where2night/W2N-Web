@@ -124,7 +124,7 @@
 									<input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
 								</fieldset>
 								<fieldset style="text-align:left">
-									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
+									<label for="checkbox"><input type="checkbox" id="checkbox"/>No cerrar sesión</label>
 								</fieldset>
 								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
