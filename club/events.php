@@ -23,7 +23,7 @@
     
     <!-- script -->
 	<script src="../js/tab.js"></script>
-	<script src="../js/fecha.js"></script>
+	<script src="../js/fillDate.js"></script>
    	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>

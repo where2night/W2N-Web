@@ -292,6 +292,6 @@
 	 <script src="../js/bootstrap.min.js"></script>
      <script type="text/javascript" src="../js/login-facebook.js"></script>
      <script type="text/javascript" src="../js/login-web.js"></script>
-	 <script type="text/javascript" src="../js/registrar.js"></script>
-     <script type="text/javascript" src="../js/fecha.js"></script>
+	 <script type="text/javascript" src="../js/validateSignIn.js"></script>
+     <script type="text/javascript" src="../js/fillDate.js"></script>
     </body>

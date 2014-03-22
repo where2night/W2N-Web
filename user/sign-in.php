@@ -15,7 +15,7 @@
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-		<script type="text/javascript" src="../js/fecha.js"></script>
+		<script type="text/javascript" src="../js/fillDate.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
@@ -293,7 +293,7 @@
 	 <script src="../js/bootstrap.min.js"></script>
      <script type="text/javascript" src="../js/login-facebook.js"></script>
      <script type="text/javascript" src="../js/login-web.js"></script>
-	 <script type="text/javascript" src="../js/registrar.js"></script>
+	 <script type="text/javascript" src="../js/validateSignIn.js"></script>
       
      
     </body>
