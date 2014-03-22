@@ -90,7 +90,7 @@ function login_connect(email2,password2){
 						});
 							break;
 							case '1'://Club
-							  url1 += "club.php";
+							  url1 += "local.php";
 							  url1 += params;
 							  alert (url1);
 							  $.ajax({
@@ -101,7 +101,6 @@ function login_connect(email2,password2){
 								complete: function(r2){
 									alert('club complete 2');
 									var json = JSON.parse(r2.responseText);
-									var id = json.idProfile;
 									var companyName = json.companyName;
 									var localName = json.localName;
 									var cif = json.cif;
@@ -164,7 +163,6 @@ function login_connect(email2,password2){
 								complete: function(r2){
 									alert('DJ complete 2');
 									var json = JSON.parse(r2.responseText);
-									var id = json.idProfile;
 									var nameDJ = json.nameDJ;
 									var name = json.name;
 									var surname = json.surname;

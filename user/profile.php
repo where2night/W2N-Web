@@ -24,23 +24,20 @@ session_start();
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
-
 	<script type="text/javascript">  
-		$(document).ready(function(){ 
-			
-			$("#close_session").on("click", function (event) {
-				$.post("../framework/session_end.php",
-				  {},
-				  function(data,status){
-				/*	alert("Data: " + data + "\nStatus: " + status);*/
-					//redirectLoginFiestero();
-					var url = "http://www.where2night.es";
-					$(location).attr('href',url);
-				  });
-			});
-		});//end $(document).ready(function()
-		
-	</script>
+	    $(document).ready(function(){ 
+	      
+	      $("#close_session").on("click", function (event) {
+	        $.post("../framework/session_end.php",
+	          {},
+	          function(data,status){
+	          var url = "http://www.where2night.es";
+	          $(location).attr('href',url);
+	          });
+	      });
+	    });//end $(document).ready(function()
+    
+    </script>
 
 </head>
 

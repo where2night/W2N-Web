@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>W2N-Profile Club</title>
+ <title>W2N-Perfil DJ</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -15,17 +15,17 @@ session_start();
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Estilos Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet" type="text/css">
-    <link href="../css/home.css" rel="stylesheet" type="text/css">
-    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-    <link href="../css/custom.css" rel="stylesheet" media="screen">
-  	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/profile-club.css" type="text/css" /><!-- Style -->	
-	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/login.css" rel="stylesheet" type="text/css">
+  <link href="../css/home.css" rel="stylesheet" type="text/css">
+  <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+  <link href="../css/custom.css" rel="stylesheet" media="screen">
+	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+  <link rel="stylesheet" href="../css/profile-dj.css" type="text/css" /><!-- Style -->	
+  <link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
@@ -111,7 +111,7 @@ session_start();
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><?php echo $_SESSION['local_name']; ?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"> <span><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></span>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
               <ul class="dropdown-menu">
@@ -121,7 +121,7 @@ session_start();
                   <div class="avatar">
                     <img src="../images/profile.jpg" />
                   </div>
-                  <span><?php echo $_SESSION['local_name']; ?></span>
+                  <span><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></span>
                 </li>
 
                 <li class="divider"></li>
@@ -149,23 +149,21 @@ session_start();
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							<?php echo $_SESSION['local_name']; ?>
+							<span><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></span>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localizacón local</p>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización DJ</p>
 					</div>
 					<div>
 						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
 					</div>
-                   	 </div>
+                   	 </div> 
 		</div><!-- col-md-12 -->
         </div><!-- row -->
-			
-			<div class="row">
+           	<div class="row">
 			<div class="col-md-12 the-timeline-margin">
                         <div class="col-md-6">
                         
 					<!-- Begin timeline Events -->
-						
                   		<div class="titulos">
                         <ul><li>EVENTOS</li></ul>
                        
@@ -180,7 +178,6 @@ session_start();
 												
 									</p>
 									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-									
 								</li>
 								<li>
 									<div class="the-date">
@@ -214,82 +211,7 @@ session_start();
                      <div class="col-md-6">
                         
 					<!-- Begin timeline Listas -->
-               <div class="titulos">
-                        <ul><li>LISTAS</li></ul>
-                       
-                        </div>
-                  		<div class="the-timeline">
-							<ul><li><div class="the-date">
-										<span>01</span>
-										<small>Feb</small>
-									</div>
-									<h4>Show Lista</h4>
-									<p>
-												
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>31</span>
-										<small>Jan</small>
-									</div>
-									<h4>Show Lista</h4>
-									<p>
-												
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>12</span>
-										<small>agos</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>05</span>
-										<small>Jun</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>08</span>
-										<small>May</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>03</span>
-										<small>May</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
-								</li>
-                           
-                           
-							</ul>
-						</div><!-- End div .the-timeline -->
-								
-                        
+             
 							
 									
 					</div><!-- End div .col-sm-6 -->
@@ -322,27 +244,13 @@ session_start();
          <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>CONTACTO</li></ul>
+                        <ul><li>INFORMACIÓN</li></ul>
                        
                         </div>
               <div class="mapa">
-              	<li>
-				<?php include "map.php";?>
-				<div  class="contactBox">
-					<h1>Dirección:</h1>
-					<p>Calle Cenicero número 31,
-					<br>
-						Madrid 28002<br>
-					</p>
-					<h1>Teléfono:</h1>
-					<p>918762329 / 708892773
-					<h1>Horario:</h1>
-					<p>J,V,S,D 22:00 - 6:00</p>
-				</div>
-				
-				</li>
+              	<li>Dirección,número de télefono...</li>
               </div>
-					   
+					    
              </div><!-- col-md-12 -->
         </div><!-- row -->
 		</div><!-- Container -->
@@ -357,6 +265,7 @@ session_start();
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/registro.js"></script>
+
 
 <!-- /script -->
 

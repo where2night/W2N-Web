@@ -33,8 +33,6 @@ session_start();
         $.post("../framework/session_end.php",
           {},
           function(data,status){
-        /*  alert("Data: " + data + "\nStatus: " + status);*/
-          //redirectLoginFiestero();
           var url = "http://www.where2night.es";
           $(location).attr('href',url);
           });

@@ -10,12 +10,12 @@ include_once "functions.php";
 function w2n_session_start($remember_me = false){
 	 session_start(); 
 	 
-	 $session_type = $_POST['type'];
+	 $session_type = $_POST['user_type'];
+	 $_SESSION['user_type'] = $session_type;
 
 	 switch ($session_type) {
-	 	case 0://User
+	 	case 'user':
 			 $_SESSION['type_login'] = "normal";
-	 		 $_SESSION['user_type'] = "user";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['picture'] = $_POST['picture'];
 			 $_SESSION['name'] = $_POST['name'];
@@ -29,9 +29,8 @@ function w2n_session_start($remember_me = false){
 			 $_SESSION['about'] = $_POST['about']; 
 		break;
 
-	 	case 1://Club
+	 	case 'club':
 			 $_SESSION['type_login'] = "normal";
-	 		 $_SESSION['user_type'] = "club";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['company_name'] = $_POST['companyName'];
 			 $_SESSION['local_name'] = $_POST['localName'];
@@ -47,9 +46,8 @@ function w2n_session_start($remember_me = false){
 			 $_SESSION['about'] = $_POST['about']; 
 	 	break;
 	 	
-	 	case 2://DJ
+	 	case 'dj':
 			 $_SESSION['type_login'] = "normal";
-	 		 $_SESSION['user_type'] = "DJ";
 	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['nameDJ'] = $_POST['nameDJ'];
 			 $_SESSION['surname'] = $_POST['surname'];
