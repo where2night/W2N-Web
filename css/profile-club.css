@@ -896,8 +896,13 @@ border: 1px solid #FF6B24 ;
 
 
 
-.mapa li{padding: 5px 15px;display: block;background: #404040;position: relative;
+.mapa li{
 	
+	height:320px;
+	padding: 5px 15px;
+	display: block;
+	background: #404040;
+	position: relative;
 	margin-left:7%;
 	margin-right:3%;
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;border-left: 4px solid transparent;border-right: 1px solid transparent;border-top: 1px solid transparent;border-bottom: 1px solid transparent;}
@@ -991,10 +996,10 @@ border: 1px solid #FF6B24 ;
 	margin-bottom:5%;
 }
 .contactBox{
-	width:345px;
-	height:300px;
+	height:310px;
 	margin-top:-320px;
 	margin-left:820px;
+	margin-right:0%;
 	-webkit-box-shadow: 0px 0px 10px #ff3ede;
 	-moz-box-shadow: 0px 0px 10px #ff3ede;
 	box-shadow: 0px 0px 10px #ff3ede;

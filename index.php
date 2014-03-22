@@ -106,10 +106,12 @@
 			<div class="navbar-header">
 			  <a href="/" class="navbar-brand"><img src="images/mainlogo.png" alt="logoWhere2Night"</a>
 			</div>
-        
+			
 			<div id="bar">
-				<div id="loginContainer">
-					<a id="loginButton" href=""style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
+				<a id="" href=""style="margin-left:60% ;font-size:12px; color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Registrarse</span><img src="images/logoarrow.png" alt=""></a>
+				<div id="loginContainer"> 
+					
+					<a id="loginButton" href=""style="font-size:12px;color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout="javascript:this.style.color='#F59236';"><span>Iniciar sesión</span><img src="images/logoarrow.png" alt=""></a>
 					
 					<div style="clear:both"></div>
 					<div id="loginBox" style="border-bottom-color:#D41F00">                
@@ -173,36 +175,12 @@
 		<div class="carousel-inner">
 			<div class="item active">
 				<img src="images/party4.jpg"  alt="" />
-                <div class="container">
-                <div class="subscribe " style="position:fixed">
-				<!-- Labels -->
-				<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
-				<span id="fiestero" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
-				</div>	
-				</div>
 			</div>
 			<div class="item">
-				<img src="images/party2.jpg" alt="" />
-                <div class="container">
-				<div class="subscribe ">
-				
-				<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
-				<span id="fiestero" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
-				</div>	
-				</div>
+				<img src="images/party2.jpg" alt="" />  
 			</div>
             <div class="item">
 				<img src="images/party3.jpg" alt="" />
-                <div class="container">
-				<div class="subscribe">
-				
-				<span id="dj" class=" btn styled-button-11"   onclick="registerDj();"><strong>Registro DJ</strong></span>
-				<span id="partier" class=" btn styled-button-11"  "onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
-				<span id="local" class=" btn styled-button-11 "  onclick="registerLocal();"><strong>Registro Local</strong></span>
-				</div>	
-				</div>
 			</div>
 		</div> 
 		
@@ -232,6 +210,12 @@
 				</li>
 			   <li>
 					<a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
+				</li>
+				<li>
+					
+					<span id="dj" class=" styled-button-11 btn  " onclick="registerDj();"><strong>Registro DJ</strong></span>
+					<span id="fiestero" class=" styled-button-11 btn " onclick="registerPartier();"><strong>Registro Fiestero</strong></span>
+					<span id="local" class=" styled-button-11 btn" onclick="registerLocal();"><strong>Registro Local</strong></span>
 				</li>
 				</ul>
 				</nav> 
