@@ -34,7 +34,7 @@
 			</li>
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
+				<a href="lists.php">
 					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Listas</span>
 				</a>
