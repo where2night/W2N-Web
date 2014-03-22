@@ -161,7 +161,7 @@
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 									
 								</li>
 								<li>
@@ -176,7 +176,7 @@
 									<p>
 								
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -187,7 +187,7 @@
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
@@ -209,7 +209,7 @@
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -220,7 +220,7 @@
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -231,7 +231,7 @@
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -242,7 +242,7 @@
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -253,7 +253,7 @@
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -264,7 +264,7 @@
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
 								</li>
                            
                            

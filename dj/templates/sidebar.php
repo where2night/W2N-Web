@@ -13,12 +13,12 @@
 			</li>
 			<li>
 				<span class="glow"></span>
-				<a href="">
+				<a href="events.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Eventos</span>
 				</a>
 			</li>
-			<li class="photos.php">
+			<li class="">
 				<span class="glow"></span>
 				<a href="">
 					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
@@ -27,7 +27,7 @@
 			</li>
 			<li>
 				<span class="glow"></span>
-				<a href="">
+				<a href="fans.php">
 					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
 					<span>Seguidores</span>
 				</a>
