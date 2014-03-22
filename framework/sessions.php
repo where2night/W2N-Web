@@ -75,7 +75,7 @@ function w2n_session_start($remember_me = false){
 }
 
 function w2n_session_end(){
-
+	 session_start();
 	 $session_type = $_POST['user_type'];
 
 	 switch ($session_type) {
@@ -83,7 +83,6 @@ function w2n_session_end(){
 			 // this unsets variables in the session 
 	 		 unset($_SESSION['id_user']);
 	 		 unset($_SESSION['user_type']);
-			 unset($_SESSION['type_login']);
 			 unset($_SESSION['picture']);
 			 unset($_SESSION['name']);
 			 unset($_SESSION['surnames']);
@@ -99,7 +98,6 @@ function w2n_session_end(){
 	 	case 'club':
 	 		 unset($_SESSION['id_user']);
 	 		 unset($_SESSION['user_type']);
-			 unset($_SESSION['type_login']);
 			 unset($_SESSION['company_name']);
 			 unset($_SESSION['local_name']);
 			 unset($_SESSION['cif']);
@@ -117,7 +115,6 @@ function w2n_session_end(){
 	 	case 'dj':
 	 		 unset($_SESSION['id_user']);
 	 		 unset($_SESSION['user_type']);
-			 unset($_SESSION['type_login']);
 			 unset($_SESSION['nameDJ']);
 			 unset($_SESSION['surname']);
 			 unset($_SESSION['telephone']);
@@ -139,8 +136,11 @@ function w2n_session_end(){
 		}*/
 
 		////////////////////////////////////////////////////////////
+		echo 'before';
 	if ($_SESSION['type_login'] == "normal"){
+		unset($_SESSION['type_login']);
  		session_destroy ();
+ 		//$_SESSION = array();
 	}
 }
 
