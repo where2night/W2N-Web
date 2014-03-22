@@ -1,3 +1,4 @@
+
  function ButtonRegister()
 {
 var terms=document.getElementById("Terms & Conditions").checked;
@@ -49,7 +50,7 @@ if(terms){
 								man2 = "male";
 							else man2 = "female";
 							$.ajax({
-									url: "../api/registerFiestero.php",
+									url: "../develop/register/user.php",
 									dataType: "json",
 									type: "POST",
 									data: {
@@ -138,25 +139,32 @@ if(terms){
 										if(man)
 											man2 = "male";
 										else man2 = "female";
-										alert("registro correcto");
-										
+										/*alert("pasa x registro ");
+										alert(email);
+										alert(coolname);
+										alert(name);
+										alert(surname);
+										alert(telephone);
+										alert(birthday_date);
+										alert(man2);
+										alert("AJAX");*/
 										$.ajax({
-												url: "../api/registerDj.php",
+												url: "../develop/register/dj.php",
 												dataType: "json",
 												type: "POST",
 												data: {
-													coolname: coolname,
+													email: email,
+													nameDJ: coolname,
 													name: name,
 													surname:surname,
 													telephone: telephone,
-													email: email,
-													gender:gender,
-													birthday_date:birthday_date
+													birthdate:birthday_date,
+													gender:man2
 													
 												},
 												complete: function(r){
 														var json = JSON.parse(r.responseText);
-													
+														
 														if(json.Token!=0){
 															redirectHomeDj();
 														} else alert("Registro incorrecto");
@@ -224,30 +232,37 @@ function ButtonRegisterLocal()
 							var street = document.getElementById("street").value;
 							
 							if(streetNameLocal!="" && streetNumberLocal!=""){
-							  alert("registro correcto");
-							  
-							  alert(street);	  
+								/*alert(emailLocal);
+								alert(companyNameLocal);
+								alert(localName);
+								alert(cif);
+								alert(poblationLocal);
+								alert(cpLocal);
+								alert(telephoneLocal);
+								alert(street);
+								alert(streetNameLocal);
+								alert(streetNumberLocal);*/
 							  $.ajax({
-											url: "../api/registerLocal.php",
+											url: "../develop/register/local.php",
 											dataType: "json",
 											type: "POST",
 											data: {
-												companyNameLocal: companyNameLocal,
+												email: emailLocal,
+												companyName: companyNameLocal,
 												localName: localName,
 												cif:cif,
 												poblationLocal: poblationLocal,
 												cpLocal: cpLocal,
-												telephoneLocal:telephoneLocal,
-												emailLocal: emailLocal,
+												telephone:telephoneLocal,
 												street: street,
-												streetNameLocal: streetNameLocal,
-												streetNumberLocal: streetNumberLocal
+												streetName: streetNameLocal,
+												streetNumber: streetNumberLocal
 											},
 											complete: function(r){
 													var json = JSON.parse(r.responseText);
-												
+													
 													if(json.Token!=0){
-														redirectLocal();
+														redirectHomeLocal();
 													} else alert("Registro incorrecto");
 											},
 											onerror: function(e,val){

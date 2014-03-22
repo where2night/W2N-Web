@@ -93,7 +93,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000" role="banner">
 		<div class="container">
 			<div class="navbar-header">
-			  <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
+			  <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"></a>
 			</div>
         
 			<div id="bar">
@@ -157,7 +157,7 @@
     </div>
 	<!-- /NavbarHeader -->
         <!-- Log data -->
-		<form>
+	
 			<table width="700" height="100" align="center" border="0" >
 				  
 				  <tr >
@@ -227,10 +227,10 @@
 				  </tr>
 				  
 				  <tr align="center">
-					<td><input name="registerLocal"  class="btn" type="submit" value="Enviar solicitud" onClick="ButtonRegisterLocal();"/></td>
+					<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onClick="ButtonRegisterLocal();"/></td>
 				  </tr>
 			</table>
-		</form>
+		
         <!-- /Log data -->
         
      <!-- NavbarFooter -->

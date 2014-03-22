@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-       <title>W2N-Register User</title>
+       <title>RegistroFiestero</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -161,7 +161,7 @@
     </div>
 	<!-- /NavbarHeader -->
         
-        	
+     <form id="fPrueba">   	
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr >
@@ -255,6 +255,7 @@
 	          	<td><input name="register"  class="btn" type="button" value="¡Registrate!" onclick="ButtonRegister();"/></td>
 	          </tr>
 	   	</table>
+	</form>
     <!-- NavbarFooter -->
     <footer class="navbar navbar-inverse navbar-fixed-bottom bs-docs-nav" style="background-color:#000" role="banner">
         <div class="container">

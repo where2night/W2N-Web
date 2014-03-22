@@ -15,7 +15,7 @@
 					var birthday_date2 = response.birthday;
 					//alert(birthday_date2);
 					$.ajax({
-								url: "api/loginfb.php",
+								url: "../develop/login/loginfb.php",
 								dataType: "json",
 								type: "POST",
 								data: {
@@ -27,7 +27,10 @@
 									
 								},
 								complete: function(r){
+								alert("json");
+									alert(r.responseText);
 									var json = JSON.parse(r.responseText);
+									
 									if (json.Token ==0){
 										alert("error");
 									} else {

@@ -183,7 +183,7 @@
 	          </tr>
 	          
                <tr>
-	           	<td><input id="confirmationEmailDJ" type="password" size="100" class="form-control" placeholder="Confirmación correo electrónico" /></td>
+	           	<td><input id="confirmationEmailDJ" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" /></td>
 	          </tr>
           
 		  <tr>
