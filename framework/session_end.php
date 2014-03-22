@@ -1,8 +1,8 @@
 <?php
 
-if ($_SESSION['type_login'] == "normal"){
- session_destroy ();
-}
+include_once "sessions.php";
 
-echo  "no deberia salir nada aquí: ".$_SESSION['name'];
+w2n_session_end();
+
+//echo  "no deberia salir nada aquí: ".$_SESSION['name'];
 ?>

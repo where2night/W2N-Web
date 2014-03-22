@@ -117,7 +117,7 @@
 								<fieldset style="text-align:left">
 									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
 								</fieldset>
-								<button type="button" class="btn" onclick="loginFiestero();" style="alignment-adjust:central">Entrar</button>
+								<button type="button" class="btn" onclick="login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
 							<a href="#">¿Olvidó su contraseña?</a>
 							<p style="color:#FFF"> Iniciar sesión usando: </p>
@@ -292,7 +292,7 @@
      <script src="../js/jquery.js"></script>
 	 <script src="../js/bootstrap.min.js"></script>
      <script type="text/javascript" src="../js/login-facebook.js"></script>
-     <script type="text/javascript" src="../js/login-web.js"></script>
+     <script type="text/javascript" src="../js/login.js"></script>
 	 <script type="text/javascript" src="../js/validateSignIn.js"></script>
       
      
