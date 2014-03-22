@@ -27,8 +27,6 @@
 									
 								},
 								complete: function(r){
-								alert("json");
-									alert(r.responseText);
 									var json = JSON.parse(r.responseText);
 									
 									if (json.Token ==0){
