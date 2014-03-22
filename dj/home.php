@@ -188,7 +188,7 @@
 
 
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;" > 
+<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;margin-left:200px" > 
 <div class="wrapper">
 		<div class="container">
 		<div class="row">

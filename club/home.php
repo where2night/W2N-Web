@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>W2N-Perfil DJ</title>
+ <title>W2N-Home Club</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -19,7 +19,7 @@
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/profile-dj.css" type="text/css" /><!-- Style -->	
+    <link rel="stylesheet" href="../css/home-club.css" type="text/css" /><!-- Style -->	
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
@@ -93,7 +93,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">Nombre DJ&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">Nombre Local&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
               <ul class="dropdown-menu">
@@ -103,7 +103,7 @@
                   <div class="avatar">
                     <img src="../images/profile.jpg" />
                   </div>
-                  <span>Nombre DJ</span>
+                  <span>Nombre Local</span>
                 </li>
 
                 <li class="divider"></li>
@@ -120,9 +120,75 @@
       </div>
     </div>
 <!-- /NavbarHeader -->
+<!-- SideBar -->
+<div class="sidebar-background">
+ <div class="primary-sidebar-background"></div>
+</div>
+<div class="primary-sidebar">
+  <ul class="nav navbar-collapse collapse navbar-collapse-primary">
+        <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+              <span>Mi Perfil</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
+              <span>Eventos</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+              <span>Fotos</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+              <span>Seguidores</span>
+          </a>
+        </li>
+         <li class="">
+          <span class="glow"></span>
+          <a href="">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+              <span>Listas</span>
+          </a>
+        </li>
+        <li class="">
+         <span class="glow"></span>
+          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+                    <span>
+                      Configuración&nbsp;&nbsp;&nbsp;
+                      <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                    </span>
+          </a>
+          <ul id="tnnmk7rjLZ" class="collapse "> 
+               
+                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+                      <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
+                  </a>
+                <br>
+                
+                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+                      <i class="glyphicon glyphicon-lock"style="color:#FF6B24"></i> Privacidad
+                  </a>
+                
+          </ul>
+        </li>
+</div>
+<!-- /SideBar -->
+
 
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px; margin-left:0px;margin-bottom:-50px;" > 
+<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;margin-left:200px;" > 
 <div class="wrapper">
 		<div class="container">
 		<div class="row">
@@ -131,14 +197,11 @@
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							NOMBRE DJ
+							NOMBRE LOCAL
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización DJ</p>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localizacón local</p>
 					</div>
-					<div>
-						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
-					</div>
-                   	 </div> 
+                   	 </div>
 		</div><!-- col-md-12 -->
         </div><!-- row -->
            	<div class="row">
@@ -147,7 +210,7 @@
                         
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
-                        <ul><li>EVENTOS</li></ul>
+                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:65%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
                        
                         </div>
 						<div class="the-timeline">
@@ -159,6 +222,7 @@
 									<p>
 												
 									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -172,6 +236,7 @@
 									<p>
 								
 									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -182,6 +247,7 @@
 									<p>
 									 
 									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
@@ -190,7 +256,81 @@
                      <div class="col-md-6">
                         
 					<!-- Begin timeline Listas -->
-             
+               <div class="titulos">
+                        <ul><li>LISTAS <button type="button" class="btn botonanadir"style="margin-left:72%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                       
+                        </div>
+                  		<div class="the-timeline">
+							<ul><li><div class="the-date">
+										<span>01</span>
+										<small>Feb</small>
+									</div>
+									<h4>Show Lista</h4>
+									<p>
+												
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+								<li>
+									<div class="the-date">
+										<span>31</span>
+										<small>Jan</small>
+									</div>
+									<h4>Show Lista</h4>
+									<p>
+												
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+								<li>
+									<div class="the-date">
+										<span>12</span>
+										<small>agos</small>
+									</div>
+                                    <h4>show Lista!!</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+                                <li>
+									<div class="the-date">
+										<span>05</span>
+										<small>Jun</small>
+									</div>
+                                    <h4>show Lista!!</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+                                <li>
+									<div class="the-date">
+										<span>08</span>
+										<small>May</small>
+									</div>
+                                    <h4>show Lista!!</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+                                <li>
+									<div class="the-date">
+										<span>12</span>
+										<small>Marz</small>
+									</div>
+                                    <h4>show Lista!!</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+								</li>
+                         
+							</ul>
+						</div><!-- End div .the-timeline -->
+								
+                        
 							
 									
 					</div><!-- End div .col-sm-6 -->
@@ -199,35 +339,22 @@
         <div class="row">
 			<div class="col-md-12">
         <div class="titulos">
-                        <ul><li>FOTOS</li></ul>
+                        <ul><li>FOTOS <button type="button" class="btn botonanadir"style="margin-left:87%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
                         </div>
-      <div class="seguidores">
+						 <div class="seguidores">
               	<ul><li></li></ul>
               </div>
 					    
              </div><!-- col-md-12 -->
-              </div><!-- row -->
-              <div class="row">
+			  </div><!-- row -->
+			  <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>SEGUIDORES</li></ul>
+                        <ul><li>SEGUIDORES <button type="button" class="btn botonanadir"style="margin-left:80%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
                        
                         </div>
-                        <div class="seguidores">
+						 <div class="seguidores">
               	<ul><li></li></ul>
-              </div>
-					
-					    
-             </div><!-- col-md-12 -->
-        </div><!-- row -->
-         <div class="row">
-             <div class="col-md-12">
-        <div class="titulos">
-                        <ul><li>INFORMACIÓN</li></ul>
-                       
-                        </div>
-              <div class="mapa">
-              	<li>Dirección,número de télefono...</li>
               </div>
 					    
              </div><!-- col-md-12 -->
@@ -244,8 +371,6 @@
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/registro.js"></script>
-
-
 <!-- /script -->
 
 </body>

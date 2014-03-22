@@ -958,4 +958,29 @@ border: 1px solid #FF6B24 ;
 	box-shadow: 0px 0px 10px #ff3ede;
 	background:#FF6B24;color:#000;
 	color:#1B1E24;
+}.botonMeApunto{
+	
+	padding:6px 10px 8px 6px;
+	text-shadow:none;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#1B1E24;
+	color:#FF6B24;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+		border: 1px solid #FF6B24 ;
+}
+
+.botonMeApunto:hover{
+	-webkit-box-shadow: 0px 0px 10px #ff3ede;
+	-moz-box-shadow: 0px 0px 10px #ff3ede;
+	box-shadow: 0px 0px 10px #ff3ede;
+	background:#330099;
+	color:#FF6B24;
 }
