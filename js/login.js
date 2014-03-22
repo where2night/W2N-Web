@@ -10,7 +10,6 @@ function setCookie(cname,value){
 }
 
 function w2n_login(){
-	alert('w2n_login');
 	var email = document.getElementById('inputEmail3').value;
 	var password = document.getElementById('inputPassword3').value;
 	if (email == ""){
@@ -21,7 +20,6 @@ function w2n_login(){
 }
 
 function login_connect(email2,password2){
-	 alert('email: '+ email2 + 'password' + password2);
 		$.ajax({
 			url: "../develop/login/login.php",
 			dataType: "json",
@@ -32,24 +30,20 @@ function login_connect(email2,password2){
 			},
 			complete: function(r){
 					var json = JSON.parse(r.responseText);
-					alert('id: '+ json.id + 'token: ' + json.Token + 'type: ' + json.type);
 					var url1 = "../develop/update/";
 					if(json.Token!=0){
 						var params = "/" + json.id + "/" + json.Token + "/" + json.id;
 						var id = json.id;
 						switch(json.type){
 							case '0'://User
-							alert('user');
 							  url1 += "user.php";
 							  url1 += params;
-							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
 								complete: function(r2){
-									alert('user complete 2');
 									var json = JSON.parse(r2.responseText);
 									var picture = json.picture;
 									var name = json.name;
@@ -80,7 +74,7 @@ function login_connect(email2,password2){
 										about: about
 									  },
 									  function(data,status){
-										alert("Data: " + data + "\nStatus: " + status);
+										//alert("Data: " + data + "\nStatus: " + status);
 										window.location.href = "../user/home.php";										  
 									  });
 						    		},
@@ -92,14 +86,12 @@ function login_connect(email2,password2){
 							case '1'://Club
 							  url1 += "local.php";
 							  url1 += params;
-							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
 								complete: function(r2){
-									alert('club complete 2');
 									var json = JSON.parse(r2.responseText);
 									var companyName = json.companyName;
 									var localName = json.localName;
@@ -142,7 +134,7 @@ function login_connect(email2,password2){
 										about: about
 									  },
 									  function(data,status){
-										alert("Data: " + data + "\nStatus: " + status);
+										//alert("Data: " + data + "\nStatus: " + status);
 										window.location.href = "../club/home.php";										  
 									  });
 						    		},
@@ -154,14 +146,12 @@ function login_connect(email2,password2){
 							case '-1'://DJ
 							  url1 += "dj.php";
 							  url1 += params;
-							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
 								complete: function(r2){
-									alert('DJ complete 2');
 									var json = JSON.parse(r2.responseText);
 									var nameDJ = json.nameDJ;
 									var name = json.name;
@@ -190,7 +180,7 @@ function login_connect(email2,password2){
 										about: about
 									  },
 									  function(data,status){
-										alert("Data: " + data + "\nStatus: " + status);
+										//alert("Data: " + data + "\nStatus: " + status);
 										window.location.href = "../dj/home.php";										  
 									  });
 						    		},
