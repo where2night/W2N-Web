@@ -115,7 +115,7 @@
 								<fieldset style="text-align:left">
 									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
 								</fieldset>
-								<button type="button" class="btn" onclick="login();" style="alignment-adjust:central">Entrar</button>
+								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
 							<a href="#">¿Olvidó su contraseña?</a>
 							<p style="color:#FFF"> Iniciar sesión usando: </p>

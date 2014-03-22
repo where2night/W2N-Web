@@ -132,7 +132,7 @@ function w2n_session_end(){
 	 	default:
 	 		//ERROR
 	 	break;
-
+	}
 	 	/*if ($remember_me) {
 			unset($_SESSION['w2n_remember']);
 			setcookie("w2n_remember", "", (time() - (86400 * 30)), "/");;

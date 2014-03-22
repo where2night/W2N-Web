@@ -3,7 +3,7 @@
 include_once "sessions.php";
 
 //Check if user wants to remember the session
-if isset($_POST['remember_me']){
+if (isset($_POST['remember_me'])){
 	$remember = $_POST['remember_me'];
 }else $remember = false;
 

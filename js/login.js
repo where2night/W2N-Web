@@ -9,7 +9,8 @@ function setCookie(cname,value){
 	}
 }
 
-function login(){
+function w2n_login(){
+	alert('w2n_login');
 	var email = document.getElementById('inputEmail3').value;
 	var password = document.getElementById('inputPassword3').value;
 	if (email == ""){
@@ -20,7 +21,7 @@ function login(){
 }
 
 function login_connect(email2,password2){
-	
+	 alert('email: '+ email2 + 'password' + password2);
 		$.ajax({
 			url: "../develop/login/login.php",
 			dataType: "json",
@@ -31,23 +32,25 @@ function login_connect(email2,password2){
 			},
 			complete: function(r){
 					var json = JSON.parse(r.responseText);
-					alert(json);
+					alert('id: '+ json.id + 'token: ' + json.Token + 'type: ' + json.type);
 					var url1 = "../develop/update/";
 					if(json.Token!=0){
 						var params = "/" + json.id + "/" + json.Token + "/" + json.id;
+						var id = json.id;
 						switch(json.type){
-							case 0://User
+							case '0'://User
+							alert('user');
 							  url1 += "user.php";
+							  url1 += params;
+							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
-								data: params,
 								complete: function(r2){
 									alert('user complete 2');
 									var json = JSON.parse(r2.responseText);
-									var id = json.idProfile;
 									var picture = json.picture;
 									var name = json.name;
 									var surnames = json.surnames;
@@ -86,14 +89,15 @@ function login_connect(email2,password2){
 									}
 						});
 							break;
-							case 1://Club
+							case '1'://Club
 							  url1 += "club.php";
+							  url1 += params;
+							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
-								data: params,
 								complete: function(r2){
 									alert('club complete 2');
 									var json = JSON.parse(r2.responseText);
@@ -148,14 +152,15 @@ function login_connect(email2,password2){
 									}
 						});
 							break;
-							case -1://DJ
+							case '-1'://DJ
 							  url1 += "dj.php";
+							  url1 += params;
+							  alert (url1);
 							  $.ajax({
 								url: url1,
 								dataType: "json",
 								type: "GET",
 								timeout: 5000,
-								data: params,
 								complete: function(r2){
 									alert('DJ complete 2');
 									var json = JSON.parse(r2.responseText);
@@ -199,6 +204,7 @@ function login_connect(email2,password2){
 							default:
 							 //ERROR
 							 alert('Login error');
+							break;
 						}
 						//setCookie('email_log',email2);
 			 			
@@ -212,4 +218,3 @@ function login_connect(email2,password2){
 }
 
 
-*/
