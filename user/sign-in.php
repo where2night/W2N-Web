@@ -1,11 +1,3 @@
-<?php
-
-include_once "../framework/sessions.php";
-
- w2n_session_check(); 
-
-?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,8 +17,8 @@ include_once "../framework/sessions.php";
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
 		<script type="text/javascript" src="../js/fillDate.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		 
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
@@ -82,10 +74,22 @@ include_once "../framework/sessions.php";
 			js.src = "//connect.facebook.net/es_LA/all.js";
 			ref.parentNode.insertBefore(js, ref);
 			}(document));
+			
+			
+
+    
 
 		</script>
 		</div>
     	<style>
+			.popover-title {
+					color: blue;
+					font-size: 15px;
+			}
+			.popover-content {
+				color: #A65F20;
+				font-size: 10px;
+			}
   			body {
     			padding-top: 60px;
 				padding-bottom: 60px;
@@ -125,7 +129,7 @@ include_once "../framework/sessions.php";
 								<fieldset style="text-align:left">
 									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
 								</fieldset>
-								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
+								<button type="button" class="btn" onclick="loginFiestero();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
 							<a href="#">¿Olvidó su contraseña?</a>
 							<p style="color:#FFF"> Iniciar sesión usando: </p>
@@ -173,75 +177,75 @@ include_once "../framework/sessions.php";
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr >
-	            <td ><input id="name"  type="text" size="100" class="form-control" placeholder="Nombre"/></td>
+	            <td ><input id="name"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" oninput="validate();" /></td>
 	          </tr>
 	         
 	          <tr>
-	            <td><input id="surname" type="text" size="100" class="form-control" placeholder="Apellidos"/></td>
+	            <td><input id="surname" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" oninput="validate();"/></td>
 	          </tr>
 	          
 	   
 	          <tr>
-	            <td><input id="email" type="email" size="100" class="form-control" placeholder="Correo electrónico"/></td>
+	            <td><input id="email" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" oninput="validate();"/></td>
 	          </tr>
 	          
 	          <tr>
-				<td><input id="confirmation email" type="text" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico"  /></td>
+				<td><input id="confirmation_email" type="email" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico" required="true" oninput="validate();"/></td>
 	          </tr>
 	          
 	          <tr>
-	            <td><input id="password" type="password" size="100" class="form-control" placeholder="Contraseña" /></td>
+	            <td><input id="password" type="password" size="100" class="form-control" placeholder="Contraseña" required="true" oninput="validate();"/></td>
 	          </tr>
 	          
 	          <tr>
-	           	<td><input id="confirmation password" type="password" size="100" class="form-control" placeholder="Repite contraseña" /></td>
+	           	<td><input id="confirmation_password" type="password" size="100" class="form-control" placeholder="Repite contraseña" required="true" oninput="validate();"/></td>
 	          </tr>
 	          
 	          <tr>
 	            <td>
-	            	<div class="checkbox">
-						<label>
-							<p class="navbar-text">
-								<input type="checkbox" value="" id="man">
-								<b style="color: #FFFFCC">Hombre</b>
-							</p>
-							
-							<p class="navbar-text">
-								<input type="checkbox" value="" id="woman">
-								<b style="color: #FFFFCC">Mujer</b>
-							</p>
-							
-						</label>
-					</div>
+	            	<div class="form-group" >
+							<br>
+							<div class="col-sm-8">
+								<label class="radio-inline">
+								  <input name="radioGroup" id="male" value="male" type="radio" onchange="validate();" ><span style="color: #FFFFCC">Hombre</span>
+								</label>
+								<label class="radio-inline">
+								  <input name="radioGroup" id="female" value="female" type="radio" onchange="validate();"><span style="color: #FFFFCC">Mujer</span>
+								</label>
+								<div id="errorGender"></div>
+							</div>
+						</div>
 	            </td>
 	          </tr>
 	          
 	          <tr>
 	           	<td>
-	            	<p class="navbar-text"><b style="color: #FFFFCC"> Fecha de nacimiento</b></p>
+					<br>
+	            	<p class="navbar-text" ><b style="color: #FFFFCC"> Fecha de nacimiento </b></p>
 
 	            	<p class="navbar-text" >
 						<select id="day">
-	            			<option value="0" selected="1">Día</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Día</option>
 	          					<script>
 	        						SelectOptionRange(1,32);
 	        					</script>	
 	            	 	</select>
 	            	
 	            		<select id="month">
-	            			<option value="0" selected="1">Mes</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Mes</option>
 	            				<script>
 	        						SelectOptionRange(1,13);
 	        					</script>
 	                	</select>
 	            	
 	            		<select id="year">
-	            			<option value="0" selected="1">Año</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Año</option>
 	        					<script>
 	        						SelectOptionRange(1905,2013);
 	        					</script>    		
 	            		</select>
-	            	</p>	
+	            	</p>
+					
 	            </td>
 	          </tr>
 	            
@@ -250,7 +254,7 @@ include_once "../framework/sessions.php";
 	            	<div class="checkbox">
 							<label>
 								<p class="navbar-text">
-									<input type="checkbox" value="" id="Terms & Conditions">
+									<input type="checkbox" value="" id="Terms_Conditions" required="true">
 									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
 								</p>
 							</label>
@@ -260,7 +264,8 @@ include_once "../framework/sessions.php";
 	          </tr>
 	          
 	          <tr align="center">
-	          	<td><input name="register"  class="btn" type="button" value="¡Registrate!" onclick="ButtonRegister();"/></td>
+				<br><br><br>
+	          	<td><input name="register"  class="btn" type="button" value="¡Registrate!" onclick="validateForm();"/></td>
 	          </tr>
 	   	</table>
 	</form>
@@ -300,8 +305,8 @@ include_once "../framework/sessions.php";
      <script src="../js/jquery.js"></script>
 	 <script src="../js/bootstrap.min.js"></script>
      <script type="text/javascript" src="../js/login-facebook.js"></script>
-     <script type="text/javascript" src="../js/login.js"></script>
-	 <script type="text/javascript" src="../js/validateSignIn.js"></script>
+     <script type="text/javascript" src="../js/login-web.js"></script>
+	 <script type="text/javascript" src="../js/validateFormLocal.js"></script>
       
      
     </body>
