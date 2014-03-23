@@ -22,11 +22,11 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	     <script src="../js/jquery.js"></script>
-		 <script src="../js/bootstrap.min.js"></script>
-	     <script type="text/javascript" src="../js/login-facebook.js"></script>
-	     <script type="text/javascript" src="../js/login.js"></script>
-		 <script type="text/javascript" src="../js/validateFormUser.js"></script>
+	    <script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../js/login-facebook.js"></script>
+	    <script type="text/javascript" src="../js/login.js"></script>
+		<script type="text/javascript" src="../js/validateFormUser.js"></script>
 		 
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
