@@ -214,7 +214,7 @@
                             <h3>Registro DJ</h3>
                             <p>Crea y comparte tus eventos con tus seguidores.</p>
                             
-                            <a href="" class="btn btn-transparent pull-right btnRegistro">Registro DJ</a>
+                            <a id="dj"  class="btn btn-transparent pull-right btnRegistro" onclick="registerDj();">Registro DJ</a>
                         </div>
                     </article> <!-- home-features-item -->
                 </div>
@@ -227,7 +227,7 @@
                             <h3>Registro Fiestero</h3>
                             <p>Añade a tus amigos y apuntate a las listas y eventos de los locales.</p>
                             
-                            <a href="" class="btn btn-transparent pull-right btnRegistro">Registro Fiestero</a>
+                            <a id="fiestero"  class="btn btn-transparent pull-right btnRegistro" onclick="registerPartier();">Registro Fiestero</a>
                         </div>
                     </article> <!-- home-featurpues-item -->
                 </div>
@@ -240,7 +240,7 @@
                             <h3>Registro Local</h3>
                             <p>Crea eventos y listas y compartelos con tus seguidores.</p>
                             
-                            <a href="" class="btn btn-transparent pull-right btnRegistro">Registro Local</a>
+                            <a id="local" class="btn btn-transparent pull-right btnRegistro"onclick="registerLocal();">Registro Local</a>
                         </div>
                     </article> <!-- home-features-item -->
                 </div>
