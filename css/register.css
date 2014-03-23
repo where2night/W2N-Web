@@ -70,7 +70,9 @@ iframe {
 }
 
 .home-section {
-    margin-bottom: 40px
+	
+    margin-bottom: 40px;
+
 }
 
 @media (max-width: 1199px) { 
@@ -107,7 +109,7 @@ iframe {
     margin: 40px 0 20px 0;
     padding: 0 0 5px 0;
     border-bottom: solid 7px #ddd;
-    color: #009c82;
+    color: #FF6B24;
 }
 
 blockquote.quote1 {
@@ -768,6 +770,7 @@ figure.caption-right:hover img {
     -ms-transform: translateX(-180px);
     -o-transform: translateX(-180px);
     transform: translateX(-180px);
+	
 }
 
 
@@ -779,7 +782,16 @@ figure.caption-right:hover img {
 #home-features {
 
 }
-
+.btnRegistro{
+	-webkit-box-shadow: inset 0px 0px 20px #FF6B24;
+  -moz-box-shadow: inset 0px 0px 20px #FF6B24;
+  box-shadow: inset 0px 0px 20px #FF6B24;
+  border: 1px solid #FF6B24;
+}
+.btnRegistro:hover{
+	background-color:#1B1E24;
+	color:#FF6B24;
+}
 .home-features-item {
 	
     background-color: #001;
@@ -790,10 +802,10 @@ figure.caption-right:hover img {
    
     position: relative;
     overflow: hidden;
-    height: 200px;
+    height: 220px;
     margin: 0 auto;
-    margin-bottom: 20px;
-	margin-top: 5px;
+    margin-bottom: 40px;
+	margin-top: 40px;
 }
 
 .home-features-item .item-icon {
@@ -815,10 +827,10 @@ figure.caption-right:hover img {
     background-color: #000;
     color: #fff;
     padding: 20px;
-    height: 200px;
+    height: 220px;
     position: absolute;
     z-index: 10;
-    top: 135px;
+    top: 155px;
     left: 0;
 	
     -webkit-transition: all .4s linear;
@@ -1143,10 +1155,11 @@ figure.caption-right:hover img {
     font-size: 2.7em;
     text-align: center;
     margin: 0px auto;
+	
 }
 
 .slogan span {
-    color: #009c82
+    color: #FF6B24;
 }
 
 /* clients-content */
