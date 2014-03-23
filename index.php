@@ -19,10 +19,35 @@
 	<link  href="css/jquery.carousel.fullscreen.css" rel="stylesheet" >
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/registro.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/login-facebook.js"></script>
+    <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
+    <script type="text/javascript" src="js/loginGoogle.js"></script>
  
-    
+<?php
+
+	include_once "framework/sessions.php";
+
+	if (w2n_session_saved()){
+?>
+
+	<script type="text/javascript"> 
+		set_session_info('<?php echo $_COOKIE['w2n_id'];?>', '<?php echo $_COOKIE['w2n_token'];?>', '<?php echo $_COOKIE['w2n_type'];?>');
+	</script>
+
+<?php	
+
+	}else{
+
+?>
+
+
     <script type="text/javascript">  
-	////////////////////////////////////////////////////
+
 	$(document).ready(function(){ 
 		  
 		var button = $('#loginButton');
@@ -124,7 +149,7 @@
 									<input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
 								</fieldset>
 								<fieldset style="text-align:left">
-									<label for="checkbox"><input type="checkbox" id="checkbox"/>No cerrar sesión</label>
+									<input type="checkbox" id="checkbox" name="checkbox"/><label for="checkbox">No cerrar sesión</label>
 								</fieldset>
 								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
@@ -169,7 +194,7 @@
       </div>
     </div>
 	<!-- /NavbarHeader -->
-	
+
 	<!-- Carousel -->
 	<div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
 		<div class="carousel-inner">
@@ -224,14 +249,11 @@
 		</div>
 	</footer>
 	<!-- /NavbarFooter --> 
-	
-	<script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/registro.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/login-facebook.js"></script>
-    <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
-    <script type="text/javascript" src="js/loginGoogle.js"></script>
+
+<?php
+	}//end else (session not saved)
+?>	
+
 
 </body>
 </html>

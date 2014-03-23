@@ -143,7 +143,19 @@ function w2n_session_end(){
  		session_destroy ();
  		//$_SESSION = array();
 	}
+
+	//if (w2n_session_saved()){
+		unset($_COOKIE['w2n_id']);
+		setcookie('w2n_id', '', time() - 3600);
+
+		unset($_COOKIE['w2n_token']);
+		setcookie('w2n_token', '', time() - 3600);
+
+		unset($_COOKIE['w2n_type']);
+		setcookie('w2n_type', '', time() - 3600);
+	//}
 }
+
 /**
  * Check if there's a session started in where2night
  * If it isn't, redirect to index
@@ -158,6 +170,19 @@ function w2n_session_check(){
 
 		 header("Location: http://www.where2night.es");
 	}
+}
+
+function w2n_session_saved(){
+	return (isset($_COOKIE['w2n_id']) && isset($_COOKIE['w2n_token']) && isset($_COOKIE['w2n_type'])
+		&& ($_COOKIE['w2n_id'] != "") && ($_COOKIE['w2n_token'] != "") && ($_COOKIE['w2n_type'] != ""));
+}
+
+function w2n_session_type_login(){
+	session_start();
+
+	if(isset($_SESSION['w2n_type_login'])){
+		return $_SESSION['w2n_type_login'];
+	}else return NULL;
 }
 
 function w2n_get_logged_in_user_id() {
@@ -182,16 +207,6 @@ function w2n_valid_user_type($user_type){
 
 function w2n_is_logged(){
 	return (isset($_SESSION) && w2n_valid_user_type($_SESSION['user_type']));
-}
-
-function w2n_generate_remember_me_token() {
-	return 'w2n'.generateRandomString(25);
-}
-
-function w2n_is_w2n_remember_me_token($cookie_value) {
-	return (isset($cookie_value[0]) && $cookie_value[0] !== 'w'
-		 && isset($cookie_value[1]) && $cookie_value[1] !== '2'
-		 && isset($cookie_value[2]) && $cookie_value[2] !== 'n');
 }
 
 ?>
