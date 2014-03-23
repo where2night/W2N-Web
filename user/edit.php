@@ -53,31 +53,29 @@ include_once "../framework/sessions.php";
       });
             
       $("#change-data").on("click", function (event) {
-        
-          //var email = $.cookie("email_log");
           
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var name = $('#name').val();
-            var surnames = $('#surname').val();
-            var day = $('#day').val();
-            if (day.length < 2){
-              day = "0"+day;
-            } 
-            var month = $('#month').val();
-            if (month.length < 2){
-              month = "0"+day;
-            }
-            var year = $('#year').val();
-            var birthdate = day+"/"+month+"/"+year;
-            var gender = $("input[type='radio']:checked").val();
-            var music = $('#favourite-music').val();
-            var civil_state = $('#marital-status').val();
-            var city = $('#city').val();
-            var drink = $('#favourite-drink').val();
-            var about = $('#about-you').val();
+        var surnames = $('#surname').val();
+        var day = $('#day').val();
+        if (day.length < 2){
+          day = "0"+day;
+        } 
+        var month = $('#month').val();
+        if (month.length < 2){
+          month = "0"+day;
+        }
+        var year = $('#year').val();
+        var birthdate = day+"/"+month+"/"+year;
+        var gender = $("input[type='radio']:checked").val();
+        var music = $('#favourite-music').val();
+        var civil_state = $('#marital-status').val();
+        var city = $('#city').val();
+        var drink = $('#favourite-drink').val();
+        var about = $('#about-you').val();
         
          console.log($.ajax({
-            url: "../api/editprofile.php",
+            url: "../develop/update/user.php",
             dataType: "json",
             type: "POST",
             timeout: 5000,
@@ -96,17 +94,18 @@ include_once "../framework/sessions.php";
             complete: function(r){
               $.post("../framework/session_start.php",
                     {
-                      type_login: 'normal',
-                      id_user: idProfile,
-                    name: name,
-                    surnames: surnames,
-                    birthdate: birthdate,
-                    gender: gender,
-                    music: music,
-                    civil_state: civil_state,
-                    city: city,
-                    drink: drink,
-                    about: about
+                      	type_login: 'normal',
+                      	user_type: 'user',
+                     	id_user: idProfile,
+	                    name: name,
+	                    surnames: surnames,
+	                    birthdate: birthdate,
+	                    gender: gender,
+	                    music: music,
+	                    civil_state: civil_state,
+	                    city: city,
+	                    drink: drink,
+	                    about: about
                     },
                     function(data,status){
                       window.location.href="home.php";
