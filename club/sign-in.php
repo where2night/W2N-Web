@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,27 +10,17 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="format-detection" content="telephone=no" />
-
         <!-- Icon W2N -->
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-
-        <!-- Styles-->
+        <!-- Bootstrap Styles-->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-
-        <!-- JavaScript -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>         
-	     <script src="../js/jquery.js"></script>
-		 <script src="../js/bootstrap.min.js"></script>
-	     <script type="text/javascript" src="../js/login-facebook.js"></script>
-	     <script type="text/javascript" src="../js/login.js"></script>
-		 <script type="text/javascript" src="../js/validateSignIn.js"></script>
-	     <script type="text/javascript" src="../js/fillDate.js"></script>
-	    	
+		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+    	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
 			    var button = $('#loginButton');
@@ -121,7 +113,7 @@
 									<input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
 								</fieldset>
 								<fieldset style="text-align:left">
-									<input type="checkbox" id="checkbox" name="checkbox"/><label for="checkbox">No cerrar sesión</label>
+									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
 								</fieldset>
 								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
@@ -171,37 +163,37 @@
 			<table width="700" height="100" align="center" border="0" >
 				  
 				  <tr >
-					<td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required/></td>
+					<td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required="true" oninput="validate();"/></td>
 				  </tr>
 				 
 				  <tr>
-					<td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local" required/></td>
+					<td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local" required="true" oninput="validate();"/></td>
 				  </tr>
 				  
 		   
 				  <tr>
-					<td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF" required/></td>
+					<td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF" required="true" oninput="validate();"/></td>
 				  </tr>
 			 
 				  
 				  <tr>
-					<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población" required /></td>
+					<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población" required="true" oninput="validate();" /></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" required /></td>
+					<td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" required="true" oninput="validate();" /></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" required/></td>
+					<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" required="true" oninput="validate();"/></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" required /></td>
+					<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" oninput="validate();" /></td>
 				  </tr>
 				  
 				   <tr>
-					<td><input id="confirmationEmailLocal" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required /></td>
+					<td><input id="confirmationEmailLocal" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" oninput="validate();" /></td>
 				  </tr>
 			  
 				  
@@ -215,8 +207,8 @@
 								<option value="1" >Avd.</option>
 								<option value="2" >Plaza</option>
 							</select>
-						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" required /></p>
-						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" required /></p>
+						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" required="true" oninput="validate();" /></p>
+						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" required="true" oninput="validate();" /></p>
 					   </p>
 					 </td>
 						
@@ -227,7 +219,7 @@
 						<div class="checkbox">
 								<label>
 									<p class="navbar-text">
-										<input type="checkbox" value="" id="Terms & Conditions" required>
+										<input type="checkbox" value="" id="Terms_Conditions" required="true" oninput="validate();">
 										<b style="color: #FFFFCC">Acepto los términos y condiciones </b>
 									</p>
 								</label>
@@ -237,7 +229,7 @@
 				  </tr>
 				  
 				  <tr align="center">
-					<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onClick="ButtonRegisterLocal();"/></td>
+					<td><input name="registerLocal"  class="btn" type="button" value="Enviar solicitud" onClick="validateForm();"/></td>
 				  </tr>
 			</table>
 		
@@ -273,6 +265,11 @@
             </div>
         </div>
     </footer>
-
+         <!-- JavaScript -->
+     <script src="../js/jquery.js"></script>
+	 <script src="../js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="../js/login-facebook.js"></script>
+     <script type="text/javascript" src="../js/login.js"></script>
+	 <script type="text/javascript" src="../js/validateFormLocal.js"></script>
+     <script type="text/javascript" src="../js/fillDate.js"></script>
     </body>
-</html> 
