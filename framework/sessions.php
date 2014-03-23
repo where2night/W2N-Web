@@ -12,11 +12,12 @@ function w2n_session_start($remember_me = false){
 	 
 	 $session_type = $_POST['user_type'];
 	 $_SESSION['user_type'] = $session_type;
+	 $_SESSION['id_user'] = $_POST["id_user"];
+	 $_SESSION['token'] = $_POST["token"];
 
 	 switch ($session_type) {
 	 	case 'user':
 			 $_SESSION['w2n_type_login'] = "normal";
-	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['picture'] = $_POST['picture'];
 			 $_SESSION['name'] = $_POST['name'];
 			 $_SESSION['surnames'] = $_POST['surnames'];
@@ -31,14 +32,17 @@ function w2n_session_start($remember_me = false){
 
 	 	case 'club':
 			 $_SESSION['w2n_type_login'] = "normal";
-	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['company_name'] = $_POST['companyName'];
 			 $_SESSION['local_name'] = $_POST['localName'];
 			 $_SESSION['cif'] = $_POST['cif'];
 			 $_SESSION['poblation_local'] = $_POST['poblationLocal'];
 			 $_SESSION['cp_local'] = $_POST['cpLocal']; 
+			 $_SESSION['telephone'] = $_POST['telephone']; 
 			 $_SESSION['street'] = $_POST['street']; 
+			 $_SESSION['street_name'] = $_POST['streetName']; 
+			 $_SESSION['street_number'] = $_POST['streetNumber']; 
 			 $_SESSION['music'] = $_POST['music'];
+			 $_SESSION['entry_price'] = $_POST['entryPrice'];
 			 $_SESSION['drink_price'] = $_POST['drinkPrice'];
 			 $_SESSION['opening_hours'] = $_POST['openingHours'];
 			 $_SESSION['close_hours'] = $_POST['closeHours']; 
@@ -48,15 +52,14 @@ function w2n_session_start($remember_me = false){
 	 	
 	 	case 'dj':
 			 $_SESSION['w2n_type_login'] = "normal";
-	 		 $_SESSION['id_user'] = $_POST["id_user"];
 			 $_SESSION['nameDJ'] = $_POST['nameDJ'];
+			 $_SESSION['name'] = $_POST['name'];
 			 $_SESSION['surname'] = $_POST['surname'];
 			 $_SESSION['telephone'] = $_POST['telephone'];
 			 $_SESSION['gender'] = $_POST['gender'];
 			 $_SESSION['birthdate'] = $_POST['birthdate']; 
 			 $_SESSION['picture'] = $_POST['picture']; 
 			 $_SESSION['music'] = $_POST['music'];
-			 $_SESSION['picture'] = $_POST['picture'];
 			 $_SESSION['about'] = $_POST['about'];
 	 	break;
 
@@ -102,6 +105,7 @@ function w2n_session_end(){
 			 unset($_SESSION['company_name']);
 			 unset($_SESSION['local_name']);
 			 unset($_SESSION['cif']);
+			 unset($_SESSION['telephone']);
 			 unset($_SESSION['poblation_local']);
 			 unset($_SESSION['cp_local']); 
 			 unset($_SESSION['street']); 

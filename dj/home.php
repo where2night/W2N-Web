@@ -37,6 +37,7 @@ include_once "../framework/sessions.php";
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/registro.js"></script>
+  <script src="../js/keep-session.js"></script>
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
@@ -143,7 +144,7 @@ include_once "../framework/sessions.php";
                 <li class="divider"></li>
 
                 <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
+                <li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
                 <!--<li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>-->
                 <li id="close_session"><a href="#"><i class="glyphicon glyphicon-off" style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>
@@ -255,7 +256,7 @@ include_once "../framework/sessions.php";
 									</div>
 									<h4>Show event</h4>
 									<p>
-												<?php echo 'SESSION!!!!!!!!!!!!!!!!!'; var_dump($_SESSION); ?>
+												
 									</p>
 								</li>
 								<li>

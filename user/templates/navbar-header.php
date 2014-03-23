@@ -62,7 +62,7 @@
                 <li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
                 <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
-			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
+			   <li id="close_session"><a href="#"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>
               </ul>
             </li>
           </ul>

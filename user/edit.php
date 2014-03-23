@@ -55,6 +55,7 @@ include_once "../framework/sessions.php";
       $("#change-data").on("click", function (event) {
           
         var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
         var name = $('#name').val();
         var surnames = $('#surname').val();
         var day = $('#day').val();
@@ -73,9 +74,10 @@ include_once "../framework/sessions.php";
         var city = $('#city').val();
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
+        var params = "/" + idProfile + "/" + token;
         
          console.log($.ajax({
-            url: "../develop/update/user.php",
+            url: "../develop/update/user.php" + params,
             dataType: "json",
             type: "POST",
             timeout: 5000,
@@ -97,6 +99,7 @@ include_once "../framework/sessions.php";
                       	type_login: 'normal',
                       	user_type: 'user',
                      	id_user: idProfile,
+				    	token: token,
 	                    name: name,
 	                    surnames: surnames,
 	                    birthdate: birthdate,

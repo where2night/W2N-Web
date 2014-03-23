@@ -40,7 +40,7 @@
               <span>
                 <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 				<?php 
-					echo $_SESSION['name']." ".$_SESSION['surnames'];
+					echo $_SESSION['name']." ".$_SESSION['surname'];
 				?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
@@ -52,7 +52,7 @@
                     <img src="../images/profile.jpg" />
                   </div>
                   <span>
-					 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+					 <?php echo $_SESSION['name']." ".$_SESSION['surname']; ?>
 				  </span>
                 </li>
 
@@ -62,7 +62,7 @@
                 <li><a href="edit.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
                 <!-- <li><a href="#" onclick="logOut();"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>-->
-			   <li id="close_session"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></li>
+			   <li id="close_session"><a href="#"><i class="glyphicon glyphicon-off"></i> <span>Cerrar Sesión</span></a></li>
               </ul>
             </li>
           </ul>

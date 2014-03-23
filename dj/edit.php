@@ -53,59 +53,58 @@ include_once "../framework/sessions.php";
       });
             
       $("#change-data").on("click", function (event) {
-        
-          //var email = $.cookie("email_log");
-          
+
         var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+        var nameDJ = $('#artistic-name').val();
         var name = $('#name').val();
-            var surnames = $('#surname').val();
-            var day = $('#day').val();
-            if (day.length < 2){
-              day = "0"+day;
-            } 
-            var month = $('#month').val();
-            if (month.length < 2){
-              month = "0"+day;
-            }
-            var year = $('#year').val();
-            var birthdate = day+"/"+month+"/"+year;
-            var gender = $("input[type='radio']:checked").val();
-            var music = $('#favourite-music').val();
-            var civil_state = $('#marital-status').val();
-            var city = $('#city').val();
-            var drink = $('#favourite-drink').val();
-            var about = $('#about-you').val();
+        var surname = $('#surname').val();
+        var telephone = $('#telephone').val();
+        var gender = $("input[type='radio']:checked").val();
+        var day = $('#day').val();
+        if (day.length < 2){
+          day = "0"+day;
+        } 
+        var month = $('#month').val();
+        if (month.length < 2){
+          month = "0"+day;
+        }
+        var year = $('#year').val();
+        var birthdate = day + "/" + month + "/" + year;
+        var music = $('#music_style').val();
+        var about = $('#about-you').val();
+        var params = "/" + idProfile + "/" + token;
         
          console.log($.ajax({
-            url: "../api/editprofile.php",
+            url: "../develop/update/dj.php" + params,
             dataType: "json",
             type: "POST",
             timeout: 5000,
             data: {
               idProfile:idProfile,
+              nameDJ: nameDJ,
               name:name,
-              surnames: surnames,
+              surname: surname,
+              telephone: telephone,
               birthdate: birthdate,
               gender: gender,
               music: music,
-              civil_state: civil_state,
-              city: city,
-              drink: drink,
               about: about
             },
             complete: function(r){
               $.post("../framework/session_start.php",
                     {
-                      type_login: 'normal',
-                      id_user: idProfile,
+                    type_login: 'normal',
+                    user_type: 'dj',
+                    id_user: idProfile,
+				    token: token,
+              		nameDJ: nameDJ,
                     name: name,
-                    surnames: surnames,
+                    surname: surname,
+              		telephone: telephone,
                     birthdate: birthdate,
                     gender: gender,
                     music: music,
-                    civil_state: civil_state,
-                    city: city,
-                    drink: drink,
                     about: about
                     },
                     function(data,status){
@@ -164,7 +163,7 @@ include_once "../framework/sessions.php";
 	
 	
 	<!-- My Profile -->
-	<div class="main-content" style="background-image:url(images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
+	<div class="main-content" style="background-image:url(../images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
 		<div class="wrapper">
 			<div class="container">
 				<div align= "center">
@@ -172,29 +171,36 @@ include_once "../framework/sessions.php";
 						<div class="form-group">
 							<label for="artistic-name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre Artístico: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="artistic-name" name="artistic-name" value="<?php //echo $_SESSION['name']; ?>" >
+							  <input type="text" class="form-control" id="artistic-name" name="artistic-name" value="<?php echo $_SESSION['nameDJ']; ?>" >
 							</div>
 						</div>
 					  
 						<div class="form-group">
 							<label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="name" name="name" value="<?php //echo $_SESSION['name']; ?>" >
+							  <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['name']; ?>" >
 							</div>
 						</div>
 					  
 						<div class="form-group">
 							<label for="surname" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Apellidos: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="surname" value="<?php //echo $_SESSION['surnames']; ?>">
+							  <input type="text" class="form-control" id="surname" value="<?php echo $_SESSION['surname']; ?>">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="telephone" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Teléfono: </b></label>
+							<div class="col-sm-4">
+							  <input type="text" class="form-control" id="telephone" value="<?php echo $_SESSION['telephone']; ?>">
 							</div>
 						</div>
 
 						<?php
-						/* $birth_array = explode ('/',$_SESSION['birthdate']);
+						 $birth_array = explode ('/',$_SESSION['birthdate']);
 						 $day = $birth_array[0];
 						 $month = $birth_array[1];
-						 $year = $birth_array[2];*/
+						 $year = $birth_array[2];
 						?>
 				  
 						<div class="form-group">
@@ -233,7 +239,7 @@ include_once "../framework/sessions.php";
 								<select id="year" class="form-control">
 								  <option value="0">Año</option>
 									<?php 
-									for ($i=2013; $i<1905; $i--){
+									for ($i=2013; $i>1905; $i--){
 									  if ($i == $day) {
 										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
 									  }else{
@@ -249,10 +255,10 @@ include_once "../framework/sessions.php";
 							<label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
 							<div class="col-sm-8">
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php //if ($_SESSION['gender']=="male") echo "selected=selected" ?>><span style="color: #FFFFCC">Hombre</span>
+								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "selected=selected" ?>><span style="color: #FFFFCC">Hombre</span>
 								</label>
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php //if ($_SESSION['gender']=="female") echo "selected=selected" ?>><span style="color: #FFFFCC">Mujer</span>
+								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "selected=selected" ?>><span style="color: #FFFFCC">Mujer</span>
 								</label>
 							</div>
 						</div>
@@ -260,14 +266,14 @@ include_once "../framework/sessions.php";
 						<div class="form-group">
 							<label for="music-style" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Estilo de música: </b></label>
 							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="music-style" name="music-style" value="<?php //echo $_SESSION['music-style']; ?>">
+							  <input type="text" class="form-control" id="music-style" name="music-style" value="<?php echo $_SESSION['music']; ?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="about-you" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Acerca de ti: </b></label>
 							<div class="col-sm-8">
-							  <textarea id="about-you" class="form-control" rows="3"><?php //echo $_SESSION['about']; ?></textarea>
+							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about']; ?></textarea>
 							</div>
 						</div>
 				  

@@ -17,7 +17,7 @@ function w2n_login(){
 		alert("Se debe introcucir un nombre de usuario");
 	}else if ( password == ""){
 		alert("Se debe introducir una contraseña");
-	}else login_connect(email, password, 'user', remember);
+	}else login_connect(email, password, remember);
 }
 
 function login_connect(email2, password2, remember){
@@ -84,6 +84,7 @@ function set_session_info(id, token, type){
 				  	user_type: 'user',
 				    type_login: 'normal',
 				    id_user: id,
+				    token: token,
 					picture: picture,
 					name: name,
 					surnames: surnames,
@@ -136,6 +137,7 @@ function set_session_info(id, token, type){
 				  	user_type: 'club',
 				    type_login: 'normal',
 				    id_user: id,
+				    token: token,
 					companyName: companyName,
 					localName: localName,
 					cif: cif,
@@ -187,6 +189,7 @@ function set_session_info(id, token, type){
 				  	user_type: 'dj',
 				    type_login: 'normal',
 				    id_user: id,
+				    token: token,
 					nameDJ: nameDJ,
 					name: name,
 					surname: surname,
