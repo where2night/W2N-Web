@@ -19,7 +19,7 @@ function validate() {
 				var telephoneDJ_value = '#telephoneDJ';
 				var telephoneDJ_valid = validField(telephoneDJ,telephoneDJ_value);
 				
-				if (telephoneDJ_valid){
+				if (telephoneDJ_valid && validate_length_telephone(telephoneDJ,9)){
 				
 					var emailDJ = document.getElementById('emailDJ');
 					var emailDJ_value = '#emailDJ';   
@@ -85,7 +85,7 @@ function validate() {
 					var birthday_date = day+"/"+month+"/"+year;
 
 
-					alert("pasa x registro ");
+					/*alert("pasa x registro ");
 					alert(coolnameDj);
 					alert(nameDJ);
 					alert(surnameDj);
@@ -93,7 +93,7 @@ function validate() {
 					alert(emailDJ);
 					alert(gender);
 					alert(birthday_date);
-					alert("AJAX");
+					alert("AJAX");*/
 					$.ajax({
 							url: "../develop/register/dj.php",
 							dataType: "json",
@@ -189,30 +189,6 @@ function validate() {
 		}
 	}
 
-	function validLengthPass(pass){
-
-		var passValue = pass.value;
-		var passLength = passValue.length;
-		var passVal = '#password';
-		if (passLength > 5 ){
-			alert("mayor");
-			cleanPopOvers();
-			return true;
-		}else{
-			//$(confirmation_email_vaule).popover('destroy');
-			cleanPopOvers();
-			$(passVal).popover({
-				content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error">La contraseña debe contener al menos 6 caracteres </label>',
-				html: true,
-				placement: 'bottom',
-				trigger: 'manual'
-			});
-
-			$(passVal).popover('show');
-			return false;
-		}
-
-	}
 
 	function  validPasswords(password,confirmation_password,confirmation_password_value){
 
@@ -345,6 +321,32 @@ function validate() {
 
 	}
 
+	function validate_length_telephone(telephone,field_length){
+	
+	var telephoneValue = telephone.value;
+	var telephoneLength = telephoneValue.length;
+	var telephoneVal = '#telephoneDJ';
+	var isNumber =(isNaN(telephoneValue));
+	
+	if (isNumber || telephoneLength != field_length){
+	
+		cleanPopOvers();
+		$(telephoneVal).popover({
+					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> El Teléfono debe contener 9 dígitos</label>',
+					html: true,
+					placement: 'bottom',
+					trigger: 'manual'
+		});
+		
+		$(telephoneVal).popover('show');
+		return false;
+		
+	}else{
+		cleanPopOvers();
+		return true;
+	}
+	
+}
 
 	function redirectHomeDj(){
 		alert("registro efectuado correctamente!!");

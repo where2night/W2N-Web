@@ -22,12 +22,12 @@ function validate() {
 					var cpLocal_value = '#cpLocal';
 					var cpLocal_valid = validField(cpLocal,cpLocal_value);
 				  
-					if (cpLocal_valid) {
+					if (cpLocal_valid && validate_length_cp(cpLocal,5)) {
 						var telephoneLocal = document.getElementById('telephoneLocal');
 						var telephoneLocal_value = '#telephoneLocal';
 						var telephoneLocal_valid = validField(telephoneLocal,telephoneLocal_value);
 					 
-						if (telephoneLocal_valid){
+						if (telephoneLocal_valid && validate_length_telephone(telephoneLocal,9)){
 					 
 							var email = document.getElementById('emailLocal');
 							var email_value = '#emailLocal';   
@@ -50,7 +50,7 @@ function validate() {
 											var streetNumberLocal = document.getElementById('streetNumberLocal');
 											var streetNumberLocalLocal_vaule = '#streetNumberLocal';
 											var streetNumberLocal_valid = validField(streetNumberLocal,streetNumberLocalLocal_vaule);
-											if (streetNumberLocal_valid){
+											if (streetNumberLocal_valid && validate_number_street(streetNumberLocal)){
 												return true;
 											}else return false;
 										}
@@ -82,7 +82,11 @@ function validateForm(){
 			var street = document.getElementById('street').value;
 			var streetNameLocal = document.getElementById('streetNameLocal').value;
 			var streetNumberLocal = document.getElementById('streetNumberLocal').value;
-			alert(emailLocal);
+			//var street; 
+			/*if (street_option == 0) street = "Calle";
+			else if (street_option == 1) street = "Avd";
+			else if (street_option == 2) street = "Plaza";*/
+			/*alert(emailLocal);
 			alert(companyNameLocal);
 			alert(localName);
 			alert(cif);
@@ -93,6 +97,7 @@ function validateForm(){
 			alert(telephoneLocal);
 			alert(streetNameLocal);
 			alert(streetNumberLocal);
+			alert(street);*/
 			$.ajax({
 					url: "../develop/register/local.php",
 					dataType: "json",
@@ -318,6 +323,89 @@ function validateDNI(dni)
 	if(lockup.charAt(valueDni % 23)==letra)
 		return true;
 	return false;
+}
+
+function validate_length_cp(cp,field_length){
+	
+	var cpValue = cp.value;
+	var cpLength = cpValue.length;
+	var cpVal = '#cpLocal';
+	var isNumber =(isNaN(cpValue));
+	
+	if (isNumber || cpLength != field_length){
+	
+		cleanPopOvers();
+		$(cpVal).popover({
+					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> El CP debe contener 5 dígitos</label>',
+					html: true,
+					placement: 'bottom',
+					trigger: 'manual'
+		});
+		
+		$(cpVal).popover('show');
+		return false;
+		
+	}else{
+		cleanPopOvers();
+		return true;
+	}
+	
+}
+
+
+function validate_length_telephone(telephone,field_length){
+	
+	var telephoneValue = telephone.value;
+	var telephoneLength = telephoneValue.length;
+	var telephoneVal = '#telephoneLocal';
+	var isNumber =(isNaN(telephoneValue));
+	
+	if (isNumber || telephoneLength != field_length){
+	
+		cleanPopOvers();
+		$(telephoneVal).popover({
+					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> El Teléfono debe contener 9 dígitos</label>',
+					html: true,
+					placement: 'bottom',
+					trigger: 'manual'
+		});
+		
+		$(telephoneVal).popover('show');
+		return false;
+		
+	}else{
+		cleanPopOvers();
+		return true;
+	}
+	
+}
+
+
+function validate_number_street(number_street){
+	
+	var number_streetValue = number_street.value;
+	var number_streetLength = number_streetValue.length;
+	var number_streetVal = '#streetNumberLocal';
+	var isNumber =(isNaN(number_streetValue));
+	
+	if (isNumber){
+	
+		cleanPopOvers();
+		$(number_streetVal).popover({
+					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> El campo debe ser numérico</label>',
+					html: true,
+					placement: 'bottom',
+					trigger: 'manual'
+		});
+		
+		$(number_streetVal).popover('show');
+		return false;
+		
+	}else{
+		cleanPopOvers();
+		return true;
+	}
+	
 }
 
 function redirectHomeLocal(){
