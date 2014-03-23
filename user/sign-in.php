@@ -306,7 +306,7 @@
 	 <script src="../js/bootstrap.min.js"></script>
      <script type="text/javascript" src="../js/login-facebook.js"></script>
      <script type="text/javascript" src="../js/login-web.js"></script>
-	 <script type="text/javascript" src="../js/validateFormLocal.js"></script>
+	 <script type="text/javascript" src="../js/validateFormUser.js"></script>
       
      
     </body>
