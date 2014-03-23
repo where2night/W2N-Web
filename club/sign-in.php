@@ -86,6 +86,15 @@
 	</script>
 	</div>
     	<style>
+			.popover-title {
+					color: blue;
+					font-size: 15px;
+			}
+			.popover-content {
+				color: #A65F20;
+				font-size: 10px;
+			}
+			
   			body {
     			padding-top: 60px;
 				padding-bottom: 60px;

@@ -21,15 +21,13 @@
 
         <!-- JavaScript -->
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="../js/fecha.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
 	     <script src="../js/jquery.js"></script>
 		 <script src="../js/bootstrap.min.js"></script>
 	     <script type="text/javascript" src="../js/login-facebook.js"></script>
 	     <script type="text/javascript" src="../js/login.js"></script>
-		 <script type="text/javascript" src="../js/validateSignIn.js"></script>
 	     <script type="text/javascript" src="../js/fillDate.js"></script>
+		 <script type="text/javascript" src="../js/validateFormDj.js"></script>
 
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
@@ -90,6 +88,14 @@
 	</script>
 	</div>
     	<style>
+			.popover-title {
+					color: blue;
+					font-size: 15px;
+			}
+			.popover-content {
+				color: #A65F20;
+				font-size: 10px;
+			}
   			body {
     			padding-top: 60px;
 				padding-bottom: 60px;
@@ -174,44 +180,42 @@
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr>
-	            <td><input id="CoolnameDj" type="text" size="100" class="form-control" placeholder="Nombre artistico" /></td>
+	            <td><input id="coolnameDj" type="text" size="100" class="form-control" placeholder="Nombre artistico" required="true" oninput="validate();" /></td>
 	          </tr>
 			  
 			  <tr >
-	            <td ><input id="NameDJ"  type="text" size="100" class="form-control" placeholder="Nombre"/></td>
+	            <td ><input id="nameDJ"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" oninput="validate();"/></td>
 	          </tr>
 	         
 	          <tr>
-	            <td><input id="SurnameDj" type="text" size="100" class="form-control" placeholder="Apellidos"/></td>
+	            <td><input id="surnameDj" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" oninput="validate();" /></td>
 	          </tr>
 	          
 	          <tr>
-	           	<td><input id="telephoneDJ" type="text" size="100"  class="form-control" placeholder="Teléfono"/></td>
+	           	<td><input id="telephoneDJ" type="text" size="100"  class="form-control" placeholder="Teléfono"required="true" oninput="validate();" /></td>
 	          </tr>
               
               <tr>
-	           	<td><input id="emailDJ" type="email" size="100" class="form-control" placeholder="Correo electrónico" /></td>
+	           	<td><input id="emailDJ" type="email" size="100" class="form-control" placeholder="Correo electrónico"  required="true" oninput="validate();"/></td>
 	          </tr>
 	          
                <tr>
-	           	<td><input id="confirmationEmailDJ" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" /></td>
+	           	<td><input id="confirmationEmailDJ" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" oninput="validate();" /></td>
 	          </tr>
           
 		  <tr>
 		  <td>
-	            	<div class="checkbox">
-						<label>
-							<p class="navbar-text">
-								<input type="checkbox" value="" id="man">
-								<b style="color: #FFFFCC">Hombre</b>
-							</p>
-							
-							<p class="navbar-text">
-								<input type="checkbox" value="" id="woman">
-								<b style="color: #FFFFCC">Mujer</b>
-							</p>
-							
-						</label>
+	            	<div class="form-group" >
+							<br>
+							<div class="col-sm-8">
+								<label class="radio-inline">
+								  <input name="radioGroup" id="male" value="male" type="radio" onchange="validate();" ><span style="color: #FFFFCC">Hombre</span>
+								</label>
+								<label class="radio-inline">
+								  <input name="radioGroup" id="female" value="female" type="radio" onchange="validate();"><span style="color: #FFFFCC">Mujer</span>
+								</label>
+								<div id="errorGender"></div>
+							</div>
 					</div>
 	            </td>
 	          </tr>
@@ -224,21 +228,21 @@
 
 	            	<p class="navbar-text">
 						<select id="day">
-	            			<option value="0" selected="1">Día</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Día</option>
 	          					<script>
 	        						SelectOptionRange(1,32);
 	        					</script>	
 	            	 	</select>
 	            	
 	            		<select id="month">
-	            			<option value="0" selected="1">Mes</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Mes</option>
 	            				<script>
 	        						SelectOptionRange(1,13);
 	        					</script>
 	                	</select>
 	            	
 	            		<select id="year">
-	            			<option value="0" selected="1">Año</option>
+	            			<option value="0" selected="1" required="true" onchange="validate();">Año</option>
 	        					<script>
 	        						SelectOptionRange(1905,2013);
 	        					</script>    		
@@ -252,7 +256,7 @@
 	            	<div class="checkbox">
 							<label>
 								<p class="navbar-text">
-									<input type="checkbox" value="" id="Terms & Conditions">
+									<input type="checkbox" value="" id="Terms_Conditions" required="true">
 									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
 								</p>
 							</label>
@@ -262,7 +266,7 @@
 	          </tr>
 	          
 	          <tr align="center">
-	          	<td><input name="registerDJ"  class="btn" type="button" value="Enviar solicitud" onclick="ButtonRegisterDJ()"/></td>
+	          	<td><input name="registerDJ"  class="btn" type="button" value="Enviar solicitud" onclick="validateForm()"/></td>
 	          </tr>
 	   	</table>
         <!-- /Datos del registro -->
