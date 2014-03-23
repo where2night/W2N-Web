@@ -24,7 +24,7 @@ function validate() {
 							var password = document.getElementById('password');
 							var password_value = '#password';
 							var password_valid = validField(password,password_value);
-							var pass_length = validLengthPass(password);
+							var pass_length = validate_length(password,5);
 							
 							if (password_valid && pass_length ){
 								var confirmation_password = document.getElementById('confirmation_password');
@@ -119,98 +119,6 @@ function validateForm(){
 
 }
 
-/*function validateForm()
-{
-var validateFields = validate();
-	if(validateFields){
-	alert("validado");
-var terms=document.getElementById("Terms_Conditions").checked;
-
-if(terms){
-	var man=document.getElementById("male").checked;
-	var woman=document.getElementById("female").checked;
-
-	if(man && !woman || !man&&woman){
-
-		var email2= document.getElementById("email").value;
-		var confirmationemail= document.getElementById("confirmation_email").value;
-		
-		if(email2==confirmationemail && email2!=""){
-		
-		
-			var password2=document.getElementById("password").value; 
-			
-			var confirmationpassword=document.getElementById("confirmation_password").value;
-
-				if(password2==confirmationpassword && password2!=""){
-			
-					var list_day= document.getElementById("day");
-					var day = list_day.options[list_day.selectedIndex].text;
-
-					var list_month= document.getElementById("month");
-					var month = list_month.options[list_month.selectedIndex].text;
-
-					var list_year= document.getElementById("year");
-					var year = list_year.options[list_year.selectedIndex].text;
-					
-					var bisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
-
-					  if (bisiesto) var FebruaryDay=29;
-					  else var FebruaryDay=28;
-
-					 if(((month==11 || month==4 || month==6 || month==9) && day>30)||(month==2 && day>FebruaryDay)
-					 	 || year=="Año" || day=="Día" || month=="Mes")
-						alert("Introduce una fecha de nacimiento correcta");
-					 else{
-						var name2= document.getElementById("name").value;
-						var surname2= document.getElementById("surname").value;
-						
-						var birthday_date2 = day+"/"+month+"/"+year;
-				  
-						if(name2!="" && surname2!=""){
-							var man2;
-							if(man)
-								man2 = "male";
-							else man2 = "female";
-							$.ajax({
-									url: "../develop/register/user.php",
-									dataType: "json",
-									type: "POST",
-									data: {
-										name: name2,
-										surnames: surname2,
-										pass:password2,
-										gender: man2,
-										birthdate: birthday_date2,
-										email:email2
-									},
-									complete: function(r){
-											var json = JSON.parse(r.responseText);
-										
-											if(json.Token!=0){
-												redirectHomeFiestero();
-											} else alert("Registro incorrecto");
-									},
-									onerror: function(e,val){
-										alert("Hay error");
-									}
-							});
-								
-								//alert("Se ha enviado un correo electrónico de verificación de la cuenta creada") ;
-						
-						}else alert("Introduce nombre y apellidos");
-						} 
-							
-			}else alert("Introduce la misma contraseña en los dos campos");
-		} else alert("Introduce el mismo email en los dos campos");
-		
-	} else alert("Tienes que selecionar hombre o mujer");
-
-} else alert("No has aceptado los terminos y condiciones");
-}else alert("no valiudo");
-
-
-}*/
 
 function validField(field,fieldValue){
 	
@@ -271,13 +179,12 @@ function validEmails(email,confirmation_email,confirmation_email_vaule){
 	}
 }
 
-function validLengthPass(pass){
+function validate_length(pass,field_length){
 	
 	var passValue = pass.value;
 	var passLength = passValue.length;
 	var passVal = '#password';
-	if (passLength > 5 ){
-		alert("mayor");
+	if (passLength > field_length ){
 		cleanPopOvers();
 		return true;
 	}else{
@@ -433,12 +340,3 @@ function redirectHomeFiestero(){
 	window.location.href="http://www.where2night.es";		
 }
 
-function redirectHomeLocal(){
-	alert("registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web !!");
-	window.location.href="http://www.where2night.es";		
-}
- 
- function redirectHomeDj(){
-	alert("registro efectuado correctamente!!");
-	window.location.href="http://www.where2night.es";		
-}

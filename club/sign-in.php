@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,26 +10,23 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="format-detection" content="telephone=no" />
-
         <!-- Icon W2N -->
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-
         <!-- Bootstrap Styles-->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-
-                 <!-- JavaScript -->
-     	<script src="../js/jquery.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-	    <script type="text/javascript" src="../js/login-facebook.js"></script>
-	    <script type="text/javascript" src="../js/login.js"></script>
-		<script type="text/javascript" src="../js/validateFormLocal.js"></script>
-	    <script type="text/javascript" src="../js/fillDate.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+		 <!-- JavaScript -->
+		 <script src="../js/jquery.js"></script>
+		 <script src="../js/bootstrap.min.js"></script>
+		 <script type="text/javascript" src="../js/login-facebook.js"></script>
+		 <script type="text/javascript" src="../js/login.js"></script>
+		 <script type="text/javascript" src="../js/validateFormLocal.js"></script>
+		 <script type="text/javascript" src="../js/fillDate.js"></script>
     	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
@@ -87,6 +86,15 @@
 	</script>
 	</div>
     	<style>
+			.popover-title {
+					color: blue;
+					font-size: 15px;
+			}
+			.popover-content {
+				color: #A65F20;
+				font-size: 10px;
+			}
+			
   			body {
     			padding-top: 60px;
 				padding-bottom: 60px;
@@ -122,6 +130,7 @@
 								</fieldset>
 								<fieldset style="text-align:left">
 									<input type="checkbox" id="checkbox" name="checkbox"/><label for="checkbox">No cerrar sesión</label>
+									
 								</fieldset>
 								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
@@ -227,6 +236,7 @@
 						<div class="checkbox">
 								<label>
 									<p class="navbar-text">
+									
 										<input type="checkbox" value="" id="Terms_Conditions" required="true" oninput="validate();">
 										<b style="color: #FFFFCC">Acepto los términos y condiciones </b>
 									</p>
@@ -273,6 +283,6 @@
             </div>
         </div>
     </footer>
-    
+        
     </body>
 </html>
