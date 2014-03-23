@@ -35,6 +35,7 @@ include_once "../framework/sessions.php";
    	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>
+    <script src="../js/keep-session.js"></script>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -62,7 +63,21 @@ jQuery(function($){
 });    
 
         $(document).ready(function() {
+
            $("#datepicker").datepicker();
+
+           //Function for closing session
+	        $("#close_session").on("click", function (event) {
+		        $.post("../framework/session_end.php",
+		          {},
+		          function(data,status){
+		          	  eraseCookie('w2n_id');
+		          	  eraseCookie('w2n_token');
+		          	  eraseCookie('w2n_type');
+			          var url = "http://www.where2night.es";
+			          $(location).attr('href',url);
+		        });
+		    });
         });
     </script>
 

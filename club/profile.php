@@ -29,19 +29,30 @@ include_once "../framework/sessions.php";
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <link rel="stylesheet" href="../css/profile-club.css" type="text/css" /><!-- Style -->	
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+	<!-- script -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/registro.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../js/keep-session.js"></script>
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
       
-      $("#close_session").on("click", function (event) {
-        $.post("../framework/session_end.php",
-          {},
-          function(data,status){
-          var url = "http://www.where2night.es";
-          $(location).attr('href',url);
-          });
-      });
+           //Function for closing session
+	        $("#close_session").on("click", function (event) {
+		        $.post("../framework/session_end.php",
+		          {},
+		          function(data,status){
+		          	  eraseCookie('w2n_id');
+		          	  eraseCookie('w2n_token');
+		          	  eraseCookie('w2n_type');
+			          var url = "http://www.where2night.es";
+			          $(location).attr('href',url);
+		        });
+		    });
+		    
     });//end $(document).ready(function()
     
   </script>
@@ -354,15 +365,6 @@ include_once "../framework/sessions.php";
 
 </div>
 <!-- /MiPerfil --> 
-
-
-
-<!-- script -->
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/registro.js"></script>
-
-<!-- /script -->
 
 </body>
 </html>

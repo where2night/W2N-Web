@@ -15,9 +15,11 @@ include_once "../framework/sessions.php";
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
+
     <!-- Icon W2N -->
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
     <!-- Estilos Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
@@ -30,10 +32,10 @@ include_once "../framework/sessions.php";
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->
 
 <!-- script -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>	
 <script src="../js/keep-session.js"></script>	
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 <script type="text/javascript">  
 
@@ -50,6 +52,7 @@ include_once "../framework/sessions.php";
 	          $(location).attr('href',url);
           });
       });
+      
     });//end $(document).ready(function()
     
 </script>

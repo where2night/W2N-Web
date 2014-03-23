@@ -8,17 +8,27 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="format-detection" content="telephone=no" />
+
         <!-- Icon W2N -->
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-        <!-- Bootstrap Styles-->
+
+        <!-- Styles-->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+
+        <!-- JavaScript -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
-    	
+		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>         
+	     <script src="../js/jquery.js"></script>
+		 <script src="../js/bootstrap.min.js"></script>
+	     <script type="text/javascript" src="../js/login-facebook.js"></script>
+	     <script type="text/javascript" src="../js/login.js"></script>
+		 <script type="text/javascript" src="../js/validateSignIn.js"></script>
+	     <script type="text/javascript" src="../js/fillDate.js"></script>
+	    	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 
 			    var button = $('#loginButton');
@@ -111,7 +121,7 @@
 									<input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
 								</fieldset>
 								<fieldset style="text-align:left">
-									<label for="checkbox"><input type="checkbox" id="checkbox"/>Recordar mis datos</label>
+									<input type="checkbox" id="checkbox" name="checkbox"/><label for="checkbox">No cerrar sesión</label>
 								</fieldset>
 								<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 							</fieldset>
@@ -263,11 +273,6 @@
             </div>
         </div>
     </footer>
-         <!-- JavaScript -->
-     <script src="../js/jquery.js"></script>
-	 <script src="../js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="../js/login-facebook.js"></script>
-     <script type="text/javascript" src="../js/login.js"></script>
-	 <script type="text/javascript" src="../js/validateSignIn.js"></script>
-     <script type="text/javascript" src="../js/fillDate.js"></script>
+
     </body>
+</html> 

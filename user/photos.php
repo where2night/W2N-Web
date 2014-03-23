@@ -15,18 +15,46 @@ include_once "../framework/sessions.php";
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
+
     <!-- Icon W2N -->
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap Style -->
+
+    <!-- Style -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+	<link href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
 	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+
+  	<!-- script -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="../js/fotos-fiestero.js"></script>
+	<script src="../js/fotos-fiestero.js"></script>	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/keep-session.js"></script>
+
+	<script type="text/javascript">  
+
+	    $(document).ready(function(){ 
+	      
+	      $("#close_session").on("click", function (event) {
+	        $.post("../framework/session_end.php",
+	          {},
+	          function(data,status){
+	          	  eraseCookie('w2n_id');
+	          	  eraseCookie('w2n_token');
+	          	  eraseCookie('w2n_type');
+		          var url = "http://www.where2night.es";
+		          $(location).attr('href',url);
+	          });
+	      });
+	      
+	    });//end $(document).ready(function()
+    
+	</script>
+
 </head>
 
 <body>
@@ -131,7 +159,7 @@ include_once "../framework/sessions.php";
 				<img style="margin-left: 5px" src="../images/photos_24.png" /> 
 				<label id="font" style="margin-left: 2px"> Fotos </label>
 				
-				<!-- <input class="button" name="hola" /> --->
+				<!-- <input class="button" name="hola" /> -->
 		</td>
 		
 		<td width="20%">
@@ -209,12 +237,6 @@ include_once "../framework/sessions.php";
 
 
 	</table>
-
-
-
-
-	<script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>

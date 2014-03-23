@@ -14,10 +14,12 @@ include_once "../framework/sessions.php";
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
+
     <!-- Icon W2N -->
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap Styles -->
+
+    <!-- Styles -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
@@ -28,7 +30,12 @@ include_once "../framework/sessions.php";
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" /><!-- Style -->	
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
+
+	<!-- script -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="../js/keep-session.js"></script>
 
 	<script type="text/javascript">  
     $(document).ready(function(){ 
@@ -37,8 +44,11 @@ include_once "../framework/sessions.php";
         $.post("../framework/session_end.php",
           {},
           function(data,status){
-          var url = "http://www.where2night.es";
-          $(location).attr('href',url);
+          	  eraseCookie('w2n_id');
+          	  eraseCookie('w2n_token');
+          	  eraseCookie('w2n_type');
+	          var url = "http://www.where2night.es";
+	          $(location).attr('href',url);
           });
       });
             
@@ -270,12 +280,6 @@ include_once "../framework/sessions.php";
 
 	</div>
 	<!-- /My Profile --> 
-
-
-
-	<!-- script -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -15,9 +15,11 @@ include_once "../framework/sessions.php";
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
+
    <!-- Icon W2N -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
     <!-- Estilos Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/login.css" rel="stylesheet" type="text/css">
@@ -29,19 +31,29 @@ include_once "../framework/sessions.php";
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
   <link rel="stylesheet" href="../css/profile-dj.css" type="text/css" /><!-- Style -->	
   <link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
+
+  <!-- script -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/registro.js"></script>
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
       
-      $("#close_session").on("click", function (event) {
-        $.post("../framework/session_end.php",
-          {},
-          function(data,status){
-          var url = "http://www.where2night.es";
-          $(location).attr('href',url);
-          });
-      });
+      //Function for close session
+        $("#close_session").on("click", function (event) {
+          $.post("../framework/session_end.php",
+            {},
+            function(data,status){
+                eraseCookie('w2n_id');
+                eraseCookie('w2n_token');
+                eraseCookie('w2n_type');
+              var url = "http://www.where2night.es";
+              $(location).attr('href',url);
+            });
+        });
+        
     });//end $(document).ready(function()
     
   </script>
@@ -262,16 +274,6 @@ include_once "../framework/sessions.php";
 
 </div>
 <!-- /MiPerfil --> 
-
-
-
-<!-- script -->
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/registro.js"></script>
-
-
-<!-- /script -->
 
 </body>
 </html>
