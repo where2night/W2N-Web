@@ -395,24 +395,18 @@ include_once "../framework/sessions.php";
               	<li>
 				<?php include "map.php";?>
 				<div class="contactBox">
-					<h1>Dirección:</h1>
-					 
-					<p id="street" required>
-										<?php if ($_SESSION['street'] == 0) echo 'Calle'; ?>
-										<?php if ($_SESSION['street'] == 1) echo 'Avd.'; ?>
-										<?php if ($_SESSION['street'] == 2) echo 'Plaza'; ?>
-										<?php echo $_SESSION['streetName']; ?>
-										<?php echo $_SESSION['poblation_local'];?>
-										</p>
-									
-					<p>Calle Cenicero número 31,
-					<br>
-						Madrid 28002<br>
+					<h1>Dirección:</h1> 
+					<p>
+						<?php if ($_SESSION['street'] == 0) echo 'Calle'; ?>
+						<?php if ($_SESSION['street'] == 1) echo 'Avd.'; ?>
+						<?php if ($_SESSION['street'] == 2) echo 'Plaza'; ?>
+						<?php echo $_SESSION['streetName']; ?>,<br>
+						<?php echo $_SESSION['poblation_local'];?>
+						<?php echo $_SESSION['cp_local'];?>
 					</p>
 					<h1>Teléfono:</h1>
-					<p>918762329 / 708892773
-					<h1>Horario:</h1>
-					<p>J,V,S,D 22:00 - 6:00</p>
+					<p><?php echo $_SESSION['telephone'];?></p>
+					<h1>Horario:</h1>					
 				</div>
 				
 				</li>
