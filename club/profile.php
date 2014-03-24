@@ -37,25 +37,140 @@ include_once "../framework/sessions.php";
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
 
-  <script type="text/javascript">  
+	<script type="text/javascript">  
     $(document).ready(function(){ 
       
-           //Function for closing session
-	        $("#close_session").on("click", function (event) {
-		        $.post("../framework/session_end.php",
-		          {},
-		          function(data,status){
-		          	  eraseCookie('w2n_id');
-		          	  eraseCookie('w2n_token');
-		          	  eraseCookie('w2n_type');
-			          var url = "http://www.where2night.es";
-			          $(location).attr('href',url);
-		        });
-		    });
-		    
+	    $("#close_session").on("click", function (event) {
+	        $.post("../framework/session_end.php",
+	          {},
+	          function(data,status){
+	          	  eraseCookie('w2n_id');
+	          	  eraseCookie('w2n_token');
+	          	  eraseCookie('w2n_type');
+		          var url = "http://www.where2night.es";
+		          $(location).attr('href',url);
+	          });
+	      });
+            
+      $("#change-data").on("click", function (event) {
+          
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+        var companyName = $('#name').val();
+        var localName = $('#local_name').val();
+        var cif = $('#cif').val();
+        var poblationLocal = $('#poblation').val();
+        var cpLocal = $('#postal-code').val();
+        var telephone = $('#telephone').val();
+        var street = $("#street").val();
+        var streetName = $("#streetName").val();
+        var streetNumber = $("#streetNumber").val();
+        var music = $('#music-style').val();
+        var entryPrice = $('#entryPrice').val();
+        var drinkPrice = $('#drinkPrice').val();
+
+        var timepicker_open = $("#timepicker_open").data("kendoTimePicker");
+		var date1 = timepicker_open.value();
+		var openingHours = '';
+
+		var h = date1.getHours();
+		var m = date1.getMinutes();
+		var s = date1.getSeconds();
+
+		if (h < 10) h = '0' + h;
+		if (m < 10) m = '0' + m;
+		if (s < 10) s = '0' + s;
+
+		openingHours = h + ':' + m + ':' + s;
+
+		var timepicker_close = $("#timepicker_close").data("kendoTimePicker");
+		var date2 = timepicker_close.value();
+		var closeHo2rs = '';
+
+		var h = date2.getHours();
+		var m = date2.getMinutes();
+		var s = date2.getSeconds();
+
+		if (h < 10) h = '0' + h;
+		if (m < 10) m = '0' + m;
+		if (s < 10) s = '0' + s;
+
+		closeHours = h + ':' + m + ':' + s;
+
+        var about = $('#about-you').val();
+        var picture = '';
+
+        var params = "/" + idProfile + "/" + token;
+        
+         console.log($.ajax({
+            url: "../develop/update/local.php" + params,
+            dataType: "json",
+            type: "POST",
+            timeout: 5000,
+            data: {
+              idProfile:idProfile,
+              companyName:companyName,
+              localName:localName,
+              cif: cif,
+              telephone: telephone,
+              poblationLocal: poblationLocal,
+              cpLocal: cpLocal,
+              street: street,
+              streetName: streetName,
+              streetNumber: streetNumber,
+              music: music,
+              entryPrice: entryPrice,
+              drinkPrice: drinkPrice,
+              openingHours: openingHours,
+              closeHours: closeHours,
+              picture: picture,
+              about: about
+            },
+            complete: function(r){
+              $.post("../framework/session_start.php",
+                    {
+						type_login: 'normal',
+						user_type: 'club',
+						id_user: idProfile,
+						token: token,
+						companyName:companyName,
+						localName:localName,
+						cif: cif,
+						telephone: telephone,
+						poblationLocal: poblationLocal,
+						cpLocal: cpLocal,
+						street: street,
+						streetName: streetName,
+						streetNumber: streetNumber,
+						music: music,
+						entryPrice: entryPrice,
+						drinkPrice: drinkPrice,
+						openingHours: openingHours,
+						closeHours: closeHours,
+						picture: picture,
+						about: about
+					},
+                    function(data,status){
+                      //window.location.href="home.php";
+                    });
+                
+              },
+            onerror: function(e,val){
+              alert("Hay error");
+            }
+        }));
+      });
+		
+		$("#timepicker_open").kendoTimePicker({
+		    format: "HH:mm"
+		});
+		$("#timepicker_close").kendoTimePicker({
+		    format: "HH:mm"
+		});     
     });//end $(document).ready(function()
     
-  </script>
+    
+    </script>
 
 </head>
 
@@ -86,73 +201,10 @@ include_once "../framework/sessions.php";
 	}	
 			
     </style>
-<!-- NavbarHeader -->
-	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
-          <span class="sr-only">Toggle Side Navigation</span>
-          <i class="icon-th-list"></i>
-        </button>
-
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
-          <span class="sr-only">Toggle Top Navigation</span>
-          <i class="icon-align-justify"></i>
-        </button>
-    
-        </div>  
-         <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-collapse-top">
-        <div class="navbar-right">
-		
-          <ul class="nav navbar-nav navbar-left">
-           <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
-				<li>
-              <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
-              	
-            	</li>
-               
-          </ul>
-			
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
-            <i class="glyphicon glyphicon-search" style="color:#FF6B24; margin-top:0px"></i>
-            </div>
-          </form>
-
-          <ul class="nav navbar-nav navbar-left">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
-              <span>
-                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><?php echo $_SESSION['local_name']; ?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
-              </span>
-              </a>
-              <ul class="dropdown-menu">
-
-
-                <li class="with-image">
-                  <div class="avatar">
-                    <img src="../images/profile.jpg" />
-                  </div>
-                  <span><?php echo $_SESSION['local_name']; ?></span>
-                </li>
-
-                <li class="divider"></li>
-
-                <li><a href="#"><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i> <span>Perfil</span></a></li>
-                <li><a href="http://www.where2night.es/editar-fiestero.php"><i class="glyphicon glyphicon-edit"style="color:#FF6B24"></i> <span>Editar Perfil</span></a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"style="color:#FF6B24"></i> <span>Configuración</span></a></li>
-                <li id="close_session"><a href="#"><i class="glyphicon glyphicon-off" style="color:#FF6B24"></i> <span>Cerrar Sesión</span></a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div><!-- /.navbar-collapse -->
-      </div>
-    </div>
-<!-- /NavbarHeader -->
+<?php 
+  /*NavbarHeader*/
+  include "templates/navbar-header.php";
+?>
 
 <!-- MiPerfil -->
 <div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px; margin-left:0px;margin-bottom:-50px;" > 
@@ -166,7 +218,6 @@ include_once "../framework/sessions.php";
 						<h1>
 							<?php echo $_SESSION['local_name']; ?>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localizacón local</p>
 					</div>
 					<div>
 						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
@@ -343,8 +394,17 @@ include_once "../framework/sessions.php";
               <div class="mapa">
               	<li>
 				<?php include "map.php";?>
-				<div  class="contactBox">
+				<div class="contactBox">
 					<h1>Dirección:</h1>
+					 
+					<p id="street" required>
+										<?php if ($_SESSION['street'] == 0) echo 'Calle'; ?>
+										<?php if ($_SESSION['street'] == 1) echo 'Avd.'; ?>
+										<?php if ($_SESSION['street'] == 2) echo 'Plaza'; ?>
+										<?php echo $_SESSION['streetName']; ?>
+										<?php echo $_SESSION['poblation_local'];?>
+										</p>
+									
 					<p>Calle Cenicero número 31,
 					<br>
 						Madrid 28002<br>

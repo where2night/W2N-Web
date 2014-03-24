@@ -69,6 +69,5 @@
                 
           </ul>
         </li>
-		<img src="../images/logo3_opt.png" />
 </div>
 <!-- /SideBar -->

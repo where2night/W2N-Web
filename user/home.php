@@ -309,6 +309,5 @@ include_once "../framework/sessions.php";
 
 </div>
 <!-- /My Profile --> 
-
 </body>
 </html>
