@@ -184,10 +184,10 @@ include_once "../framework/sessions.php";
 						</div>
 
 						<?php
-						 $birth_array = explode ('/',$_SESSION['birthdate']);
+						 $birth_array = explode ('-',$_SESSION['birthdate']);
 						 $day = $birth_array[0];
 						 $month = $birth_array[1];
-						 $year = $birth_array[2];
+						 $year = $birth_array[2]; 
 						?>
 				  
 						<div class="form-group">
@@ -242,10 +242,10 @@ include_once "../framework/sessions.php";
 							<label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
 							<div class="col-sm-8">
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "selected=selected" ?>><span style="color: #FFFFCC">Hombre</span>
+								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
 								</label>
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "selected=selected" ?>><span style="color: #FFFFCC">Mujer</span>
+								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
 								</label>
 							</div>
 						</div>
