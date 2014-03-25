@@ -43,8 +43,13 @@
 									if (json.Token ==0){
 										alert("error");
 									} else {
-											redirectLoginFb();
-										}
+										var id = json.id;
+										var token = json.Token;
+										var user_type = json.type;
+										var login_type = 'facebook';
+
+										set_session_info(id, token, user_type, login_type);
+									}
 										
 								},
 								onerror: function(e,val){
@@ -52,12 +57,6 @@
 								}
 					});
 			},{scope: 'email,user_photos,user_videos,user_birthday'}) );
-  }
-  
-  function redirectLoginFb(){
-	alert("Login correcto con facebook");
-	window.location.href="http://www.where2night.es/user/profile.php";	
-	//document.getElementById("logFb").innerHTML=email2;
   }
   
    function logOut()

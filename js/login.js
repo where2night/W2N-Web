@@ -34,7 +34,8 @@ function login_connect(email2, password2, remember){
 					if(json.Token!=0){
 						var id = json.id;
 						var token = json.Token;
-						var type = json.type;
+						var user_type = json.type;
+						var login_type = 'normal';
 
 						//Use cookies if user wants to remember his session
 						if(remember){
@@ -43,7 +44,7 @@ function login_connect(email2, password2, remember){
 							setCookie('w2n_type',type);
 						}
 
-						set_session_info(id, token, type);
+						set_session_info(id, token, user_type, login_type);
 			 			
 					} else  
 						alert("Contraseña y/o usuario incorrectos");
@@ -54,11 +55,11 @@ function login_connect(email2, password2, remember){
 	});
 }
 
-function set_session_info(id, token, type){
+function set_session_info(id, token, user_type, login_type){
 	var url1 = "../develop/update/";
 	var params = "/" + id + "/" + token + "/" + id;
 	
-	switch(type){
+	switch(user_type){
 		case '0'://User
 		  url1 += "user.php";
 		  url1 += params;
@@ -82,7 +83,7 @@ function set_session_info(id, token, type){
 				$.post("../framework/session_start.php",
 				  {
 				  	user_type: 'user',
-				    type_login: 'normal',
+				    type_login: login_type,
 				    id_user: id,
 				    token: token,
 					picture: picture,

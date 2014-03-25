@@ -68,20 +68,23 @@
 									if (json.Token ==0){
 										alert("error");
 									} else {
-											redirectLoginGp();
-										}
+                    var id = json.id;
+                    var token = json.Token;
+                    var user_type = json.type;
+                    var login_type = 'googleplus';
+
+                    set_session_info(id, token, user_type, login_type);
+										//window.location.href="http://www.where2night.es/user/profile.php";  
+									}
 										
 								},
 								onerror: function(e,val){
 									alert("Hay error");
 								}
 		});
+
   }
   
-  function redirectLoginGp(){
-	alert("Login correcto con gmail");
-	window.location.href="http://www.where2night.es/user/profile.php";	
-  }
   /**
    * Display the user's basic profile information from the profile object.
    */
