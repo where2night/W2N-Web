@@ -132,8 +132,8 @@ function set_session_info(id, token, type){
 				var closeHours = json.closeHours;
 				var picture = json.picture;
 				var about = json.about;
-				var latitude = json.latitude,
-				var longitude = json.longitude
+				var latitude = json.latitude;
+				var longitude = json.longitude;
 				$.post("../framework/session_start.php",
 				  {
 				  	user_type: 'club',
