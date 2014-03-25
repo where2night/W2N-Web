@@ -27,6 +27,8 @@
 		 <script type="text/javascript" src="../js/login.js"></script>
 		 <script type="text/javascript" src="../js/validateFormLocal.js"></script>
 		 <script type="text/javascript" src="../js/fillDate.js"></script>
+		  <script src="../js/jquery.toastmessage.js" type="text/javascript"></script>
+		<link href="../css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
     	
     	<script type="text/javascript">  
 		$(document).ready(function(){ 

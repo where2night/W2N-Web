@@ -68,6 +68,7 @@ function validate() {
 }
 
 function validateForm(){
+
 	var validateFields = validate();
 	if(validateFields){
 		var validateTerms = validTerms();
@@ -118,11 +119,11 @@ function validateForm(){
 							var json = JSON.parse(r.responseText);
 							
 							if(json.Token!=0){
-								redirectHomeLocal();
-							} else alert("Registro incorrecto");
+								showValidMessage();
+							} else showInvalidMessage();
 					},
 					onerror: function(e,val){
-						alert("Hay error");
+						showInvalidMessage();
 					}
 			});
 		}
@@ -131,6 +132,36 @@ function validateForm(){
 	
 
 
+}
+
+function showValidMessage(){
+
+	$().toastmessage('showToast', {
+								text: 'Registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web. ',
+								sticky: false,
+								position: 'middle-center',
+								type: 'success',
+								closeText: '',
+								close: function () {
+									redirectHomeLocal();
+									console.log("toast is closed ...");
+								}
+	});
+
+}
+
+function showInvalidMessage(){
+	$().toastmessage('showToast', {
+								text: 'El registro no ha sido llevado a cabo',
+								sticky: true,
+								position: 'middle-center',
+								type: 'success',
+								closeText: '',
+								close: function () {
+									redirectHomeLocal();
+									console.log("toast is closed ...");
+								}
+	});
 }
 
 function validField(field,fieldValue){
@@ -409,7 +440,7 @@ function validate_number_street(number_street){
 }
 
 function redirectHomeLocal(){
-	alert("registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web !!");
+	
 	window.location.href="http://www.where2night.es";		
 }
 

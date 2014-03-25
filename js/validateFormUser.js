@@ -58,6 +58,7 @@ function validate() {
 
 function validateForm(){
 
+	
 	var validateFields = validate();
 	if(validateFields){
 		var validateDate = validDate();
@@ -125,6 +126,7 @@ function validField(field,fieldValue){
 	if (field.validity) {
 					if (field.value == ""){
 						//$(fieldValue).popover('destroy');
+						
 						cleanPopOvers();
 						$(fieldValue).popover({
 									content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Campo requerido </label>',
