@@ -833,7 +833,18 @@ border-radius:0px;
 
 .the-timeline ul li p{margin: 0;padding: 0;}
 .the-timeline ul li .the-date{position: absolute;left: -74px;top:0;width: 60px;height: 60px;background: #1B1E24;
-	border-radius: 50%;text-align: center;line-height: 130%;}
+	border-radius: 50%;text-align: center;line-height: 130%;
+	transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Chrome and Safari */
+    -moz-backface-visibility: hidden; /* Firefox */
+    -ms-backface-visibility: hidden; /* Internet Explorer */
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;}
 .the-timeline ul li .the-date span{color: #fff;font-size: 18px;display: block;margin-top: 8px;}
 .the-timeline ul li .the-date small{color: #fff;font-size: 12px;display: block;}
 
@@ -894,7 +905,7 @@ border-radius:0px;
 .botonanadir{
 	
 	padding:5px 10px 5px 10px;
-	background:#4B36AF;color:#FF6B24;
+	background:#3333CC;color:#FF6B24;
 	border-left:0px;
 	border-right:0px;
 	border-bottom:0px;
@@ -943,8 +954,10 @@ border-radius:0px;
 }
 
 .tablaC{
+	padding-left:5px;
 	margin-left:8%;
 	width:92%;
+	font-size:16px;
 	background-color:#404040;
 	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
   -moz-box-shadow: inset 0px 0px 10px #99FFFF;
@@ -960,6 +973,10 @@ border-top: 1px solid transparent;
 }
 .info0{background-color:#1B1E24;
 }
+.info1{color:#3333CC;
+}
+.info2{color:#99FFFF;
+}
 
 .tablaC1{
 	margin-left:6%;
@@ -968,8 +985,77 @@ border-top: 1px solid transparent;
 	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
   -moz-box-shadow: inset 0px 0px 10px #99FFFF;
   box-shadow: inset 0px 0px 10px #99FFFF;
-  color:101010;
+  color:#101010;
   font-size:14px;
   font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	
 }
+.tablaC2{
+	margin-left:7%;
+	width:93%;
+	background-color:#000;
+	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
+  color:#FF6B24;
+  font-size:14px;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	
+}
+.workflow-line {
+    position: relative
+}
+
+.workflow-item {
+	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
+   
+	position: absolute;left: -74px;top:0;width: 60px;height: 60px;background: #1B1E24;
+	border-radius: 50%;text-align: center;line-height: 130%;
+    background-color: #EEF0F9;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+
+.workflow-item h2 {
+    color: #555;
+}
+
+.workflow-item i {
+    font-size: 5em
+}
+
+.workflow-caption {
+    -webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
+   
+	position: absolute;left: -74px;top:0;width: 60px;height: 60px;background: #1B1E24;
+	border-radius: 50%;text-align: center;line-height: 130%;
+    background-color: #EEF0F9;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+
+.workflow-caption p {
+    margin-bottom: 0
+}
+
+.workflow-item:hover,
+.workflow-item.cs-hover {
+    background-color: #1B1E24;
+}
+
+.workflow-item:hover .workflow-caption,
+.workflow-item.cs-hover .workflow-caption {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg); /* Safari and Chrome */
+}
+

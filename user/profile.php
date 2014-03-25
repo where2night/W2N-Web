@@ -236,60 +236,73 @@ include_once "../framework/sessions.php";
 					<table class="table  tablaC">
                           <tbody>
                             <tr class="info0">
-                              <td >Nombre y Apellidos:</td>
+                              <td class="info1">Nombre y Apellidos:</td>
 							   <td><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></td>
                           </tr>
                             <tr>                            
-                              <td>Fecha de Nacimiento:</td>
+                              <td class="info2">Fecha de Nacimiento:</td>
 							   <td ><?php echo $_SESSION['birthdate']; ?></td>
                             
                             </tr>
 							 <tr class="info0">
                               
-                              <td>Sexo:</td>
+                              <td class="info1">Sexo:</td>
 							   <td><?php if ($_SESSION['gender']=="male") echo "Hombre" ?><?php if ($_SESSION['gender']=="female") echo "Mujer" ?></td>
                              
                               
                             </tr>
 							<tr>
                               
-                              <td>Estado Civil:</td>
+                              <td class="info2">Estado Civil:</td>
 							   <td><?php echo $_SESSION['civil_state']; ?></td>
                             
                               
                             </tr>
                              <tr class="info0">
                              
-                               <td>Ciudad Actual:</td>
+                               <td class="info1">Ciudad Actual:</td>
 							    <td><?php echo $_SESSION['city']; ?></td>
                             
                             </tr>
 							 <tr>
                              
-                               <td>Música Favorita:</td>
+                               <td class="info2">Música Favorita:</td>
 							    <td><?php echo $_SESSION['music']; ?></td>
                             
                             </tr>
 							  <tr class="info0">
                              
-                               <td>Bebida Favorita:</td>
+                               <td class="info1">Bebida Favorita:</td>
 							    <td><?php echo $_SESSION['drink']; ?></td>
                             
                             </tr>
 							 <tr>
                              
-                               <td>Acerca de Mi:</td>
+                               <td class="info2">Acerca de Mi:</td>
 							    <td><?php echo $_SESSION['about']; ?></td>
                             
                             </tr>
                           </tbody>
                         </table>
+						
+						<table class="table  tablaC2">
+								<tbody>
+								<tr>
+								<td>SIGUIENDO:
+	
+								</td>
+								<td>SEGUIDORES:
+	
+								</td>
+								</tr>
+								</tbody>
+								</table>
                    	 </div>
 					 <div class="col-md-6">
 					
 					<div class="the-timeline">
-							<ul><li class=""><div class="the-date"></div>
-							
+							<ul><li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+	
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
 								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
 								</li>
@@ -297,12 +310,12 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
 								</table>	
-								<li class=""><div class="the-date"></div>
+								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento DJ</span> DJ TIESTO
 								 <span style="font-size:13px;margin-left:45%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
@@ -311,12 +324,12 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
 								</table>
-								<li class=""><div class="the-date"></div>
+								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Estado Fiestero</span> CLUB PACHA
 								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
@@ -325,12 +338,12 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
 								</table>
-								<li class=""><div class="the-date"></div>
+								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
 								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
@@ -339,12 +352,12 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
 								</table>
-								<li class=""><div class="the-date"></div>
+								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
 								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
@@ -353,12 +366,12 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
 								</table>
-								<li class=""><div class="the-date"></div>
+								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
 								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
@@ -367,7 +380,7 @@ include_once "../framework/sessions.php";
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Publicar</button>
+								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
