@@ -70,7 +70,7 @@ include_once "../framework/sessions.php";
           month = "0"+day;
         }
         var year = $('#year').val();
-        var birthdate = day + "/" + month + "/" + year;
+        var birthdate = year + "/" + month + "/" + day;
         var music = $('#music-style').val();
         var about = $('#about-you').val();
         var params = "/" + idProfile + "/" + token;

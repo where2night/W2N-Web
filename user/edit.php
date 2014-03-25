@@ -64,10 +64,10 @@ include_once "../framework/sessions.php";
         } 
         var month = $('#month').val();
         if (month.length < 2){
-          month = "0"+day;
+          month = "0"+month;
         }
         var year = $('#year').val();
-        var birthdate = day+"/"+month+"/"+year;
+        var birthdate = year+"/"+month+"/"+day;
         var gender = $("input[type='radio']:checked").val();
         var music = $('#favourite-music').val();
         var civil_state = $('#marital-status').val();
