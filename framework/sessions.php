@@ -37,7 +37,7 @@ function w2n_session_start($remember_me = false){
 			 $_SESSION['cif'] = $_POST['cif'];
 			 $_SESSION['poblation_local'] = $_POST['poblationLocal'];
 			 $_SESSION['cp_local'] = $_POST['cpLocal']; 
-			 $_SESSION['telephone'] = $_POST['telephone']; 
+			 $_SESSION['telephone'] = $_POST['telephoneLocal']; 
 			 $_SESSION['street'] = $_POST['street']; 
 			 $_SESSION['street_name'] = $_POST['streetName']; 
 			 $_SESSION['street_number'] = $_POST['streetNumber']; 
@@ -48,6 +48,8 @@ function w2n_session_start($remember_me = false){
 			 $_SESSION['close_hours'] = $_POST['closeHours']; 
 			 $_SESSION['picture'] = $_POST['picture']; 
 			 $_SESSION['about'] = $_POST['about']; 
+			 $_SESSION['latitude'] = $_POST['latitude']; 
+			 $_SESSION['longitude'] = $_POST['longitude']; 
 	 	break;
 	 	
 	 	case 'dj':

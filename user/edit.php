@@ -184,10 +184,10 @@ include_once "../framework/sessions.php";
 						</div>
 
 						<?php
-						 $birth_array = explode ('-',$_SESSION['birthdate']);
-						 $day = $birth_array[0];
+						 $birth_array = explode ('/',$_SESSION['birthdate']);
+						 $day = $birth_array[2];
 						 $month = $birth_array[1];
-						 $year = $birth_array[2]; 
+						 $year = $birth_array[0]; 
 						?>
 				  
 						<div class="form-group">
@@ -197,7 +197,7 @@ include_once "../framework/sessions.php";
 								  <option value="0">Día</option>
 								  <?php 
 									for ($i=1; $i<32; $i++){
-									  if ($i == $day) {
+									  if ($i == $day){
 										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
 									  }else{
 										echo "<option value=".$i.">".$i."</option>";
@@ -212,7 +212,7 @@ include_once "../framework/sessions.php";
 								  <option value="0">Mes</option>
 									<?php  
 									for ($i=1; $i<13; $i++){
-									  if ($i == $month) {
+									  if ($i == $month){
 										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
 									  }else{
 										echo "<option value=".$i.">".$i."</option>";
@@ -226,8 +226,8 @@ include_once "../framework/sessions.php";
 								<select id="year" class="form-control">
 								  <option value="0">Año</option>
 									<?php 
-									for ($i=1905; $i<2013; $i++){
-									  if ($i == $day) {
+									for ($i=2013; $i>1905; $i--){
+									  if ($i == $year){
 										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
 									  }else{
 										echo "<option value=".$i.">".$i."</option>";

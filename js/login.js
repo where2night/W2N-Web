@@ -123,8 +123,8 @@ function set_session_info(id, token, type){
 				var cpLocal = json.cpLocal;
 				var telephoneLocal = json.telephoneLocal;
 				var street = json.street;
-				var streetName = json.streetName;
-				var streetNumber = json.streetNumber;
+				var streetName = json.streetNameLocal;
+				var streetNumber = json.streetNumberLocal;
 				var music = json.music;
 				var entryPrice = json.entryPrice;
 				var drinkPrice = json.drinkPrice;
@@ -132,6 +132,8 @@ function set_session_info(id, token, type){
 				var closeHours = json.closeHours;
 				var picture = json.picture;
 				var about = json.about;
+				var latitude = json.latitude,
+				var longitude = json.longitude
 				$.post("../framework/session_start.php",
 				  {
 				  	user_type: 'club',
@@ -153,7 +155,9 @@ function set_session_info(id, token, type){
 					openingHours: openingHours,
 					closeHours: closeHours,
 					picture: picture,
-					about: about
+					about: about,
+					latitude: latitude,
+					longitude: longitude
 				  },
 				  function(data,status){
 					//alert("Data: " + data + "\nStatus: " + status);
@@ -178,7 +182,7 @@ function set_session_info(id, token, type){
 				var nameDJ = json.nameDJ;
 				var name = json.name;
 				var surname = json.surname;
-				var telephone = json.telephone;
+				var telephone = json.telephoneDJ;
 				var gender = json.gender;
 				var birthdate = json.birthdate;
 				var picture = json.picture;
@@ -202,7 +206,7 @@ function set_session_info(id, token, type){
 				  },
 				  function(data,status){
 					//alert("Data: " + data + "\nStatus: " + status);
-					window.location.href = "../dj/home.php";										  
+					window.location.href = "../dj/home.php";										  ;
 				  });
 	    		},
 				onerror: function(e,val){

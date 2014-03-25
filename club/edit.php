@@ -290,12 +290,12 @@ include_once "../framework/sessions.php";
 
 							<div class="col-sm-3">
 								<label for="timepicker_open" style="color: #FFFFCC"><b>Apertura: </b></label>
-							    <input id="timepicker_open" value="22:00" />
+							    <input id="timepicker_open" value="<?php echo $_SESSION[opening_hours];?>" />
 						    </div>
 			                
 			                <div class="col-sm-3">
 								<label for="timepicker_close" style="color: #FFFFCC"><b>Cierre: </b></label>
-						        <input id="timepicker_close" value="06:00" />
+						        <input id="timepicker_close" value="<?php echo $_SESSION[close_hours];?>" />
 					        </div>
 						</div>
 						  

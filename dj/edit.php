@@ -71,7 +71,7 @@ include_once "../framework/sessions.php";
         }
         var year = $('#year').val();
         var birthdate = day + "/" + month + "/" + year;
-        var music = $('#music_style').val();
+        var music = $('#music-style').val();
         var about = $('#about-you').val();
         var params = "/" + idProfile + "/" + token;
         
@@ -101,7 +101,7 @@ include_once "../framework/sessions.php";
               		nameDJ: nameDJ,
                     name: name,
                     surname: surname,
-              		telephone: telephone,
+              		telephoneDJ: telephone,
                     birthdate: birthdate,
                     gender: gender,
                     music: music,
@@ -198,9 +198,9 @@ include_once "../framework/sessions.php";
 
 						<?php
 						 $birth_array = explode ('/',$_SESSION['birthdate']);
-						 $day = $birth_array[0];
+						 $day = $birth_array[2];
 						 $month = $birth_array[1];
-						 $year = $birth_array[2];
+						 $year = $birth_array[0];
 						?>
 				  
 						<div class="form-group">
@@ -240,7 +240,7 @@ include_once "../framework/sessions.php";
 								  <option value="0">Año</option>
 									<?php 
 									for ($i=2013; $i>1905; $i--){
-									  if ($i == $day) {
+									  if ($i == $year) {
 										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
 									  }else{
 										echo "<option value=".$i.">".$i."</option>";
@@ -255,10 +255,10 @@ include_once "../framework/sessions.php";
 							<label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
 							<div class="col-sm-8">
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "selected=selected" ?>><span style="color: #FFFFCC">Hombre</span>
+								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
 								</label>
 								<label class="radio-inline">
-								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "selected=selected" ?>><span style="color: #FFFFCC">Mujer</span>
+								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
 								</label>
 							</div>
 						</div>
