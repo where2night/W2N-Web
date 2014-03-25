@@ -1,8 +1,15 @@
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
+  var photo;
   function loginFacebook() {
     console.log('Welcome!  Fetching your information.... ');
+	FB.api('/me/picture?type=normal', function(response) {
+ 
+		 photo = response.data.url;
+					
+				 
+	});
     (FB.api('/me', function(response) {
 					email2 = response.email;
 					//alert(email2);
@@ -11,9 +18,11 @@
 					var last_name2 = response.last_name;
 					//alert(last_name2);
 					var gender2 = response.gender;
-					//alert(sex2);
+					//alert(gender2);
 					var birthday_date2 = response.birthday;
 					//alert(birthday_date2);
+					
+					//alert(photo);
 					$.ajax({
 								url: "../develop/login/loginfb.php",
 								dataType: "json",
@@ -23,10 +32,12 @@
 									surnames: last_name2,
 									gender: gender2,
 									birthdate: birthday_date2,
-									email:email2
+									email:email2,
+									picture:photo
 									
 								},
 								complete: function(r){
+								
 									var json = JSON.parse(r.responseText);
 									
 									if (json.Token ==0){
