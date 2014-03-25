@@ -49,8 +49,6 @@
    // displayProfile(profile);
 	gender2 = profile['gender'];
 	birthday2 = profile['birthday'];
-	alert("email");
-	alert(email2);
 	image2 = profile.image.url;
 		$.ajax({
 								url: "../develop/login/logingp.php",
