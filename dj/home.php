@@ -235,7 +235,6 @@ include_once "../framework/sessions.php";
 						<h1>
 							 <?php echo $_SESSION['name']." ".$_SESSION['surname']; ?>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización DJ</p>
 					</div>
                    	 </div>
 		</div><!-- col-md-12 -->

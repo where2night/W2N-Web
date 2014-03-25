@@ -218,6 +218,7 @@ include_once "../framework/sessions.php";
 						<h1>
 							<?php echo $_SESSION['local_name']; ?>
 						</h1>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Local</p>
 					</div>
 					<div>
 						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>

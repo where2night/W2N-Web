@@ -14,6 +14,7 @@ background-size: 100% 100%;
   border: 1px solid #000 ;
 
 }
+
 /* Profile */
 .profile-sec-head {	
     float: left;
@@ -36,12 +37,12 @@ background-size: 100% 100%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
-  	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede; 	
+ -webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;	
 	max-width: 100px;
   	max-height: 100px;
-	border: 1px solid #FF6B24 ;
+	border: 0px solid #000 ;
 	display: table;
     float: none;
     margin: 20px auto 0;
@@ -420,11 +421,8 @@ background-size: 100% 100%;
 }
 .timeline-head {
 
-    -webkit-border-radius: 2px 2px 0 0;
-    -moz-border-radius: 2px 2px 0 0;
-    -ms-border-radius: 2px 2px 0 0;
-    -o-border-radius: 2px 2px 0 0;
-    border-radius: 2px 2px 0 0;
+   
+border-radius:0px;
 	
     float: left;
     padding: 15px;
@@ -470,11 +468,7 @@ background-size: 100% 100%;
 
 	
 	
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    border-radius: 2px;
+   
 }
 .add-btn > a:hover {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
@@ -491,12 +485,14 @@ background-size: 100% 100%;
     -o-box-shadow: none;
     box-shadow: none;
 }
+.chatBox{
 
+}
 .timeline {
     float: left;
     padding: 0px !important;
-    width: 100% !important;
-	margin-left:-20px;
+    width: 85% !important;
+	margin-left:20px;
 	margin-top:15px;
 
 }
@@ -572,7 +568,7 @@ background-size: 100% 100%;
 .time-title-img{
 	float: left;
 	margin-left:5px;
-	margin-top:2px;
+	margin-bottom:5px;
 }
 
 .timeline-title > i {
@@ -855,14 +851,13 @@ background-size: 100% 100%;
 .listas ul li{padding: 5px 15px;display: block;background: #404040;position: relative;}
 
 
-	.titulos ul{padding: 0;list-style: none;}
+
+.titulos ul{padding: 0;list-style: none;}
 .titulos ul li{padding: 5px 15px;display: block;background: #000;position: relative;color:#FF6B24;
 	font-size:24px;
-	margin-left:5%;
-	margin-right:3%;
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
 	
 
@@ -933,9 +928,9 @@ background-size: 100% 100%;
 	border-right:0px;
 	border-bottom:0px;
 	border-top:0px;
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
+-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
 	background:#1B1E24;
 	color:#FF6B24;
 	-webkit-border-radius: 0px;
@@ -945,64 +940,28 @@ background-size: 100% 100%;
 }
 
 .botonseguir:hover{
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
 	background:#FF6B24;color:#000;
 	color:#000;
 }
-.botonMeApunto{
+
+.tablaC{
+	margin-left:8%;
+	width:92%;
+	background-color:#404040;
+	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
 	
-	padding:6px 10px 8px 6px;
-	text-shadow:none;
-	border-left:0px;
-	border-right:0px;
-	border-bottom:0px;
-	border-top:0px;
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
-	background:#1B1E24;
-	color:#FF6B24;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-		border: 1px solid #FF6B24 ;
 }
 
-.botonMeApunto:hover{
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
-	background:#330099;
-	color:#FF6B24;
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th  :hover th {
+padding: 8px;
+line-height: 1.428571429;
+vertical-align: top;
+border-top: 1px solid transparent;
 }
-.iconColor{
-	color:#FF6B24;
-	margin-left:5%;
-	margin-bottom:5%;
-}
-.contactBox{
-	height:310px;
-	margin-top:-320px;
-	margin-left:820px;
-	margin-right:0%;
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
-	background:#000;
-	
-}
-.contactBox h1{
-	
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color:#FF6B24;	
-	font-size:18px;
-	margin-left:15px;
-}
-.contactBox p{
-	margin-left:15px;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color:#fff;
-	font-size:13px;
+.info0{background-color:#202020;
 }
