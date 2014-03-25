@@ -28,7 +28,7 @@ include_once "../framework/sessions.php";
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" /><!-- Style -->	
+	<link rel="stylesheet" href="../css/home-user.css" type="text/css" /><!-- Style -->
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->
 
 <!-- script -->
@@ -98,216 +98,203 @@ include_once "../framework/sessions.php";
   include "templates/sidebar.php";
 ?>
 
-<!-- My Profile-->
-<div class="main-content" style="background-image:url(../images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
-
-
+<!-- MiPerfil -->
+<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;margin-left:200px;" > 
 <div class="wrapper">
-		<div class="container">
+<div class="container">
 		<div class="row">
 			<div class="col-md-12 profile-margin">
 				<div class="col-md-4">
-                	<!-- header profile -->
-					<div class="profile-sec-head orangeBox ">
+					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
 							<?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo $_SESSION['city']; ?></p>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Usuario</p>
+						<br>
 					</div>
-                    <!-- Followers -->
-					<div class="profile-details orangeBox " style="margin-top:5px;background:#000" >
-						<span ><i>245</i>SEGUIDORES</span>
-						<span><i>98</i>SIGUIENDO</span>
+                   	 </div>
+		</div><!-- col-md-12 -->
+        </div><!-- row -->
+		
+			<div class="row">
+			<div class="col-md-12 the-timeline-margin">
+                        <div class="col-md-6">
+				<div class="titulos">
+                        <ul><li>ESTADO <button type="button" class="btn botonanadir"style="margin-left:60%">Publicar</button></li></ul>           
                         </div>
-                      <!-- Information -->
-                     <div class="profile-details orangeBox " style="margin-top:5px" >
-					<p><i><strong>ACERCA DE MI : </strong><?php echo $_SESSION['about']; ?></i>
-					
-                    <i></i>
-                    <i><strong>MÚSICA FAVORITA : </strong><?php echo $_SESSION['music']; ?></i>
-                   	
-					</p>
-					</div>
-				</div><!-- col-md-4 -->
-                
-                <div class="col-md-5">
-                	<!-- State -->
-					<div id="tabmenu" class="orangeBox1">
+						<div class="boxEstado">
+              	<ul><li><div id="" class="collapse in">
+								<form role="form">
+									<div class="form-group">
+										<input type="text" class="form-control textEstado" placeholder="Escribe tu estado...">
+									</div>
+									<div class="form-group">
+										<select class="form-control textModo">
+											<option value="">Destroyer</option>
+											<option value="">Dancer</option>
+											<option value="">Buscando pareja</option>
+											<option value="">Relajado</option>
+										</select>
+									</div>								
+								</form>	
+							</div><!-- End div #quick-post --></li></ul>		
+						</div><!-- End div .box-info -->
+						<br>
+					<div class="titulos">
+                        <ul><li>EVENTOS </li></ul>
+                       
+                        </div>
 						
-                        <div class="share-sec ">
-								<span ><i class="glyphicon glyphicon-leaf"style="color:#FF6B24"> ESTADO</i></span>
-						</div>
-						<div id="tab-content">
-							<div class="orangeBox1">
-								<textarea  placeholder="¿Qué piensas?..."></textarea>
-							</div>
-							<div class="share-sec">
-								<a class="orangeBox1"><strong>Share</strong></a>
-							</div>
-						</div>
-					</div>
-                    <!-- Friends -->
-                    <div class="total-members orangeBox1">
-						<div class="total-memeber-head">
-							<span><i class="glyphicon glyphicon-user"style="color:#FF6B24"></i>AMIGOS FIESTEROS</span>
-						</div>
-						<ul class="orangeBox1">
-						<li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                       	<li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1"  src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-                        <li><a><img class="menu-avatar orangeBox1" src="../images/profile.jpg" alt="" /></a></li>
-						</ul>
-					</div>
-                    
-                    <!-- Events -->
-                    <div  class="timeline">
-						<ul>
-							<li>
-								<div class="timeline-title orangeBox1 ">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
-									<h6>NOMBRE CLUB</h6>
-									<i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
-									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-								</div>
-								<div class="timeline-content orangeBox1">
-									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-								</div>
-							</li>
-							<li>
-								<div class="timeline-title orangeBox1">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
-									<h6>NOMBRE DJ</h6>
-                                    <i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
-									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-                                    
-								</div>
-								<div class="timeline-content orangeBox1">
-									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-								</div>
-							</li>
-                            <li>
-								<div class="timeline-title orangeBox1">
-                                	<img class="menu-avatar time-title-img orangeBox1"  src="../images/profile.jpg" alt="" />
-									<h6>NOMBRE CLUB</h6>
-									<i class="glyphicon glyphicon-time"style="color:#FF6B24">hace m min</i>
-									<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-								</div>
-								<div class="timeline-content orangeBox1">
-									<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-                                    <img src="../images/copas.jpg" alt="" />
-								</div>
-							</li>
-						</ul>
-					</div>
-                    </div><!-- col-md-5-->
-                	<div class="col-md-3">
-                    <!-- My Events --> 
-                    <div class="latest-tweets orangeBox1 " >
-						<div class="latest-tweets-head" >
-							<span ><i class="glyphicon glyphicon-glass"style="color:#FF6B24"></i>EVENTOS</span>
-						</div>
-							<ul class="orangeBox1">
-								<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i></a>
+						<table class="table table-hover tablaC">
+                          <tbody>
+                            <tr>
+                              <td>Event</td>
+                          </tr>
+                            <tr>                             
+                              <td>Event</td>
+                            
+                            </tr>
+							<tr>
+                              
+                              <td>Event</td>
+                             
+                              
+                            </tr>
+							<tr>
+                              
+                              <td>Event</td>
+                            
+                              
+                            </tr>
+                            <tr>
+                             
+                               <td>Event</td>
+                            
+                            </tr>
+                          </tbody>
+                        </table>
+					<br>
+					<div class="titulos">
+                        <ul><li>LISTAS </li></ul>
+                       
+                        </div>
+						<table class="table table-hover tablaC">
+                          <tbody>
+                            <tr>
+                              
+                              <td>Lista</td>
+                             
+                              
+                            </tr>
+							<tr>
+                              
+                              <td>Lista</td>
+                             
+                            </tr>
+							<tr>
+                              
+                              <td>Lista</td>
+                            
+                              
+                            </tr>
+                            <tr>
+                             
+                              <td>Lista</td>
+                             
+                              
+                            </tr>
+                            <tr>
+                             
+                               <td>Lista</td>
+                              
+                            </tr>
+                          </tbody>
+                        </table>
+            	 </div>
+				  <div class="col-md-6">
+                        
+					<!-- Begin timeline Listas -->
+               <div class="titulos">
+                        <ul><li>NOVEDADES </li></ul>
+                       
+                        </div>
+                  		<div class="the-timeline">
+							<ul><li><div class="the-date">
+										<span>01</span>
+										<small>Feb</small>
+									</div>
+									<h4>Show Event</h4>
+									<p>
+												
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
 								</li>
-								<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
+								<li>
+									<div class="the-date">
+										<span>31</span>
+										<small>Jan</small>
+									</div>
+									<h4>Show Lista</h4>
+									<p>
+												
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
 								</li>
-								<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
+								<li>
+									<div class="the-date">
+										<span>12</span>
+										<small>agos</small>
+									</div>
+                                    <h4>show status</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
 								</li>
+                                <li>
+									<div class="the-date">
+										<span>05</span>
+										<small>Jun</small>
+									</div>
+                                    <h4>show Event</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+								</li>
+                                <li>
+									<div class="the-date">
+										<span>08</span>
+										<small>May</small>
+									</div>
+                                    <h4>show Event</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+								</li>
+                                <li>
+									<div class="the-date">
+										<span>12</span>
+										<small>Marz</small>
+									</div>
+                                    <h4>show Lista!!</h4>
+									<p>
+									 
+									</p>
+									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+								</li>
+                         
 							</ul>
-					</div>
-                    <!-- My Photos --> 
-                    <div class="my-photos orangeBox1">
-						<div class="my-photo-head">
-							<span><i class="glyphicon glyphicon-camera" style="color:#FF6B24"></i>FOTOS FIESTERO</span>
-						</div>
-							<ul class="orangeBox1">
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a ><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a ><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								<li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-                                <li><img class="menu-avatar orangeBox1" src="../images/photo.jpg" alt="" />
-								<div class="my-photo-hover">
-									<a ><i class="glyphicon glyphicon-picture"></i></a>
-									<a><i class="glyphicon glyphicon-trash"></i></a>
-								</div>
-								<p>Mensaje</p>
-								</li>
-								
-							</ul>
-					</div>
-                	
-         			</div><!-- col-md-3 -->     	
+						</div><!-- End div .the-timeline -->					
+					</div><!-- End div .col-sm-6 -->
 		</div><!-- col-md-12 -->
         </div><!-- row -->
 		</div><!-- Container -->
 	</div><!-- Wrapper -->
 
 </div>
-<!-- /My Profile --> 
+<!-- /MiPerfil --> 
 </body>
 </html>

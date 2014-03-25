@@ -827,17 +827,12 @@ border-radius:0px;
 .the-timeline-margin{margin-top: 2%;}
 .the-timeline{margin-bottom: 40px;}
 .the-timeline .post-to-timeline{margin: 15px 0;}
-.the-timeline .post-to-timeline textarea{height: 50px;resize: none;margin-bottom: 10px;}
-.the-timeline ul{padding: 0;list-style: none;margin: 0 15px 0 30px;	border-left: 2px solid #FF6B24;}
-.the-timeline ul li{padding: 5px 15px;display: block;margin: 20px 0 20px 35px;background: #404040;position: relative;border-left: 4px solid transparent;border-right: 1px solid transparent;border-top: 1px solid transparent;border-bottom: 1px solid transparent;}
-.the-timeline ul li:hover{-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;border-left-color: #F2780C;
-	border-right-color: #FF6B24;
-	border-top-color: #FF6B24;
-	border-bottom-color: #FF6B24;}
+.the-timeline .post-to-timeline textarea{height: 50px;resize: none;margin-bottom: 0px;}
+.the-timeline ul{padding: 0px;list-style: none;margin: 0 15px 0 30px;	border-left: 2px solid #FF6B24;}
+.the-timeline ul li{padding: 5px 5px;display: block;margin: 20px 0 0px 35px;background: #404040;position: relative;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;color:#99FFFF;}
+
 .the-timeline ul li p{margin: 0;padding: 0;}
-.the-timeline ul li .the-date{position: absolute;left: -64px;top:0;width: 50px;height: 50px;background: #1B1E24;
+.the-timeline ul li .the-date{position: absolute;left: -74px;top:0;width: 60px;height: 60px;background: #1B1E24;
 	border-radius: 50%;text-align: center;line-height: 130%;}
 .the-timeline ul li .the-date span{color: #fff;font-size: 18px;display: block;margin-top: 8px;}
 .the-timeline ul li .the-date small{color: #fff;font-size: 12px;display: block;}
@@ -914,9 +909,9 @@ border-radius:0px;
 }
 
 .botonanadir:hover{
-	-webkit-box-shadow: 0px 0px 10px #ff3ede;
-	-moz-box-shadow: 0px 0px 10px #ff3ede;
-	box-shadow: 0px 0px 10px #ff3ede;
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
 	background:#404040;
 }
 
@@ -963,5 +958,18 @@ line-height: 1.428571429;
 vertical-align: top;
 border-top: 1px solid transparent;
 }
-.info0{background-color:#202020;
+.info0{background-color:#1B1E24;
+}
+
+.tablaC1{
+	margin-left:6%;
+	width:94%;
+	background-color:#404040;
+	-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
+  color:101010;
+  font-size:14px;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	
 }
