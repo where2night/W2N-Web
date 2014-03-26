@@ -952,7 +952,40 @@ border-radius:0px;
 	background:#FF6B24;color:#000;
 	color:#000;
 }
-
+.botonseguir:active{
+-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#FF6B24;color:#000;
+	color:#000;
+}
+input[type=button] {
+padding:8px 20px 8px 20px;
+}
+.myDefaultButton{
+	padding:8px 20px 8px 20px;
+	text-shadow:none;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+-webkit-box-shadow: inset 0px 0px 10px #99FFFF;
+  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
+  box-shadow: inset 0px 0px 10px #99FFFF;
+	background:#1B1E24;
+	color:#FF6B24;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+		border: 1px solid #FF6B24 ;
+}
+.myClickedButton{
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#FF6B24;color:#000;
+	color:#000;
+}
 .tablaC{
 	padding-left:5px;
 	margin-left:8%;
