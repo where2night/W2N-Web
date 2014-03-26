@@ -60,10 +60,8 @@ if (!(title2=="")){
 				closeHour: time2
 			},
 			complete: function(r){
-					var json = JSON.parse(r.responseText);
-					if(json.Token==0) 
-						alert("No se puede introducir evento 1");
-    		},
+			  alert("evento creado");
+			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
 			}
@@ -98,7 +96,6 @@ if (!(title2=="")){
 		
 		document.getElementById('ul').innerHTML=events;
 		   
-		   alert("Evento creado");
 		   
 		  }else alert("evento sin hora");
 	   

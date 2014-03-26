@@ -194,7 +194,7 @@ jQuery(function($){
 
 
 $idProfile=$_SESSION['id_user']; 
-echo($idProfile);
+
 ?>
 
 
