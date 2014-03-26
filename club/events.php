@@ -4,6 +4,7 @@ include_once "../framework/sessions.php";
 include_once "../framework/visits.php";
 
  w2n_session_check(); 
+ 
 
 ?>
 
@@ -188,7 +189,21 @@ jQuery(function($){
 
  	 /*Sidebar*/
   	include "templates/sidebar.php";
+
+$idProfile=$_SESSION['id_user'];
 ?>
+
+
+
+<script>
+	
+var id=0;
+
+ var ide = '<?php echo $idProfile; ?>' ;
+	
+</script>
+
+
 
 
 	<!-- Events -->

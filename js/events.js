@@ -96,6 +96,7 @@ if (!(title2=="")){
 		
 		document.getElementById('ul').innerHTML=events;
 		   
+		    
 		   
 		  }else alert("evento sin hora");
 	   
@@ -105,6 +106,7 @@ if (!(title2=="")){
    }else
    		alert("introduce al menos un título");
 
+    clean();
 
 }
 

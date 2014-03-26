@@ -24,6 +24,7 @@ include_once "../framework/visits.php";
     <!-- Bootstrap Styles -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/home-dj.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
 	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
     <link href="../css/custom.css" rel="stylesheet" media="screen">
@@ -136,7 +137,7 @@ include_once "../framework/visits.php";
               		<ul><li></li></ul>
                 </div>
                 
-                <div class="the-timeline">
+                <div class="the-timeline" style="width: 90%; margin-left: 40px">
 							<ul>
 								<li>
 									<img class="the-date2" src="../images/profile.jpg" />
