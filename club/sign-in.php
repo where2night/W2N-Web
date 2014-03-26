@@ -247,7 +247,7 @@
 
 			<tr align="center">
 				<td>
-				<input name="registerLocal"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onClick="validateForm();"/>
+				<input name="registerLocal"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onmouseover="javascript:this.style.color='#000';" onmouseout="javascript:this.style.color='#fff';" onClick="validateForm();"/>
 				</td>
 			</tr>
 		</table>

@@ -261,7 +261,7 @@
 
 			<tr align="center">
 				<td>
-				<input name="registerDJ"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onclick="validateForm()"/>
+				<input name="registerDJ"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onmouseover="javascript:this.style.color='#000';" onmouseout="javascript:this.style.color='#fff';" onclick="validateForm()"/>
 				</td>
 			</tr>
 		</table>
