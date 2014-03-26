@@ -1,6 +1,7 @@
 <?php
 
 include_once "../framework/sessions.php";
+include_once "../framework/visits.php";
 
  w2n_session_check(); 
 
@@ -110,9 +111,9 @@ include_once "../framework/sessions.php";
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							NOMBRE LOCAL
+							<?php echo get_local_name_club(); ?>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localizacón local</p>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo get_poblation_local_club();?></p>
 					</div>
                    	 </div>
 		</div><!-- col-md-12 -->

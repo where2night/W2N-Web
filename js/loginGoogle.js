@@ -74,7 +74,6 @@
                     var login_type = 'googleplus';
 
                     set_session_info(id, token, user_type, login_type);
-										//window.location.href="http://www.where2night.es/user/profile.php";  
 									}
 										
 								},

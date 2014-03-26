@@ -12,17 +12,11 @@
 	});
     (FB.api('/me', function(response) {
 					email2 = response.email;
-					//alert(email2);
 					var firstName2 = response.first_name;
-					//alert(firstName2);
 					var last_name2 = response.last_name;
-					//alert(last_name2);
 					var gender2 = response.gender;
-					//alert(gender2);
 					var birthday_date2 = response.birthday;
-					//alert(birthday_date2);
 					
-					//alert(photo);
 					$.ajax({
 								url: "../develop/login/loginfb.php",
 								dataType: "json",

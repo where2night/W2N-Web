@@ -1,6 +1,7 @@
 <?php
 
 include_once "../framework/sessions.php";
+include_once "../framework/visits.php";
 
  w2n_session_check(); 
 
@@ -216,7 +217,7 @@ include_once "../framework/sessions.php";
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							<?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+							<?php echo get_name_user()." ".get_surname_user(); ?>
 						</h1>
 						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Usuario</p>
 						<br>
@@ -237,49 +238,49 @@ include_once "../framework/sessions.php";
                           <tbody>
                             <tr class="info0">
                               <td class="info1">Nombre y Apellidos:</td>
-							   <td><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></td>
+							   <td><?php echo get_name_user()." ".get_surname_user(); ?></td>
                           </tr>
                             <tr>                            
                               <td class="info2">Fecha de Nacimiento:</td>
-							   <td ><?php echo $_SESSION['birthdate']; ?></td>
+							   <td ><?php echo get_birthdate_user(); ?></td>
                             
                             </tr>
 							 <tr class="info0">
                               
                               <td class="info1">Sexo:</td>
-							   <td><?php if ($_SESSION['gender']=="male") echo "Hombre" ?><?php if ($_SESSION['gender']=="female") echo "Mujer" ?></td>
+							   <td><?php if (get_gender_user()=="male") echo "Hombre" ?><?php if (get_gender_user()=="female") echo "Mujer" ?></td>
                              
                               
                             </tr>
 							<tr>
                               
                               <td class="info2">Estado Civil:</td>
-							   <td><?php echo $_SESSION['civil_state']; ?></td>
+							   <td><?php echo get_civil_state_user(); ?></td>
                             
                               
                             </tr>
                              <tr class="info0">
                              
                                <td class="info1">Ciudad Actual:</td>
-							    <td><?php echo $_SESSION['city']; ?></td>
+							    <td><?php echo get_city_user(); ?></td>
                             
                             </tr>
 							 <tr>
                              
                                <td class="info2">Música Favorita:</td>
-							    <td><?php echo $_SESSION['music']; ?></td>
+							    <td><?php echo get_music_user(); ?></td>
                             
                             </tr>
 							  <tr class="info0">
                              
                                <td class="info1">Bebida Favorita:</td>
-							    <td><?php echo $_SESSION['drink']; ?></td>
+							    <td><?php echo get_drink_user(); ?></td>
                             
                             </tr>
 							 <tr>
                              
                                <td class="info2">Acerca de Mi:</td>
-							    <td><?php echo $_SESSION['about']; ?></td>
+							    <td><?php echo get_about_user(); ?></td>
                             
                             </tr>
                           </tbody>

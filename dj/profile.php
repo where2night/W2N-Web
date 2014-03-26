@@ -1,6 +1,7 @@
 <?php
 
 include_once "../framework/sessions.php";
+include_once "../framework/visits.php";
 
  w2n_session_check(); 
 
@@ -165,7 +166,7 @@ include_once "../framework/sessions.php";
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							<span><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></span>
+							<span><?php echo get_nameDJ_dj(); ?></span>
 						</h1>
 						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización DJ</p>
 					</div>

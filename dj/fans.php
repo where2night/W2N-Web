@@ -1,6 +1,7 @@
 <?php
 
 include_once "../framework/sessions.php";
+include_once "../framework/visits.php";
 
  w2n_session_check(); 
 

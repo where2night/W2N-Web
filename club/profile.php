@@ -1,6 +1,7 @@
 <?php
 
 include_once "../framework/sessions.php";
+include_once "../framework/visits.php";
 
  w2n_session_check(); 
 
@@ -216,9 +217,9 @@ include_once "../framework/sessions.php";
 					<div class="profile-sec-head banner2">
 						<img src="../images/profile.jpg" alt="" />
 						<h1>
-							<?php echo $_SESSION['local_name']; ?>
+							<?php echo get_local_name_club(); ?>
 						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Local</p>
+						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo get_poblation_local_club();?></p>
 					</div>
 					<div>
 						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
@@ -398,16 +399,18 @@ include_once "../framework/sessions.php";
 				<div class="contactBox">
 					<h1>Dirección:</h1> 
 					<p>
-						<?php if ($_SESSION['street'] == 0) echo 'Calle'; ?>
-						<?php if ($_SESSION['street'] == 1) echo 'Avd.'; ?>
-						<?php if ($_SESSION['street'] == 2) echo 'Plaza'; ?>
-						<?php echo $_SESSION['streetName']; ?>,<br>
-						<?php echo $_SESSION['poblation_local'];?>
-						<?php echo $_SESSION['cp_local'];?>
+						<?php if (get_street_club() == 0) echo 'Calle'; ?>
+						<?php if (get_street_club() == 1) echo 'Avd.'; ?>
+						<?php if (get_street_club() == 2) echo 'Plaza'; ?>
+						<?php echo get_street_name_club(); ?>,<br>
+						<?php echo get_poblation_local_club();?>
+						<?php echo get_cp_local_club();?>
 					</p>
 					<h1>Teléfono:</h1>
-					<p><?php echo $_SESSION['telephone'];?></p>
-					<h1>Horario:</h1>					
+					<p><?php echo get_telephone_club();?></p>
+					<h1>Horario:</h1>	
+					<p><b>Apertura: </b><?php echo get_opening_hours_club();?></p>
+					<p><b>Cierre: </b><?php echo get_close_hours_club();?></p>			
 				</div>
 				
 				</li>

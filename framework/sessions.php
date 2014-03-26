@@ -147,10 +147,9 @@ function w2n_session_end(){
 	if ($_SESSION['w2n_type_login'] == "normal"){
 		unset($_SESSION['w2n_type_login']);
  		session_destroy ();
- 		//$_SESSION = array();
 	}
 
-	//if (w2n_session_saved()){
+	if (w2n_session_saved()){
 		unset($_COOKIE['w2n_id']);
 		setcookie('w2n_id', '', time() - 3600);
 
@@ -159,7 +158,7 @@ function w2n_session_end(){
 
 		unset($_COOKIE['w2n_type']);
 		setcookie('w2n_type', '', time() - 3600);
-	//}
+	}
 }
 
 /**
