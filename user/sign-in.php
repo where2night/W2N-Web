@@ -15,6 +15,7 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
+		<link href="../css/signin-user.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
 		
 
@@ -86,26 +87,7 @@
 
 		</script>
 		</div>
-    	<style>
-			.popover-title {
-					color: blue;
-					font-size: 15px;
-			}
-			.popover-content {
-				color: #A65F20;
-				font-size: 10px;
-			}
-  			body {
-    			padding-top: 60px;
-				padding-bottom: 60px;
-    			background:url(../images/party4.jpg) no-repeat center center fixed;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-				}
-		</style>
-            
+    	
         <script type="text/javascript" src="../js/registro.js"></script>
             
            
@@ -180,10 +162,10 @@
 	<!-- /NavbarHeader -->
         
      <form id="fPrueba">   	
-        <table   height="100" align="center" border="0"  >
+        <table   class ="table table-hover tablaC banner1"  >
          	  
          	  <tr >
-	            <td ><input id="name"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
+	            <td ><input id="name"  type="text" class="form-control" placeholder="Nombre" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	         
 	          <tr>
@@ -209,25 +191,25 @@
 	          
 	          <tr>
 	            <td>
-	            	<div class="form-group"  >
-							<br>
-							<div >
-								<label class="radio-inline">
-								  <input name="radioGroup" id="male" value="male" type="radio" onChange="cleanPopOvers();" ><span style="color: #FFFFCC">Hombre</span>
-								</label>
-								<label class="radio-inline">
-								  <input name="radioGroup" id="female" value="female" type="radio" onChange="cleanPopOvers();" ><span style="color: #FFFFCC">Mujer</span>
-								</label>
-								<div id="errorGender"></div>
-							</div>
-					</div>
+	            	
+					<p class="navbar-text" ><b class="labelTextMain"> Sexo </b></p>
+					<p class="navbar-text" >
+						<label class="radio-inline">
+						  <input name="radioGroup" id="male" value="male" type="radio" onChange="cleanPopOvers();" ><span class="labelText" >Hombre</span>
+						</label>
+						<label class="radio-inline">
+						  <input name="radioGroup" id="female" value="female" type="radio" onChange="cleanPopOvers();" ><span class="labelText">Mujer</span>
+						</label>
+						<div id="errorGender"></div>
+					</p>
+					
 	            </td>
 	          </tr>
 	          
 	          <tr>
 	           	<td>
 					<br>
-	            	<p class="navbar-text" ><b style="color: #E46115; font-size: 14px;"> Fecha de nacimiento </b></p>
+	            	<p class="navbar-text" ><b class="labelTextMain"> Fecha de nacimiento </b></p>
 
 	            	<p class="navbar-text" >
 						<select id="day" onchange="cleanPopOvers();">
@@ -261,7 +243,7 @@
 							<label>
 								<p class="navbar-text">
 									<input type="checkbox" value="" id="Terms_Conditions" required="true" onChange="cleanPopOvers();">
-									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
+									<b class="labelTextMain">Acepto los términos y condiciones</b>
 								</p>
 							</label>
 						</div>
@@ -269,9 +251,12 @@
 	            
 	          </tr>
 	          
-	          <tr align="center">
-				<br><br><br>
-	          	<td><input name="register"  class="btn" type="button" value="¡Registrate!" onclick="validateForm();"/></td>
+	         <tr align="center">
+	          	<td>
+                	
+                        <input name="register"  class="btn btn-transparent btnRegistro" align="middle" type="button" value="¡Regístrate!" onclick="validateForm();"/>
+                     
+                </td>
 	          </tr>
 	   	</table>
 	</form>
