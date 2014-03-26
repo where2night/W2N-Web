@@ -139,7 +139,7 @@ function showValidMessage(){
 	$().toastmessage('showToast', {
 								text: 'Registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web. ',
 								sticky: false,
-								position: 'middle-center',
+								position: 'top-center',
 								type: 'success',
 								closeText: '',
 								close: function () {
@@ -154,7 +154,7 @@ function showInvalidMessage(){
 	$().toastmessage('showToast', {
 								text: 'El registro no ha sido llevado a cabo',
 								sticky: true,
-								position: 'middle-center',
+								position: 'top-center',
 								type: 'success',
 								closeText: '',
 								close: function () {

@@ -83,17 +83,7 @@ function validate() {
 					var year = list_year.options[list_year.selectedIndex].text;
 
 					var birthday_date = day+"/"+month+"/"+year;
-
-
-					/*alert("pasa x registro ");
-					alert(coolnameDj);
-					alert(nameDJ);
-					alert(surnameDj);
-					alert(telephoneDJ);
-					alert(emailDJ);
-					alert(gender);
-					alert(birthday_date);
-					alert("AJAX");*/
+					
 					$.ajax({
 							url: "../develop/register/dj.php",
 							dataType: "json",
@@ -109,7 +99,6 @@ function validate() {
 								
 							},
 							complete: function(r){
-							alert(r.responseText);
 									var json = JSON.parse(r.responseText);
 									
 									if(json.Token!=0){
@@ -135,7 +124,7 @@ function validate() {
 	$().toastmessage('showToast', {
 								text: 'Registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web. ',
 								sticky: false,
-								position: 'middle-center',
+								position: 'top-center',
 								type: 'success',
 								closeText: '',
 								close: function () {
@@ -150,7 +139,7 @@ function showInvalidMessage(){
 	$().toastmessage('showToast', {
 								text: 'El registro no ha sido llevado a cabo',
 								sticky: true,
-								position: 'middle-center',
+								position: 'top-center',
 								type: 'success',
 								closeText: '',
 								close: function () {
@@ -242,7 +231,7 @@ function showInvalidMessage(){
 	}
 
 	function validGender(man,woman){
-		var gender = '#male';
+		var gender = '#female';
 		if (man || woman){
 			//$(gender).popover('destroy');
 			cleanPopOvers();
@@ -333,7 +322,7 @@ function showInvalidMessage(){
 		var telephoneDJ_vaule = '#telephoneDJ';
 		var email_vaule = '#emailDJ';
 		var confirmationEmailDJ_vaule = '#confirmationEmailDJ';
-		var gender = '#male';
+		var gender = '#female';
 		var dateError = '#month';
 		var terms_value = '#Terms_Conditions';
 

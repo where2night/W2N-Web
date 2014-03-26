@@ -4,6 +4,7 @@ function validate() {
 	   var name_value = '#name';
 	   var name_valid = validField(name,name_value);
 	   if (name_valid == true){
+	   
 		   var surname = document.getElementById('surname');
 		   var surname_value = '#surname';
 		   var surname_valid = validField(surname,surname_value);
@@ -227,7 +228,7 @@ function  validPasswords(password,confirmation_password,confirmation_password_va
 }
 
 function validGender(man,woman){
-	var gender = '#male';
+	var gender = '#female';
 	if (man || woman){
 		//$(gender).popover('destroy');
 		cleanPopOvers();
@@ -236,7 +237,7 @@ function validGender(man,woman){
 		//$(gender).popover('destroy');
 		cleanPopOvers();
 		$(gender).popover({
-					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Selecciona masculino o femenino </label>',
+					content: '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Selecciona hombre o mujer </label>',
 					html: true,
 					placement: 'bottom',
 					trigger: 'manual'
@@ -289,7 +290,7 @@ function validDate(){
 
 function validTerms(){
 	
-	var terms=document.getElementById("Terms_Conditions").checked
+	var terms=document.getElementById("Terms_Conditions").checked;
 	var terms_value = '#Terms_Conditions';
 	
 	if (terms) {
@@ -312,6 +313,49 @@ function validTerms(){
 
 }
 
+/*function validateName(){
+	 var name = document.getElementById('name'); 
+	 if (name!=""){
+		cleanPopOvers();
+	 }
+}
+
+function validateSurname(){
+	 var surname = document.getElementById('surname');
+	 if (surname!=""){
+		cleanPopOvers();
+	 }
+}
+
+function validateEmail(){
+	var email = document.getElementById('email');
+	if (email!=""){
+		cleanPopOvers();
+	}
+}
+
+function validateEmailConfirm(){
+	var confirmation_email = document.getElementById('confirmation_email');
+	if (confirmation_email!=""){
+		cleanPopOvers();
+	}
+}
+
+function validatePassword(){
+	var password = document.getElementById('password');
+	if (password!=""){
+		cleanPopOvers();
+	}
+}
+
+function validatePassword(){
+	var password = document.getElementById('password');
+	if (password!=""){
+		cleanPopOvers();
+	}
+}*/
+
+
 function cleanPopOvers(){
 	var name_value = '#name';
 	var surname_value = '#surname';
@@ -319,7 +363,7 @@ function cleanPopOvers(){
 	var confirmation_email_vaule = '#confirmation_email';
 	var password_value = '#password';
 	var confirmation_password_value = '#confirmation_password';
-	var gender = '#male';
+	var gender = '#female';
 	var dateError = '#month';
 	var terms_value = '#Terms_Conditions';
 	

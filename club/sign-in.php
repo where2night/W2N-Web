@@ -184,52 +184,52 @@
 			<table width="700" height="100" align="center" border="0" >
 				  
 				  <tr >
-					<td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required="true" oninput="validate();"/></td>
+					<td ><input id="companyNameLocal"  type="text" size="100" class="form-control" placeholder="Nombre de la empresa" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 				  </tr>
 				 
 				  <tr>
-					<td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local" required="true" oninput="validate();"/></td>
+					<td><input id="localName" type="text" size="100" class="form-control" placeholder="Nombre del local" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 				  </tr>
 				  
 		   
 				  <tr>
-					<td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF" required="true" oninput="validate();"/></td>
+					<td><input id="cif" type="text" size="100" class="form-control" placeholder="CIF" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 				  </tr>
 			 
 				  
 				  <tr>
-					<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población" required="true" oninput="validate();" /></td>
+					<td><input id="poblationLocal" type="text" size="100" class="form-control" placeholder="Población" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" required="true" oninput="validate();" /></td>
+					<td><input id="cpLocal" type="text" size="100" class="form-control" placeholder="CP" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" required="true" oninput="validate();"/></td>
+					<td><input id="telephoneLocal" type="text" size="100" class="form-control" placeholder="Teléfono" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 				  </tr>
 				  
 				  <tr>
-					<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" oninput="validate();" /></td>
+					<td><input id="emailLocal" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 				  </tr>
 				  
 				   <tr>
-					<td><input id="confirmationEmailLocal" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" oninput="validate();" /></td>
+					<td><input id="confirmationEmailLocal" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 				  </tr>
 			  
 				  
 				  <tr>
 					<td>
-						<p class="navbar-text"><b style="color: #FFFFCC" required> Dirección </b></p>
+						<p class="navbar-text"><b style="color: #FFFFCC"> Dirección </b></p>
 
 						<p class="navbar-text">
-							<select id="street" required>
+							<select id="street" required onchange="cleanPopOvers();">
 								<option value="0" selected="1">Calle</option>
 								<option value="1" >Avd.</option>
 								<option value="2" >Plaza</option>
 							</select>
-						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" required="true" oninput="validate();" /></p>
-						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" required="true" oninput="validate();" /></p>
+						 <p class="navbar-text"><input id="streetNameLocal" type="text" class="form-control" placeholder="Nombre" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></p>
+						 <p class="navbar-text"><input id="streetNumberLocal" type="text" class="form-control" placeholder="Número" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></p>
 					   </p>
 					 </td>
 						

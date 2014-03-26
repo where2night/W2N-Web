@@ -16,6 +16,7 @@
         <link href="../css/login.css" rel="stylesheet" type="text/css">
         <link href="../css/home.css" rel="stylesheet" type="text/css">
         <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+		
 
 		<!-- JavaScript -->
 		<script type="text/javascript" src="../js/fillDate.js"></script>
@@ -179,74 +180,74 @@
 	<!-- /NavbarHeader -->
         
      <form id="fPrueba">   	
-        <table width="700" height="100" align="center" border="0" >
+        <table   height="100" align="center" border="0"  >
          	  
          	  <tr >
-	            <td ><input id="name"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" oninput="validate();" /></td>
+	            <td ><input id="name"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	         
 	          <tr>
-	            <td><input id="surname" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" oninput="validate();"/></td>
+	            <td><input id="surname" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 	          </tr>
 	          
 	   
 	          <tr>
-	            <td><input id="email" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" oninput="validate();"/></td>
+	            <td><input id="email" type="email" size="100" class="form-control" placeholder="Correo electrónico" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	          
 	          <tr>
-				<td><input id="confirmation_email" type="email" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico" required="true" oninput="validate();"/></td>
+				<td><input id="confirmation_email" type="email" size="100" class="form-control" placeholder="Vuelve a escribir correo electrónico" required="true" onclick="cleanPopOvers();"oninput="cleanPopOvers();" /></td>
 	          </tr>
 	          
 	          <tr>
-	            <td><input id="password" type="password" size="100" class="form-control" placeholder="Contraseña" required="true" oninput="validate();"/></td>
+	            <td><input id="password" type="password" size="100" class="form-control" placeholder="Contraseña" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	          
 	          <tr>
-	           	<td><input id="confirmation_password" type="password" size="100" class="form-control" placeholder="Repite contraseña" required="true" oninput="validate();"/></td>
+	           	<td><input id="confirmation_password" type="password" size="100" class="form-control" placeholder="Repite contraseña" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	          
 	          <tr>
 	            <td>
-	            	<div class="form-group" >
+	            	<div class="form-group"  >
 							<br>
-							<div class="col-sm-8">
+							<div >
 								<label class="radio-inline">
-								  <input name="radioGroup" id="male" value="male" type="radio" onchange="validate();" ><span style="color: #FFFFCC">Hombre</span>
+								  <input name="radioGroup" id="male" value="male" type="radio" onChange="cleanPopOvers();" ><span style="color: #FFFFCC">Hombre</span>
 								</label>
 								<label class="radio-inline">
-								  <input name="radioGroup" id="female" value="female" type="radio" onchange="validate();"><span style="color: #FFFFCC">Mujer</span>
+								  <input name="radioGroup" id="female" value="female" type="radio" onChange="cleanPopOvers();" ><span style="color: #FFFFCC">Mujer</span>
 								</label>
 								<div id="errorGender"></div>
 							</div>
-						</div>
+					</div>
 	            </td>
 	          </tr>
 	          
 	          <tr>
 	           	<td>
 					<br>
-	            	<p class="navbar-text" ><b style="color: #FFFFCC"> Fecha de nacimiento </b></p>
+	            	<p class="navbar-text" ><b style="color: #E46115; font-size: 14px;"> Fecha de nacimiento </b></p>
 
 	            	<p class="navbar-text" >
-						<select id="day">
-	            			<option value="0" selected="1" required="true" onchange="validate();">Día</option>
+						<select id="day" onchange="cleanPopOvers();">
+	            			<option value="0" selected="1" required="true"  >Día</option>
 	          					<script>
 	        						SelectOptionRange(1,32);
 	        					</script>	
 	            	 	</select>
 	            	
-	            		<select id="month">
-	            			<option value="0" selected="1" required="true" onchange="validate();">Mes</option>
+	            		<select id="month" onchange="cleanPopOvers();">
+	            			<option value="0" selected="1" required="true"  >Mes</option>
 	            				<script>
 	        						SelectOptionRange(1,13);
 	        					</script>
 	                	</select>
 	            	
-	            		<select id="year">
-	            			<option value="0" selected="1" required="true" onchange="validate();">Año</option>
+	            		<select id="year" onchange="cleanPopOvers();">
+	            			<option value="0" selected="1" required="true"  >Año</option>
 	        					<script>
-	        						SelectOptionRange(1905,2013);
+	        						SelectOptionRange(1905,1996);
 	        					</script>    		
 	            		</select>
 	            	</p>
@@ -259,7 +260,7 @@
 	            	<div class="checkbox">
 							<label>
 								<p class="navbar-text">
-									<input type="checkbox" value="" id="Terms_Conditions" required="true">
+									<input type="checkbox" value="" id="Terms_Conditions" required="true" onChange="cleanPopOvers();">
 									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
 								</p>
 							</label>

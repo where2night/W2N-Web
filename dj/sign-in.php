@@ -183,27 +183,27 @@
         <table width="700" height="100" align="center" border="0" >
          	  
          	  <tr>
-	            <td><input id="coolnameDj" type="text" size="100" class="form-control" placeholder="Nombre artistico" required="true" oninput="validate();" /></td>
+	            <td><input id="coolnameDj" type="text" size="100" class="form-control" placeholder="Nombre artistico" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 	          </tr>
 			  
 			  <tr >
-	            <td ><input id="nameDJ"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" oninput="validate();"/></td>
+	            <td ><input id="nameDJ"  type="text" size="100" class="form-control" placeholder="Nombre" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	         
 	          <tr>
-	            <td><input id="surnameDj" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" oninput="validate();" /></td>
+	            <td><input id="surnameDj" type="text" size="100" class="form-control" placeholder="Apellidos" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 	          </tr>
 	          
 	          <tr>
-	           	<td><input id="telephoneDJ" type="text" size="100"  class="form-control" placeholder="Teléfono"required="true" oninput="validate();" /></td>
+	           	<td><input id="telephoneDJ" type="text" size="100"  class="form-control" placeholder="Teléfono"required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 	          </tr>
               
               <tr>
-	           	<td><input id="emailDJ" type="email" size="100" class="form-control" placeholder="Correo electrónico"  required="true" oninput="validate();"/></td>
+	           	<td><input id="emailDJ" type="email" size="100" class="form-control" placeholder="Correo electrónico"  required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();"/></td>
 	          </tr>
 	          
                <tr>
-	           	<td><input id="confirmationEmailDJ" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" oninput="validate();" /></td>
+	           	<td><input id="confirmationEmailDJ" type="email" size="100" class="form-control" placeholder="Confirmación correo electrónico" required="true" onclick="cleanPopOvers();" oninput="cleanPopOvers();" /></td>
 	          </tr>
           
 		  <tr>
@@ -212,10 +212,10 @@
 							<br>
 							<div class="col-sm-8">
 								<label class="radio-inline">
-								  <input name="radioGroup" id="male" value="male" type="radio" onchange="validate();" ><span style="color: #FFFFCC">Hombre</span>
+								  <input name="radioGroup" id="male" value="male" type="radio" onchange="cleanPopOvers();" ><span style="color: #FFFFCC">Hombre</span>
 								</label>
 								<label class="radio-inline">
-								  <input name="radioGroup" id="female" value="female" type="radio" onchange="validate();"><span style="color: #FFFFCC">Mujer</span>
+								  <input name="radioGroup" id="female" value="female" type="radio" onchange="cleanPopOvers();"><span style="color: #FFFFCC">Mujer</span>
 								</label>
 								<div id="errorGender"></div>
 							</div>
@@ -230,24 +230,24 @@
 	            	<p class="navbar-text"><b style="color: #FFFFCC"> Fecha de nacimiento</b></p>
 
 	            	<p class="navbar-text">
-						<select id="day">
+						<select id="day" onchange="cleanPopOvers();">
 	            			<option value="0" selected="1" required="true" onchange="validate();">Día</option>
 	          					<script>
 	        						SelectOptionRange(1,32);
 	        					</script>	
 	            	 	</select>
 	            	
-	            		<select id="month">
+	            		<select id="month" onchange="cleanPopOvers();">
 	            			<option value="0" selected="1" required="true" onchange="validate();">Mes</option>
 	            				<script>
 	        						SelectOptionRange(1,13);
 	        					</script>
 	                	</select>
 	            	
-	            		<select id="year">
+	            		<select id="year" onchange="cleanPopOvers();">
 	            			<option value="0" selected="1" required="true" onchange="validate();">Año</option>
 	        					<script>
-	        						SelectOptionRange(1905,2013);
+	        						SelectOptionRange(1905,1996);
 	        					</script>    		
 	            		</select>
 	            	</p>	
@@ -259,7 +259,7 @@
 	            	<div class="checkbox">
 							<label>
 								<p class="navbar-text">
-									<input type="checkbox" value="" id="Terms_Conditions" required="true">
+									<input type="checkbox" value="" id="Terms_Conditions" required="true" onChange="cleanPopOvers();">
 									<b style="color: #FFFFCC">Acepto los términos y condiciones</b>
 								</p>
 							</label>
