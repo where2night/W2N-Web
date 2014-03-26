@@ -138,7 +138,7 @@ include_once "../framework/visits.php";
               		<ul><li></li></ul>
                 </div>
                 
-                <div class="the-timeline">
+                <div class="the-timeline" style="width: 90%; margin-left: 40px">
 							<ul>
 								<li>
 									<img class="the-date2" src="../images/profile.jpg" />

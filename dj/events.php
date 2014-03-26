@@ -191,7 +191,20 @@ jQuery(function($){
 
  	 /*Sidebar*/
   	include "templates/sidebar.php";
+
+
+$idProfile=$_SESSION['id_user']; 
+echo($idProfile);
 ?>
+
+
+<script>
+	
+var id=0;
+
+ var ide = '<?php echo $idProfile; ?>' ;
+	
+</script>
 
 
 	<!-- Events -->

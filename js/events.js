@@ -11,9 +11,8 @@ parent.removeChild(element);
 
 function newEvent(type) {
 
-
 var actualdate=document.getElementById("datepicker").value;
-var title = document.getElementById("Title").value;
+var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
 
 var list_hour_init= document.getElementById("hour-init");
@@ -29,22 +28,46 @@ var list_minutes= document.getElementById("minutes");
 var minutes = list_minutes.options[list_minutes.selectedIndex].text;
 
 
+var time1 = hour_init.concat(":");
+time1=time1.concat(minutes_init);
+
+var time2 = hour.concat(":");
+time2=time2.concat(minutes);
+
 //var fileName = document.getElementById('upload').value;
 
 
-if (!(title=="")){
+if (!(title2=="")){
 
 	if (!actualdate==""){
 
 		if(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
 		
+		//ideProfile ---> ide
 		//le paso el idProfile,title,text,Date,StartHour,closehour y me devuelve el id
 		
 		
-		
-		
-		
-		
+		$.ajax({
+			url: "../develop/create/event.php",
+			dataType: "json",
+			type: "POST",
+			data: {
+				idProfile:ide,
+				title: title2,
+				text: description,
+				date: actualdate,
+				startHour: time1,
+				closeHour: time2
+			},
+			complete: function(r){
+					var json = JSON.parse(r.responseText);
+					if(json.Token==0) 
+						alert("No se puede introducir evento 1");
+    		},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
 		
 		
 		
@@ -57,16 +80,18 @@ if (!(title=="")){
 			else image="src='../images/party2.jpg'";
 		
 		var events=document.getElementById('ul').innerHTML;
-		var id=1;
+		
+		id=id+1;
+		
 		
 		events=events.concat("<li id='button");
 		events=events.concat(id);
 		events=events.concat("'> <div class='timeline-title orangeBox1'> <img class='menu-avatar time-title-img orangeBox1'");
 		events=events.concat(image);  
 		events=events.concat("/><h6>");
-		events=events.concat(title);
+		events=events.concat(title2);
 		events=events.concat("</h6> <i class='glyphicon glyphicon-time'style='color:#FF6B24'>");
-		//events=events.concat(actualdate);
+		events=events.concat(actualdate);
 		events=events.concat("</i> <a class='orangeBox1' id='button");
 		events=events.concat(id);
 		events=events.concat("' onclick='deleteEvent(this.id);'><i class='glyphicon glyphicon-trash'style='color:#000'></i>Borrar</a></div></li>");

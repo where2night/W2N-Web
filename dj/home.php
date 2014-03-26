@@ -171,7 +171,7 @@ include_once "../framework/sessions.php";
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="">
+          <a href="events.php">
               <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
               <span>Eventos</span>
           </a>
@@ -185,7 +185,7 @@ include_once "../framework/sessions.php";
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="">
+          <a href="fans.php">
               <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
               <span>Seguidores</span>
           </a>
@@ -208,7 +208,7 @@ include_once "../framework/sessions.php";
           </a>
           <ul id="tnnmk7rjLZ" class="collapse "> 
                
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
+                  <a href="edit.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
                       <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
                   </a>
                 <br>
