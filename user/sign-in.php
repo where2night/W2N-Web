@@ -260,7 +260,7 @@
 
 				<tr align="center">
 					<td>
-					<input name="register"  class="btn btn-transparent btnRegistro" align="middle" type="button" value="¡Regístrate!" onclick="validateForm();"/>
+					<input name="register"  class="btn btn-transparent btnRegistro" align="middle" type="button" value="¡Regístrate!" onmouseover="javascript:this.style.color='#000';" onmouseout="javascript:this.style.color='#fff';" onclick="validateForm();"/>
 					</td>
 				</tr>
 			</table>
