@@ -9,16 +9,16 @@
 body {
 	padding-top:60px;
 	padding-bottom:60px;
-	background:url(../images/party4.jpg) no-repeat center center fixed;
+	background:url(../images/party3.jpg) no-repeat center center fixed;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
 	background-size:cover;
 }
 .banner1 {
-	-webkit-box-shadow:inset 0px 0px 20px #FF6B24;
-	-moz-box-shadow:0px 0px 10px #FF6B24;
-	box-shadow:0px 0px 10px #FF6B24;
+	-webkit-box-shadow:inset 0px 0px 20px #ff3ede;
+	-moz-box-shadow:0px 0px 10px #ff3ede;
+	box-shadow:0px 0px 10px #ff3ede;
 	border:1px solid #FF6B24;
 }
 .banner2 {
@@ -43,23 +43,23 @@ body {
 	-webkit-box-shadow:inset 0px 0px 20px #99FFFF;
 	-moz-box-shadow:inset 0px 0px 20px #99FFFF;
 	box-shadow:inset 0px 0px 20px #99FFFF;
-	border-left-color:#F2780C;
-	border-right-color:#DA7431;
-	border-top-color:#DA7431;
-	border-bottom-color:#DA7431;
+	border-left-color:#ff3ede;
+	border-right-color:#ff3ede;
+	border-top-color:#ff3ede;
+	border-bottom-color:#ff3ede;
 }
 .table> tbody> tr> td, .table> tbody> tr> th, .table> tfoot> tr> td, .table> tfoot> tr> th, .table> thead> tr> td, .table> thead> tr> th  :hover th {
 	padding:8px;
 	line-height:1.428571429;
 	vertical-align:top;
-	border-top:1px solid #DA7431;
+	border-top:1px solid #ff3ede;
 }
 .table tbody tr:hover td, .table tbody tr:hover th {
 	background-color:#1B1E24;
 	-webkit-box-shadow:inset 0px 0px 10px #99FFFF;
 	-moz-box-shadow:inset 0px 0px 10px #99FFFF;
 	box-shadow:inset 0px 0px 10px #99FFFF;
-	border-left:0px solid #F2780C;
+	border-left:0px solid #ff3ede;
 }
 .labelTextMain {
 	color:#E46115;
