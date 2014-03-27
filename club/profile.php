@@ -38,8 +38,94 @@ include_once "../framework/visits.php";
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
 
+<script type="text/javascript"> 
+	function getData(){
+<?php 
+	if(isset($_GET['idv'])){
+		//$id = w2n_generate_encoded_id($id_user);
+?>
+	
+	var idProfile = <?php echo $_GET['idv'];?>;
+	var id = <?php echo $_SESSION['id_user'];?>;
+	var token = "<?php echo $_SESSION['token'];?>";
+	var params = "/" + idProfile + "/" + token; 
+	var url1 = "../develop/update/";
+	var params = "/" + id + "/" + token + "/" + idProfile;
+	url1 += "local.php";
+	url1 += params;
+	$.ajax({
+	url: url1,
+	dataType: "json",
+	type: "GET",
+	timeout: 5000,
+	complete: function(r2){
+		var json = JSON.parse(r2.responseText);
+		var companyName = json.companyName;
+		var localName = json.localName;
+		var cif = json.cif;
+		var poblationLocal = json.poblationLocal;
+		var cpLocal = json.cpLocal;
+		var telephoneLocal = json.telephoneLocal;
+		var street = json.street;
+		var streetName = json.streetNameLocal;
+		var streetNumber = json.streetNumberLocal;
+		var music = json.music;
+		var entryPrice = json.entryPrice;
+		var drinkPrice = json.drinkPrice;
+		var openingHours = json.openingHours;
+		var closeHours = json.closeHours;
+		var picture = json.picture;
+		var about = json.about;
+		var latitude = json.latitude;
+		var longitude = json.longitude;
+		$.post("../framework/visits_add.php",
+		  {
+		  	user_type: 'club',
+		    id_user: id,
+			companyName: companyName,
+			localName: localName,
+			cif: cif,
+			poblationLocal: poblationLocal,
+			cpLocal: cpLocal,
+			telephoneLocal: telephoneLocal,
+			street: street,
+			streetName: streetName,
+			streetNumber: streetNumber,
+			music: music,
+			entryPrice: entryPrice,
+			drinkPrice: drinkPrice,
+			openingHours: openingHours,
+			closeHours: closeHours,
+			picture: picture,
+			about: about,
+			latitude: latitude,
+			longitude: longitude
+		  },
+		  function(data,status){
+			//alert("Data: " + data + "\nStatus: " + status);
+					alert('hola')								  ;
+		  });
+		},
+		onerror: function(e,val){
+			alert("Contraseña y/o usuario incorrectos");
+		}
+	});
+
+	
+
+
+<?php		
+	}// end (isset($_GET['idv']))
+?>
+
+}
+    
+    
+    </script>
+
 	<script type="text/javascript">  
     $(document).ready(function(){ 
+		getData();
       
 	    $("#close_session").on("click", function (event) {
 	        $.post("../framework/session_end.php",
@@ -161,17 +247,11 @@ include_once "../framework/visits.php";
             }
         }));
       });
+ 
 		
-		$("#timepicker_open").kendoTimePicker({
-		    format: "HH:mm"
-		});
-		$("#timepicker_close").kendoTimePicker({
-		    format: "HH:mm"
-		});     
-    });//end $(document).ready(function()
-    
-    
-    </script>
+	});//end $(document).ready(function()
+	</script>
+	
 	<script type="text/javascript">
 function changeMyClassName(theButton)
 {

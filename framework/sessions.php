@@ -215,4 +215,16 @@ function w2n_is_logged(){
 	return (isset($_SESSION) && w2n_valid_user_type($_SESSION['user_type']));
 }
 
+function w2n_generate_encoded_id($id_user){
+	$id_encoded = generateRandomString(4);
+	$id_encoded .= encrypt($id_user);
+	return $id_encoded;
+}
+
+function w2n_generate_decoded_id($id_user_encoded){
+	$id_decoded = substr($id_user_encoded, 3, strlen($id_user_encoded)- 4);
+	$id_decoded = decrypt($id_decoded);
+	return $id_decoded;
+}
+
 ?>

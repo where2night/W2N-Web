@@ -55,115 +55,115 @@ include_once "../framework/sessions.php";
 	          });
 	      });
             
-      $("#change-data").on("click", function (event) {
-          
-        var idProfile = <?php echo $_SESSION['id_user'];?>;
-        var token = "<?php echo $_SESSION['token'];?>";
-        var companyName = $('#name').val();
-        var localName = $('#local_name').val();
-        var cif = $('#cif').val();
-        var poblationLocal = $('#poblation').val();
-        var cpLocal = $('#postal-code').val();
-        var telephone = $('#telephone').val();
-        var street = $("#street").val();
-        var streetName = $("#streetName").val();
-        var streetNumber = $("#streetNumber").val();
-        var music = $('#music-style').val();
-        var entryPrice = $('#entryPrice').val();
-        var drinkPrice = $('#drinkPrice').val();
+	    $("#change-data").on("click", function (event) {
+	          
+	        var idProfile = <?php echo $_SESSION['id_user'];?>;
+	        var token = "<?php echo $_SESSION['token'];?>";
+	        var companyName = $('#name').val();
+	        var localName = $('#local_name').val();
+	        var cif = $('#cif').val();
+	        var poblationLocal = $('#poblation').val();
+	        var cpLocal = $('#postal-code').val();
+	        var telephone = $('#telephone').val();
+	        var street = $("#street").val();
+	        var streetName = $("#streetName").val();
+	        var streetNumber = $("#streetNumber").val();
+	        var music = $('#music-style').val();
+	        var entryPrice = $('#entryPrice').val();
+	        var drinkPrice = $('#drinkPrice').val();
 
-        var timepicker_open = $("#timepicker_open").data("kendoTimePicker");
-		var date1 = timepicker_open.value();
-		var openingHours = '';
+	        var timepicker_open = $("#timepicker_open").data("kendoTimePicker");
+			var date1 = timepicker_open.value();
+			var openingHours = '';
 
-		var h = date1.getHours();
-		var m = date1.getMinutes();
-		var s = date1.getSeconds();
+			var h = date1.getHours();
+			var m = date1.getMinutes();
+			var s = date1.getSeconds();
 
-		if (h < 10) h = '0' + h;
-		if (m < 10) m = '0' + m;
-		if (s < 10) s = '0' + s;
+			if (h < 10) h = '0' + h;
+			if (m < 10) m = '0' + m;
+			if (s < 10) s = '0' + s;
 
-		openingHours = h + ':' + m + ':' + s;
+			openingHours = h + ':' + m + ':' + s;
 
-		var timepicker_close = $("#timepicker_close").data("kendoTimePicker");
-		var date2 = timepicker_close.value();
-		var closeHo2rs = '';
+			var timepicker_close = $("#timepicker_close").data("kendoTimePicker");
+			var date2 = timepicker_close.value();
+			var closeHo2rs = '';
 
-		var h = date2.getHours();
-		var m = date2.getMinutes();
-		var s = date2.getSeconds();
+			var h = date2.getHours();
+			var m = date2.getMinutes();
+			var s = date2.getSeconds();
 
-		if (h < 10) h = '0' + h;
-		if (m < 10) m = '0' + m;
-		if (s < 10) s = '0' + s;
+			if (h < 10) h = '0' + h;
+			if (m < 10) m = '0' + m;
+			if (s < 10) s = '0' + s;
 
-		closeHours = h + ':' + m + ':' + s;
+			closeHours = h + ':' + m + ':' + s;
 
-        var about = $('#about-you').val();
-        var picture = '';
+	        var about = $('#about-you').val();
+	        var picture = '';
 
-        var params = "/" + idProfile + "/" + token;
-        
-         console.log($.ajax({
-            url: "../develop/update/local.php" + params,
-            dataType: "json",
-            type: "POST",
-            timeout: 5000,
-            data: {
-              idProfile:idProfile,
-              companyName:companyName,
-              localName:localName,
-              cif: cif,
-              telephone: telephone,
-              poblationLocal: poblationLocal,
-              cpLocal: cpLocal,
-              street: street,
-              streetName: streetName,
-              streetNumber: streetNumber,
-              music: music,
-              entryPrice: entryPrice,
-              drinkPrice: drinkPrice,
-              openingHours: openingHours,
-              closeHours: closeHours,
-              picture: picture,
-              about: about
-            },
-            complete: function(r){
-              $.post("../framework/session_start.php",
-                    {
-						type_login: 'normal',
-						user_type: 'club',
-						id_user: idProfile,
-						token: token,
-						companyName:companyName,
-						localName:localName,
-						cif: cif,
-						telephone: telephone,
-						poblationLocal: poblationLocal,
-						cpLocal: cpLocal,
-						street: street,
-						streetName: streetName,
-						streetNumber: streetNumber,
-						music: music,
-						entryPrice: entryPrice,
-						drinkPrice: drinkPrice,
-						openingHours: openingHours,
-						closeHours: closeHours,
-						picture: picture,
-						about: about
-					},
-                    function(data,status){
-                      //window.location.href="home.php";
-                    });
-                
-              },
-            onerror: function(e,val){
-              alert("Hay error");
-            }
-        }));
-      });
-		
+	        var params = "/" + idProfile + "/" + token;
+	        
+	         console.log($.ajax({
+	            url: "../develop/update/local.php" + params,
+	            dataType: "json",
+	            type: "POST",
+	            timeout: 5000,
+	            data: {
+	              idProfile:idProfile,
+	              companyName:companyName,
+	              localName:localName,
+	              cif: cif,
+	              telephone: telephone,
+	              poblationLocal: poblationLocal,
+	              cpLocal: cpLocal,
+	              street: street,
+	              streetName: streetName,
+	              streetNumber: streetNumber,
+	              music: music,
+	              entryPrice: entryPrice,
+	              drinkPrice: drinkPrice,
+	              openingHours: openingHours,
+	              closeHours: closeHours,
+	              picture: picture,
+	              about: about
+	            },
+	            complete: function(r){
+	              $.post("../framework/session_start.php",
+	                    {
+							type_login: 'normal',
+							user_type: 'club',
+							id_user: idProfile,
+							token: token,
+							companyName:companyName,
+							localName:localName,
+							cif: cif,
+							telephone: telephone,
+							poblationLocal: poblationLocal,
+							cpLocal: cpLocal,
+							street: street,
+							streetName: streetName,
+							streetNumber: streetNumber,
+							music: music,
+							entryPrice: entryPrice,
+							drinkPrice: drinkPrice,
+							openingHours: openingHours,
+							closeHours: closeHours,
+							picture: picture,
+							about: about
+						},
+	                    function(data,status){
+	                      //window.location.href="home.php";
+	                    });
+	                
+	              },
+	            onerror: function(e,val){
+	              alert("Hay error");
+	            }
+	        }));
+	    });
+				
 		$("#timepicker_open").kendoTimePicker({
 		    format: "HH:mm"
 		});
@@ -302,7 +302,7 @@ include_once "../framework/sessions.php";
 						<div class="form-group">
 							<label for="about-you" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Acerca de ti: </b></label>
 							<div class="col-sm-8">
-							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about']; echo var_dump($_SESSION); ?></textarea>
+							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about']; ?></textarea>
 							</div>
 						</div>
 				  

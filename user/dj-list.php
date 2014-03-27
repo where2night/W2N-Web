@@ -77,8 +77,9 @@ include_once "../framework/sessions.php";
 					if (picture == null || picture.length == 0){
 						picture = "../images/reg1.jpg";
 					}
-					// $('#club-list tbody').append('<tr class="child"><td>blahblah</td></tr>');
-					$('#dj-list tbody').append('<tr><td><img src="'+ picture + '" alt=""/><a href="#" class="user-link"style="color:#FF6B24">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td></td><td class="text-center"><a href="#">'+ music +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
+					var link = "#";
+					
+					$('#dj-list tbody').append('<tr><td><img src="'+ picture + '" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td></td><td class="text-center"><a href="#">'+ music +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
 				}
 				/*var picture = json.picture;
 				var name = json.name;

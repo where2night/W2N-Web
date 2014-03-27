@@ -18,7 +18,7 @@ function isValidEmail($email){
  * Use:
  * $encryptedString = encrypt("STRING TO ENCRYPT","KEY");
  */
-function encrypt($string, $key) {
+function encrypt($string, $key = "wf2unn") {
    $result = '';
    for($i=0; $i<strlen($string); $i++) {
       $char = substr($string, $i, 1);
@@ -34,7 +34,7 @@ function encrypt($string, $key) {
  * Use:
  * $desencryptedString = decrypt("ENCRYPTED STRING","KEY USED TO ENCRYPT IT");
  */
-function decrypt($string, $key) {
+function decrypt($string, $key = "wf2unn") {
    $result = '';
    $string = base64_decode($string);
    for($i=0; $i<strlen($string); $i++) {

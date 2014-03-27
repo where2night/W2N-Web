@@ -69,55 +69,55 @@ function w2n_add_user_info(){
 
 function get_name_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['name'];
+		return $_SESSION['visit']['name'];
 	}else return $_SESSION['name'];
 }
 
 function get_surname_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['surnames'];
+		return $_SESSION['visit']['surnames'];
 	}else return $_SESSION['surnames'];
 }
 
 function get_birthdate_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['birthdate'];
+		return $_SESSION['visit']['birthdate'];
 	}else return $_SESSION['birthdate'];
 }
 
 function get_gender_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['gender'];
+		return $_SESSION['visit']['gender'];
 	}else return $_SESSION['gender'];
 }
 
 function get_music_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['music'];
+		return $_SESSION['visit']['music'];
 	}else return $_SESSION['music'];
 }
 
 function get_civil_state_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['civil_state'];
+		return $_SESSION['visit']['civil_state'];
 	}else return $_SESSION['civil_state'];
 }
 
 function get_city_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['city'];
+		return $_SESSION['visit']['city'];
 	}else return $_SESSION['city'];
 }
 
 function get_drink_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['drink'];
+		return $_SESSION['visit']['drink'];
 	}else return $_SESSION['drink'];
 }
 
 function get_about_user(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['about'];
+		return $_SESSION['visit']['about'];
 	}else return $_SESSION['about'];
 }
 
@@ -126,109 +126,109 @@ function get_about_user(){
 
 function get_company_name_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['company_name'];
+		return $_SESSION['visit']['company_name'];
 	}else return $_SESSION['company_name'];
 }
 
 function get_local_name_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['local_name'];
+		return $_SESSION['visit']['local_name'];
 	}else return $_SESSION['local_name'];
 }
 
 function get_cif_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['cif'];
+		return $_SESSION['visit']['cif'];
 	}else return $_SESSION['cif'];
 }
 
 function get_poblation_local_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['poblation_local'];
+		return $_SESSION['visit']['poblation_local'];
 	}else return $_SESSION['poblation_local'];
 }
 
 function get_cp_local_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['cp_local'];
+		return $_SESSION['visit']['cp_local'];
 	}else return $_SESSION['cp_local'];
 }
 
 function get_telephone_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['telephone'];
+		return $_SESSION['visit']['telephone'];
 	}else return $_SESSION['telephone'];
 }
 
 function get_street_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['street'];
+		return $_SESSION['visit']['street'];
 	}else return $_SESSION['street'];
 }
 
 function get_street_name_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['street_name'];
+		return $_SESSION['visit']['street_name'];
 	}else return $_SESSION['street_name'];
 }
 
 function get_street_number_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['street_number'];
+		return $_SESSION['visit']['street_number'];
 	}else return $_SESSION['street_number'];
 }
 
 function get_music_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['music'];
+		return $_SESSION['visit']['music'];
 	}else return $_SESSION['music'];
 }
 
 function get_entry_price_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['entry_price'];
+		return $_SESSION['visit']['entry_price'];
 	}else return $_SESSION['entry_price'];
 }
 
 function get_drink_price_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['drink_price'];
+		return $_SESSION['visit']['drink_price'];
 	}else return $_SESSION['drink_price'];
 }
 
 function get_opening_hours_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['opening_hours'];
+		return $_SESSION['visit']['opening_hours'];
 	}else return $_SESSION['opening_hours'];
 }
 
 function get_close_hours_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['close_hours'];
+		return $_SESSION['visit']['close_hours'];
 	}else return $_SESSION['close_hours'];
 }
 
 function get_picture_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['picture'];
+		return $_SESSION['visit']['picture'];
 	}else return $_SESSION['picture'];
 }
 
 function get_about_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['about'];
+		return $_SESSION['visit']['about'];
 	}else return $_SESSION['about'];
 }
 
 function get_latitude_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['latitude'];
+		return $_SESSION['visit']['latitude'];
 	}else return $_SESSION['latitude'];
 }
 
 function get_longitude_club(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['longitude'];
+		return $_SESSION['visit']['longitude'];
 	}else return $_SESSION['longitude'];
 }
 
@@ -237,54 +237,54 @@ function get_longitude_club(){
 
 function get_nameDJ_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['nameDJ'];
+		return $_SESSION['visit']['nameDJ'];
 	}else return $_SESSION['nameDJ'];
 }
 
 function get_name_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['name'];
+		return $_SESSION['visit']['name'];
 	}else return $_SESSION['name'];
 }
 
 function get_surname_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['surname'];
+		return $_SESSION['visit']['surname'];
 	}else return $_SESSION['surname'];
 }
 function get_telephone_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['telephone'];
+		return $_SESSION['visit']['telephone'];
 	}else return $_SESSION['telephone'];
 }
 
 function get_gender_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['gender'];
+		return $_SESSION['visit']['gender'];
 	}else return $_SESSION['gender'];
 }
 
 function get_birthdate_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['birthdate'];
+		return $_SESSION['visit']['birthdate'];
 	}else return $_SESSION['birthdate'];
 }
 
 function get_picture_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['picture'];
+		return $_SESSION['visit']['picture'];
 	}else return $_SESSION['picture'];
 }
 
 function get_music_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['music'];
+		return $_SESSION['visit']['music'];
 	}else return $_SESSION['music'];
 }
 
 function get_about_dj(){
 	if($_SESSION['visiting_id'] != 0){
-		return $_SESSION['users_info'][$_SESSION['visiting_id']]['about'];
+		return $_SESSION['visit']['about'];
 	}else return $_SESSION['about'];
 }
 
@@ -295,6 +295,65 @@ function check_visit(){
 	if (isset($visiting_id)){
 		$_SESSION['visiting_id'] = $visiting_id;
 	}
+}
+
+function visit(){
+	session_start();
+	$user_type = $_POST['user_type'];
+	$_SESSION['visiting_id'] = $_POST["id_user"];
+
+	switch ($user_type) {
+	 	case 'user':
+			if (isset($_POST['name'])) $_SESSION['visit']['name'] = $_POST['name'];
+			if (isset($_POST['surnames'])) $_SESSION['visit']['surnames'] = $_POST['surnames'];
+			if (isset($_POST['birthdate'])) $_SESSION['visit']['birthdate'] = $_POST['birthdate']; 
+			if (isset($_POST['gender'])) $_SESSION['visit']['gender'] = $_POST['gender']; 
+			if (isset($_POST['music'])) $_SESSION['visit']['music'] = $_POST['music'];
+			if (isset($_POST['civil_state'])) $_SESSION['visit']['civil_state'] = $_POST['civil_state'];
+			if (isset($_POST['city'])) $_SESSION['visit']['city'] = $_POST['city'];
+			if (isset($_POST['drink'])) $_SESSION['visit']['drink'] = $_POST['drink']; 
+			if (isset($_POST['about'])) $_SESSION['visit']['about'] = $_POST['about']; 
+			if (isset($_POST['picture'])) $_SESSION['visit']['picture'] = $_POST['picture'];
+		break;
+
+	 	case 'club':
+			if (isset($_POST['companyName'])) $_SESSION['visit']['company_name'] = $_POST['companyName'];
+			if (isset($_POST['localName'])) $_SESSION['visit']['local_name'] = $_POST['localName'];
+			if (isset($_POST['cif'])) $_SESSION['visit']['cif'] = $_POST['cif'];
+			if (isset($_POST['poblationLocal'])) $_SESSION['visit']['poblation_local'] = $_POST['poblationLocal'];
+			if (isset($_POST['cpLocal'])) $_SESSION['visit']['cp_local'] = $_POST['cpLocal']; 
+			if (isset($_POST['telephoneLocal'])) $_SESSION['visit']['telephone'] = $_POST['telephoneLocal']; 
+			if (isset($_POST['street'])) $_SESSION['visit']['street'] = $_POST['street']; 
+			if (isset($_POST['streetName'])) $_SESSION['visit']['street_name'] = $_POST['streetName']; 
+			if (isset($_POST['streetNumber'])) $_SESSION['visit']['street_number'] = $_POST['streetNumber']; 
+			if (isset($_POST['music'])) $_SESSION['visit']['music'] = $_POST['music'];
+			if (isset($_POST['entryPrice'])) $_SESSION['visit']['entry_price'] = $_POST['entryPrice'];
+			if (isset($_POST['drinkPrice'])) $_SESSION['visit']['drink_price'] = $_POST['drinkPrice'];
+			if (isset($_POST['openingHours'])) $_SESSION['visit']['opening_hours'] = $_POST['openingHours'];
+			if (isset($_POST['closeHours'])) $_SESSION['visit']['close_hours'] = $_POST['closeHours']; 
+			if (isset($_POST['picture'])) $_SESSION['visit']['picture'] = $_POST['picture']; 
+			if (isset($_POST['about'])) $_SESSION['visit']['about'] = $_POST['about'];
+			if (isset($_POST['latitude'])) $_SESSION['visit']['latitude'] = $_POST['latitude']; 
+			if (isset($_POST['longitude'])) $_SESSION['visit']['longitude'] = $_POST['longitude']; 
+	 	break;
+	 	
+	 	case 'dj':
+			if (isset($_POST['nameDJ'])) $_SESSION['visit']['nameDJ'] = $_POST['nameDJ'];
+			if (isset($_POST['name'])) $_SESSION['visit']['name'] = $_POST['name'];
+			if (isset($_POST['surname'])) $_SESSION['visit']['surname'] = $_POST['surname'];
+			if (isset($_POST['telephone'])) $_SESSION['visit']['telephone'] = $_POST['telephone'];
+			if (isset($_POST['gender'])) $_SESSION['visit']['gender'] = $_POST['gender'];
+			if (isset($_POST['birthdate'])) $_SESSION['visit']['birthdate'] = $_POST['birthdate']; 
+			if (isset($_POST['picture'])) $_SESSION['visit']['picture'] = $_POST['picture']; 
+			if (isset($_POST['music'])) $_SESSION['visit']['music'] = $_POST['music'];
+			if (isset($_POST['about'])) $_SESSION['visit']['about'] = $_POST['about'];
+	 	break;
+
+	 	default:
+	 		//ERROR
+	 	break;
+	 	echo $_SESSION['visit']['local_name'];
+	 }
 }
 
 ?>

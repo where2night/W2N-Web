@@ -95,8 +95,9 @@ include_once "../framework/sessions.php";
 					}
 					var latitude = json[i].latitude;
 					var longitude = json[i].longitude;
-					// $('#club-list tbody').append('<tr class="child"><td>blahblah</td></tr>');
-					$('#club-list tbody').append('<tr><td><img src="'+ picture +'" alt=""/><a href="#" class="user-link"style="color:#FF6B24">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"><a href="#">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td><a href="#">'+ telephoneLocal +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
+					var link = "../club/profile.php?idv=" + id_user;
+
+					$('#club-list tbody').append('<tr><td><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"><a href="#">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td><a href="#">'+ telephoneLocal +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
 				}
 				/*var picture = json.picture;
 				var name = json.name;
