@@ -58,7 +58,22 @@ include_once "../framework/visits.php";
     });//end $(document).ready(function()
     
   </script>
-
+	<script type="text/javascript">
+function changeMyClassName(theButton)
+{
+myButtonID = theButton.id;
+if(document.getElementById(myButtonID).className=='myClickedButton')
+{
+document.getElementById(myButtonID).className='myDefaultButton';
+document.getElementById(myButtonID).value='SIGUEME';
+}
+else
+{
+document.getElementById(myButtonID).className='myClickedButton';
+document.getElementById(myButtonID).value='SIGUIENDO';
+}
+}
+</script>
 </head>
 
 <body>
@@ -88,6 +103,7 @@ include_once "../framework/visits.php";
 	}	
 			
     </style>
+
 <?php 
   /*NavbarHeader*/
   include "templates/navbar-header.php";
@@ -109,7 +125,7 @@ include_once "../framework/visits.php";
 						
 					</div>
 					<div>
-						 <button type="button" class="btn botonseguir" style="margin-top:5%;margin-left:38%">SIGUEME</button>
+						 <input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="changeMyClassName(this);">
 					</div>
                    	 </div> 
 		</div><!-- col-md-12 -->

@@ -118,7 +118,7 @@ include_once "../framework/sessions.php";
                         
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
-                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:65%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:50%">Añadir</i></button></li></ul>
                        
                         </div>
 						<div class="the-timeline">
@@ -128,9 +128,9 @@ include_once "../framework/sessions.php";
 									</div>
 									<h4>Show event</h4>
 									<p>
-												<?php var_dump($_SESSION); ?>
+												
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -144,7 +144,7 @@ include_once "../framework/sessions.php";
 									<p>
 								
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -155,7 +155,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
@@ -165,7 +165,7 @@ include_once "../framework/sessions.php";
                         
 					<!-- Begin timeline Listas -->
                <div class="titulos">
-                        <ul><li>LISTAS <button type="button" class="btn botonanadir"style="margin-left:72%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>LISTAS <button type="button" class="btn botonanadir"style="margin-left:58%">Añadir</button></li></ul>
                        
                         </div>
                   		<div class="the-timeline">
@@ -177,7 +177,7 @@ include_once "../framework/sessions.php";
 									<p>
 												
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -188,7 +188,7 @@ include_once "../framework/sessions.php";
 									<p>
 												
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -199,7 +199,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -210,7 +210,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -221,7 +221,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -232,7 +232,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botoneditar"style="margin-left:94%"><i class="glyphicon glyphicon-edit"style="color:#4B36AF"></i></button>
+									<button type="button" class="btn botoneditar"style="margin-left:83%">Editar</button>
 								</li>
                          
 							</ul>
@@ -247,7 +247,7 @@ include_once "../framework/sessions.php";
         <div class="row">
 			<div class="col-md-12">
         <div class="titulos">
-                        <ul><li>FOTOS <button type="button" class="btn botonanadir"style="margin-left:87%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>FOTOS <button type="button" class="btn botonanadir"style="margin-left:78%">Editar</button></li></ul>
                         </div>
 						 <div class="seguidores">
               	<ul><li></li></ul>
@@ -258,7 +258,7 @@ include_once "../framework/sessions.php";
 			  <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>SEGUIDORES <button type="button" class="btn botonanadir"style="margin-left:80%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>SEGUIDORES <button type="button" class="btn botonanadir"style="margin-left:70%">Ver más</button></li></ul>
                        
                         </div>
 						 <div class="seguidores">

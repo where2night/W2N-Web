@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse navbar-collapse-top">
         <div class="navbar-right">
 		
-          <ul class="nav navbar-nav navbar-left">
+                   <ul class="nav navbar-nav navbar-left">
            <a href="home.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
 				<li>
               <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
