@@ -39,6 +39,74 @@ include_once "../framework/visits.php";
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/registro.js"></script>
+  <script src="../js/keep-session.js"></script>
+
+<script type="text/javascript"> 
+	function getData(){
+<?php 
+	if(isset($_GET['idv'])){
+		//$id = w2n_generate_encoded_id($id_user);
+?>
+	
+	var idProfile = <?php echo $_GET['idv'];?>;
+	var id = <?php echo $_SESSION['id_user'];?>;
+	var token = "<?php echo $_SESSION['token'];?>";
+	var params = "/" + idProfile + "/" + token; 
+	var url1 = "../develop/update/";
+	var params = "/" + id + "/" + token + "/" + idProfile;
+	url1 += "dj.php";
+	url1 += params;
+	$.ajax({
+	url: url1,
+	dataType: "json",
+	type: "GET",
+	timeout: 5000,
+	complete: function(r2){
+		var json = JSON.parse(r2.responseText);
+		var companyName = json.companyName;
+		var json = JSON.parse(r2.responseText);
+		var nameDJ = json.nameDJ;
+		var name = json.name;
+		var surname = json.surname;
+		var telephone = json.telephoneDJ;
+		var gender = json.gender;
+		var birthdate = json.birthdate;
+		var picture = json.picture;
+		var music = json.music;
+		var about = json.about;
+		$.post("../framework/visits_add.php",
+		  {
+		  	user_type: 'club',
+		    id_user: id,
+				    token: token,
+					nameDJ: nameDJ,
+					name: name,
+					surname: surname,
+					telephone: telephone,
+					gender: gender,
+					birthdate: birthdate,
+					picture: picture,
+					music: music,
+					about: about
+		  },
+		  function(data,status){
+			//alert("Data: " + data + "\nStatus: " + status);						  ;
+		  });
+		},
+		onerror: function(e,val){
+			alert("Contraseña y/o usuario incorrectos");
+		}
+	});
+
+
+<?php		
+	}// end (isset($_GET['idv']))
+?>
+
+}
+    
+    </script>
+
 
   <script type="text/javascript">  
     $(document).ready(function(){ 

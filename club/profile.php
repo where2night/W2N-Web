@@ -103,8 +103,7 @@ include_once "../framework/visits.php";
 			longitude: longitude
 		  },
 		  function(data,status){
-			//alert("Data: " + data + "\nStatus: " + status);
-					alert('hola')								  ;
+			//alert("Data: " + data + "\nStatus: " + status);								  ;
 		  });
 		},
 		onerror: function(e,val){
