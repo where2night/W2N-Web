@@ -42,7 +42,7 @@
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="">
+          <a href="dj-list.php">
               <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
               <span>DJ's</span>
           </a>
