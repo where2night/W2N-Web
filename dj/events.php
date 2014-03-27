@@ -194,6 +194,7 @@ jQuery(function($){
 
 
 $idProfile=$_SESSION['id_user']; 
+$token=$_SESSION['token']; 
 
 ?>
 
@@ -201,8 +202,8 @@ $idProfile=$_SESSION['id_user'];
 <script>
 	
 var id=0;
-
- var ide = '<?php echo $idProfile; ?>' ;
+var ide = '<?php echo $idProfile; ?>' ;
+var tok = '<?php echo $token; ?>' ;
 	
 </script>
 
@@ -231,8 +232,8 @@ var id=0;
 							<ul id="ul">
 								
 								<script>
-								djEvents();	
-								</script>
+								events('dj');	
+							</script> 
 								
 							</ul>
 				</div>

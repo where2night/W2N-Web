@@ -10,7 +10,8 @@ parent.removeChild(element);
 }
 
 function newEvent(type) {
-
+	
+	
 var actualdate=document.getElementById("datepicker").value;
 var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
@@ -134,22 +135,67 @@ list_minutes.selectedIndex=0;
 }
 
 
-function djEvents(){
+function events(type){
 	
-//document.write("sssssssssssjmkljlkjkljlkjl");
+
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
 
 
 $.ajax({
-			url: "../develop/read/events.php",
+			url:url,
 			dataType: "json",
 			type: "GET",
-			data: {
-				idProfile:ide
-			},
 			complete: function(r){
-			 // var json = JSON.parse(r.responseText);
+			 var json = JSON.parse(r.responseText);	 
+             /*alert(json[0].idEvent);
+             alert(json[0].title);
+             alert(json[0].text);
+             alert(json[0].date);*/
 			  
-             
+			 var i=0;
+			 
+			 while (json[i].title!=null && json[i].title!="")
+			  	{
+			  		
+			  		var image;
+		
+					if(type=="dj") image="src='../images/party3.jpg'";
+						else image="src='../images/party2.jpg'";
+		
+					var events=document.getElementById('ul').innerHTML;
+		
+					id=id+1;
+		
+		
+					events=events.concat("<li id='button");
+					events=events.concat(json[i].idEvent);
+					events=events.concat("'> <div class='timeline-title orangeBox1'> <img class='menu-avatar time-title-img orangeBox1'");
+					events=events.concat(image);  
+					events=events.concat("/><h6>");
+					events=events.concat(json[i].title);
+					events=events.concat("</h6> <i class='glyphicon glyphicon-time'style='color:#FF6B24'>");
+					events=events.concat(json[i].date);
+					events=events.concat("</i> <a class='orangeBox1' id='button");
+					events=events.concat(json[i].idEvent);
+					events=events.concat("' onclick='deleteEvent(this.id);'><i class='glyphicon glyphicon-trash'style='color:#000'></i>Borrar</a></div></li>");
+		
+					document.getElementById('ul').innerHTML=events;
+		   
+		
+				
+				
+				
+				i=i+1;	
+				}
 			  
 			},
 			onerror: function(e,val){

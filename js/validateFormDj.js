@@ -105,10 +105,10 @@ function validateForm() {
 						var json = JSON.parse(r.responseText);
 
 						if (json.Token != 0) {
-							showValidMessage();
+							redirectHomeDj();
 
 						} else
-							showInvalidMessage();
+							console.log("error registro");
 					},
 					onerror : function(e, val) {
 						showInvalidMessage();
@@ -155,7 +155,6 @@ function validField(field, fieldValue) {
 
 	if (field.validity) {
 		if (field.value == "") {
-			//$(fieldValue).popover('destroy');
 			cleanPopOvers();
 			$(fieldValue).popover({
 				content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Campo requerido </label>',
@@ -167,7 +166,6 @@ function validField(field, fieldValue) {
 			$(fieldValue).popover('show');
 			return false;
 		} else if (field.value != "") {
-			//$(fieldValue).popover('destroy');
 			cleanPopOvers();
 			if (field.validity.valid == false) {
 				$(fieldValue).popover({
@@ -180,7 +178,6 @@ function validField(field, fieldValue) {
 				$(fieldValue).popover('show');
 				return false;
 			} else {
-				//$(fieldValue).popover('destroy');
 				cleanPopOvers();
 				return true;
 			}
@@ -192,11 +189,9 @@ function validField(field, fieldValue) {
 function validEmails(email, confirmation_email, confirmation_email_vaule) {
 
 	if (email == confirmation_email) {
-		//$(confirmation_email_vaule).popover('destroy');
 		cleanPopOvers();
 		return true;
 	} else {
-		//$(confirmation_email_vaule).popover('destroy');
 		cleanPopOvers();
 		$(confirmation_email_vaule).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Introduce el mismo email en los dos campos </label>',
@@ -213,11 +208,9 @@ function validEmails(email, confirmation_email, confirmation_email_vaule) {
 function validPasswords(password, confirmation_password, confirmation_password_value) {
 
 	if (password == confirmation_password) {
-		//$(confirmation_password_value).popover('destroy');
 		cleanPopOvers();
 		return true;
 	} else {
-		//$(confirmation_password_value).popover('destroy');
 		cleanPopOvers();
 		$(confirmation_password_value).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Introduce la misma contraseña en los dos campos </label>',
@@ -234,11 +227,9 @@ function validPasswords(password, confirmation_password, confirmation_password_v
 function validGender(man, woman) {
 	var gender = '#female';
 	if (man || woman) {
-		//$(gender).popover('destroy');
 		cleanPopOvers();
 		return true;
 	} else {
-		//$(gender).popover('destroy');
 		cleanPopOvers();
 		$(gender).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Selecciona masculino o femenino </label>',
@@ -271,8 +262,7 @@ function validDate() {
 		var FebruaryDay = 28;
 
 	if (((month == 11 || month == 4 || month == 6 || month == 9) && day > 30) || (month == 2 && day > FebruaryDay) || year == "Año" || day == "Día" || month == "Mes") {
-		//Error date
-		//$(dateError).popover('destroy');
+		
 		cleanPopOvers();
 		$(dateError).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Introduce una fecha de nacimiento válida </label>',
@@ -284,7 +274,6 @@ function validDate() {
 		$(dateError).popover('show');
 		return false;
 	} else {
-		//$(dateError).popover('destroy');
 		cleanPopOvers();
 		return true;
 	}

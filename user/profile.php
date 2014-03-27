@@ -339,7 +339,7 @@ document.getElementById(myButtonID).value='Apuntado';
 								</tbody>
 								</table>
                    	 </div>
-					 <div class="col-md-6">
+					 <div class="col-md-9">
 					
 					<div class="the-timeline">
 							<ul><li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
@@ -432,13 +432,7 @@ document.getElementById(myButtonID).value='Apuntado';
 						</div><!-- End div .the-timeline -->	
 					</div>
 		
-	 
-                 
-					  <div class="col-md-3">
-					<div class="titulos">
-                        <ul><li>CONTACTOS</li></ul>
-                        </div>
-                   	 </div>
+	
 		</div><!-- col-md-12 -->
         </div><!-- row -->
 		<div class="row">
