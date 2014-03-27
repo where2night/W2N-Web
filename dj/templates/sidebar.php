@@ -36,7 +36,7 @@
 				<span class="glow"></span>
 				<a href="">
 					<i><img class="menu-avatar" src="../images/party2.jpg" /></i>
-					<span>Locales</span>
+					<span>Canciones</span>
 				</a>
 			</li>
 			<li>
