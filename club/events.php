@@ -191,6 +191,7 @@ jQuery(function($){
   	include "templates/sidebar.php";
 
 $idProfile=$_SESSION['id_user'];
+$token=$_SESSION['token'];
 ?>
 
 
@@ -200,6 +201,7 @@ $idProfile=$_SESSION['id_user'];
 var id=0;
 
  var ide = '<?php echo $idProfile; ?>' ;
+ var tok = '<?php echo $token; ?>' ;
 	
 </script>
 
@@ -228,6 +230,12 @@ var id=0;
 				
 				<div  class="timeline">
 							<ul id="ul">
+								
+									<script>
+								events('club');	
+								</script> 
+							
+								
 								
 							</ul>
 				</div>
