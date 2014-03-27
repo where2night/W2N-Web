@@ -173,7 +173,7 @@ function w2n_session_check(){
 		|| !($_SESSION['w2n_type_login']) == "facebook"
 		|| !($_SESSION['w2n_type_login']) == "googleplus"){
 
-		 header("Location: http://www.where2night.es");
+		 header("Location: ../");
 	}
 }
 

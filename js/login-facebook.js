@@ -50,7 +50,7 @@ function loginFacebook() {
 function logOut() {
 
 	FB.logout(function() {
-		window.location.href = "http://www.where2night.es";
+		window.location.href = "../";
 	});
 
 }

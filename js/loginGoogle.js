@@ -11,7 +11,7 @@ function loginFinishedCallback(authResult) {
 	if (authResult) {
 		if (authResult['error'] == undefined) {
 			//toggleElement('signin-button'); // Hide the sign-in button after successfully signing in the user.
-			//window.location.href="http://www.where2night.es/user/profile.php";
+			//window.location.href="..//user/profile.php";
 			gapi.client.load('plus', 'v1', loadProfile);
 			// Trigger request to get the email address.
 		} else {

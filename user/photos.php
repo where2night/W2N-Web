@@ -47,7 +47,7 @@ include_once "../framework/visits.php";
 	          	  eraseCookie('w2n_id');
 	          	  eraseCookie('w2n_token');
 	          	  eraseCookie('w2n_type');
-		          var url = "http://www.where2night.es";
+		          var url = "../";
 		          $(location).attr('href',url);
 	          });
 	      });

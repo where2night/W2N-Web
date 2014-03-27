@@ -428,6 +428,6 @@ function validate_number_street(number_street) {
 
 function redirectHomeLocal() {
 
-	window.location.href = "http://www.where2night.es";
+	window.location.href = "../";
 }
 

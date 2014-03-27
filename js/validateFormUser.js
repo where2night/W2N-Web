@@ -377,6 +377,6 @@ function cleanPopOvers() {
 
 function redirectHomeFiestero() {
 	alert("registro efectuado correctamente!!");
-	window.location.href = "http://www.where2night.es";
+	window.location.href = "../";
 }
 

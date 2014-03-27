@@ -282,17 +282,17 @@ function ButtonRegisterLocal()
 
 function redirectHomeFiestero(){
 	alert("registro efectuado correctamente!!");
-	window.location.href="http://www.where2night.es";		
+	window.location.href="../";		
 }
 
 function redirectHomeLocal(){
 	alert("registro efectuado correctamente, en breves nos pondremos en contacto contigo y te enviaremos una contraseña para que puedas hacer uso de nuestra web !!");
-	window.location.href="http://www.where2night.es";		
+	window.location.href="../";		
 }
  
  function redirectHomeDj(){
 	alert("registro efectuado correctamente!!");
-	window.location.href="http://www.where2night.es";		
+	window.location.href="../";		
 }
 
 /*

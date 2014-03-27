@@ -366,5 +366,5 @@ function validate_length_telephone(telephone, field_length) {
 }
 
 function redirectHomeDj() {
-	window.location.href = "http://www.where2night.es";
+	window.location.href = "../";
 }
