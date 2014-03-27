@@ -2,7 +2,6 @@
 
 include_once "functions.php";
 
-
 /**
  * $_SESSION['w2n_type_login'] = "normal"; indicates that it's w2n login, not with facebook or google+
  * $_SESSION['user_type'] indicates type of user (user, club or dj)
@@ -10,6 +9,8 @@ include_once "functions.php";
 function w2n_session_start($remember_me = false){
 	 session_start(); 
 	 
+	 $_SESSION['visiting_id'] = 0;
+
 	 $session_type = $_POST['user_type'];
 	 $_SESSION['user_type'] = $session_type;
 	 $_SESSION['id_user'] = $_POST["id_user"];
