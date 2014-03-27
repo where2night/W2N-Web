@@ -162,7 +162,7 @@
 		</div>
 		<!-- /NavbarHeader -->
 		<!-- Log data -->
-
+		<div align="center">
 		<table   class ="table table-hover tablaC banner1"  >
 
 			<tr >
@@ -224,13 +224,13 @@
 						<option class="banner1" value="1" >Avd.</option>
 						<option class="banner1" value="2" >Plaza</option>
 					</select>
-				<p class="navbar-text labelText">
+				<p class="navbar-text " style="width:250px;" >
 					
-					<input id="streetNameLocal" style="width:80%;" type="text" class="form-control" placeholder="Nombre" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
+					<input id="streetNameLocal"      type="text" class="form-control" placeholder="Nombre" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
 					
 				</p>
-				<p>
-					<input id="streetNumberLocal" style="width:25%;" type="text" class="form-control" placeholder="Número" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
+				<p class="navbar-text " style="width:80px;">
+					<input id="streetNumberLocal"   type="text" class="form-control" placeholder="Número" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
 				</p>
 				 </p> </td>
 
@@ -254,7 +254,7 @@
 				</td>
 			</tr>
 		</table>
-
+		</div>
 		<!-- /Log data -->
 
 		<!-- NavbarFooter -->

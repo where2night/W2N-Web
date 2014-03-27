@@ -83,22 +83,7 @@ function validateForm() {
 			var street = document.getElementById('street').value;
 			var streetNameLocal = document.getElementById('streetNameLocal').value;
 			var streetNumberLocal = document.getElementById('streetNumberLocal').value;
-			//var street;
-			/*if (street_option == 0) street = "Calle";
-			 else if (street_option == 1) street = "Avd";
-			 else if (street_option == 2) street = "Plaza";*/
-			/*alert(emailLocal);
-			 alert(companyNameLocal);
-			 alert(localName);
-			 alert(cif);
-			 alert(poblationLocal);
-			 alert(cpLocal);
-			 alert(telephoneLocal);
-			 alert(street);
-			 alert(telephoneLocal);
-			 alert(streetNameLocal);
-			 alert(streetNumberLocal);
-			 alert(street);*/
+			
 			$.ajax({
 				url : "../develop/register/local.php",
 				dataType : "json",
@@ -119,9 +104,10 @@ function validateForm() {
 					var json = JSON.parse(r.responseText);
 
 					if (json.Token != 0) {
-						showValidMessage();
+						redirectHomeLocal();
+						console.log("registro correcto");
 					} else
-						showInvalidMessage();
+						console.log("error registro");
 				},
 				onerror : function(e, val) {
 					showInvalidMessage();
@@ -166,7 +152,6 @@ function validField(field, fieldValue) {
 
 	if (field.validity) {
 		if (field.value == "") {
-			//$(fieldValue).popover('destroy');
 			cleanPopOvers();
 			$(fieldValue).popover({
 				content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Campo requerido </label>',
@@ -178,7 +163,6 @@ function validField(field, fieldValue) {
 			$(fieldValue).popover('show');
 			return false;
 		} else if (field.value != "") {
-			//$(fieldValue).popover('destroy');
 			cleanPopOvers();
 			if (field.validity.valid == false) {
 				$(fieldValue).popover({
@@ -191,7 +175,6 @@ function validField(field, fieldValue) {
 				$(fieldValue).popover('show');
 				return false;
 			} else {
-				//$(fieldValue).popover('destroy');
 				cleanPopOvers();
 				return true;
 			}
@@ -203,11 +186,9 @@ function validField(field, fieldValue) {
 function validEmails(email, confirmation_email, confirmation_email_vaule) {
 
 	if (email == confirmation_email) {
-		//$(confirmation_email_vaule).popover('destroy');
 		cleanPopOvers();
 		return true;
 	} else {
-		//$(confirmation_email_vaule).popover('destroy');
 		cleanPopOvers();
 		$(confirmation_email_vaule).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Introduce el mismo email en los dos campos </label>',
@@ -231,7 +212,6 @@ function validTerms() {
 		$(terms_value).popover('destroy');
 		return true;
 	} else {
-		//$(terms_value).popover('destroy');
 		cleanPopOvers();
 		$(terms_value).popover({
 			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> No has aceptado los términos y condiciones </label>',
