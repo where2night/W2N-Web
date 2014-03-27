@@ -904,12 +904,13 @@ border-radius:0px;
 	
 .botonanadir{
 	
-	padding:5px 10px 5px 10px;
+		padding:5px 10px 5px 10px;
 	background:#3333CC;color:#FF6B24;
 	border-left:0px;
 	border-right:0px;
 	border-bottom:0px;
 	border-top:0px;
+	font-size:12px;
 	-webkit-box-shadow: 0px 0px 0px #000;
 	-moz-box-shadow: 0px 0px 0px #000;
 	box-shadow: 0px 0px 0px #000;
@@ -917,6 +918,7 @@ border-radius:0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
+		
 }
 
 .botonanadir:hover{
@@ -925,9 +927,9 @@ border-radius:0px;
 	box-shadow: 0px 0px 10px #99FFFF;
 	background:#404040;
 }
-
 .botonseguir{
-	
+	margin-left:38%;
+	margin-top:2%;
 	padding:8px 20px 8px 20px;
 	text-shadow:none;
 	border-left:0px;
@@ -978,6 +980,8 @@ padding:8px 20px 8px 20px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 		border: 1px solid #FF6B24 ;
+		margin-left:38%;
+			margin-top:2%;
 }
 .myClickedButton{
 	-webkit-box-shadow: 0px 0px 10px #99FFFF;
@@ -985,6 +989,8 @@ padding:8px 20px 8px 20px;
 	box-shadow: 0px 0px 10px #99FFFF;
 	background:#FF6B24;color:#000;
 	color:#000;
+	margin-left:38%;
+		margin-top:2%;
 }
 .tablaC{
 	padding-left:5px;

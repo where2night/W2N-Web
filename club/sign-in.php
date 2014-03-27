@@ -225,11 +225,14 @@
 						<option class="banner1" value="2" >Plaza</option>
 					</select>
 				<p class="navbar-text labelText">
-					<input id="streetNameLocal" style="width:200px;" type="text" class="form-control" placeholder="Nombre" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
+					
+					<input id="streetNameLocal" style="width:80%;" type="text" class="form-control" placeholder="Nombre" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
+					
 				</p>
-				<p class="navbar-text labelText">
-					<input id="streetNumberLocal" style="width:80px;" type="text" class="form-control" placeholder="Número" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
-				</p> </p> </td>
+				<p>
+					<input id="streetNumberLocal" style="width:25%;" type="text" class="form-control" placeholder="Número" required onclick="cleanPopOvers();" oninput="cleanPopOvers();" />
+				</p>
+				 </p> </td>
 
 			</tr>
 
@@ -247,7 +250,7 @@
 
 			<tr align="center">
 				<td>
-				<input name="registerLocal"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onmouseover="javascript:this.style.color='#000';" onmouseout="javascript:this.style.color='#fff';" onClick="validateForm();"/>
+					<input name="registerDJ"  class="btn btn-transparent btnRegistro" type="button" value="Enviar solicitud" onmouseover="javascript:this.style.color='#000';" onmouseout="javascript:this.style.color='#fff';" onclick="validateForm()"/>
 				</td>
 			</tr>
 		</table>

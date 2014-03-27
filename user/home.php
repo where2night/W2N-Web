@@ -131,10 +131,12 @@ include_once "../framework/sessions.php";
 									</div>
 									<div class="form-group">
 										<select class="form-control textModo">
+											<option value="">De tranquis</option>
+											<option value="">Hoy no me lio</option>
+											<option value="">Lo que surja</option>
+											<option value="">Lo daré todo</option>
 											<option value="">Destroyer</option>
-											<option value="">Dancer</option>
-											<option value="">Buscando pareja</option>
-											<option value="">Relajado</option>
+											<option value="">Yo me llamo Ralph</option>
 										</select>
 									</div>								
 								</form>	

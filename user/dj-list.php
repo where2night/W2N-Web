@@ -114,7 +114,7 @@ include_once "../framework/sessions.php";
 										<table class="table user-list">
 											<thead>
 												<tr>
-													<th><span style="color:#FF6B24">Local</span></th>	
+													<th><span style="color:#FF6B24">DJ</span></th>	
 													<th>&nbsp;</th>													
 													<th class="text-center"><span style="color:#FF6B24">Estilo de Música</span></th>
 													<th>&nbsp;</th>

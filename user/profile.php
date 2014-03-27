@@ -194,7 +194,6 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 }
 </script>
 
-
 </head>
 
 <body>
@@ -329,12 +328,13 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 							<ul><li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 	
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
+								
 								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
@@ -343,7 +343,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento DJ</span> DJ TIESTO
-								 <span style="font-size:13px;margin-left:45%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:45%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
@@ -357,7 +357,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Estado Fiestero</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
@@ -371,7 +371,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
@@ -385,7 +385,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
@@ -399,7 +399,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 							
 								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> 3 minutes ago</span>
+								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
 								</li>
 								<table class="table  tablaC1">
 								<tbody>
