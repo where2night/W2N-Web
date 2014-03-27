@@ -904,7 +904,7 @@ border-radius:0px;
 	
 .botonanadir{
 	
-		padding:5px 10px 5px 10px;
+			padding:1px 3px 1px 3px;
 	background:#3333CC;color:#FF6B24;
 	border-left:0px;
 	border-right:0px;
@@ -918,6 +918,8 @@ border-radius:0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
+	font-size:12px;
+	margin-left:75%;
 		
 }
 
@@ -926,6 +928,46 @@ border-radius:0px;
 	-moz-box-shadow: 0px 0px 10px #99FFFF;
 	box-shadow: 0px 0px 10px #99FFFF;
 	background:#404040;
+	margin-left:75%;
+}
+.botonanadir:active{
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#404040;
+	margin-left:75%;
+		font-size:12px;
+}
+input[type=button] {
+		padding:1px 3px 1px 3px;
+}
+.dcosa{
+	padding:1px 3px 1px 3px;
+	background:#3333CC;color:#FF6B24;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	font-size:12px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px;
+	margin-left:75%;
+		font-size:12px;
+		
+}
+.ccosa{
+-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#404040;
+	color:#fff;
+	margin-left:75%;
+		font-size:12px;
 }
 .botonseguir{
 	margin-left:38%;

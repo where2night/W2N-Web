@@ -58,7 +58,38 @@ include_once "../framework/sessions.php";
 </script>
 
 <!-- /script -->
+<script type="text/javascript">
+function changeMyClassName(theButton)
+{
+myButtonID = theButton.id;
+if(document.getElementById(myButtonID).className=='myClickedButton')
+{
+document.getElementById(myButtonID).className='myDefaultButton';
+document.getElementById(myButtonID).value='Publicar';
+}
+else
+{
 
+document.getElementById(myButtonID).value='Publicar';
+}
+}
+</script>
+<script type="text/javascript">
+function cosa(but)
+{
+myButtonID = but.id;
+if(document.getElementById(myButtonID).className=='ccosa')
+{
+document.getElementById(myButtonID).className='dcosa';
+document.getElementById(myButtonID).value='Me apunto';
+}
+else
+{
+document.getElementById(myButtonID).className='ccosa';
+document.getElementById(myButtonID).value='Apuntado';
+}
+}
+</script>
 </head>
 
 <body>
@@ -121,7 +152,8 @@ include_once "../framework/sessions.php";
 			<div class="col-md-12 the-timeline-margin">
                         <div class="col-md-6">
 				<div class="titulos">
-                        <ul><li>ESTADO <button type="button" class="btn botonanadir"style="margin-left:60%">Publicar</button></li></ul>           
+                        <ul><li>ESTADO 
+						<input id="btn01"  class="botonanadir" type="button"value="Publicar"onClick="changeMyClassName(this);"></li></ul>           
                         </div>
 						<div class="boxEstado">
               	<ul><li><div id="" class="collapse in">
@@ -230,7 +262,7 @@ include_once "../framework/sessions.php";
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+									<input id="btn02"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
 								<li>
 									<div class="the-date">
@@ -241,7 +273,7 @@ include_once "../framework/sessions.php";
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+										<input id="btn03"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
 								<li>
 									<div class="the-date">
@@ -252,7 +284,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+									<input id="btn04"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -263,7 +295,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+									<input id="btn05"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -274,7 +306,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+									<input id="btn06"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -285,7 +317,7 @@ include_once "../framework/sessions.php";
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto"style="margin-left:80%">Me Apunto</button>
+									<input id="btn07"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                          
 							</ul>

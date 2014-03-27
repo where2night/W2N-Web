@@ -269,8 +269,8 @@
                     <h1 class="section-title">¿Quienes somos?</h1>
                     <p>Where2Night es una red social orientada a todo aquel que le guste la Fiesta. Los usuarios que la conforman pueden ser DJ's, Fiesteros o Locales.</p>
 
-                    <p>DJ's podrán publicar sus eventos dandose a conocer entre sus seguidores.</p>
-					<p>Fiesteros sabrán donde se encuentran sus amigos de fiesta, las últimas promociones y eventos.</p>
+                    <p>DJ's podrán publicar sus eventos dándose a conocer entre sus seguidores.</p>
+					<p>Fiesteros sabrán dónde se encuentran sus amigos de fiesta, las últimas promociones y eventos.</p>
 					<p>Locales publicarán la creación de eventos,promociones y listas.</p>
                 </div> <!-- home-about-test -->
                 <div class="col-md-6 home-about-features">

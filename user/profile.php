@@ -194,6 +194,23 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 }
 </script>
 
+<script type="text/javascript">
+function cosa(but)
+{
+myButtonID = but.id;
+if(document.getElementById(myButtonID).className=='ccosa')
+{
+document.getElementById(myButtonID).className='dcosa';
+document.getElementById(myButtonID).value='Me apunto';
+}
+else
+{
+document.getElementById(myButtonID).className='ccosa';
+document.getElementById(myButtonID).value='Apuntado';
+}
+}
+</script>
+
 </head>
 
 <body>
@@ -334,8 +351,8 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
+								<input id="btn02"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
 								</td>
 								</tr>
 								</tbody>
@@ -349,7 +366,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
+								<input id="btn03"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								</td>
 								</tr>
 								</tbody>
@@ -363,7 +380,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
+								<input id="btn04"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								</td>
 								</tr>
 								</tbody>
@@ -377,7 +394,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
+								<input id="btn05"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								</td>
 								</tr>
 								</tbody>
@@ -391,7 +408,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
+								<input id="btn06"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								</td>
 								</tr>
 								</tbody>
@@ -405,7 +422,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 								<tbody>
 								<tr class="info0">
 								<td><p ></p>
-								<button type="button" class="btn botonanadir"style="margin-left:80%">Me Apunto</button>
+								<input id="btn07"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
 								</td>
 								</tr>
 								</tbody>

@@ -886,7 +886,7 @@ background-size: 100% 100%;
 	border-bottom-color: #FF6B24;}
 .botonanadir{
 	
-	padding:5px 10px 5px 10px;
+	padding:2px 5px 2px 5px;
 	background:#3333CC;color:#FF6B24;
 	border-left:0px;
 	border-right:0px;
@@ -899,6 +899,8 @@ background-size: 100% 100%;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
+	font-size:12px;
+	margin-left:60%;
 }
 
 .botonanadir:hover{
@@ -907,28 +909,101 @@ background-size: 100% 100%;
 	box-shadow: 0px 0px 10px #99FFFF;
 	background:#404040;
 	color:#FF6B24;
+	font-size:12px;
 }
-
-.botonMeApunto{
-	
-	padding:5px 10px 5px 10px;
+input[type=button] {
+padding:2px 5px 2px 5px;
+}
+.myDefaultButton{
+	padding:2px 5px 2px 5px;
 	background:#3333CC;color:#FF6B24;
 	border-left:0px;
 	border-right:0px;
 	border-bottom:0px;
 	border-top:0px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
+	font-size:12px;
+}
+.myClickedButton{
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#404040;
+	color:#FF6B24;
+	font-size:12px;
+}
+.botonMeApunto{
+	
+			padding:1px 3px 1px 3px;
+	background:#3333CC;color:#FF6B24;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	font-size:12px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px;
+	font-size:12px;
+	margin-left:75%;
+		
 }
 
 .botonMeApunto:hover{
 	-webkit-box-shadow: 0px 0px 10px #99FFFF;
 	-moz-box-shadow: 0px 0px 10px #99FFFF;
 	box-shadow: 0px 0px 10px #99FFFF;
-	background:#1B1E24;
-	color:#FF6B24;
+	background:#404040;
+	margin-left:75%;
+}
+.botonMeApunto:active{
+	-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#404040;
+	margin-left:75%;
+		font-size:12px;
+}
+input[type=button] {
+		padding:1px 3px 1px 3px;
+}
+.dcosa{
+	padding:1px 3px 1px 3px;
+	background:#3333CC;color:#FF6B24;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
+	border-top:0px;
+	font-size:12px;
+	-webkit-box-shadow: 0px 0px 0px #000;
+	-moz-box-shadow: 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px #000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px;
+	margin-left:75%;
+		font-size:12px;
+		
+}
+.ccosa{
+-webkit-box-shadow: 0px 0px 10px #99FFFF;
+	-moz-box-shadow: 0px 0px 10px #99FFFF;
+	box-shadow: 0px 0px 10px #99FFFF;
+	background:#404040;
+	color:#fff;
+	margin-left:75%;
+		font-size:12px;
 }
 
 .boxEstado ul{padding: 0;list-style: none;}
