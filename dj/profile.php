@@ -34,6 +34,7 @@ include_once "../framework/visits.php";
   <link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 
   <!-- script -->
+  <script src="../js/events.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
@@ -107,7 +108,18 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 <?php 
   /*NavbarHeader*/
   include "templates/navbar-header.php";
-?>
+   $idProfile=$_SESSION['id_user']; 
+  $token=$_SESSION['token']; 
+  
+  ?>
+  
+  <script>
+	
+
+var ide = '<?php echo $idProfile; ?>' ;
+var tok = '<?php echo $token; ?>' ;
+	
+</script>
 
 
 <!-- MiPerfil -->
@@ -140,39 +152,11 @@ document.getElementById(myButtonID).value='SIGUIENDO';
                        
                         </div>
 						<div class="the-timeline">
-							<ul><li><div class="the-date">
-										<span>01</span>
-										<small>Feb</small>
-									</div>
-									<h4>Show event</h4>
-									<p>
-												
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>31</span>
-										<small>Jan</small>
-									</div>
-									<h4>show pic </h4>
-									
-									<p>
-								
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>20</span>
-										<small>Des</small>
-									</div>
-                                    <h4>show event!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
-								</li>
+							<ul id="ul">
+							
+							<script>
+									eventProfile();
+								</script>
 							</ul>
 						</div><!-- End div .the-timeline -->
 						<!-- End timeline -->
