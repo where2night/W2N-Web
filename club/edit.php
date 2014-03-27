@@ -302,7 +302,7 @@ include_once "../framework/sessions.php";
 						<div class="form-group">
 							<label for="about-you" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Acerca de ti: </b></label>
 							<div class="col-sm-8">
-							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about']; echo var_dump($_SESSION); ?></textarea>
+							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about'];?></textarea>
 							</div>
 						</div>
 				  

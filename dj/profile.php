@@ -132,7 +132,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
         </div><!-- row -->
            	<div class="row">
 			<div class="col-md-12 the-timeline-margin">
-                        <div class="col-md-6">
+                       
                         
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
@@ -148,7 +148,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -156,13 +156,11 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 										<small>Jan</small>
 									</div>
 									<h4>show pic </h4>
-									<div class="videoWrapper">
-									<iframe src=""></iframe>
-									</div>
+									
 									<p>
 								
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -173,25 +171,19 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:85%">Me Apunto</button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
 						<!-- End timeline -->
-					</div><!-- End div .col-sm-6 -->
-                     <div class="col-md-6">
-                        
-					<!-- Begin timeline Listas -->
-             
-							
-									
-					</div><!-- End div .col-sm-6 -->
+					<!-- End div .col-sm-6 -->
+                     
     </div><!-- col-md-12 -->
         </div><!-- row -->
         <div class="row">
 			<div class="col-md-12">
         <div class="titulos">
-                        <ul><li>FOTOS</li></ul>
+                        <ul><li>FOTOS   <button type="button" class="btn botonanadir"style="margin-left:79%">Ver más</button></li></ul>
                         </div>
       <div class="seguidores">
               	<ul><li></li></ul>
@@ -202,7 +194,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
               <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>SEGUIDORES</li></ul>
+                        <ul><li>SEGUIDORES   <button type="button" class="btn botonanadir"style="margin-left:73%">Ver más</button></li></ul>
                        
                         </div>
                         <div class="seguidores">
@@ -219,7 +211,12 @@ document.getElementById(myButtonID).value='SIGUIENDO';
                        
                         </div>
               <div class="mapa">
-              	<li>Dirección,número de télefono...</li>
+              	<li>
+					   <h4 style="color:#1B1E24">Estilo de música:</h4> <p style="font-size:14px;"><?php echo $_SESSION['music']; ?> </p>
+					   <h4 style="color:#1B1E24">Acerca de mi:</h4> <p style="font-size:14px;"><?php echo $_SESSION['about']; ?> 
+						</p>
+				
+				</li>
               </div>
 					    
              </div><!-- col-md-12 -->
