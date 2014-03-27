@@ -6,14 +6,14 @@
 		<ul class="nav navbar-collapse collapse navbar-collapse-primary">	   
 			<li>
 				<span class="glow"></span>
-				<a href="profile.php">
+				<a href="../profile.php">
 					<i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
 					<span>Mi Perfil</span>
 				</a>
 			</li>
 			<li>
 				<span class="glow"></span>
-				<a href="events.php">
+				<a href="../events.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Eventos</span>
 				</a>
@@ -27,7 +27,7 @@
 			</li>
 			<li>
 				<span class="glow"></span>
-				<a href="fans.php">
+				<a href="../fans.php">
 					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
 					<span>Seguidores</span>
 				</a>

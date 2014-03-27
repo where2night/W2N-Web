@@ -7,21 +7,21 @@
        
          <li class="">
           <span class="glow"></span>
-          <a href="profile.php">
+          <a href="../profile.php">
               <i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
               <span>Mi Perfil</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="events.php">
+          <a href="../events.php">
               <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
               <span>Eventos</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="photos.php">
+          <a href="../photos.php">
               <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
               <span>Fotos </span>
           </a>
@@ -35,14 +35,14 @@
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="club-list.php">
+          <a href="../club-list.php">
               <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
               <span>Locales</span>
           </a>
         </li>
          <li class="">
           <span class="glow"></span>
-          <a href="dj-list.php">
+          <a href="../dj-list.php">
               <i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
               <span>DJ's</span>
           </a>
