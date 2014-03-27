@@ -304,9 +304,7 @@ var id=0;
 				</div>
 				 
 				
-				<div style="float: right;margin-top: 5%;margin-right: 8%">
-				 	<img src="../images/logo3_gris.png">
-				 </div>
+				
 				
 				
 				

@@ -310,10 +310,6 @@ var id=0;
 			
 				
 				
-				<div style="float: right;margin-top: 5%;margin-right: 8%">
-				 	<img src="../images/logo3_gris.png">
-				 </div>
-				
 				<div style="clear: left; margin-top: 5%"> 
 					<h3 style="color: #F4A460; margin-left: 5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>FOTO DE PROMOCIÓN</em></h3>
 				</div>
