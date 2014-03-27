@@ -263,7 +263,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 									
 								</li>
 								<li>
@@ -278,7 +278,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 								
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -289,7 +289,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
 							</ul>
 						</div><!-- End div .the-timeline -->
@@ -311,7 +311,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -322,7 +322,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -333,7 +333,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -344,7 +344,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -355,7 +355,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -366,7 +366,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button>
+									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
 								</li>
                            
                            
@@ -401,6 +401,21 @@ document.getElementById(myButtonID).value='SIGUIENDO';
               </div>
 					
 					    
+             </div><!-- col-md-12 -->
+        </div><!-- row -->
+		 <div class="row">
+             <div class="col-md-12">
+        <div class="titulos">
+                        <ul><li>INFORMACIÓN</li></ul>
+                       
+                        </div>
+						<div class="seguidores">
+              	<ul><li>
+				<h4 style="color:#1B1E24">Acerca de Mi:</h4><p style="font-size:14px;"><?php echo $_SESSION['about'];?></p>
+				<h4 style="color:#1B1E24">Estilo de Música:</h4><p style="font-size:14px;"><?php echo $_SESSION['music']; ?></p>
+				<h4 style="color:#1B1E24">Precio Entrada:</h4><p style="font-size:14px;"><?php echo $_SESSION['entry_price']; ?></p>
+				<h4 style="color:#1B1E24">Precio Bebida:</h4><p style="font-size:14px;"><?php echo $_SESSION['drink_price']; ?></p>
+				</li></ul>	 </div>   
              </div><!-- col-md-12 -->
         </div><!-- row -->
          <div class="row">

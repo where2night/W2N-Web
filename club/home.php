@@ -57,6 +57,23 @@ include_once "../framework/sessions.php";
     });//end $(document).ready(function()
     
   </script>
+  <script type="text/javascript">
+function cosa(but)
+{
+myButtonID = but.id;
+if(document.getElementById(myButtonID).className=='ccosa')
+{
+document.getElementById(myButtonID).className='dcosa';
+document.getElementById(myButtonID).value='Me apunto';
+}
+else
+{
+document.getElementById(myButtonID).className='ccosa';
+document.getElementById(myButtonID).value='Apuntado';
+}
+}
+</script>
+
 
 </head>
 

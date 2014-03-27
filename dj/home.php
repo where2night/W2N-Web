@@ -115,11 +115,11 @@ include_once "../framework/sessions.php";
         </div><!-- row -->
            	<div class="row">
 			<div class="col-md-12 the-timeline-margin">
-                        <div class="col-md-6">
+                        
                         
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
-                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:60%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:77%">Editar</button></li></ul>
                        
                         </div>
 						<div class="the-timeline">
@@ -138,9 +138,7 @@ include_once "../framework/sessions.php";
 										<small>Jan</small>
 									</div>
 									<h4>show pic </h4>
-									<div class="videoWrapper">
-									<iframe src=""></iframe>
-									</div>
+									
 									<p>
 								
 									</p>
@@ -158,7 +156,7 @@ include_once "../framework/sessions.php";
 							</ul>
 						</div><!-- End div .the-timeline -->
 						<!-- End timeline -->
-					</div><!-- End div .col-sm-6 -->
+				<!-- End div .col-sm-6 -->
                      <div class="col-md-6">
                         
 				
@@ -169,7 +167,7 @@ include_once "../framework/sessions.php";
         <div class="row">
 			<div class="col-md-12">
         <div class="titulos">
-                        <ul><li>FOTOS  <button type="button" class="btn botonanadir"style="margin-left:85%"><i class="glyphicon glyphicon-plus"style="color:#FF6B24"></i></button></li></ul>
+                        <ul><li>FOTOS  <button type="button" class="btn botonanadir"style="margin-left:79%">Editar</button></li></ul>
                         </div>
 						 <div class="seguidores">
               	<ul><li></li></ul>
@@ -180,7 +178,7 @@ include_once "../framework/sessions.php";
 			  <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>SEGUIDORES</li></ul>
+                        <ul><li>SEGUIDORES   <button type="button" class="btn botonanadir"style="margin-left:71%">Ver más</button></li></ul>
                        
                         </div>
 						 <div class="seguidores">
