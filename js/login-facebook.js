@@ -3,11 +3,7 @@
 var photo;
 function loginFacebook() {
 	console.log('Welcome!  Fetching your information.... ');
-	FB.api('/me/picture?type=normal', function(response) {
-
-		photo = response.data.url;
-
-	}); (FB.api('/me', function(response) {
+	 (FB.api('/me', function(response) {
 			email2 = response.email;
 			var firstName2 = response.first_name;
 			var last_name2 = response.last_name;
@@ -20,17 +16,16 @@ function loginFacebook() {
 				type : "POST",
 				data : {
 					name : firstName2,
-					surnames : last_name2,
+					surname : last_name2,
 					gender : gender2,
 					birthdate : birthday_date2,
-					email : email2,
-					picture : photo
+					email : email2
 
 				},
 				complete : function(r) {
-
+					alert(r.responseText);
 					var json = JSON.parse(r.responseText);
-
+					alert(json);
 					if (json.Token == 0) {
 						alert("error");
 					} else {
