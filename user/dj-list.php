@@ -53,6 +53,71 @@ include_once "../framework/sessions.php";
           });
         });
 
+          //Get DJ's info
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+        var url1 = "../develop/read/djs.php" + params;
+        $.ajax({
+			url: url1,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+				for(var i=0; i<json.length; i++){
+					var user_type = "dj";
+					var id_user = json[i].idProfile;
+					var nameDJ = json[i].nameDJ;
+					var music = json[i].music;
+					if (music == null || picture.length == 0){
+						music = "Estilo no definido";
+					}
+					var picture = json[i].picture;
+					if (picture == null || picture.length == 0){
+						picture = "../images/reg1.jpg";
+					}
+					// $('#club-list tbody').append('<tr class="child"><td>blahblah</td></tr>');
+					$('#dj-list tbody').append('<tr><td><img src="'+ picture + '" alt=""/><a href="#" class="user-link"style="color:#FF6B24">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td></td><td class="text-center"><a href="#">'+ music +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
+				}
+				/*var picture = json.picture;
+				var name = json.name;
+				var surnames = json.surnames;
+				var birthdate = json.birthdate;
+				var gender = json.gender;
+				var music = json.music;
+				var civil_state = json.civil_state;
+				var city = json.city;
+				var drink = json.drink;
+				var about = json.about;*/
+			/*	$.post("../framework/session_start.php",
+				  {
+				  	user_type: 'user',
+				    type_login: login_type,
+				    id_user: id,
+				    token: token,
+					picture: picture,
+					name: name,
+					surnames: surnames,
+					birthdate: birthdate,
+					gender: gender,
+					music: music,
+					civil_state: civil_state,
+					city: city,
+					drink: drink,
+					about: about
+				  },
+				  function(data,status){
+					//alert("Data: " + data + "\nStatus: " + status);
+					//window.location.href = "../user/home.php";										  
+				  });*/
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+
     });//end $(document).ready(function()
     
   </script>
@@ -111,7 +176,7 @@ include_once "../framework/sessions.php";
 							<div class="col-lg-12">
 								<div class="main-box clearfix">
 									<div class="table-responsive">
-										<table class="table user-list">
+										<table id="dj-list" class="table user-list">
 											<thead>
 												<tr>
 													<th><span style="color:#FF6B24">DJ</span></th>	
