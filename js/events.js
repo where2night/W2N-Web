@@ -208,3 +208,193 @@ $.ajax({
 	
 }
 
+function eventProfile() {
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 var json = JSON.parse(r.responseText);	 
+             /*alert(json[0].idEvent);
+             alert(json[0].title);
+             alert(json[0].text);
+             alert(json[0].date);*/
+			  
+			 var i=0;
+			 
+			 while (json[i].title!=null && json[i].title!="")
+			  	{
+			  		
+					var events=document.getElementById('ul').innerHTML;
+		
+					events=events.concat("<li><div class='the-date'>");
+					events=events.concat(json[i].date);
+					events=events.concat("</div> <h4 style='color: #FF6B24'>");
+					events=events.concat(json[i].title);
+					events=events.concat("<br>");
+					events=events.concat(json[i].text);
+					events=events.concat("<p> </p> <button type='button' class='btn botonMeApunto' style='margin-left:80%'>Me Apunto<i class='glyphicon glyphicon-thumbs-up iconColor'></i></button> </li>");
+					
+					
+												
+									
+									
+								
+					
+		
+					document.getElementById('ul').innerHTML=events;
+		   
+		
+				
+				
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+}
+
+function eventHome() {
+	
+
+
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 var json = JSON.parse(r.responseText);	 
+             /*alert(json[0].idEvent);
+             alert(json[0].title);
+             alert(json[0].text);
+             alert(json[0].date);*/
+			  
+			 var i=0;
+			 
+			 while (json[i].title!=null && json[i].title!="")
+			  	{
+			  		
+					var events=document.getElementById('ul').innerHTML;
+		
+					events=events.concat("<li><div class='the-date'>");
+					events=events.concat(json[i].date);
+					events=events.concat("</div> <h4 style='color: #FF6B24'>");
+					events=events.concat(json[i].title);
+					events=events.concat("<br>");
+					events=events.concat(json[i].text);
+					events=events.concat("<p> </p> <button type='button' class='btn botoneditar'style='margin-left:83%'>Editar</button> </li>");
+					
+					
+						document.getElementById('ul').innerHTML=events;
+		   
+		
+				
+				
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+}
+
+
+
+function eventHomedj() {
+	
+
+
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 var json = JSON.parse(r.responseText);	 
+             /*alert(json[0].idEvent);
+             alert(json[0].title);
+             alert(json[0].text);
+             alert(json[0].date);*/
+			  
+			 var i=0;
+			 
+			 while (json[i].title!=null && json[i].title!="")
+			  	{
+			  		
+					var events=document.getElementById('ul').innerHTML;
+		
+					events=events.concat("<li><div class='the-date'>");
+					events=events.concat(json[i].date);
+					events=events.concat("</div> <h4 style='color: #FF6B24'>");
+					events=events.concat(json[i].title);
+					events=events.concat("<br>");
+					events=events.concat(json[i].text);
+					events=events.concat("<p> </p>  </li>");
+					
+					
+						document.getElementById('ul').innerHTML=events;
+		   
+		
+				
+				
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+}
+
+
+
