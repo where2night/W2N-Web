@@ -230,6 +230,10 @@ var id=0;
 				<div  class="timeline">
 							<ul id="ul">
 								
+								<script>
+								djEvents();	
+								</script>
+								
 							</ul>
 				</div>
 			</div><!-- col-md-5-->

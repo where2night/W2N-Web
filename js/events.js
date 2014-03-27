@@ -68,9 +68,6 @@ if (!(title2=="")){
 	});
 		
 		
-		
-		
-		
 		///////////////////////////////////////////////////////////////////////////////
 		var image;
 		
@@ -134,5 +131,34 @@ list_minutes.selectedIndex=0;
     inputdate.value="";
     inputText.value="";
     inputTextArea.value="";
+}
+
+
+function djEvents(){
+	
+//document.write("sssssssssssjmkljlkjkljlkjl");
+
+
+$.ajax({
+			url: "../develop/read/events.php",
+			dataType: "json",
+			type: "GET",
+			data: {
+				idProfile:ide
+			},
+			complete: function(r){
+			 // var json = JSON.parse(r.responseText);
+			  
+             
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+
+	
 }
 

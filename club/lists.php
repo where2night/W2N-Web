@@ -293,7 +293,7 @@ jQuery(function($){
 			
 				
 				<div style="float: left">
-					<button type="submit" class="Mybutton" onClick="newList();" style="margin-left: 50%;margin-top: 8%">crear evento</button>
+					<button type="submit" class="Mybutton" onClick="newList();" style="margin-left: 50%;margin-top: 8%">crear lista</button>
 				</div>
 			
 			
