@@ -45,7 +45,6 @@ include_once "../framework/visits.php";
 	function getData(){
 <?php 
 	if(isset($_GET['idv'])){
-		//$id = w2n_generate_encoded_id($id_user);
 ?>
 	
 	var idProfile = <?php echo $_GET['idv'];?>;
@@ -63,8 +62,6 @@ include_once "../framework/visits.php";
 	timeout: 5000,
 	complete: function(r2){
 		var json = JSON.parse(r2.responseText);
-		var companyName = json.companyName;
-		var json = JSON.parse(r2.responseText);
 		var nameDJ = json.nameDJ;
 		var name = json.name;
 		var surname = json.surname;
@@ -76,18 +73,17 @@ include_once "../framework/visits.php";
 		var about = json.about;
 		$.post("../framework/visits_add.php",
 		  {
-		  	user_type: 'club',
-		    id_user: id,
-				    token: token,
-					nameDJ: nameDJ,
-					name: name,
-					surname: surname,
-					telephone: telephone,
-					gender: gender,
-					birthdate: birthdate,
-					picture: picture,
-					music: music,
-					about: about
+		  	user_type: 'dj',
+		    id_user: idProfile,
+			nameDJ: nameDJ,
+			name: name,
+			surname: surname,
+			telephone: telephone,
+			gender: gender,
+			birthdate: birthdate,
+			picture: picture,
+			music: music,
+			about: about
 		  },
 		  function(data,status){
 			//alert("Data: " + data + "\nStatus: " + status);						  ;
@@ -110,7 +106,8 @@ include_once "../framework/visits.php";
 
   <script type="text/javascript">  
     $(document).ready(function(){ 
-      
+      getData();
+
       //Function for close session
         $("#close_session").on("click", function (event) {
           $.post("../framework/session_end.php",

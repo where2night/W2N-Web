@@ -43,7 +43,6 @@ include_once "../framework/visits.php";
 	function getData(){
 <?php 
 	if(isset($_GET['idv'])){
-		//$id = w2n_generate_encoded_id($id_user);
 ?>
 	
 	var idProfile = <?php echo $_GET['idv'];?>;
@@ -82,7 +81,7 @@ include_once "../framework/visits.php";
 		$.post("../framework/visits_add.php",
 		  {
 		  	user_type: 'club',
-		    id_user: id,
+		    id_user: idProfile,
 			companyName: companyName,
 			localName: localName,
 			cif: cif,
