@@ -161,9 +161,17 @@ $.ajax({
              alert(json[0].text);
              alert(json[0].date);*/
 			  
+			  var key, count = 0;
+		for(key in json) {
+  			if(json.hasOwnProperty(key)) {
+    		count++;
+  		}
+	}
+	   count=count-3;		  
+			
 			 var i=0;
 			 
-			 while (json[i].title!=null && json[i].title!="")
+			 while (i<count)
 			  	{
 			  		
 			  		var image;
@@ -232,9 +240,17 @@ $.ajax({
              alert(json[0].text);
              alert(json[0].date);*/
 			  
+			  var key, count = 0;
+		for(key in json) {
+  			if(json.hasOwnProperty(key)) {
+    		count++;
+  		}
+	}
+	   count=count-3;		  
+			
 			 var i=0;
 			 
-			 while (json[i].title!=null && json[i].title!="")
+			 while (i<count)
 			  	{
 			  		
 					var events=document.getElementById('ul').innerHTML;
@@ -299,9 +315,17 @@ $.ajax({
              alert(json[0].text);
              alert(json[0].date);*/
 			  
+			  var key, count = 0;
+		for(key in json) {
+  			if(json.hasOwnProperty(key)) {
+    		count++;
+  		}
+	}
+	   count=count-3;		  
+			
 			 var i=0;
 			 
-			 while (json[i].title!=null && json[i].title!="")
+			 while (i<count)
 			  	{
 			  		
 					var events=document.getElementById('ul').innerHTML;
@@ -362,10 +386,18 @@ $.ajax({
              alert(json[0].text);
              alert(json[0].date);*/
 			  
+			 		  var key, count = 0;
+		for(key in json) {
+  			if(json.hasOwnProperty(key)) {
+    		count++;
+  		}
+	}
+	   count=count-3;		  
+			
 			 var i=0;
 			 
-			 while (json[i].title!=null && json[i].title!="")
-			  	{
+			 while (i<count)
+	{
 			  		
 					var events=document.getElementById('ul').innerHTML;
 		
