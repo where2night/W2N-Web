@@ -16,6 +16,8 @@ include_once "../framework/visits.php";
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv="pragma" content="no-cache" />
    <!-- Icon W2N -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
