@@ -208,14 +208,14 @@ $.ajax({
 	
 }
 
-function eventProfile() {
+function eventProfile(param) {
 	
 var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
 	params=params.concat(tok);
 	params=params.concat("/");
-	params=params.concat(ide);
+	params=params.concat(param);
 	  
 var url="../develop/read/events.php";
 	url=url.concat(params);

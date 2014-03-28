@@ -151,7 +151,7 @@ var tok = '<?php echo $token; ?>' ;
                         
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
-                        <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:50%">Añadir</i></button></li></ul>
+                        <ul><li>EVENTOS <a href="events.php"><button type="button" class="btn botonanadir"style="margin-left:50%">Añadir</i></button></a></li></ul>
                        
                         </div>
 						<div class="the-timeline">
