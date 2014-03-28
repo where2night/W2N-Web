@@ -338,7 +338,10 @@ set_session_info('<?php echo $_COOKIE['w2n_id']; ?>', '<?php echo $_COOKIE['w2n_
 								<a href="/register.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';">Privacidad y Condiciones</a>
 							</li>
 							<li>
-								<a href="" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
+								<a href="https://play.google.com/store/apps/details?id=com.where2night" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
+							</li>
+							<li>
+								<a href="https://docs.google.com/forms/d/1-Fnl2hJHkx_sGzmCJ0ZswYR0flyaOnS2dOS9RvvunzI/edit" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';">Encuesta</a>
 							</li>
 						</ul>
 					</nav>

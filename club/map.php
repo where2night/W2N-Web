@@ -13,7 +13,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 function initialize() {
-  var fenway = new google.maps.LatLng(40.4095698,-3.6933057);
+  var fenway = new google.maps.LatLng(<?php echo get_latitude_club(); ?>,<?php echo get_longitude_club(); ?>);
   var mapOptions = {
     center: fenway,
     zoom: 14
