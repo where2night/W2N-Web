@@ -266,8 +266,8 @@ if (isset($_GET['idv'])){
                         </div>
               <div class="mapa">
               	<li>
-					   <h4 style="color:#1B1E24">Estilo de música:</h4> <p style="font-size:14px;"><?php echo $_SESSION['music']; ?> </p>
-					   <h4 style="color:#1B1E24">Acerca de mi:</h4> <p style="font-size:14px;"><?php echo $_SESSION['about']; ?> 
+					   <h4 style="color:#1B1E24">Estilo de música:</h4> <p style="font-size:14px;"><?php echo get_music_dj(); ?> </p>
+					   <h4 style="color:#1B1E24">Acerca de mi:</h4> <p style="font-size:14px;"><?php echo get_about_dj(); ?> 
 						</p>
 				
 				</li>
