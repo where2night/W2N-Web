@@ -222,8 +222,13 @@ var tok = '<?php echo $token; ?>' ;
 						<div class="the-timeline">
 							<ul id="ul">
 							
+<?php
+if (isset($_GET['idv'])){
+	$id_event = $_GET['idv'];
+}else $id_event = $idProfile;
+?>							
 							<script>
-									eventProfile();
+									eventProfile("<?php echo $id_event;?>");
 								</script>
 							</ul>
 						</div><!-- End div .the-timeline -->
