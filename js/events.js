@@ -1,17 +1,47 @@
 
 function deleteEvent(id) {
 	
+	
+alert(id);
+alert(ide);
+
+
+var params = "/" ;
+	params=params.concat(id); 
+	params=params.concat("/");
+	params=params.concat(ide);
+
+	  
+var url="../develop/update/event.php";
+	url=url.concat(params);
+
+
+//aqui habria que eliminar el evento de la base de datos
+// habria que pasarle el id evento y el id del profile
+
+$.ajax({
+			url: url,
+			dataType: "json",
+			type: "DELETE",
+			complete: function(r){
+			  alert("evento borrado");
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
 var element=document.getElementById(id);
 var parent = element.parentNode;
 parent.removeChild(element);
 
-//aqui habria que eliminar el evento de la base de datos
-// habria que pasarle el id evento y el id del profile
+	
+	
 }
 
 function newEvent(type) {
 	
-	
+
 var actualdate=document.getElementById("datepicker").value;
 var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
@@ -36,8 +66,6 @@ var time2 = hour.concat(":");
 time2=time2.concat(minutes);
 
 //var fileName = document.getElementById('upload').value;
-
-
 if (!(title2=="")){
 
 	if (!actualdate==""){
@@ -68,33 +96,8 @@ if (!(title2=="")){
 			}
 	});
 		
-		
-		///////////////////////////////////////////////////////////////////////////////
-		var image;
-		
-		if(type=="dj") image="src='../images/party3.jpg'";
-			else image="src='../images/party2.jpg'";
-		
-		var events=document.getElementById('ul').innerHTML;
-		
-		id=id+1;
-		
-		
-		events=events.concat("<li id='button");
-		events=events.concat(id);
-		events=events.concat("'> <div class='timeline-title orangeBox1'> <img class='menu-avatar time-title-img orangeBox1'");
-		events=events.concat(image);  
-		events=events.concat("/><h6>");
-		events=events.concat(title2);
-		events=events.concat("</h6> <i class='glyphicon glyphicon-time'style='color:#FF6B24'>");
-		events=events.concat(actualdate);
-		events=events.concat("</i> <a class='orangeBox1' id='button");
-		events=events.concat(id);
-		events=events.concat("' onclick='deleteEvent(this.id);'><i class='glyphicon glyphicon-trash'style='color:#000'></i>Borrar</a></div></li>");
-		
-		document.getElementById('ul').innerHTML=events;
-		   
-		    
+    document.getElementById('ul').innerHTML="";
+     events(type);		    
 		   
 		  }else alert("evento sin hora");
 	   
@@ -181,20 +184,20 @@ $.ajax({
 		
 					var events=document.getElementById('ul').innerHTML;
 		
-					id=id+1;
+					
 		
 		
-					events=events.concat("<li id='button");
+					events=events.concat("<li id='");
 					events=events.concat(json[i].idEvent);
 					events=events.concat("'> <div class='timeline-title orangeBox1'> <img class='menu-avatar time-title-img orangeBox1'");
 					events=events.concat(image);  
-					events=events.concat("/><h6>");
+					events=events.concat("/><h6 style='color:#FF6B24'>");
 					events=events.concat(json[i].title);
 					events=events.concat("</h6> <i class='glyphicon glyphicon-time'style='color:#FF6B24'>");
 					events=events.concat(json[i].date);
-					events=events.concat("</i> <a class='orangeBox1' id='button");
+					events=events.concat("</i> <a class='orangeBox1' id='");
 					events=events.concat(json[i].idEvent);
-					events=events.concat("' onclick='deleteEvent(this.id);'><i class='glyphicon glyphicon-trash'style='color:#000'></i>Borrar</a></div></li>");
+					events=events.concat("' onclick='deleteEvent(this.id);' style='color:#FF6B24'><i class='glyphicon glyphicon-trash'style='color:#FF6B24'></i>Borrar</a></div></li>");
 		
 					document.getElementById('ul').innerHTML=events;
 		   

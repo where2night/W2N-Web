@@ -20,16 +20,12 @@ include_once "../framework/visits.php";
     <!-- Icon W2N -->
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-
+    <link href="../css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
     <!-- Bootstrap Styles-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/home.css" rel="stylesheet" type="text/css">
-    <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
-	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
-    <link href="../css/custom.css" rel="stylesheet" media="screen">
-  	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" />
+    <link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
+   <link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="../css/events.css" media="screen" rel="stylesheet" type="text/css" /> 
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.7.2.custom.css" />
     
     <!-- script -->
@@ -40,6 +36,7 @@ include_once "../framework/visits.php";
 	<script src="../js/events.js"></script>
 	<script src="../js/keep-session.js"></script>
 
+	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
  	<script type="text/javascript">
@@ -83,108 +80,22 @@ jQuery(function($){
 	      });
 
         });
-    </script>
-
-	<!-- /script -->
-
-</head>
-
-<body>
-	
-	<style>
-
-	body{
-		background-image:url(../images/wall.jpg);
-		background-color: #000000;
-	}
-
-	navbar-fixed-top{
-			z-index:1030;
-		  }
-		@media (max-width: 979px){
-			body{
-				padding:0px;
-			}
-			.navbar-fixed-top {
-				margin-bottom: 0px;
-			}
-			.navbar-fixed-top, .navbar-fixed-bottom {
-				position: fixed;
-			}	
-			.navbar .container {
-				width: auto;
-				padding: 0px 20px;
-				color:#000;
-			}
-			.container{
-				padding:0px 20px;
-			}
-		}	
 		
 		
-	 #fuente{ 
-		font-size: 1.7em;
-		color:#F59236;
-		text-decoration: none;
-		-moz-text-decoration-color: -moz-use-text-color;
-		-moz-text-decoration-line: none;
-		-moz-text-decoration-style: solid;
-
-		}
-		
-		
-.Mybutton {
-    background-color:#F4A460;
-    padding:10px;
-    position:relative;
-    font-family: 'Open Sans', sans-serif;
-    font-size:12px;
-    text-decoration:none;
-    color:#000;
-    box-shadow: inset 0px 1px 0px #b2f17f, 0px 6px 0px ##F4A460;
-    border-radius: 5px;
-}
- 
-.Mybutton:active {
-    top:7px;
-    box-shadow: inset 0px 1px 0px #b2f17f, inset 0px -1px 0px ##F4A460;
-    color: #000;
-}
-    
-
-.Mybutton::before {
-    background-color:#F4A460;
-    content:"";
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    padding-left:2px;
-    padding-right:2px;
-    padding-bottom:4px;
-    left:-2px;
-    top:5px;
-    z-index:-1;
-    border-radius: 6px;
-    box-shadow: 0px 1px 0px #fff;
-}
- 
-.Mybutton:active::before {
-    top:-2px;
-}
-
-
-	 </style>
-    
-	<script>
-	$('#myTab a').click(function (e) {
+	   $('#myTab a').click(function (e) {
 		e.preventDefault()
 		$(this).tab('show')
 	})
+	
+		
+    </script>
 
-	   
-	</script>
-    
+	<!-- /script -->
+	
+</head>
+
+<body id="home">
+
 <?php 
   	/*NavbarHeader*/
  	include "templates/navbar-header.php";
@@ -201,7 +112,6 @@ $token=$_SESSION['token'];
 
 <script>
 	
-var id=0;
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
 	
@@ -211,13 +121,13 @@ var tok = '<?php echo $token; ?>' ;
 	<!-- Events -->
 
 
-	<table style="margin-left:200px" border=0 width="100%" >
+	<table style="margin-left:200px; margin-top:50px" border=0 width="100%" >
 	<tr>
 		
 		<td>
 		
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
+		<ul class="nav nav-tabs" style="border: 1.5px solid #000; background-color: #000000;">
 			<li class="active"><a href="#NewEvent" data-toggle="tab" onclick="clean();">Crear evento</a></li>
 			<li ><a href="#MyEvents" data-toggle="tab">Eventos DJ</a></li>
 			
@@ -230,11 +140,10 @@ var tok = '<?php echo $token; ?>' ;
 				
 				<div  class="timeline">
 							<ul id="ul">
-								
-								<script>
-								events('dj');	
-							</script> 
-								
+                             <script>
+							 events('dj');
+							 </script>
+							
 							</ul>
 				</div>
 			</div><!-- col-md-5-->
@@ -242,93 +151,69 @@ var tok = '<?php echo $token; ?>' ;
 				
 			<div class="tab-pane active" id="NewEvent" style="margin-left: 35px; margin-right: 200px;">
 				
-				<!-- New Events -->
-				<div style="float: left">
-					<h3 style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>TÍTULO</em></h3>
-				</div>
-				
-				<div style="float: left;margin-top: 2%;margin-left:5%; margin-bottom: 5%">
-					<input id="Title" type="text" style="width: 350px;background-color: #d3d3d3" class="form-control" placeholder="Título del evento" required style=" color: #000000;background-color: #d3d3d3"/>
-				</div>
-				
-				<div style="float: right; margin-top: 3%; margin-right: 2%">
-				 	<img src="../images/logo7_gris.png">
-				 </div>		
-				
-				<div style="clear: left" >
-					<h3 style="color: #F4A460; margin-left: 15%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>DESCRIPCIÓN</em></h3>
-				    <div style="float: right">
-				    	<div>
-							<label style="color: #F4A460;margin-right:3%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">Fecha</label>
-				        </div>
-						<div>
-							<input type="text" id="datepicker" readonly="readonly" size="12" style="width: 35%;background-color: #d3d3d3;color: #000;margin-right:50%" />
-						</div>
-				   </div>
-				</div>		
+             <h1 style="padding-left:120px;color:#444">CREA TU PROPIO EVENTO </h1>
+	     <div class="rain">
+			<div class="border start">
+				<form>
+					<label for="title">TÍTULO</label>
+					<input id="Title" type="text" placeholder="título del evento" style="background: #111;color: #fff;border: 1px solid #000;"/>
+					<label for="description">DESCRIPCIÓN</label>
+					<textarea id="Description" placeholder="descripción" style="background: #111;color: #fff;height:200px;border: 1px solid #000;"></textarea>
+					<label for="startendate">FECHA <span style="margin-left:22%">INICIO EVENTO </span> <span style="margin-left:15%">FIN EVENTO </span> </label>
+					
+					<input type="text" id="datepicker" readonly="readonly" style="width:10%;background: #111;color: #fff;border: 1px solid #000;" placeholder="fecha" />
+                    
+						<select id="hour-init" style="width: 8%; color:#fff;margin-left:10%">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+						<span style="font-size:1.7em ">:</span>
+	            		<select id="minutes-init" style="width: 8%;color:#fff">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
+									
+						<select id="hour" style="width: 8%; margin-left: 5%;color:#fff">
+	            			<option value="0" selected="1">HH</option>
+	          					<script>
+	        						SelectOptionRange(0,24);
+	        					</script>	
+	            	 	</select>
+	            	<span style="font-size:1.7em ">:</span>
+	            		<select id="minutes" style="width: 8%;color:#fff">
+	            			<option value="0" selected="1">MM</option>
+	            				<script>
+	        						SelectOptionRange(0,60);
+	        					</script>
+	                	</select>
 						
+					
+
+	            	
+					<label for="photo" style="margin-top:3%; margin-left:2%">FOTO DE PROMOCIÓN</label>
+					<input type=file id="upload" style="margin-left:3%"/>
+		
+					
+			<input type="button" value="CREAR EVENTO" style="width:20%; margin-left:40%" onclick="newEvent('dj');"/>
+				</form>
+			</div>
+		</div>				
+
+
+
+
 				
-				<div style="clear: left; margin-top: 5%"> 
-					<textarea id="Description"  class="form-control" style="height:200px; width:500px ;color: #000000;background-color: #d3d3d3"></textarea>
-				</div>
-				
-					<div style="clear: left;margin-top: 5%;margin-right: 8%">
-				 
-				   	<div>
-				 		<label style="color: #F4A460;margin-right:5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">inicio evento</label>
-						<label style="color: #F4A460;margin-left:15%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">fin evento</label>
-					</div>
-					<div>
-						<select id="hour-init" style="width: 10%;background-color: #d3d3d3">
-	            			<option value="0" selected="1">HH</option>
-	          					<script>
-	        						SelectOptionRange(0,24);
-	        					</script>	
-	            	 	</select>
-	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
-	            		<select id="minutes-init" style="width: 10%;background-color: #d3d3d3">
-	            			<option value="0" selected="1">MM</option>
-	            				<script>
-	        						SelectOptionRange(0,60);
-	        					</script>
-	                	</select>
-	            
-						<select id="hour" style="width: 10%; margin-left: 15%;background-color: #d3d3d3">
-	            			<option value="0" selected="1">HH</option>
-	          					<script>
-	        						SelectOptionRange(0,24);
-	        					</script>	
-	            	 	</select>
-	            	<span style="color: #F4A460;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;font-size:1.7em ">:</span>
-	            		<select id="minutes" style="width: 10%;background-color: #d3d3d3">
-	            			<option value="0" selected="1">MM</option>
-	            				<script>
-	        						SelectOptionRange(0,60);
-	        					</script>
-	                	</select>
-	            	</div>
-				</div>
+	        </div>
 			
-				
-				
-				<div style="clear: left; margin-top: 5%"> 
-					<h3 style="color: #F4A460; margin-left: 5%;text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87"><em>FOTO DE PROMOCIÓN</em></h3>
-				</div>
-				
-				<div style="clear: left; margin-top: 3%"> 
-					<input type=file size=50 style="color: #F4A460; margin-left: 5% " id="upload"/>
-				 </div>
-				 
-				 
-				
-				<div style="float: left">
-					<button type="submit" class="Mybutton" onClick="newEvent('dj');" style="margin-left: 70%;margin-top: 8%">crear evento</button>
-				</div>
 			
 			
 			</div>
 				
-				</div>
+				
 	 </td>
 		
 		
