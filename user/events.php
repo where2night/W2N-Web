@@ -28,11 +28,11 @@ include_once "../framework/visits.php";
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     
-    <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" />
+    <link rel="stylesheet" href="../css/profile-partier.css" type="text/css" />
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
    <script src="../js/tab.js"></script>
-   <script src="../js/events.js"></script>
+   
 
 </head>
 

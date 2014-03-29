@@ -28,7 +28,7 @@ include_once "../framework/sessions.php";
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/inicio-fiestero.css" type="text/css" /><!-- Style -->	
+    <link rel="stylesheet" href="../css/profile-partier.css" type="text/css" /><!-- Style -->	
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 
 	<!-- script -->

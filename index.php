@@ -25,7 +25,7 @@
 		<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/registro.js"></script>
+		<script type="text/javascript" src="js/register.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript" src="js/login-facebook.js"></script>
 		<script type="text/javascript" src="js/loginGoogle.js"></script>

@@ -34,7 +34,7 @@ include_once "../framework/visits.php";
 	<!-- script -->
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/registro.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
 
