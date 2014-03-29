@@ -33,9 +33,9 @@ include_once "../framework/sessions.php";
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 
 	<!-- script -->
-	<script src="../js/events.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script src="../js/jquery.js"></script>
+  <script src="../js/events.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/registro.js"></script>
   <script src="../js/keep-session.js"></script>
@@ -95,12 +95,13 @@ include_once "../framework/sessions.php";
 
   /*Sidebar*/
   include "templates/sidebar.php";
-  
-  
+
 $idProfile=$_SESSION['id_user']; 
  $token=$_SESSION['token']; 
   
+
 ?>
+
 
 <script>
 	
@@ -109,6 +110,7 @@ var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
 	
 </script>
+
 
 
 
@@ -131,33 +133,28 @@ var tok = '<?php echo $token; ?>' ;
            	<div class="row">
 			<div class="col-md-12 the-timeline-margin">
                         
-                        
 					<!-- Begin timeline Events -->
                   		<div class="titulos">
                         <ul><li>EVENTOS <button type="button" class="btn botonanadir"style="margin-left:77%">Editar</button></li></ul>
                        
                         </div>
 						<div class="the-timeline">
-							<ul id="ul">	
+							<ul id="ul">
 								<script>
 									eventHomedj();
 								</script>
-							
-							</ul>
+								
+								</ul>
 						</div><!-- End div .the-timeline -->
 						<!-- End timeline -->
-				<!-- End div .col-sm-6 -->
-                     <div class="col-md-6">
-                        
-				
-									
-					</div><!-- End div .col-sm-6 -->
+					
+                   
     </div><!-- col-md-12 -->
         </div><!-- row -->
         <div class="row">
 			<div class="col-md-12">
         <div class="titulos">
-                        <ul><li>FOTOS  <button type="button" class="btn botonanadir"style="margin-left:79%">Editar</button></li></ul>
+                        <ul><li>FOTOS <button type="button" class="btn botonanadir"style="margin-left:79%">Editar</button></li></ul>
                         </div>
 						 <div class="seguidores">
               	<ul><li></li></ul>
@@ -168,7 +165,7 @@ var tok = '<?php echo $token; ?>' ;
 			  <div class="row">
              <div class="col-md-12">
         <div class="titulos">
-                        <ul><li>SEGUIDORES   <button type="button" class="btn botonanadir"style="margin-left:71%">Ver más</button></li></ul>
+                        <ul><li>SEGUIDORES <button type="button" class="btn botonanadir"style="margin-left:71%">Ver más</button></li></ul>
                        
                         </div>
 						 <div class="seguidores">

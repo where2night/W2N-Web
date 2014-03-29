@@ -1,10 +1,6 @@
 
 function deleteEvent(id) {
 	
-	
-alert(id);
-alert(ide);
-
 
 var params = "/" ;
 	params=params.concat(id); 
