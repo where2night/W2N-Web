@@ -205,7 +205,7 @@
 			<div class="white"style="margin-bottom:0%">
 
 				<header class="page-header"style="background-color:#000; border-color:#ff6b24;color:#ff6b24;margin-bottom:0%">
-					<h1 style="margin-left:2%">Terminos y Condiciones</h1>
+					<h1 style="margin-left:2%">Términos y Condiciones</h1>
 				</header>
 				<div style="background-color:#1B1E24;">
 				<h3 style="margin-left:2%;color:#ff6b24">Privacidad</h3>

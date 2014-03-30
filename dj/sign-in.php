@@ -253,7 +253,7 @@
 					<label>
 						<p class="navbar-text">
 							<input type="checkbox" value="" id="Terms_Conditions" required="true" onChange="cleanPopOvers();">
-							<b class="labelTextMain">Acepto los términos y condiciones</b>
+							<a href="/terms-conditions.php" class="labelTextMain" style="color:#ff6b24">Acepto los términos y condiciones</a>
 						</p> </label>
 				</div></td>
 
@@ -275,17 +275,17 @@
 					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 						<ul class="nav navbar-nav navbar-left">
 							<li>
-								<a href="../register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								<a href="/register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
 								onmouseout="javascript:this.style.color='#F59236';">¿Quienes somos?</a>
 							</li>
 							<li>
-								<a href="../register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								<a href="/register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
 								onmouseout="javascript:this.style.color='#F59236';">Contacto</a>
 							</li>
 
 							<li>
-								<a href="../terms-conditions.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';"
-								onmouseout=	"javascript:this.style.color='#F59236';">Privacidad y Condiciones</a>
+								<a href="/terms-conditions.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								onmouseout=	"javascript:this.style.color='#F59236';">Términos y Condiciones</a>
 							</li>
 							<li>
 								<a href="https://play.google.com/store/apps/details?id=com.where2night" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="../images/alogo.png" alt=""></a>

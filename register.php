@@ -26,7 +26,7 @@
 	<script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
 	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/registro.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/login-facebook.js"></script>
     <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
@@ -272,7 +272,7 @@
                     <p>DJ's podrán publicar sus eventos dándose a conocer entre sus seguidores.</p>
 					<p>Fiesteros sabrán dónde se encuentran sus amigos de fiesta, las últimas promociones y eventos.</p>
 					<p>Locales publicarán la creación de eventos,promociones y listas.</p>
-					<p>Para más información te proporcionamos los <a href="/terms-conditions.php"style="color:#ff6b24">terminos y condiciones</a></p>
+					<p>Para más información te proporcionamos los <a href="/terms-conditions.php"style="color:#ff6b24">términos y condiciones</a></p>
                 </div> <!-- home-about-test -->
                 <div class="col-md-6 home-about-features">
                     <h1 class="section-title">Contacto</h1>
@@ -328,7 +328,7 @@
 
 	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/registro.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/login-facebook.js"></script>
     <!--<script type="text/javascript" src="js/connectFacebook.js"></script>-->
