@@ -242,7 +242,7 @@
 						<select class="banner1" id="year" onchange="cleanPopOvers();">
 							<option value="0" selected="1" required="true"  >Año</option>
 							<script>
-								SelectOptionRange(1905, 1996);
+								SelectOptionRange(1970, 1997);
 							</script>
 						</select>
 					</p></td>
