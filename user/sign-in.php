@@ -275,16 +275,16 @@
 					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 						<ul class="nav navbar-nav navbar-left">
 							<li>
-								<a href="/register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								<a href="../register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
 								onmouseout="javascript:this.style.color='#F59236';">¿Quienes somos?</a>
 							</li>
 							<li>
-								<a href="/register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								<a href="../register.php" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';"
 								onmouseout="javascript:this.style.color='#F59236';">Contacto</a>
 							</li>
 
 							<li>
-								<a href="/register.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';"
+								<a href="../terms-conditions.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';"
 								onmouseout=	"javascript:this.style.color='#F59236';">Privacidad y Condiciones</a>
 							</li>
 							<li>

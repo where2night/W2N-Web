@@ -335,7 +335,7 @@ set_session_info('<?php echo $_COOKIE['w2n_id']; ?>', '<?php echo $_COOKIE['w2n_
 							</li>
 
 							<li>
-								<a href="/register.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';">Privacidad y Condiciones</a>
+								<a href="/terms-conditions.php" style="color: #F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';">Privacidad y Condiciones</a>
 							</li>
 							<li>
 								<a href="https://play.google.com/store/apps/details?id=com.where2night" style="color:#F59236" onmouseover="javascript:this.style.color='#FF6B24';" onmouseout=		"javascript:this.style.color='#F59236';"><img src="images/alogo.png" alt=""></a>
