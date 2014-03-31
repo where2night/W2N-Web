@@ -70,7 +70,7 @@ include_once "../framework/sessions.php";
 					var id_user = json[i].idProfile;
 					var nameDJ = json[i].nameDJ;
 					var music = json[i].music;
-					if (music == null || picture.length == 0){
+					if (music == null || music.length == 0){
 						music = "Estilo no definido";
 					}
 					var picture = json[i].picture;
