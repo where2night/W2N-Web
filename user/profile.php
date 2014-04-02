@@ -1,7 +1,6 @@
 <?php
 
 include_once "../framework/sessions.php";
-include_once "../framework/visits.php";
 
  w2n_session_check(); 
 
@@ -10,207 +9,75 @@ include_once "../framework/visits.php";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>W2N-Profile User</title>
+ <title>W2N-profile User</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
-   <!-- Icon W2N -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Icon W2N -->
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
     <!-- Estilos Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
 	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/profile-user.css" type="text/css" /><!-- Style -->	
-	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
-
-	<!-- script -->
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/register.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="../js/keep-session.js"></script>
-
-
-	<script type="text/javascript">  
-    $(document).ready(function(){ 
-      
-	    $("#close_session").on("click", function (event) {
-	        $.post("../framework/session_end.php",
-	          {},
-	          function(data,status){
-	          	  eraseCookie('w2n_id');
-	          	  eraseCookie('w2n_token');
-	          	  eraseCookie('w2n_type');
-		          var url = "../";
-		          $(location).attr('href',url);
-	          });
-	      });
-            
-      $("#change-data").on("click", function (event) {
-          
-        var idProfile = <?php echo $_SESSION['id_user'];?>;
-        var token = "<?php echo $_SESSION['token'];?>";
-        var companyName = $('#name').val();
-        var localName = $('#local_name').val();
-        var cif = $('#cif').val();
-        var poblationLocal = $('#poblation').val();
-        var cpLocal = $('#postal-code').val();
-        var telephone = $('#telephone').val();
-        var street = $("#street").val();
-        var streetName = $("#streetName").val();
-        var streetNumber = $("#streetNumber").val();
-        var music = $('#music-style').val();
-        var entryPrice = $('#entryPrice').val();
-        var drinkPrice = $('#drinkPrice').val();
-
-        var timepicker_open = $("#timepicker_open").data("kendoTimePicker");
-		var date1 = timepicker_open.value();
-		var openingHours = '';
-
-		var h = date1.getHours();
-		var m = date1.getMinutes();
-		var s = date1.getSeconds();
-
-		if (h < 10) h = '0' + h;
-		if (m < 10) m = '0' + m;
-		if (s < 10) s = '0' + s;
-
-		openingHours = h + ':' + m + ':' + s;
-
-		var timepicker_close = $("#timepicker_close").data("kendoTimePicker");
-		var date2 = timepicker_close.value();
-		var closeHo2rs = '';
-
-		var h = date2.getHours();
-		var m = date2.getMinutes();
-		var s = date2.getSeconds();
-
-		if (h < 10) h = '0' + h;
-		if (m < 10) m = '0' + m;
-		if (s < 10) s = '0' + s;
-
-		closeHours = h + ':' + m + ':' + s;
-
-        var about = $('#about-you').val();
-        var picture = '';
-
-        var params = "/" + idProfile + "/" + token;
-        
-         console.log($.ajax({
-            url: "../develop/update/local.php" + params,
-            dataType: "json",
-            type: "POST",
-            timeout: 5000,
-            data: {
-              idProfile:idProfile,
-              companyName:companyName,
-              localName:localName,
-              cif: cif,
-              telephone: telephone,
-              poblationLocal: poblationLocal,
-              cpLocal: cpLocal,
-              street: street,
-              streetName: streetName,
-              streetNumber: streetNumber,
-              music: music,
-              entryPrice: entryPrice,
-              drinkPrice: drinkPrice,
-              openingHours: openingHours,
-              closeHours: closeHours,
-              picture: picture,
-              about: about
-            },
-            complete: function(r){
-              $.post("../framework/session_start.php",
-                    {
-						type_login: 'normal',
-						user_type: 'club',
-						id_user: idProfile,
-						token: token,
-						companyName:companyName,
-						localName:localName,
-						cif: cif,
-						telephone: telephone,
-						poblationLocal: poblationLocal,
-						cpLocal: cpLocal,
-						street: street,
-						streetName: streetName,
-						streetNumber: streetNumber,
-						music: music,
-						entryPrice: entryPrice,
-						drinkPrice: drinkPrice,
-						openingHours: openingHours,
-						closeHours: closeHours,
-						picture: picture,
-						about: about
-					},
-                    function(data,status){
-                      //window.location.href="home.php";
-                    });
-                
-              },
-            onerror: function(e,val){
-              alert("Hay error");
-            }
-        }));
-      });
-		
-		$("#timepicker_open").kendoTimePicker({
-		    format: "HH:mm"
-		});
-		$("#timepicker_close").kendoTimePicker({
-		    format: "HH:mm"
-		});     
-    });//end $(document).ready(function()
-    
-    
-    </script>
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->	
+	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->
 	
-<style type="text/css">
+	<!--<link rel="stylesheet" href="../css/images-user.css">
+<link rel="stylesheet" href="../css/images-user1.css">
+<link rel="stylesheet" href="../css/images-user2.css">-->
 
-</style>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+<!-- script -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>	
+<script src="../js/keep-session.js"></script>	
+
+
+
+<!-- /script -->
 <script type="text/javascript">
-function changeMyClassName(theButton)
+function btnSeguir(theSeguirBtn)
 {
-myButtonID = theButton.id;
-if(document.getElementById(myButtonID).className=='myClickedButton')
+myButtonID = theSeguirBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedSeguir')
 {
-document.getElementById(myButtonID).className='myDefaultButton';
+document.getElementById(myButtonID).className='myDefaultSeguir';
 document.getElementById(myButtonID).value='SIGUEME';
 }
 else
 {
-document.getElementById(myButtonID).className='myClickedButton';
+document.getElementById(myButtonID).className='myClickedSeguir';
 document.getElementById(myButtonID).value='SIGUIENDO';
 }
 }
 </script>
-
 <script type="text/javascript">
-function cosa(but)
+function btnApuntar(theApuntarBtn)
 {
-myButtonID = but.id;
-if(document.getElementById(myButtonID).className=='ccosa')
+myButtonID = theApuntarBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedApuntar')
 {
-document.getElementById(myButtonID).className='dcosa';
-document.getElementById(myButtonID).value='Me apunto';
+document.getElementById(myButtonID).className='myDefaultApuntar';
+document.getElementById(myButtonID).value='Me Apunto';
 }
 else
 {
-document.getElementById(myButtonID).className='ccosa';
+document.getElementById(myButtonID).className='myClickedApuntar';
 document.getElementById(myButtonID).value='Apuntado';
 }
 }
 </script>
-
 </head>
 
 <body>
@@ -238,215 +105,503 @@ document.getElementById(myButtonID).value='Apuntado';
 			padding:0px 20px;
 		}
 	}	
-		
-		
+			
     </style>
+
+
 <?php 
   /*NavbarHeader*/
   include "templates/navbar-header.php";
 ?>
 
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px; margin-left:0px;margin-bottom:-50px;" > 
-<div class="wrapper">
-		<div class="container">
+<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;">
 		<div class="row">
-			<div class="col-md-12 profile-margin">
-				<div class="col-md-4">
-					<div class="profile-sec-head banner2">
-						<img src="../images/profile.jpg" alt="" />
-						<h1>
-							<?php echo get_name_user()." ".get_surname_user(); ?>
-						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Usuario</p>
-						<br>
-					</div>
-					<div>
-						<input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="changeMyClassName(this);">
-	
-					</div>
-                   	 </div>
-		</div><!-- col-md-12 -->
-        </div><!-- row -->
-		<div class="row">
-			<div class="col-md-12 the-timeline-margin">
-                        <div class="col-md-3">
-					<div class="titulos">
-                        <ul><li>INFORMACIÓN</li></ul>
-                    </div>
-					<table class="table  tablaC">
-                          <tbody>
-                            <tr class="info0">
-                              <td class="info1">Nombre y Apellidos:</td>
-							   <td><?php echo get_name_user()." ".get_surname_user(); ?></td>
-                          </tr>
-                            <tr>                            
-                              <td class="info2">Fecha de Nacimiento:</td>
-							   <td ><?php echo get_birthdate_user(); ?></td>
-                            
-                            </tr>
-							 <tr class="info0">
-                              
-                              <td class="info1">Sexo:</td>
-							   <td><?php if (get_gender_user()=="male") echo "Hombre" ?><?php if (get_gender_user()=="female") echo "Mujer" ?></td>
-                             
-                              
-                            </tr>
-							<tr>
-                              
-                              <td class="info2">Estado Civil:</td>
-							   <td><?php echo get_civil_state_user(); ?></td>
-                            
-                              
-                            </tr>
-                             <tr class="info0">
-                             
-                               <td class="info1">Ciudad Actual:</td>
-							    <td><?php echo get_city_user(); ?></td>
-                            
-                            </tr>
-							 <tr>
-                             
-                               <td class="info2">Música Favorita:</td>
-							    <td><?php echo get_music_user(); ?></td>
-                            
-                            </tr>
-							  <tr class="info0">
-                             
-                               <td class="info1">Bebida Favorita:</td>
-							    <td><?php echo get_drink_user(); ?></td>
-                            
-                            </tr>
-							 <tr>
-                             
-                               <td class="info2">Acerca de Mi:</td>
-							    <td><?php echo get_about_user(); ?></td>
-                            
-                            </tr>
-                          </tbody>
-                        </table>
-						
-						<table class="table  tablaC2">
-								<tbody>
-								<tr>
-								<td>SIGUIENDO:
-	
-								</td>
-								<td>SEGUIDORES:
-	
-								</td>
-								</tr>
-								</tbody>
-								</table>
-                   	 </div>
-					 <div class="col-md-9">
-					
-					<div class="the-timeline">
-							<ul><li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-	
-								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn02"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								
-								</td>
-								</tr>
-								</tbody>
-								</table>	
-								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
+				<div class="row">
+					<div class="col-lg-12">
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:1%;margin-left:1%;margin-right:-20%">
+					<h1 style="color:#ff6b24;">Perfil Fiestero</h1>
+					</header>
+						<div class="row" id="user-profile"style="background-color:#000;margin-left:1%;margin-right:-20%">
+							<div class="col-lg-3 col-md-4 col-sm-4" >
+								<div class="main-box clearfix"style="background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
+									<h2 style="color:#ff6b24;text-transform: uppercase; "><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></h2>
+									
+									<img src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
+									
+									<div class="profile-label">
+										<span class="label label">Destroyer</span>
+									</div>
+									
+									<div class="profile-stars">
+										
+										<span style="color:orange;">Modo</span>
+									</div>
+									
+									<div class="profile-since"style="color:#707070;">
+										Miembro desde: Ene 2012
+									</div>
+									
+									<div class="profile-details" style="background-color:#1B1E24;border-color:#ff6b24;">
+										<ul class="fa-ul">
+											<li  style="color:#ff6b24;">Seguidores: <span> 456</span></li>
+											<li  style="color:#ff6b24;">Siguiendo: <span> 828</span></li>
+											<li  style="color:#ff6b24;">Publicaciones: <span> 828</span></li>
+										</ul>
+									</div>
+									
+									<div class="profile-message-btn center-block text-center">
+										<a href="#" class="">
+											<input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="btnSeguir(this);">
+											
+										</a>
+									</div>
+								</div>
+							</div>
 							
-								<span class="label label-dark-blue">Evento DJ</span> DJ TIESTO
-								 <span style="font-size:13px;margin-left:45%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn03"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								</td>
-								</tr>
-								</tbody>
-								</table>
-								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-							
-								<span class="label label-dark-blue">Estado Fiestero</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn04"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								</td>
-								</tr>
-								</tbody>
-								</table>
-								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-							
-								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn05"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								</td>
-								</tr>
-								</tbody>
-								</table>
-								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-							
-								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn06"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								</td>
-								</tr>
-								</tbody>
-								</table>
-								<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-							
-								<span class="label label-dark-blue">Evento Local</span> CLUB PACHA
-								 <span style="font-size:13px;margin-left:40%"><i class="glyphicon glyphicon-time"style="color:#FF6B24"></i> hace 3 min</span>
-								</li>
-								<table class="table  tablaC1">
-								<tbody>
-								<tr class="info0">
-								<td><p ></p>
-								<input id="btn07"  class="botonanadir" type="button"value="Me Apunto"onClick="cosa(this);">
-								</td>
-								</tr>
-								</tbody>
-								</table>
-                         
-							</ul>
-						</div><!-- End div .the-timeline -->	
-					</div>
+							<div class="col-lg-9 col-md-8 col-sm-8">
+								<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;">
+									<div class="profile-header">
+										<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Acerca de mí</span></h3>
+									</div>
+									
+									<p style="color:#707070;">
+										<?php echo $_SESSION['about']; ?>
+									</p>
+									
+									<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
+									
+									<div class="row profile-user-info">
+										<div class="col-sm-8">
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Nombre y Apellidos
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Fecha de Nacimiento
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php
+														$birth_array = explode ('/',$_SESSION['birthdate']);
+														$day = $birth_array[2];
+														$month = $birth_array[1];
+														$year = $birth_array[0]; 
+														echo $day."/".$month."/".$year
+													?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Sexo
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php if ($_SESSION['gender']=="male") echo "Hombre" ?><?php if ($_SESSION['gender']=="female") echo "Mujer" ?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Estado Civil
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php echo $_SESSION['civil_state']; ?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Ciudad Actual
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php echo $_SESSION['city']; ?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Música Favorita
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php echo $_SESSION['music']; ?>
+												</div>
+											</div>
+											<br>
+											<div class="profile-user-details clearfix">
+												<div class="profile-user-details-label"style="color:#34d1be;">
+													Bebida Favorita
+												</div>
+												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php echo $_SESSION['drink']; ?>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-sm-4 profile-social">
+											<ul class="fa-ul" style="color:orange">
+												<li><i class=""></i><a href="#">@Twitter</a></li>
+												<li><i class=""></i><a href="#">Facebook</a></li>
+												<li><i class=""></i><a href="#">Instagram</a></li>
 		
+											</ul>
+										</div>
+									</div>
+									
+									<div class="tabs-wrapper profile-tabs" >
+										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
+											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
+											<li><a href="#tab-friends" data-toggle="tab">Amigos</a></li>
+											<li><a href="#tab-dj" data-toggle="tab">DJ's</a></li>
+											<li><a href="#tab-club" data-toggle="tab">Locales</a></li>
+											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
+										</ul>
+										<!-- Comienza Actividad -->
+										<div class="tab-content">
+											<div class="tab-pane fade in active" id="tab-activity">
+												
+															
+																<div class="the-timeline">
+																	<ul>
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
+																				<span style="font-size:12px;color:orange"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn05"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento DJ</span> Nombre DJ
+																				<span style="font-size:12px;color:orange;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn04"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><p style="color:#707070;font-size:14px;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su estado a :</p>
+																					<input id="btn03"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td>
+																					<p style="color:#707070;font-size:14px;">
+																						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su modo a : <span class="label label">Destroyer</span>								
+																					</p>
+																					<input id="btn02"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																	</ul>
+																</div>	
+											</div>
+										<!-- Termina Actividad -->	
+										<!-- Comienza Amigos -->
+											<div class="tab-pane fade " id="tab-friends">
+												<ul class="widget-users row">
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													
+												<br/>
+												
+											</div>
+										<!-- Termina Amigos -->	
+										<!-- Comienza DJ's -->
+											<div class="tab-pane fade " id="tab-dj">
+												<ul class="widget-users row">
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre DJ</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre DJ</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre DJ</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre DJ</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															
+														</div>
+													</li>
+													
+												<br/>
+												
+											</div>
+											
+											<!-- Termina DJ's -->
+											<!-- Comienza Clubs -->
+											<div class="tab-pane fade " id="tab-club">
+												<ul class="widget-users row">
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															
+														</div>
+													</li>
+												<br/>
+												
+											</div>
+											<!-- Termina Clubs -->
+											<!-- Comienza Fotos -->
+											<div class="tab-pane fade" id="tab-photos">	
+											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
+													<form class="form-inline">
+													<div class="form-group">
+														<a href="#"id="image-gallery-button" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Ver todas</a>
+													</div>
+													</form>
+													<br>
+												<!-- The container for the list of example images -->
+												<!-- 	<div id="links"></div>
+													<br>
+												</div>
+											<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+											<!-- 	<div id="blueimp-gallery" class="blueimp-gallery" >
+												<!-- The container for the modal slides -->
+												<!-- 	<div class="slides"></div>
+													<!-- Controls for the borderless lightbox -->
+												<!-- 	<h3 class="title"></h3>
+													<a class="prev">‹</a>
+													<a class="next">›</a>
+													<a class="close">×</a>
+													<a class="play-pause"></a>
+													<ol class="indicator"></ol>
+													<!-- The modal dialog, which will be used to wrap the lightbox content -->
+												<!-- 	<div class="modal fade" style="background-color:transparent; width:100%;height:100%;margin-top:20%;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" aria-hidden="true">&times;</button>
+																	<h4 class="modal-title"></h4>
+																</div>
+																<div class="modal-body next"></div>
+																<div class="modal-footer">
+																	<a href="#" class="btn btn-success pull-left prev" style="background-color:#000;border-color:#ff6b24;color:#34d1be;"><i class="glyphicon glyphicon-chevron-left"></i> Anterior </a>
+																	<a href="#" class="btn btn-success pull-right next" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Siguiente <i class="glyphicon glyphicon-chevron-right"></i></a>
+												
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>-->
 	
-		</div><!-- col-md-12 -->
-        </div><!-- row -->
-		<div class="row">
-			<div class="col-md-12 the-timeline-margin">
-				<div class="titulos">
-                        <ul><li>FOTOS</li></ul>
-                        </div>
-			</div><!-- col-md-12 -->
-        </div><!-- row -->
-		</div><!-- Container -->
-	</div><!-- Wrapper -->
-
-</div>
+											</div>	<!-- Termina Fotos -->
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- /MiPerfil --> 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
+<!--<script src="../js/bootstrap.min.js"></script>
+<script src="../js/images-user2.js"></script>
+<script src="../js/images-user1.js"></script>
+<script src="../js/images-user.js"></script>-->
 
 </body>
 </html>

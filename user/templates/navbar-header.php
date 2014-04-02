@@ -2,7 +2,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">
         <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
+          <a href="home.php" class="navbar-brand"><img src="../images/mainlogo.png" alt="logoWhere2Night"</a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
           <span class="sr-only">Toggle Side Navigation</span>
           <i class="icon-th-list"></i>
