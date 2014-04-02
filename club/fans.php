@@ -39,26 +39,7 @@ include_once "../framework/visits.php";
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
     <script src="../js/keep-session.js"></script>
-
-
-	<script type="text/javascript">  
-		$(document).ready(function(){ 
-			
-           //Function for closing session
-	        $("#close_session").on("click", function (event) {
-		        $.post("../framework/session_end.php",
-		          {},
-		          function(data,status){
-		          	  eraseCookie('w2n_id');
-		          	  eraseCookie('w2n_token');
-		          	  eraseCookie('w2n_type');
-			          var url = "../";
-			          $(location).attr('href',url);
-		        });
-		    });
-		
-	</script>
-
+	
 </head>
 
 <body style="background-color: #000000">

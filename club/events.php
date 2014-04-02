@@ -35,7 +35,7 @@ include_once "../framework/visits.php";
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>
 	<script src="../js/keep-session.js"></script>
-
+     
 	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -66,30 +66,19 @@ jQuery(function($){
 
            $("#datepicker").datepicker();
 
-           //Function for close session
-	      $("#close_session").on("click", function (event) {
-	        $.post("../framework/session_end.php",
-	          {},
-	          function(data,status){
-	          	  eraseCookie('w2n_id');
-	          	  eraseCookie('w2n_token');
-	          	  eraseCookie('w2n_type');
-		          var url = "../";
-		          $(location).attr('href',url);
-	          });
-	      });
-
         });
 		
 		
 	   $('#myTab a').click(function (e) {
 		e.preventDefault()
 		$(this).tab('show')
-	})
+	});
 	
 		
     </script>
 
+	
+	
 	<!-- /script -->
 	
 </head>

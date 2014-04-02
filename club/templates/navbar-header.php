@@ -1,3 +1,25 @@
+  <script type="text/javascript">  
+    $(document).ready(function(){ 
+      
+         //Function for closing session
+        $("#close_session").on("click", function (event) {
+          $.post("../framework/session_end.php",
+            {},
+            function(data,status){
+                eraseCookie('w2n_id');
+                eraseCookie('w2n_token');
+                eraseCookie('w2n_type');
+              var url = "../";
+              $(location).attr('href',url);
+          });
+        });
+
+    });//end $(document).ready(function()
+    
+</script>
+
+
+
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">

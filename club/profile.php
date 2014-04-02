@@ -129,19 +129,7 @@ include_once "../framework/visits.php";
     $(document).ready(function(){ 
 		getData();
       
-	    $("#close_session").on("click", function (event) {
-	        $.post("../framework/session_end.php",
-	          {},
-	          function(data,status){
-	          	  eraseCookie('w2n_id');
-	          	  eraseCookie('w2n_token');
-	          	  eraseCookie('w2n_type');
-		          var url = "../";
-		          $(location).attr('href',url);
-	          });
-	      });
-            
-      $("#change-data").on("click", function (event) {
+	     $("#change-data").on("click", function (event) {
           
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";

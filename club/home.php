@@ -39,25 +39,6 @@ include_once "../framework/sessions.php";
 <script src="../js/keep-session.js"></script>
 <!-- /script -->
 
-  <script type="text/javascript">  
-    $(document).ready(function(){ 
-      
-         //Function for closing session
-        $("#close_session").on("click", function (event) {
-          $.post("../framework/session_end.php",
-            {},
-            function(data,status){
-                eraseCookie('w2n_id');
-                eraseCookie('w2n_token');
-                eraseCookie('w2n_type');
-              var url = "../";
-              $(location).attr('href',url);
-          });
-        });
-
-    });//end $(document).ready(function()
-    
-  </script>
   <script type="text/javascript">
 function cosa(but)
 {
