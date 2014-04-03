@@ -100,10 +100,12 @@ document.getElementById(myButtonID).value='Apuntado';
 			width: auto;
 			padding: 0px 20px;
 			color:#000;
+			
 		}
 		.container{
 			padding:0px 20px;
 		}
+		
 	}	
 			
     </style>
@@ -126,7 +128,7 @@ document.getElementById(myButtonID).value='Apuntado';
 						<div class="row" id="user-profile"style="background-color:#000;margin-left:1%;margin-right:-20%">
 							<div class="col-lg-3 col-md-4 col-sm-4" >
 								<div class="main-box clearfix"style="background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<h2 style="color:#ff6b24;text-transform: uppercase; "><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></h2>
+									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></h2>
 									
 									<img src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									
