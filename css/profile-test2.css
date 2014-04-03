@@ -3,6 +3,7 @@
 	-moz-box-shadow: 0px 0px 20px #99FFFF;
 	box-shadow: 0px 0px 20px #99FFFF;	
 }
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 color: #ff6b24;
 cursor: default;

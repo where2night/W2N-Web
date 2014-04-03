@@ -238,7 +238,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									
 									<div class="profile-message-btn center-block text-center">
 										<a href="#" class="">
-											<input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="btnSeguir(this);">
+											<input id="btn01"  class="botonseguir" type="button"value="Agregar Fiestero"onClick="btnSeguir(this);">
 											
 										</a>
 									</div>
