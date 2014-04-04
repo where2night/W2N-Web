@@ -40,19 +40,7 @@ include_once "../framework/sessions.php";
   <script type="text/javascript">  
     $(document).ready(function(){ 
       
-         //Function for closing session
-        $("#close_session").on("click", function (event) {
-          $.post("../framework/session_end.php",
-            {},
-            function(data,status){
-                eraseCookie('w2n_id');
-                eraseCookie('w2n_token');
-                eraseCookie('w2n_type');
-              var url = "http://www.where2night.es";
-              $(location).attr('href',url);
-          });
-        });
-
+         
           //Get DJ's info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";

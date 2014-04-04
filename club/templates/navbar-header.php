@@ -5,15 +5,18 @@
         $("#close_session").on("click", function (event) {
           $.post("../framework/session_end.php",
             {},
-            function(data,status){
-                eraseCookie('w2n_id');
+            function(data,status){              
+				eraseCookie('w2n_id');
                 eraseCookie('w2n_token');
                 eraseCookie('w2n_type');
-              var url = "../";
+                var url = "../";
               $(location).attr('href',url);
-          });
-        });
+                      });
+        
+		});
 
+	
+		
     });//end $(document).ready(function()
     
 </script>

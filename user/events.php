@@ -17,6 +17,7 @@ include_once "../framework/visits.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no" />
     <!-- Icon W2N -->
+
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Styles-->
@@ -29,11 +30,21 @@ include_once "../framework/visits.php";
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     
     <link rel="stylesheet" href="../css/profile-partier.css" type="text/css" />
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+	<script src="../js/jquery.js"></script>	
+
+   	<script>
+	$('#myTab a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+
+	   
+	</script>
+	
+    <script src="../js/keep-session.js"></script>
    <script src="../js/tab.js"></script>
    
-
 </head>
 
 <body>
@@ -89,14 +100,6 @@ include_once "../framework/visits.php";
 
 	 </style>
     
-	<script>
-	$('#myTab a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
-
-	   
-	</script>
 
 <?php 
 	 /*NavbarHeader*/
