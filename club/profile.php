@@ -40,6 +40,7 @@ include_once "../framework/visits.php";
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
+<script src="../js/follow.js"></script>
 
 <script type="text/javascript"> 
 	function getData(){
@@ -242,22 +243,6 @@ include_once "../framework/visits.php";
 	});//end $(document).ready(function()
 	</script>
 	
-	<script type="text/javascript">
-function changeMyClassName(theButton)
-{
-myButtonID = theButton.id;
-if(document.getElementById(myButtonID).className=='myClickedButton')
-{
-document.getElementById(myButtonID).className='myDefaultButton';
-document.getElementById(myButtonID).value='SIGUEME';
-}
-else
-{
-document.getElementById(myButtonID).className='myClickedButton';
-document.getElementById(myButtonID).value='SIGUIENDO';
-}
-}
-</script>
 
 </head>
 
@@ -293,6 +278,10 @@ document.getElementById(myButtonID).value='SIGUIENDO';
   include "templates/navbar-header.php";
   $idProfile=$_SESSION['id_user']; 
   $token=$_SESSION['token']; 
+
+  if (isset($_GET['idv'])){
+	$id_event = $_GET['idv'];
+}else $id_event = $idProfile;
   
   
 ?>
@@ -303,9 +292,8 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
-	
+var ideEvent = '<?php echo $id_event; ?>' ;	
 </script>
-
 
 
 
@@ -324,7 +312,10 @@ var tok = '<?php echo $token; ?>' ;
 						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo get_poblation_local_club();?></p>
 					</div>
 					<div>
-						<input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="changeMyClassName(this);">
+						<script>
+						changeMyClassName(this);
+						</script>
+						
 					</div>
                    	 </div>
 		</div><!-- col-md-12 -->
@@ -342,11 +333,6 @@ var tok = '<?php echo $token; ?>' ;
                         </div>
 						<div class="the-timeline">
 
-<?php
-if (isset($_GET['idv'])){
-	$id_event = $_GET['idv'];
-}else $id_event = $idProfile;
-?>							
 							<ul id="ul">
 								<script>
 									eventProfile("<?php echo $id_event;?>");
