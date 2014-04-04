@@ -18,14 +18,66 @@
     
 </script>
 
+<?php 
+  
+$typeProfile=$_SESSION['user_type']; 
+
+?>
+
+<script>
+	
+var type = '<?php echo $typeProfile; ?>' ;
+
+function goToHome(where){
+
+if(where=="logo"){
+
+	if (type=="user")
+		document.write("<a href='../user/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
+	else
+		if (type=="club")
+			document.write("<a href='../club/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
+				else
+					document.write("<a href='../dj/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
+
+	} else{
+	
+	if (type=="user")
+		document.write("<a href='../user/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+	else
+		if (type=="club")
+			document.write("<a href='../club/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+				else
+					document.write("<a href='../dj/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+
+	
+	}					
+}
+
+
+function name(){
+	
+		if (type=="club")
+				document.write("<?php echo $_SESSION['local_name'];?>");
+						else 
+                            document.write("<?php echo $_SESSION['name'].' '.$_SESSION['surnames'];?>");
+}
+
+</script>
+
+
+
 
 
 <!-- NavbarHeader -->
 	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:#000;height:5%" role="banner">
       <div class="container">
         <div class="navbar-header">
-          <a href="home.php" class="navbar-brand"><img href="home.php" src="../images/mainlogo.png" alt="logoWhere2Night"</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
+           <script>
+		     goToHome("logo");
+		  </script>
+
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
           <span class="sr-only">Toggle Side Navigation</span>
           <i class="icon-th-list"></i>
         </button>
@@ -41,8 +93,12 @@
         <div class="navbar-right">
 		
            <ul class="nav navbar-nav navbar-left">
-           <a href="home.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';"><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-home" style="color:#FF6B24; margin-top:15px"></i></a>
-				<li>
+        
+          <script>
+		     goToHome("notlogo");
+		  </script>
+
+		<li>
               <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
               	
             	</li>
@@ -61,9 +117,10 @@
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
                 <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
-				<?php 
-					echo $_SESSION['name']." ".$_SESSION['surnames'];
-				?>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
+				<script>
+				name();
+				</script>
+				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
               <ul class="dropdown-menu">
