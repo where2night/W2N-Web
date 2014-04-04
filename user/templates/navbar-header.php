@@ -37,8 +37,8 @@ if(where=="logo"){
 	else
 		if (type=="club")
 			document.write("<a href='../club/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
-				else
-					document.write("<a href='../dj/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
+				//else
+					//document.write("<a href='../dj/home.php' class='navbar-brand'><img src='../images/mainlogo.png' alt='logoWhere2Night'</a>");
 
 	} else{
 	
@@ -47,8 +47,8 @@ if(where=="logo"){
 	else
 		if (type=="club")
 			document.write("<a href='../club/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
-				else
-					document.write("<a href='../dj/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+				//else
+					//document.write("<a href='../dj/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
 
 	
 	}					
