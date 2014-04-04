@@ -30,6 +30,10 @@ include_once "../framework/sessions.php";
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <link rel="stylesheet" href="../css/profile-partier.css" type="text/css" /><!-- Style -->	
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/profile-photo.css" type="text/css" />
 
 	<!-- script -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
@@ -39,7 +43,6 @@ include_once "../framework/sessions.php";
 
 	<script type="text/javascript">  
     $(document).ready(function(){ 
-      
             
       $("#change-data").on("click", function (event) {
           
@@ -141,7 +144,8 @@ include_once "../framework/sessions.php";
 				.container{
 					padding:0px 20px;
 				}
-		}		
+		}	
+				
     </style>
 	
 <?php 
@@ -152,137 +156,200 @@ include_once "../framework/sessions.php";
   	include "templates/sidebar.php";
 ?>
 	
-	<!-- My Profile -->
-	<div class="main-content" style="background-image:url(../images/wall.jpg); max-height:2000px; margin-bottom:-50px;" > 
-		<div class="wrapper">
-			<div class="container">
-				<div align= "center">
-					<form class="form-horizontal" role="form" id="edit-profile">
-						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Nombre: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['name']; ?>" >
-							</div>
-						</div>
-					  
-						<div class="form-group">
-							<label for="surname" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Apellidos: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="surname" value="<?php echo $_SESSION['surnames']; ?>">
-							</div>
-						</div>
+	<!-- MiPerfil -->
+<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">
+		<div class="row">
+			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
+				<div class="row">
+					<div class="col-lg-12">
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
+					<h1 style="color:#ff6b24;font-size:30px;">Editar Perfil Fiestero</h1>
+					</header>
+						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
+							
+							
+							<div class="col-lg-9 col-md-8 col-sm-8">
+								<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
+									
+									<div class="profile-header">
+										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
+									</div> 
+									<div class="tabs-wrapper profile-tabs" >
+										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
+											<li class="active"><a href="#tab-basic" data-toggle="tab">Básica</a></li>
+											<li><a href="#tab-details" data-toggle="tab">Detallada</a></li>
+											<li><a href="#tab-photo" data-toggle="tab">Foto</a></li>
+										</ul>
+										
+										<div class="tab-content">
+										<!-- Comienza Basic-->
+											<div class="tab-pane fade in active" id="tab-basic">
+												 <form class="form-horizontal" style="width:99%"role="form">
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="email" class="form-control" style=""id="name" placeholder="Nombre" value="<?php echo $_SESSION['name']; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="surname" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Apellidos</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="email" class="form-control" id="surname" placeholder="Apellidos" value="<?php echo $_SESSION['surnames']; ?>">
+                                                            </div>
+                                                        </div>
+														<?php
+															$birth_array = explode ('/',$_SESSION['birthdate']);
+															$day = $birth_array[2];
+															$month = $birth_array[1];
+															$year = $birth_array[0]; 
+														?>
+														<div class="form-group">
+															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Fecha de nacimiento</label>
+															<div class="col-sm-2">
+																<select id="day" class="form-control">
+																	<option value="0">Día</option>
+																	<?php 
+																		for ($i=1; $i<32; $i++){
+																			if ($i == $day){
+																				echo "<option value=".$i." selected=\"selected\">".$i."</option>";
+																			}else{
+																				echo "<option value=".$i.">".$i."</option>";
+																			}
+																		} 
+																	?>  
+																</select>
+															</div>
+															<div class="col-sm-2">
+																<select id="month" class="form-control">
+																	<option value="0">Mes</option>
+																	<?php  
+																		for ($i=1; $i<13; $i++){
+																			if ($i == $month){
+																				echo "<option value=".$i." selected=\"selected\">".$i."</option>";
+																			}else{
+																				echo "<option value=".$i.">".$i."</option>";
+																			}
+																		} 
+																	?>
+																</select>
+															</div>
+															<div class="col-sm-2">
+																<select id="year" class="form-control">
+																	<option value="0">Año</option>
+																	<?php 
+																		for ($i=2013; $i>1905; $i--){
+																			if ($i == $year){
+																				echo "<option value=".$i." selected=\"selected\">".$i."</option>";
+																			}else{
+																				echo "<option value=".$i.">".$i."</option>";
+																			}
+																		} 
+																	?>    
+																</select>
+															</div>
+														</div>
+														<div class="form-group">
+															<label  class="col-sm-2 control-label" style="color:#ff6b24;font-size:13px;">Sexo</label>
+															<div class="col-sm-8">
+																<label class="radio-inline">
+																	<input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
+																</label>
+																<label class="radio-inline">
+																	<input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
+																</label>
+															</div>
+														</div>
+                                                        <div class="form-group">
+                                                            <label for="inputemail" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Correo Electrónico</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="email" class="form-control" id="inputemail" placeholder="Correo Electrónico">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputpassword" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Contraseña</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="password" class="form-control" id="inputpassword" placeholder="Contraseña">
+                                                                <input type="password" class="form-control together" id="inputpassword2" placeholder="Repite Contraseña">
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </form>
+													 <a href="#"id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
+																
+											</div>
+										<!-- Termina Basic -->	
+										<!-- Comienza Details -->
+											<div class="tab-pane fade " id="tab-details">
+												 <form class="form-horizontal " style="width:99%"role="form">
+                                                        <div class="form-group">
+                                                            <label for="marital-status" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Estado Civil</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control" id="marital-status" placeholder="Estado Civil" value="<?php echo $_SESSION['civil_state']; ?>">             
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="city" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Ciudad Actual</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control" id="city" placeholder="Ciudad Actual" value="<?php echo $_SESSION['city']; ?>">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="favourite-music" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Música Favorita</label>
+                                                            <div class="col-lg-10">
+                                                                <input id="city" name="favourite-music" type="text" placeholder="Música Favorita" class="form-control"value="<?php echo $_SESSION['music']; ?>">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="favourite-drink" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Bebida Favorita</label>
+                                                            <div class="col-lg-10">
+                                                                <input id="favourite-drink" name="favourite-drink" type="text" placeholder="Bebida Favorita" class="form-control" value="<?php echo $_SESSION['drink']; ?>">
+                                                            </div>
+                                                        </div>
+														<div class="form-group">
+                                                            <label for="about-you" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Acerca de Mi</label>
+                                                            <div class="col-lg-10">
+                                                                <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"><?php echo $_SESSION['about']; ?></textarea>
+                                                            </div>
+                                                        </div>
+														
+                                                     </form>   
+													<a href="#"id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>	
+													
+											</div>
+										<!-- Termina Details -->	
+										<!-- Comienza Photo -->
+											<div class="tab-pane fade " id="tab-photo">
+													
+												<div class="fileupload fileupload-new" data-provides="fileupload">
+												<div class="fileupload-new thumbnail " style="width: 25%; height:25%;margin-left:37%"><img src="../images/reg1.jpg" alt="Profile Avatar" /></div>
+												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;margin-left:40%"></div>
+												<div style="text-align:center">
+													<span class="btn btn-success btn-file"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none"><span class="fileupload-new">Seleccionar Foto</span><span class="fileupload-exists">Cambiar</span><input type="file" /></span>
+													<a href="#" class="btn btn-success fileupload-exists" data-dismiss="fileupload"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Borrar</a>
+												</div>
+												</div>
 
-						<?php
-						 $birth_array = explode ('/',$_SESSION['birthdate']);
-						 $day = $birth_array[2];
-						 $month = $birth_array[1];
-						 $year = $birth_array[0]; 
-						?>
-				  
-						<div class="form-group">
-							<label class="col-sm-2 control-label" style="color: #FFFFCC"><b>Fecha de nacimiento: </b></label>
-							<div class="col-sm-2">
-							  <select id="day" class="form-control">
-								  <option value="0">Día</option>
-								  <?php 
-									for ($i=1; $i<32; $i++){
-									  if ($i == $day){
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>  
-								</select>
-							</div>
-							  
-							<div class="col-sm-2">
-								<select id="month" class="form-control">
-								  <option value="0">Mes</option>
-									<?php  
-									for ($i=1; $i<13; $i++){
-									  if ($i == $month){
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>
-								  </select>
-							</div>
-							  
-							<div class="col-sm-2">
-								<select id="year" class="form-control">
-								  <option value="0">Año</option>
-									<?php 
-									for ($i=2013; $i>1905; $i--){
-									  if ($i == $year){
-										echo "<option value=".$i." selected=\"selected\">".$i."</option>";
-									  }else{
-										echo "<option value=".$i.">".$i."</option>";
-									  }
-									} 
-								  ?>    
-								</select>
+											</div>
+											
+											<!-- Termina Photo -->
+										
+											
+									
+								</div> <!-- Termina tab-content -->
 							</div>
 						</div>
-				  
-						<div class="form-group">
-							<label  class="col-sm-2 control-label" style="color: #FFFFCC"><b>Sexo: </b></label>
-							<div class="col-sm-8">
-								<label class="radio-inline">
-								  <input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
-								</label>
-								<label class="radio-inline">
-								  <input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
-								</label>
-							</div>
-						</div>
-				  
-						<div class="form-group">
-							<label for="favourite-music" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Música favorita: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="favourite-music" name="favourite-music" value="<?php echo $_SESSION['music']; ?>">
-							</div>
-						</div>
-				  
-						<div class="form-group">
-							<label for="favourite-drink" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Bebida favorita: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="favourite-drink" name="favourite-drink" value="<?php echo $_SESSION['drink']; ?>">
-							</div>
-						</div>
-				  
-						<div class="form-group">
-							<label for="marital-status" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Estado civil: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="marital-status" value="<?php echo $_SESSION['civil_state']; ?>">
-							</div>
-						</div>
-						  
-						<div class="form-group">
-							<label for="city" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Ciudad actual: </b></label>
-							<div class="col-sm-8">
-							  <input type="text" class="form-control" id="city" name="city" value="<?php echo $_SESSION['city']; ?>">
-							</div>
-						</div>
-						  
-						<div class="form-group">
-							<label for="about-you" class="col-sm-2 control-label" style="color: #FFFFCC"><b>Acerca de ti: </b></label>
-							<div class="col-sm-8">
-							  <textarea id="about-you" class="form-control" rows="3"><?php echo $_SESSION['about']; ?></textarea>
-							</div>
-						</div>
-				  
-						<button type="button" class="btn btn-default" id="change-data">Editar perfil</button>
-				  
-					</form>
-				</div> <!-- align center-->  
-			</div><!-- Container -->
-		</div><!-- Wrapper -->
-
+						
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<!-- /My Profile --> 
+<!-- /MiPerfil --> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
+<script src="../js/profile-photo.js"></script>
 
 </body>
 </html>
