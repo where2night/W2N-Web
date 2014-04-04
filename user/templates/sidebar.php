@@ -8,8 +8,8 @@
          <li class="">
           <span class="glow"></span>
           <a href="profile.php">
-              <i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
-              <span>Mi Perfil</span>
+              <i class=""><img class="menu-avatar" src="../images/reg1.jpg" /></i>
+              <span>Perfil Fiestero</span>
           </a>
         </li>
          <li class="">
@@ -47,27 +47,19 @@
               <span>DJ's</span>
           </a>
         </li> 
-        <li class="">
-         <span class="glow"></span>
-          <a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
-              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
-                    <span>
-                      Configuración&nbsp;&nbsp;&nbsp;
-                      <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                    </span>
+		<li class="">
+          <span class="glow"></span>
+          <a href="edit.php">
+              <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+              <span>Editar Perfil</span>
           </a>
-          <ul id="tnnmk7rjLZ" class="collapse "> 
-               
-                  <a href="edit.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
-                      <i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
-                  </a>
-                <br>
-                
-                  <a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
-                      <i class="glyphicon glyphicon-lock"style="color:#FF6B24"></i> Privacidad
-                  </a>
-                
-          </ul>
+        </li> 
+       <li class="">
+          <span class="glow"></span>
+          <a href="#">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+              <span>Configuración</span>
+          </a>
         </li>
 </div>
 <!-- /SideBar -->
