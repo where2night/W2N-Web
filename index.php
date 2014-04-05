@@ -28,7 +28,7 @@
 		<script type="text/javascript" src="js/register.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript" src="js/login-facebook.js"></script>
-		<script type="text/javascript" src="js/loginGoogle.js"></script>
+		<script type="text/javascript" src="js/login-google.js"></script>
 
 		<?php
 
@@ -260,36 +260,11 @@ set_session_info('<?php echo $_COOKIE['w2n_id']; ?>', '<?php echo $_COOKIE['w2n_
 					<button type="button" class="btn" onclick="w2n_login();" style="alignment-adjust:central">Entrar</button>
 					</fieldset>
 					<a href="#">¿Olvidó su contraseña?</a>
-					<p style="color:#FFF"> Iniciar sesión usando: </p>
 					<fieldset>
-					<tr align="center" valign="top">
-					<td height="30">
-					<div style="width:300px; height:22px;">
-					<div style=" position:relative; width:100px; height:22px; margin-left:48px; padding: 0;">
-					<div id="signin-button" class="show">
-					<div class="g-signin"
-					data-callback="loginFinishedCallback"
-					data-requestvisibleactions="http://schemas.google.com/AddActivity"
-					data-approvalprompt="force"
-					data-clientid="570715546992-af7dmspmi7unpj293p9ueumeej0bn088.apps.googleusercontent.com"
-					data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/plus.me "
-					data-height="short"
-					data-cookiepolicy="single_host_origin">
-				</div>
-			</div>
-		</div>
-		</div>
-		</td>
-
-		<td height="30">
-		<div style="width:300px; height:22px;">
-			<div style=" position:relative;  width:100px; height:22px; margin: 0; padding: 0;">
-				<div  class="fb-login-button"
-				data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin=loginFacebook(); ></div>
-			</div>
-		</div></td>
-		</tr>
-		</fieldset>
+                        	<p style="color:#FFF"> Iniciar sesión usando: </p>
+                               <img src="images/facebook.jpe" style="cursor:pointer;" onclick="loginFacebook();"/>
+                               <img src="images/g2.png" onclick="loginGmail();">
+					</fieldset>
 		</form>
 		</div>
 		</div>
