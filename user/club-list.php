@@ -28,7 +28,9 @@ include_once "../framework/sessions.php";
 	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	   	 
-	<link href="../css/club-user.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 <!-- script -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/jquery.js"></script>
@@ -84,7 +86,7 @@ include_once "../framework/sessions.php";
 					var longitude = json[i].longitude;
 					var link = "../club/profile.php?idv=" + id_user;
 
-					$('#club-list tbody').append('<tr><td><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"><a href="#">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td><a href="#">'+ telephoneLocal +'</a></td><td></td><td style="width: 20%;"><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;"><i class="glyphicon glyphicon-zoom-in"style="color:#1B1E24;"></i></span></a><a href="#" class="" style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-right:2px;"><i class="glyphicon glyphicon-star"style="color:#1B1E24;"></i></span></a><a href="#" class=""style="margin-right:2px;margin-left:2px;"><span class="label" style="padding-top:8px;padding-left:3px;"><i class="glyphicon glyphicon-trash"style="color:#1B1E24;"></i></span></a></td></tr>');
+					$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Eliminar</a></td></tr>');
 				}
 				/*var picture = json.picture;
 				var name = json.name;
@@ -132,6 +134,9 @@ include_once "../framework/sessions.php";
 
 <body>
 <style>  
+body{
+	background-color:#000;
+}
 
  navbar-fixed-top{
 		z-index:1030;
@@ -166,39 +171,37 @@ include_once "../framework/sessions.php";
   include "templates/sidebar.php";
 ?>
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;margin-left:200px;" > 
-<div class="wrapper">
-<div class="container">
-<div class="col-md-10" id="content-wrapper" style="background-color:#1B1E24; margin-top:40px;margin-left:30px;width:95%;">
+<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">
+		<div class="row">
+			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
 				<div class="row">
 					<div class="col-lg-12">
-					
-						<div class="clearfix">
-							<h1 class="pull-left" style="color:#FF6B24;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;"">Locales</h1>
-							
-						</div>
-						
-						<div class="row">
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
+					<h1 style="color:#ff6b24;font-size:30px;">Locales</h1>
+					</header>
+					<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
+						<div class="col-lg-9 col-md-8 col-sm-8">
+							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
+									<div class="row">
 							<div class="col-lg-12">
-								<div class="main-box clearfix">
+								
 									<div class="table-responsive">
 										<table id="club-list" class="table user-list">
 											<thead>
 												<tr>
-													<th><span style="color:#FF6B24">Local</span></th>									
-													<th class="text-center"><span style="color:#FF6B24">Dirección</span></th>
-													<th><span style="color:#FF6B24">Teléfono</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Local</span></th>									
+													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Dirección</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Teléfono</span></th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 												</tr>
 											</thead>
 											<tbody>
-											
 											</tbody>
 										</table>
 									</div>
 									<ul class="pagination pull-right">
-										<li ><a href="#" ><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
+										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">3</a></li>
@@ -207,15 +210,21 @@ include_once "../framework/sessions.php";
 										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
 									</ul>
 								</div>
+							
+						</div>
+								<!--Aqui empieza-->
 							</div>
 						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						<script src="../js/club-list.js"></script>
-
+					</div>	
+					</div>	
+				</div>
+			</div>
+		</div>
+</div>	
+<!-- MiPerfil -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
+<script src="../js/club-list.js"></script>
 </body>
 </html>
