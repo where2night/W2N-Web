@@ -2612,6 +2612,15 @@ padding: 12px 8px;
 }
 
 
+.events-wrapper .events-item .date-label {
+  background: #f5f5f5;
+}
+.events-wrapper .events-item .details .time {
+  margin-right: 10px;
+}
+.events-wrapper .events-item .details .fa {
+  margin-right: 5px;
+}
 
 
 

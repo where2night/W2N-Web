@@ -28,9 +28,10 @@ include_once "../framework/sessions.php";
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-	<link rel="stylesheet" href="../css/home-user.css" type="text/css" /><!-- Style -->
-	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->
-
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+	
 <!-- script -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/jquery.js"></script>
@@ -98,7 +99,6 @@ document.getElementById(myButtonID).value='Apuntado';
 			padding:0px 20px;
 		}
 	}	
-			
     </style>
 
 
@@ -109,41 +109,35 @@ document.getElementById(myButtonID).value='Apuntado';
   /*Sidebar*/
   include "templates/sidebar.php";
 ?>
-
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px;margin-bottom:-50px;margin-left:200px;" > 
-<div class="wrapper">
-<div class="container">
+<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">
 		<div class="row">
-			<div class="col-md-12 profile-margin">
-				<div class="col-md-4">
-					<div class="profile-sec-head banner2">
-						<img src="../images/profile.jpg" alt="" />
-						<h1>
-							<?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
-						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i>Localización Usuario</p>
-						<br>
-					</div>
-                   	 </div>
-		</div><!-- col-md-12 -->
-        </div><!-- row -->
-		
-			<div class="row">
-			<div class="col-md-12 the-timeline-margin">
-                        <div class="col-md-6">
-				<div class="titulos">
-                        <ul><li>ESTADO 
-						<input id="btn01"  class="botonanadir" type="button"value="Publicar"onClick="changeMyClassName(this);"></li></ul>           
-                        </div>
-						<div class="boxEstado">
-              	<ul><li><div id="" class="collapse in">
-								<form role="form">
-									<div class="form-group">
-										<input type="text" class="form-control textEstado" placeholder="Escribe tu estado...">
+			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
+				<div class="row">
+					<div class="col-lg-12">
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
+					<h1 style="color:#ff6b24;font-size:30px;">Inicio Fiestero</h1>
+					</header>
+					<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
+						<div class="col-lg-9 col-md-8 col-sm-8">
+							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
+								
+								<!--Aqui empieza-->	
+								<div class="col-lg-8">	
+								<form method="post" class="well padding-bottom-10" onsubmit="return false;"style="border-radius:0px;background: #D1D0CE;box-shadow: 1px 1px 2px 0 #ff6b24">
+									<textarea rows="2" class="form-control" style="border-radius:0px;background-color:#E5E4E2"placeholder="¿En qué fiesta estas pensando?"></textarea>
+									<div class="margin-top-10">
+										<a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%">Publicar</a>
+										<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24"></i></a>
+										<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i class="glyphicon glyphicon-camera" style="color:#ff6b24"></i></a>
 									</div>
-									<div class="form-group">
-										<select class="form-control textModo">
+								</form>	
+								</div class="col-sm-4">
+										
+									<div class="profile-header" style="text-align:center">
+										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Modo</span></h3>
+										<div class="form-group col-sm-2" style="margin-left:9%">
+										<select class="form-control textModo" style="background-color:#E5E4E2" >
 											<option value="">De tranquis</option>
 											<option value="">Hoy no me lio</option>
 											<option value="">Lo que surja</option>
@@ -151,174 +145,159 @@ document.getElementById(myButtonID).value='Apuntado';
 											<option value="">Destroyer</option>
 											<option value="">Yo me llamo Ralph</option>
 										</select>
-									</div>								
-								</form>	
-							</div><!-- End div #quick-post --></li></ul>		
-						</div><!-- End div .box-info -->
-						<br>
-					<div class="titulos">
-                        <ul><li>EVENTOS </li></ul>
-                       
-                        </div>
-						
-						<table class="table table-hover tablaC">
-                          <tbody>
-                            <tr>
-                              <td>Event</td>
-                          </tr>
-                            <tr>                             
-                              <td>Event</td>
-                            
-                            </tr>
-							<tr>
-                              
-                              <td>Event</td>
-                             
-                              
-                            </tr>
-							<tr>
-                              
-                              <td>Event</td>
-                            
-                              
-                            </tr>
-                            <tr>
-                             
-                               <td>Event</td>
-                            
-                            </tr>
-                          </tbody>
-                        </table>
-					<br>
-					<div class="titulos">
-                        <ul><li>LISTAS </li></ul>
-                       
-                        </div>
-						<table class="table table-hover tablaC">
-                          <tbody>
-                            <tr>
-                              
-                              <td>Lista</td>
-                             
-                              
-                            </tr>
-							<tr>
-                              
-                              <td>Lista</td>
-                             
-                            </tr>
-							<tr>
-                              
-                              <td>Lista</td>
-                            
-                              
-                            </tr>
-                            <tr>
-                             
-                              <td>Lista</td>
-                             
-                              
-                            </tr>
-                            <tr>
-                             
-                               <td>Lista</td>
-                              
-                            </tr>
-                          </tbody>
-                        </table>
-            	 </div>
-				  <div class="col-md-6">
-				  <form method="post" class="well padding-bottom-10" onsubmit="return false;"style="border-radius:0px">
-							<textarea rows="2" class="form-control" style="border-radius:0px"placeholder="¿En qué fiesta estas pensando?"></textarea>
-							<div class="margin-top-10">
-								 <a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%">Publicar</a>
-								<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i class="glyphicon glyphicon-map-marker"></i></a>
-								<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i class="glyphicon glyphicon-camera"></i></a>
-							
+									</div>			
+									</div>
+									
+									
+									
+									<div class="row">
+									<div class="col-sm-8">
+										<div class="the-timeline">
+																	<ul>
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
+																				<span style="font-size:12px;color:orange"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn05"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento DJ</span> Nombre DJ
+																				<span style="font-size:12px;color:orange;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn04"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><p style="color:#707070;font-size:14px;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su estado a :</p>
+																					<input id="btn03"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td>
+																					<p style="color:#707070;font-size:14px;">
+																						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su modo a : <span class="label label">Destroyer</span>								
+																					</p>
+																					<input id="btn02"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																	</ul>
+																</div>	
+																
+															
+									</div>
+									<div class="col-md-3">
+                    <section class="events">
+                        <h1 class="section-heading text-highlight"><span class="line">Events</span></h1>
+                        <div class="section-content">
+                            <div class="event-item">
+                                <p class="date-label">
+                                    <span class="month">FEB</span>
+                                    <span class="date-number">18</span>
+                                </p>
+                                <div class="details">
+                                    <h2 class="title">Open Day</h2>
+                                    <p class="time"><i class="fa fa-clock-o"></i>10:00am - 18:00pm</p>
+                                    <p class="location"><i class="fa fa-map-marker"></i>East Campus</p>                            
+                                </div><!--//details-->
+                            </div><!--event-item-->  
+                            <div class="event-item">
+                                <p class="date-label">
+                                    <span class="month">SEP</span>
+                                    <span class="date-number">06</span>
+                                </p>
+                                <div class="details">
+                                    <h2 class="title">E-learning at College Green</h2>
+                                    <p class="time"><i class="fa fa-clock-o"></i>10:00am - 16:00pm</p>
+                                    <p class="location"><i class="fa fa-map-marker"></i>Learning Center</p>                            
+                                </div><!--//details-->
+                            </div><!--event-item-->
+                            <div class="event-item">
+                                <p class="date-label">
+                                    <span class="month">JUN</span>
+                                    <span class="date-number">23</span>
+                                </p>
+                                <div class="details">
+                                    <h2 class="title">Career Fair</h2>
+                                    <p class="time"><i class="fa fa-clock-o"></i>09:45am - 16:00pm</p>
+                                    <p class="location"><i class="fa fa-map-marker"></i>Library</p>                            
+                                </div><!--//details-->
+                            </div><!--event-item-->
+                            <div class="event-item">
+                                <p class="date-label">
+                                    <span class="month">May</span>
+                                    <span class="date-number">17</span>
+                                </p>
+                                <div class="details">
+                                    <h2 class="title">Science Seminar</h2>
+                                    <p class="time"><i class="glyphicon glyphicon-time"></i>14:00pm - 18:00pm</p>
+                                    <p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
+                                </div><!--//details-->
+                            </div><!--event-item-->
+                            <a class="read-more" href="events.html">All events<i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div><!--//section-content-->
+                    </section><!--//events-->
+                </div><!--//col-md-3-->
+								</div>
+									
+								</div >
+								
+								</div >
+								
+								
+								
+								<!--Aqui termina-->
 							</div>
-						</form>
-                        
-					<!-- Begin timeline Listas -->
-               <div class="titulos">
-                        <ul><li>NOVEDADES </li></ul>
-                       
-                        </div>
-                  		<div class="the-timeline">
-							<ul><li><div class="the-date">
-										<span>01</span>
-										<small>Feb</small>
-									</div>
-									<h4>Show Event</h4>
-									<p>
-												
-									</p>
-									<input id="btn02"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-								<li>
-									<div class="the-date">
-										<span>31</span>
-										<small>Jan</small>
-									</div>
-									<h4>Show Lista</h4>
-									<p>
-												
-									</p>
-										<input id="btn03"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-								<li>
-									<div class="the-date">
-										<span>12</span>
-										<small>agos</small>
-									</div>
-                                    <h4>show status</h4>
-									<p>
-									 
-									</p>
-									<input id="btn04"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>05</span>
-										<small>Jun</small>
-									</div>
-                                    <h4>show Event</h4>
-									<p>
-									 
-									</p>
-									<input id="btn05"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>08</span>
-										<small>May</small>
-									</div>
-                                    <h4>show Event</h4>
-									<p>
-									 
-									</p>
-									<input id="btn06"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>12</span>
-										<small>Marz</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<input id="btn07"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
-								</li>
-                         
-							</ul>
-						</div><!-- End div .the-timeline -->					
-					</div><!-- End div .col-sm-6 -->
-		</div><!-- col-md-12 -->
-        </div><!-- row -->
-		</div><!-- Container -->
-	</div><!-- Wrapper -->
-
-</div>
-<!-- /MiPerfil --> 
+						</div>
+					</div>	
+					</div>	
+				</div>
+			</div>
+		</div>
+</div>	
+<!-- MiPerfil -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
 </body>
 </html>

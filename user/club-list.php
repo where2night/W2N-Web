@@ -177,7 +177,7 @@ body{
 				<div class="row">
 					<div class="col-lg-12">
 					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
-					<h1 style="color:#ff6b24;font-size:30px;">Locales</h1>
+					<h1 style="color:#ff6b24;font-size:30px;">Locales Favoritos</h1>
 					</header>
 					<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
 						<div class="col-lg-9 col-md-8 col-sm-8">
