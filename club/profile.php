@@ -313,7 +313,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 					</div>
 					<div>
 						<script>
-						changeMyClassName(this);
+						paintButton();
 						</script>
 						
 					</div>
