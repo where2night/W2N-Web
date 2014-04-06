@@ -226,58 +226,60 @@ document.getElementById(myButtonID).value='Apuntado';
 																
 															
 									</div>
-									<div class="col-md-3">
-                    <section class="events">
-                        <h1 class="section-heading text-highlight"><span class="line">Events</span></h1>
-                        <div class="section-content">
-                            <div class="event-item">
-                                <p class="date-label">
-                                    <span class="month">FEB</span>
-                                    <span class="date-number">18</span>
-                                </p>
-                                <div class="details">
-                                    <h2 class="title">Open Day</h2>
-                                    <p class="time"><i class="fa fa-clock-o"></i>10:00am - 18:00pm</p>
-                                    <p class="location"><i class="fa fa-map-marker"></i>East Campus</p>                            
-                                </div><!--//details-->
-                            </div><!--event-item-->  
-                            <div class="event-item">
-                                <p class="date-label">
-                                    <span class="month">SEP</span>
-                                    <span class="date-number">06</span>
-                                </p>
-                                <div class="details">
-                                    <h2 class="title">E-learning at College Green</h2>
-                                    <p class="time"><i class="fa fa-clock-o"></i>10:00am - 16:00pm</p>
-                                    <p class="location"><i class="fa fa-map-marker"></i>Learning Center</p>                            
-                                </div><!--//details-->
-                            </div><!--event-item-->
-                            <div class="event-item">
-                                <p class="date-label">
-                                    <span class="month">JUN</span>
-                                    <span class="date-number">23</span>
-                                </p>
-                                <div class="details">
-                                    <h2 class="title">Career Fair</h2>
-                                    <p class="time"><i class="fa fa-clock-o"></i>09:45am - 16:00pm</p>
-                                    <p class="location"><i class="fa fa-map-marker"></i>Library</p>                            
-                                </div><!--//details-->
-                            </div><!--event-item-->
-                            <div class="event-item">
-                                <p class="date-label">
-                                    <span class="month">May</span>
-                                    <span class="date-number">17</span>
-                                </p>
-                                <div class="details">
-                                    <h2 class="title">Science Seminar</h2>
-                                    <p class="time"><i class="glyphicon glyphicon-time"></i>14:00pm - 18:00pm</p>
-                                    <p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
-                                </div><!--//details-->
-                            </div><!--event-item-->
-                            <a class="read-more" href="events.html">All events<i class="glyphicon glyphicon-chevron-right"></i></a>
-                        </div><!--//section-content-->
-                    </section><!--//events-->
-                </div><!--//col-md-3-->
+									<div class="col-sm-3" style="margin-left:4%" >
+									<div class="profile-header" style="text-align:center">
+										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximos Eventos</span></h3>
+									</div>
+									<section class="events" style="background-color:#transparent;">
+									<div class="section-content">
+										<div class="event-item"style="border-color:#ff6b24">
+										<p class="date-label">
+											<span class="month">FEB</span>
+											<span class="date-number">18</span>
+										</p>
+										<div class="details">
+											<h2 class="title">Girls Night</h2>
+											<p class="time"><i class="glyphicon glyphicon-time"></i>10:00am - 18:00pm</p>
+											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>East Campus</p>                            
+										</div><!--//details-->
+										</div><!--event-item-->  
+										<div class="event-item"style="border-color:#ff6b24">
+										<p class="date-label">
+											<span class="month">SEP</span>
+											<span class="date-number">06</span>
+										</p>
+										<div class="details">
+											<h2 class="title">Happy Hour</h2>
+											<p class="time"><i class="glyphicon glyphicon-time"></i>10:00am - 16:00pm</p>
+											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Learning Center</p>                            
+										</div><!--//details-->
+										</div><!--event-item-->
+										<div class="event-item"style="border-color:#ff6b24">
+										<p class="date-label">
+											<span class="month">JUN</span>
+											<span class="date-number">23</span>
+										</p>
+										<div class="details">
+											<h2 class="title">DJ Remix</h2>
+											<p class="time"><i class="glyphicon glyphicon-time"></i>09:45am - 16:00pm</p>
+											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
+										</div><!--//details-->
+										</div><!--event-item-->
+										<div class="event-item"style="border-color:#ff6b24">
+										<p class="date-label">
+											<span class="month">May</span>
+											<span class="date-number">17</span>
+										</p>
+										<div class="details">
+											<h2 class="title">Free Drink</h2>
+											<p class="time"><i class="glyphicon glyphicon-time"></i>14:00pm - 18:00pm</p>
+											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
+										</div><!--//details-->
+										</div><!--event-item-->
+										<a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%">Ver Todos</a>
+									</div><!--//section-content-->
+								</section><!--//events-->
+							</div><!--//col-md-3-->
 								</div>
 									
 								</div >
