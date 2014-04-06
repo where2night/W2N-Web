@@ -938,7 +938,7 @@ padding:2px 5px 2px 5px;
 	color:#FF6B24;
 	font-size:12px;
 }
-.botonMeApunto{
+.joinEventButton{
 	
 			padding:1px 3px 1px 3px;
 	background:#3333CC;color:#FF6B24;
@@ -959,14 +959,14 @@ padding:2px 5px 2px 5px;
 		
 }
 
-.botonMeApunto:hover{
+.joinEventButton:hover{
 	-webkit-box-shadow: 0px 0px 10px #99FFFF;
 	-moz-box-shadow: 0px 0px 10px #99FFFF;
 	box-shadow: 0px 0px 10px #99FFFF;
 	background:#404040;
 	margin-left:75%;
 }
-.botonMeApunto:active{
+.joinEventButton:active{
 	-webkit-box-shadow: 0px 0px 10px #99FFFF;
 	-moz-box-shadow: 0px 0px 10px #99FFFF;
 	box-shadow: 0px 0px 10px #99FFFF;

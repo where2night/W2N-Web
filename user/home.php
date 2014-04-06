@@ -243,7 +243,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 												
 									</p>
-									<input id="btn02"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+									<input id="btn02"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
 								<li>
 									<div class="the-date">
@@ -254,7 +254,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 												
 									</p>
-										<input id="btn03"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+										<input id="btn03"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
 								<li>
 									<div class="the-date">
@@ -265,7 +265,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 									 
 									</p>
-									<input id="btn04"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+									<input id="btn04"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -276,7 +276,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 									 
 									</p>
-									<input id="btn05"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+									<input id="btn05"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -287,7 +287,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 									 
 									</p>
-									<input id="btn06"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+									<input id="btn06"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                                 <li>
 									<div class="the-date">
@@ -298,7 +298,7 @@ document.getElementById(myButtonID).value='Apuntado';
 									<p>
 									 
 									</p>
-									<input id="btn07"  class="botonMeApunto" type="button"value="Me Apunto"onClick="cosa(this);">
+									<input id="btn07"  class="joinEventButton" type="button"value="Me Apunto"onClick="cosa(this);">
 								</li>
                          
 							</ul>

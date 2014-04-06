@@ -998,7 +998,7 @@ padding:8px 20px 8px 20px;
 	margin-left:38%;
 		margin-top:2%;
 }
-.botonMeApunto{
+.joinEventButton{
 	
 	padding:6px 10px 8px 6px;
 	text-shadow:none;
@@ -1017,7 +1017,7 @@ padding:8px 20px 8px 20px;
 		border: 1px solid #FF6B24 ;
 }
 
-.botonMeApunto:hover{
+.joinEventButton:hover{
 	-webkit-box-shadow: 0px 0px 10px #ff3ede;
 	-moz-box-shadow: 0px 0px 10px #ff3ede;
 	box-shadow: 0px 0px 10px #ff3ede;

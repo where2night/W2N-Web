@@ -357,7 +357,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -368,7 +368,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 												
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -379,7 +379,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -390,7 +390,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
                                 <li>
 									<div class="the-date">
@@ -401,7 +401,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
 								<li>
 									<div class="the-date">
@@ -412,7 +412,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<p>
 									 
 									</p>
-									<button type="button" class="btn botonMeApunto" style="margin-left:80%">Me Apunto</button>
+									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
 								</li>
                            
                            

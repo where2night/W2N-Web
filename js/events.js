@@ -215,14 +215,14 @@ $.ajax({
 	
 }
 
-function eventProfile(param) {
+function eventProfile(idRequest) {
 	
 var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
 	params=params.concat(tok);
 	params=params.concat("/");
-	params=params.concat(param);
+	params=params.concat(idRequest);
 	  
 var url="../develop/read/events.php";
 	url=url.concat(params);
@@ -251,7 +251,6 @@ $.ajax({
 			 
 			 while (i<count)
 			  	{
-			  		
 					var events=document.getElementById('ul').innerHTML;
 		
 					events=events.concat("<li><div class='the-date'>");
@@ -260,20 +259,11 @@ $.ajax({
 					events=events.concat(json[i].title);
 					events=events.concat("<br>");
 					events=events.concat(json[i].text);
-					events=events.concat("<p> </p> <button type='button' class='btn botonMeApunto' style='margin-left:80%'>Me Apunto<i class='glyphicon glyphicon-thumbs-up iconColor'></i></button> </li>");
+					if(ide != idRequest){
+						events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="joinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button> </li>');
+					}
 					
-					
-												
-									
-									
-								
-					
-		
-					document.getElementById('ul').innerHTML=events;
-		   
-		
-				
-				
+					document.getElementById('ul').innerHTML=events;		
 				
 				i=i+1;	
 				}
@@ -284,14 +274,37 @@ $.ajax({
 			}
 	});
 
-
 }
+
+function joinEvent (idUser, idEvent){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	params = params.concat("/");
+	params = params.concat(idEvent);
+	  
+var url = "../develop/actions/goToEvent.php";
+	url = url.concat(params);
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 var json = JSON.parse(r.responseText);	 
+          		//alert('cucu');
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+}
+
 
 function eventHome() {
 	
-
-
-
 var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
