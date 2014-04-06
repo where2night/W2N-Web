@@ -238,29 +238,38 @@ $.ajax({
              alert(json[0].title);
              alert(json[0].text);
              alert(json[0].date);*/
+
+            var partierEvents;
+            if(ide != idRequest){
+            	partierEvents = getVisitorEvents();
+            } 
 			  
-			  var key, count = 0;
-		for(key in json) {
-  			if(json.hasOwnProperty(key)) {
-    		count++;
-  		}
-	}
-	   count=count-3;		  
+			var key, count = 0;
+			for(key in json) {
+	  			if(json.hasOwnProperty(key)) {
+		    		count++;
+		  		}
+			}
+	   		count=count-3;		  
 			
-			 var i=0;
+			var i=0;
 			 
-			 while (i<count)
+			while (i<count)
 			  	{
 					var events=document.getElementById('ul').innerHTML;
 		
-					events=events.concat("<li><div class='the-date'>");
-					events=events.concat(json[i].date);
-					events=events.concat("</div> <h4 style='color: #FF6B24'>");
-					events=events.concat(json[i].title);
-					events=events.concat("<br>");
-					events=events.concat(json[i].text);
+					events = events.concat("<li><div class='the-date'>");
+					events = events.concat(json[i].date);
+					events = events.concat("</div> <h4 style='color: #FF6B24'>");
+					events = events.concat(json[i].title);
+					events = events.concat("<br>");
+					events = events.concat(json[i].text);
 					if(ide != idRequest){
-						events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="joinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button> </li>');
+						if(partierEvents.indexOf(json[i].idEvent) > -1){//Event in array, display disjoin
+							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Desapunto<i class="glyphicon glyphicon-thumbs-down iconColor"></i></button> </li>');
+						}else{//Event not in array, display join
+							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button> </li>');
+						}
 					}
 					
 					document.getElementById('ul').innerHTML=events;		
@@ -276,7 +285,50 @@ $.ajax({
 
 }
 
-function joinEvent (idUser, idEvent){
+function getVisitorEvents(){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	  
+	var url = "../develop/actions/myEvents.php";
+	url = url.concat(params);
+	var array_ids = new Array(); 
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				
+			  	for (var i = 0; i < json.rows; i++) {
+			  		array_ids[i] = "" +json[i].idEvent;
+		  		}
+			},
+			onerror: function(e,val){
+				alert("Error al buscar eventos de usuario");
+			}
+	});
+	return array_ids;
+}
+
+
+//Check if function is join or disjoin
+function clickedJoinEvent(idRequest, idEvent){
+	var partierEvents = new Array();
+    if(ide != idRequest){
+    	partierEvents = getVisitorEvents();
+    } 
+    if(partierEvents.indexOf(idEvent) > -1){//Event in array, display disjoin
+		disjoinEvent (idRequest, idEvent)
+	}else{//Event not in array, display join
+		joinEvent (idRequest, idEvent)
+	}
+}
+
+function joinEvent (idRequest, idEvent){
 
 	var params = "/" ;
 	params = params.concat(ide); 
@@ -285,19 +337,48 @@ function joinEvent (idUser, idEvent){
 	params = params.concat("/");
 	params = params.concat(idEvent);
 	  
-var url = "../develop/actions/goToEvent.php";
+	var url = "../develop/actions/goToEvent.php";
 	url = url.concat(params);
 	$.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-			 var json = JSON.parse(r.responseText);	 
-          		//alert('cucu');
+			 	var json = JSON.parse(r.responseText);	 
+          		var button = document.getElementById("join-event-" + idEvent);
+		  		button.innerHTML ='Me Desapunto<i class="glyphicon glyphicon-thumbs-down iconColor"></i>';
 			  
 			},
 			onerror: function(e,val){
-				alert("No se puede introducir evento 2");
+				alert("No se puedo añadir al evento");
+			}
+	});
+}
+
+
+function disjoinEvent (idRequest, idEvent){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	params = params.concat("/");
+	params = params.concat(idEvent);
+	  
+	var url = "../develop/actions/goToEvent.php";
+	url = url.concat(params);
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "DELETE",
+			complete: function(r){
+			 	var json = JSON.parse(r.responseText);
+          		var button = document.getElementById("join-event-" + idEvent);
+		  		button.innerHTML ='Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i>';
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puedo eliminar del evento");
 			}
 	});
 }
