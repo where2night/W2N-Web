@@ -1,8 +1,15 @@
 function paintButton(){
 	
-if(!(ide==ideEvent))
-	document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUEME'onClick='changeMyClassName(this);'>");  
+if(!(ide==ideEvent)){
 	
+	//if you  don't follow
+	document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUEME'onClick='changeMyClassName(this);'>");
+	
+	//else
+	//document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUIENDO'onClick='changeMyClassName(this);'>");  
+	//document.getElementById('btn01').className='myClickedButton';
+	
+	}
 }
 
 
