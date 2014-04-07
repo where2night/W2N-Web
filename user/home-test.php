@@ -164,7 +164,8 @@ document.getElementById(myButtonID).value='Apuntado';
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn05"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<a href="#"id="" class="btn btn-warning pull-right" style="background-color:#1B1E24;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Me Apunto</a>
+																					
 																					</td>
 																				</tr>
 																			</tbody>
@@ -180,7 +181,7 @@ document.getElementById(myButtonID).value='Apuntado';
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn04"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<a href="#"id="" class="btn btn-warning pull-right" style="background-color:#1B1E24;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Me Apunto</a>
 																					</td>
 																				</tr>
 																			</tbody>
@@ -189,14 +190,14 @@ document.getElementById(myButtonID).value='Apuntado';
 																		<!-- Comienza Evento -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> Nombre Amigo Fiestero
 																				<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
 																			<tbody>
 																				<tr class="">
-																					<td><p style="color:#707070;font-size:14px;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su estado a :</p>
-																					<input id="btn03"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su estado a :</p>
+																					
 																					</td>
 																				</tr>
 																			</tbody>
@@ -205,7 +206,7 @@ document.getElementById(myButtonID).value='Apuntado';
 																		<!-- Comienza Evento -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero
 																				<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
@@ -213,9 +214,9 @@ document.getElementById(myButtonID).value='Apuntado';
 																				<tr class="">
 																					<td>
 																					<p style="color:#707070;font-size:14px;">
-																						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su modo a : <span class="label label">Destroyer</span>								
+																						Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>								
 																					</p>
-																					<input id="btn02"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					
 																					</td>
 																				</tr>
 																			</tbody>
