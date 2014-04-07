@@ -149,6 +149,22 @@ document.getElementById(myButtonID).value='Apuntado';
 }
 }
 </script>
+<script type="text/javascript">
+function btnVoy(theVoyBtn)
+{
+myButtonID = theVoyBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedVoy')
+{
+document.getElementById(myButtonID).className='myDefaultVoy';
+document.getElementById(myButtonID).value='Voy a ir';
+}
+else
+{
+document.getElementById(myButtonID).className='myClickedVoy';
+document.getElementById(myButtonID).value='Apuntado';
+}
+}
+</script>
 </head>
 
 <body>
@@ -211,11 +227,18 @@ document.getElementById(myButtonID).value='Apuntado';
 										
 										<span style="color:orange;">Modo</span>
 									</div>
-									
+						
 									<div class="profile-since"style="color:#707070;">
 										Miembro desde: Ene 2012
 									</div>
-									
+									<div class="profile-message-btn center-block text-center">
+										
+										<a href="#" class="">
+							
+											<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Voy a ir"onClick="btnVoy(this);"style="margin-top:3%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+											
+										</a>
+									</div>
 									<div class="profile-details" style="background-color:#1B1E24;border-color:#ff6b24;">
 										<ul class="fa-ul">
 											<li  style="color:#ff6b24;">Seguidores: <span> 456</span></li>
@@ -225,8 +248,10 @@ document.getElementById(myButtonID).value='Apuntado';
 									</div>
 									
 									<div class="profile-message-btn center-block text-center">
+										
 										<a href="#" class="">
-											<input id="btn01"  class="botonseguir" type="button"value="Agregar Fiestero"onClick="btnSeguir(this);">
+							
+											<input id="btn01"  class="btn btn-success botonseguir" type="button"value="Agregar Fiestero"onClick="btnSeguir(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 											
 										</a>
 									</div>
@@ -352,7 +377,7 @@ document.getElementById(myButtonID).value='Apuntado';
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn05"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 																					</td>
 																				</tr>
 																			</tbody>
@@ -368,7 +393,7 @@ document.getElementById(myButtonID).value='Apuntado';
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn04"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<input id="btn02"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 																					</td>
 																				</tr>
 																			</tbody>
@@ -384,7 +409,7 @@ document.getElementById(myButtonID).value='Apuntado';
 																			<tbody>
 																				<tr class="">
 																					<td><p style="color:#707070;font-size:14px;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su estado a :</p>
-																					<input id="btn03"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					
 																					</td>
 																				</tr>
 																			</tbody>
@@ -403,7 +428,8 @@ document.getElementById(myButtonID).value='Apuntado';
 																					<p style="color:#707070;font-size:14px;">
 																						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su modo a : <span class="label label">Destroyer</span>								
 																					</p>
-																					<input id="btn02"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					
+																					
 																					</td>
 																				</tr>
 																			</tbody>

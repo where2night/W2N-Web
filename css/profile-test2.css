@@ -19,123 +19,72 @@ border-color:transparent;
 border-bottom-color: #ff6b24;
 }
 .botonseguir{
-	
-	padding:8px 20px 8px 20px;
-	text-shadow:none;
-	border-left:0px;
-	border-right:0px;
-	border-bottom:0px;
-	border-top:0px;
--webkit-box-shadow: inset 0px 0px 10px #99FFFF;
-  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
-  box-shadow: inset 0px 0px 10px #99FFFF;
-	background:#000;
-	color:#FF6B24;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-border: 1px solid #FF6B24 ;
-
+background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
 }
-
-
 .botonseguir:active{
-	-webkit-box-shadow: 0px 0px 10px #FF6B24;
-	-moz-box-shadow: 0px 0px 10px #FF6B24;
-	box-shadow: 0px 0px 10px #FF6B24;
-	background:#34d1be;
-	border: 2px solid #000 ;
-	color:#1B1E24;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:13px;
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
 }
 input[type=button] {
 padding:8px 20px 8px 20px;
 }
 .myDefaultSeguir{
-	padding:8px 20px 8px 20px;
-	text-shadow:none;
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+	border-top:0px;
 	border-left:0px;
 	border-right:0px;
-	border-bottom:0px;
-	border-top:0px;
--webkit-box-shadow: inset 0px 0px 10px #99FFFF;
-  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
-  box-shadow: inset 0px 0px 10px #99FFFF;
-	background:#000;
-	color:#FF6B24;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-		border: 1px solid #FF6B24 ;
-		
+	border-bottom: 4px solid;	
 }
 .myClickedSeguir{
-	-webkit-box-shadow: 0px 0px 10px #FF6B24;
-	-moz-box-shadow: 0px 0px 10px #FF6B24;
-	box-shadow: 0px 0px 10px #FF6B24;
-	background:#34d1be;
-	border: 2px solid #000 ;
-	color:#1B1E24;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:13px;
+background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+
 
 }
-.botonapuntar{
-	
-	padding:5px 10px 5px 10px;
-	text-shadow:none;
+
+
+.botonvoy{
+background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+}
+.botonvoy:active{
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+}
+input[type=button] {
+padding:8px 20px 8px 20px;
+}
+.myDefaultVoy{
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+	border-top:0px;
 	border-left:0px;
 	border-right:0px;
-	border-bottom:0px;
-	border-top:0px;
--webkit-box-shadow: inset 0px 0px 10px #99FFFF;
-  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
-  box-shadow: inset 0px 0px 10px #99FFFF;
-	background:#000;
-	color:#FF6B24;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-border: 1px solid #FF6B24 ;
+	border-bottom: 4px solid;	
+}
+.myClickedVoy{
+background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+
+
+}
+
+.botonapuntar{
+	
+	
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
 }
 
 .botonapuntar:active{
-	-webkit-box-shadow: 0px 0px 10px #FF6B24;
-	-moz-box-shadow: 0px 0px 10px #FF6B24;
-	box-shadow: 0px 0px 10px #FF6B24;
-	background:#34d1be;
-	border: 2px solid #000 ;
-	color:#1B1E24;
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
 }
 input[type=button] {
 padding:5px 10px 5px 10px;
 }
 .myDefaultApuntar{
-	padding:5px 10px 5px 10px;
-	text-shadow:none;
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
+	border-top:0px;
 	border-left:0px;
 	border-right:0px;
-	border-bottom:0px;
-	border-top:0px;
--webkit-box-shadow: inset 0px 0px 10px #99FFFF;
-  -moz-box-shadow: inset 0px 0px 10px #99FFFF;
-  box-shadow: inset 0px 0px 10px #99FFFF;
-	background:#000;
-	color:#FF6B24;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-		border: 1px solid #FF6B24 ;
+	border-bottom: 4px solid;	
 		
 }
 .myClickedApuntar{
-	-webkit-box-shadow: 0px 0px 10px #FF6B24;
-	-moz-box-shadow: 0px 0px 10px #FF6B24;
-	box-shadow: 0px 0px 10px #FF6B24;
-	background:#34d1be;
-	border: 2px solid #000 ;
-	color:#1B1E24;
+	background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;
 
 }
 .the-timeline-margin{margin-top: 2%;}
