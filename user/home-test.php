@@ -230,53 +230,53 @@ document.getElementById(myButtonID).value='Apuntado';
 									<div class="profile-header" style="text-align:center">
 										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximos Eventos</span></h3>
 									</div>
-									<section class="events" style="background-color:#transparent;">
+									<section class="events" style="background-color:transparent;">
 									<div class="section-content">
-										<div class="event-item"style="border-color:#ff6b24">
+										<div class="event-item"style="border-color:transparent">
 										<p class="date-label">
-											<span class="month">FEB</span>
-											<span class="date-number">18</span>
+											<span class="month"style="background-color:#404040;color:#34d1be">FEB</span>
+											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">18</span>
 										</p>
-										<div class="details">
-											<h2 class="title">Girls Night</h2>
-											<p class="time"><i class="glyphicon glyphicon-time"></i>10:00am - 18:00pm</p>
-											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>East Campus</p>                            
+										<div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
+											<h2 class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Girls Night</h2>
+											<p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 10:00am - 18:00pm</p>
+											<p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Atocha</p>                            
 										</div><!--//details-->
 										</div><!--event-item-->  
-										<div class="event-item"style="border-color:#ff6b24">
+										<div class="event-item"style="border-color:transparent">
 										<p class="date-label">
-											<span class="month">SEP</span>
-											<span class="date-number">06</span>
+											<span class="month"style="background-color:#404040;color:#34d1be">SEP</span>
+											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">06</span>
 										</p>
-										<div class="details">
-											<h2 class="title">Happy Hour</h2>
-											<p class="time"><i class="glyphicon glyphicon-time"></i>10:00am - 16:00pm</p>
-											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Learning Center</p>                            
+										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
+											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Happy Hour</h2>
+											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 10:00am - 16:00pm</p>
+											<p class="location"style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Guzman el Bueno</p>                            
 										</div><!--//details-->
 										</div><!--event-item-->
-										<div class="event-item"style="border-color:#ff6b24">
+										<div class="event-item"style="border-color:transparent">
 										<p class="date-label">
-											<span class="month">JUN</span>
-											<span class="date-number">23</span>
+											<span class="month"style="background-color:#404040;color:#34d1be">JUN</span>
+											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">23</span>
 										</p>
-										<div class="details">
-											<h2 class="title">DJ Remix</h2>
-											<p class="time"><i class="glyphicon glyphicon-time"></i>09:45am - 16:00pm</p>
-											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
+										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
+											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">DJ Remix</h2>
+											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 09:45am - 16:00pm</p>
+											<p class="location"style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Ciudad Universitaria</p>                            
 										</div><!--//details-->
 										</div><!--event-item-->
-										<div class="event-item"style="border-color:#ff6b24">
+										<div class="event-item"style="border-color:transparent">
 										<p class="date-label">
-											<span class="month">May</span>
-											<span class="date-number">17</span>
+											<span class="month"style="background-color:#404040;color:#34d1be">May</span>
+											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">17</span>
 										</p>
-										<div class="details">
-											<h2 class="title">Free Drink</h2>
-											<p class="time"><i class="glyphicon glyphicon-time"></i>14:00pm - 18:00pm</p>
-											<p class="location"><i class="glyphicon glyphicon-map-marker"></i>Library</p>                            
+										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
+											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Free Drink</h2>
+											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 14:00pm - 18:00pm</p>
+											<p class="location" style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Moncloa</p>                            
 										</div><!--//details-->
 										</div><!--event-item-->
-										<a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%">Ver Todos</a>
+										
 									</div><!--//section-content-->
 								</section><!--//events-->
 							</div><!--//col-md-3-->
