@@ -19,16 +19,16 @@
               <span>Eventos</span>
           </a>
         </li>
-         <li class="">
+       <!--  <li class="">
           <span class="glow"></span>
           <a href="photos.php">
               <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
               <span>Fotos </span>
           </a>
-        </li>
+        </li>-->
          <li class="">
           <span class="glow"></span>
-          <a href="">
+          <a href="user-list.php">
               <i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
               <span>Amigos</span>
           </a>
@@ -54,12 +54,12 @@
               <span>Editar Perfil</span>
           </a>
         </li> 
-       <li class="">
+       <!--<li class="">
           <span class="glow"></span>
           <a href="#">
               <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
               <span>Configuración</span>
           </a>
-        </li>
+        </li>-->
 </div>
 <!-- /SideBar -->

@@ -69,7 +69,7 @@ include_once "../framework/sessions.php";
 					}
 					var link = "../dj/profile.php?idv=" + id_user;
 					
-					$('#dj-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture + '" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#"style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="width:20%;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#"id="" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Eliminar</a></td></tr>');
+					$('#dj-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture + '" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a class="label">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="width:20%;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#"id="" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Eliminar</a></td></tr>');
 				}style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"
 				/*var picture = json.picture;
 				var name = json.name;
@@ -157,7 +157,7 @@ include_once "../framework/sessions.php";
 				<div class="row">
 					<div class="col-lg-12">
 					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
-					<h1 style="color:#ff6b24;font-size:30px;">DJ's Favoritos</h1>
+					<h1 style="color:#ff6b24;font-size:30px;">Amigos Fiesteros</h1>
 					</header>
 					<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
 						<div class="col-lg-9 col-md-8 col-sm-8">
@@ -169,9 +169,9 @@ include_once "../framework/sessions.php";
 										<table id="dj-list" class="table user-list">
 											<thead>
 												<tr>
-													<th><span style="color:#FF6B24;border-color:#ff6b24">DJ</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>
 													<th>&nbsp;</th>													
-													<th class=""><span style="color:#FF6B24;border-color:#ff6b24">Estilo de Música</span></th>
+													<th class=""><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 													</tr>
