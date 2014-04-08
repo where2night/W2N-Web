@@ -2,6 +2,9 @@ function paintButton(){
 	
 if(!(ide==ideEvent)){
 	
+	//followers();
+	
+	
 	//if you  don't follow
 	document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUEME'onClick='changeMyClassName(this);'>");
 	
@@ -99,3 +102,44 @@ var url="../develop/actions/follow.php";
 
 
 }
+
+
+function followers(){
+
+//var follow=false;
+
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ideEvent);
+
+	  
+var url="../develop/actions/pubfollowers.php";
+	url=url.concat(params);
+	
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			  alert(r.responseText);
+			  
+			  //hacer bucle con var follow para encontrar si le
+			  //sigue ya o no
+			  
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir dejar de seguir");
+			}
+	});
+
+
+//return follow;
+
+}
+
+
