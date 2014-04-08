@@ -1,7 +1,7 @@
 .banner1{
-	-webkit-box-shadow: 0px 0px 20px #99FFFF;
-	-moz-box-shadow: 0px 0px 20px #99FFFF;
-	box-shadow: 0px 0px 20px #99FFFF;	
+	-webkit-box-shadow: 0px 0px 20px #ff6b24;
+	-moz-box-shadow: 0px 0px 20px #ff6b24;
+	box-shadow: 0px 0px 20px #ff6b24;	
 }
 
 
@@ -2629,5 +2629,6 @@ padding: 12px 8px;
 .events .details p {
   color: #666;
 }
+
 
 

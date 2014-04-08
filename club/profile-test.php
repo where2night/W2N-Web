@@ -23,23 +23,25 @@ include_once "../framework/visits.php";
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Estilos Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
+	<link  href="../css/jquery.carousel.fullscreen.css" rel="stylesheet" >
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
-	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->	
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/club-template.css" type="text/css" /><!-- Responsive -->
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
-
 	<!-- script -->
 <script src="../js/events.js"></script>
-<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
+<script src="../js/follow.js"></script>
 
 <script type="text/javascript"> 
 	function getData(){
@@ -241,20 +243,35 @@ include_once "../framework/visits.php";
 		
 	});//end $(document).ready(function()
 	</script>
-	
-	<script type="text/javascript">
-function changeMyClassName(theButton)
+<script type="text/javascript">
+function btnSeguir(theSeguirBtn)
 {
-myButtonID = theButton.id;
-if(document.getElementById(myButtonID).className=='myClickedButton')
+myButtonID = theSeguirBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedSeguir')
 {
-document.getElementById(myButtonID).className='myDefaultButton';
-document.getElementById(myButtonID).value='SIGUEME';
+document.getElementById(myButtonID).className='myDefaultSeguir';
+document.getElementById(myButtonID).value='Agregar Local';
 }
 else
 {
-document.getElementById(myButtonID).className='myClickedButton';
-document.getElementById(myButtonID).value='SIGUIENDO';
+document.getElementById(myButtonID).className='myClickedSeguir';
+document.getElementById(myButtonID).value='Local Agregado';
+}
+}
+</script>
+<script type="text/javascript">
+function btnVoy(theVoyBtn)
+{
+myButtonID = theVoyBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedVoy')
+{
+document.getElementById(myButtonID).className='myDefaultVoy';
+document.getElementById(myButtonID).value='Quiero Asitir';
+}
+else
+{
+document.getElementById(myButtonID).className='myClickedVoy';
+document.getElementById(myButtonID).value='Voy a ir';
 }
 }
 </script>
@@ -293,6 +310,10 @@ document.getElementById(myButtonID).value='SIGUIENDO';
   include "templates/navbar-header.php";
   $idProfile=$_SESSION['id_user']; 
   $token=$_SESSION['token']; 
+
+  if (isset($_GET['idv'])){
+	$id_event = $_GET['idv'];
+}else $id_event = $idProfile;
   
   
 ?>
@@ -303,7 +324,7 @@ document.getElementById(myButtonID).value='SIGUIENDO';
 
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
-	
+var ideEvent = '<?php echo $id_event; ?>' ;	
 </script>
 
 
@@ -314,109 +335,40 @@ var tok = '<?php echo $token; ?>' ;
 			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
 				<div class="row">
 					<div class="col-lg-12">
-					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:1%;margin-left:1%;margin-right:-20%">
-					<h1 style="color:#ff6b24;">Perfil Local</h1>
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;margin-left:1%;margin-right:-20%">
+					<h1 style="color:#ff6b24;font-size:30px;margin-left:4%;">Perfil Local</h1>
 					</header>
-						<div class="row" id="user-profile"style="background-color:#000;margin-left:1%;margin-right:-20%">
-							<div class="col-lg-3 col-md-4 col-sm-4" >
-								<div class="main-box clearfix"style="background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo $_SESSION['local_name']; ?>NOMBRE LOCAL</h2>
+						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
+							<div class="col-lg-11 col-md-8 col-sm-8" >
+								<div class="main-box clearfix"style="margin-left:4%;width:100%;background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
+									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo get_local_name_club(); ?></h2>
 									
-									<img src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
-									<div class="profile-label">
-										<span class="label label" style="">Destroyer</span>
-									</div>
-									
-									<div class="profile-stars">
-										
-										<span style="color:orange;">Modo</span>
-									</div>
-									<div class="profile-since"style="color:#707070;">
-										Miembro desde: Ene 2012
-									</div>
-									
-									<div class="profile-details" style="background-color:#1B1E24;border-color:#ff6b24;">
-										<ul class="fa-ul">
-											<li  style="color:#ff6b24;">Seguidores: <span style=""> 456</span></li>
-											<li  style="color:#ff6b24;">Publicaciones: <span style=""> 828</span></li>
+									<img src="../images/profile-club.jpg" alt="" class="profile-img img-responsive center-block banner1" style="width:1024px;max-height:42%;border-color:#ff6b24;"/>
+									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
+										Miembro desde: Ene 2012	
+										<ul class="fa-ul" >
+											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span style="color:#34d1be"> 456</span></li>
+											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span><span style="color:#34d1be"> 828</span></li>
 										</ul>
-									</div>
-									
-									<div class="profile-message-btn center-block text-center">
-										<a href="#" class="">
-											<input id="btn01"  class="botonseguir" type="button"value="SIGUEME"onClick="btnSeguir(this);">
-											
-										</a>
-									</div>
+										<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+									</div>			
 								</div>
 							</div>
+						</div>
+						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
 							
-							<div class="col-lg-9 col-md-8 col-sm-8">
-								<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<div class="profile-header">
-										<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Acerca de nosotros</span></h3>
-									</div>
+							
+							<div class="col-lg-11 col-md-8 col-sm-8">
+								<div class="main-box clearfix " style="margin-left:9%;background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;">
 									
-									<p style="color:#707070;">
-										<?php echo $_SESSION['about']; ?>
-									</p>
-									
-									<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
-									
-									<div class="row profile-user-info">
-										<div class="col-sm-8">
-											<div class="profile-user-details clearfix">
-												<div class="profile-user-details-label"style="color:#34d1be;">
-													Nombre Local
-												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['local_name']; ?>
-												</div>
-											</div>
-											<br>
-											<div class="profile-user-details clearfix">
-												<div class="profile-user-details-label"style="color:#34d1be;">
-													Estilo de Música
-												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['music']; ?>
-												</div>
-											</div>
-											<br>
-											<div class="profile-user-details clearfix">
-												<div class="profile-user-details-label"style="color:#34d1be;">
-													Precio Entrada
-												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php if ( $_SESSION['entry_price'] == "") echo  $_SESSION['entry_price']." €"?>
-												</div>
-											</div>
-											<br>
-											<div class="profile-user-details clearfix">
-												<div class="profile-user-details-label"style="color:#34d1be;">
-													Precio Bebida
-												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['drink_price']; ?>
-												</div>
-											</div>
-										</div>
-										
-										<div class="col-sm-4 profile-social">
-											<ul class="fa-ul" style="color:orange">
-												<li><i class=""></i><a href="#" style="">@Twitter</a></li>
-												<li><i class=""></i><a href="#"style="">Facebook</a></li>
-												<li><i class=""></i><a href="#"style="">Instagram</a></li>
-		
-											</ul>
-										</div>
-									</div>
 									
 									<div class="tabs-wrapper profile-tabs" >
 										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
 											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
 											<li><a href="#tab-friends" data-toggle="tab">Seguidores</a></li>
-											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>	
+											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
+											<li><a href="#tab-contact" data-toggle="tab">Contacto</a></li>
 										</ul>
 										<!-- Comienza Actividad -->
 										<div class="tab-content">
@@ -428,14 +380,14 @@ var tok = '<?php echo $token; ?>' ;
 																		<!-- Comienza Evento -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <?php echo $_SESSION['local_name']; ?>
-																				<span style="font-size:12px;color:orange">Publicó el evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <?php echo get_local_name_club(); ?>
+																				<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn05"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 																					</td>
 																				</tr>
 																			</tbody>
@@ -444,14 +396,14 @@ var tok = '<?php echo $token; ?>' ;
 																		<!-- Comienza Evento -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> <?php echo $_SESSION['local_name']; ?>
-																				<span style="font-size:12px;color:orange;">Publicó la lista <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> <?php echo get_local_name_club(); ?>
+																				<span style="font-size:12px;color:orange;"> publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
 																			<tbody>
 																				<tr class="">
 																					<td><h5 style="color:#ff6b24">Título Lista</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn04"  class="botonapuntar" type="button"value="Me Apunto"onClick="btnApuntar(this);">
+																					<input id="btn02"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 																					</td>
 																				</tr>
 																			</tbody>
@@ -533,7 +485,8 @@ var tok = '<?php echo $token; ?>' ;
 												
 											</div>
 										<!-- Termina Amigos -->	
-									
+										
+								
 											<!-- Comienza Fotos -->
 											<div class="tab-pane fade" id="tab-photos">	
 											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
@@ -578,6 +531,28 @@ var tok = '<?php echo $token; ?>' ;
 												</div>-->
 	
 											</div>	<!-- Termina Fotos -->
+											<div class="tab-pane fade" id="tab-contact">
+												<div class="col-lg-4">
+													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
+													<p style="color:#707070;margin-left:3%;margin-right:3%">
+															<?php echo $_SESSION['about']; ?>
+													</p>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;">
+															Estilo de música
+														</div>
+														<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+															<?php echo $_SESSION['music']; ?>
+														</div>
+													</div>
+													
+												</div>
+												<div class="col-lg-8">
+													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>
+														
+												</div>
+												
+											</div>
 									
 								</div>
 							</div>
