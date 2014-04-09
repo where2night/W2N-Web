@@ -371,7 +371,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 											<li><a href="#tab-contact" data-toggle="tab">Contacto</a></li>
 										</ul>
 										<!-- Comienza Actividad -->
-										<div class="tab-content">
+										<div class="tab-content" style="overflow:visible;">
 											<div class="tab-pane fade in active" id="tab-activity">
 												
 															
@@ -531,25 +531,33 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</div>-->
 	
 											</div>	<!-- Termina Fotos -->
-											<div class="tab-pane fade" id="tab-contact">
-												<div class="col-lg-4">
+											<div class="tab-pane fade " id="tab-contact">
+												<div class="col-lg-4 " >
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
-													<p style="color:#707070;margin-left:3%;margin-right:3%">
+													<p style="color:#707070;margin-left:3%;margin-right:3%;font-size:14px">
 															<?php echo $_SESSION['about']; ?>
 													</p>
 													<div class="profile-user-details clearfix">
-														<div class="profile-user-details-label"style="color:#34d1be;">
-															Estilo de música
-														</div>
-														<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-															<?php echo $_SESSION['music']; ?>
-														</div>
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
+															Estilo de música <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['music']; ?></span>
+														</div>	
 													</div>
-													
+													<br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
+															Precio de Entrada <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['entry_price']; ?></span>
+														</div>	
+													</div>
+													<br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
+															Precio de Bebida <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['drink_price']; ?></span>
+														</div>	
+													</div>
 												</div>
 												<div class="col-lg-8">
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>
-														
+													<?php include "map.php";?>	
 												</div>
 												
 											</div>
