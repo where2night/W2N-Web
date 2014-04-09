@@ -36,7 +36,7 @@ include_once "../framework/visits.php";
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 	<!-- script -->
 <script src="../js/events.js"></script>
-	<script src="../js/jquery.js"></script>
+<script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -481,7 +481,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 														</div>
 													</li>
 													
-												<br/>
+												</ul>
 												
 											</div>
 										<!-- Termina Amigos -->	
@@ -545,13 +545,13 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Entrada <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['entry_price']; ?></span>
+															Precio de Entrada <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if( $_SESSION['entry_price']!=0) echo $_SESSION['entry_price']." €"; ?></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Bebida <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['drink_price']; ?></span>
+															Precio de Bebida <span style="margin-left:3%;color:#707070; font-size:14px"> <?php if($_SESSION['drink_price']!= 0) echo $_SESSION['drink_price']." €" ;?></span>
 														</div>	
 													</div>
 												</div>
@@ -575,7 +575,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
 															Horario <span style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
-																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre <?php echo get_close_hours_club();?></span>
+																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre: <?php echo get_close_hours_club();?></span>
 														</div>	
 													</div>
 												</div>
