@@ -8,7 +8,7 @@
 				<span class="glow"></span>
 				<a href="profile.php">
 					<i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
-					<span>Mi Perfil</span>
+					<span>Perfil Local</span>
 				</a>
 			</li>
 			<li class="">
@@ -16,6 +16,13 @@
 				<a href="events.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Eventos</span>
+				</a>
+			</li>
+			<li class="">
+				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+					<span>Listas</span>
 				</a>
 			</li>
 			<li class="photos.php">
@@ -32,38 +39,14 @@
 					<span>Seguidores</span>
 				</a>
 			</li>
+			
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
-					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
-					<span>Listas</span>
-				</a>
-			</li>
-			<li class="">
-				<span class="glow"></span>
-				<a href="">
+				<a href="edit.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
-					<span>DJ's</span>
+					<span>Editar Perfil</span>
 				</a>
 			</li> 
-			<li class="">
-				<span class="glow"></span>
-				<a class="accordion-toggle collapsed " data-toggle="collapse" href="#tnnmk7rjLZ">
-					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
-					<span>
-						Configuración&nbsp;&nbsp;&nbsp;
-						<i class="glyphicon glyphicon-circle-arrow-down"></i>
-					</span>
-				</a>
-				<ul id="tnnmk7rjLZ" class="collapse "> 
-					<a href="edit.php" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';" >
-						<i class="glyphicon glyphicon-edit" style="color:#FF6B24"></i> Editar Perfil
-					</a>
-					<br>
-					<a href="" style="font-size:12px ;color:#6C6C6C" onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
-						<i class="glyphicon glyphicon-lock"style="color:#FF6B24"></i> Privacidad
-					</a>	
-				</ul>
-			</li>
+			
 	</div>
 	<!-- /SideBar -->

@@ -13,7 +13,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 function initialize() {
-  var fenway = new google.maps.LatLng(<?php echo get_latitude_club(); ?>,<?php echo get_longitude_club(); ?>);
+  var fenway = new google.maps.LatLng(37.6735925,-1.6968357000000651);
+  //var fenway = new google.maps.LatLng(<?php echo get_latitude_club(); ?>,<?php echo get_longitude_club(); ?>);
   var mapOptions = {
     center: fenway,
     zoom: 14
@@ -37,6 +38,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
     <div id="map-canvas" style="width: 400px; height: 300px;left:400px;top:2px;"></div>
-    <div id="pano" style="position:absolute; left:0px; top: 8px; width: 400px; height: 300px;"></div>
+    <div id="pano" style="position:absolute; left:0px; top: 8px; width: 400px; height: 300px;margin-top:-1%"></div>
   </body>
 </html>

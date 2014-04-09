@@ -538,29 +538,54 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 															<?php echo $_SESSION['about']; ?>
 													</p>
 													<div class="profile-user-details clearfix">
-														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
-															Estilo de música <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['music']; ?></span>
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Estilo de música <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['music']; ?></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
-														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
-															Precio de Entrada <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['entry_price']; ?></span>
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Precio de Entrada <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['entry_price']; ?></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
-														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%">
-															Precio de Bebida <span style="color:#707070; font-size:14px"> <?php echo $_SESSION['drink_price']; ?></span>
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Precio de Bebida <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['drink_price']; ?></span>
 														</div>	
 													</div>
 												</div>
 												<div class="col-lg-8">
-													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>
-													<?php include "map.php";?>	
+													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>	
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Dirección <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if (get_street_club() == 0) echo 'Calle'; ?>
+																				<?php if (get_street_club() == 1) echo 'Avd.'; ?>
+																				<?php if (get_street_club() == 2) echo 'Plaza'; ?>
+																				<?php echo get_street_name_club(); ?>,
+																				<?php echo get_poblation_local_club();?>
+																				<?php echo get_cp_local_club();?></span>
+														</div>	
+													</div><br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Teléfono <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo get_telephone_club();?></span>
+														</div>	
+													</div><br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Horario <span style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
+																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre <?php echo get_close_hours_club();?></span>
+														</div>	
+													</div>
 												</div>
-												
+												<div class="row">
+												<div class="col-lg-8" style="margin-left:10%;margin-top:2%">
+												<?php include "map.php";?>
+												</div>
+												</div>
 											</div>
+											
 									
 								</div>
 							</div>
