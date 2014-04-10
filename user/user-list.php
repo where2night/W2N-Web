@@ -9,7 +9,7 @@ include_once "../framework/sessions.php";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>W2N-DJ Users</title>
+ <title>W2N-Users Friends</title>
     <meta name="description" content="Where2Night"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -39,13 +39,13 @@ include_once "../framework/sessions.php";
 <script src="../js/keep-session.js"></script>
 <!-- /script -->
 
-  <script type="text/javascript">  
-    $(document).ready(function(){ 
+  <!--<script type="text/javascript">  
+  /*  $(document).ready(function(){ 
       
          
           //Get DJ's info
-        var idProfile = <?php echo $_SESSION['id_user'];?>;
-        var token = "<?php echo $_SESSION['token'];?>";
+        var idProfile = 
+        var token = 
 		var params = "/" + idProfile + "/" + token; 
         var url1 = "../develop/read/djs.php" + params;
         $.ajax({
@@ -102,16 +102,16 @@ include_once "../framework/sessions.php";
 					//alert("Data: " + data + "\nStatus: " + status);
 					//window.location.href = "../user/home.php";										  
 				  });*/
-	    		},
-				onerror: function(e,val){
-					alert("Contraseña y/o usuario incorrectos");
-				}
-			});
+	    		//},
+				//onerror: function(e,val){
+					//alert("Contraseña y/o usuario incorrectos");
+				//}
+			//});
 
 
-    });//end $(document).ready(function()
+    //});//end $(document).ready(function()
     
-  </script>
+  </script> -->
 
 </head>
 

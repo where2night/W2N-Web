@@ -288,7 +288,7 @@
     <section id="" class="home-section" style=" background-image:url(images/CollageNeon.jpg)" >
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
+                <!--<div class="col-sm-4">
                     <article class="home-features-item hover">
                         <div class="item-icon">
                             <img src="images/party3.jpg" alt="">
@@ -299,9 +299,9 @@
                             
                             <a id="dj"  class="btn btn-transparent pull-right btnRegistro" onclick="registerDj();">Registro DJ</a>
                         </div>
-                    </article> <!-- home-features-item -->
-                </div>
-                <div class="col-sm-4">
+                    </article> 
+                </div>-->
+                <div class="col-sm-4" style="margin-left:16%">
                     <article class="home-features-item hover">
                         <div class="item-icon">
                             <img src="images/party4.jpg" alt="">
@@ -350,9 +350,9 @@
             <div class="row">
                 <div class="col-md-6 home-about-text">
                     <h1 class="section-title">¿Quienes somos?</h1>
-                    <p>Where2Night es una red social orientada a todo aquel que le guste la Fiesta. Los usuarios que la conforman pueden ser DJ's, Fiesteros o Locales.</p>
+                    <p>Where2Night es una red social orientada a todo aquel que le guste la Fiesta. Los usuarios que la conforman pueden ser Fiesteros o Locales.</p>
 
-                    <p>DJ's podrán publicar sus eventos dándose a conocer entre sus seguidores.</p>
+                    <!--<p>DJ's podrán publicar sus eventos dándose a conocer entre sus seguidores.</p>-->
 					<p>Fiesteros sabrán dónde se encuentran sus amigos de fiesta, las últimas promociones y eventos.</p>
 					<p>Locales publicarán la creación de eventos,promociones y listas.</p>
 					<p>Para más información te proporcionamos los <a href="/terms-conditions.php"style="color:#ff6b24">términos y condiciones</a></p>

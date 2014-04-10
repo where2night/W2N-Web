@@ -156,11 +156,11 @@ document.getElementById(myButtonID).value='Apuntado';
 																		</table>
 																		<!-- Termina Evento -->
 																		<!-- Comienza Evento -->
-																		<li class="">
+																		<!--<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 																				<span class="label label-dark-blue" style="font-size:12px;">Evento DJ</span> Nombre DJ
 																				<span style="font-size:12px;color:orange;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
+																		</li>-->
 																		<table class="table  tablaC1">
 																			<tbody>
 																				<tr class="">

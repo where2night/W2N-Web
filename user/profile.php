@@ -48,7 +48,7 @@ include_once "../framework/sessions.php";
 <!-- /script -->
 <script type="text/javascript">
 
-      $(document).ready(function(){ 
+     /* $(document).ready(function(){ 
       
         
           //Get DJ's info
@@ -110,14 +110,14 @@ include_once "../framework/sessions.php";
 					//alert("Data: " + data + "\nStatus: " + status);
 					//window.location.href = "../user/home.php";										  
 				  });*/
-	    		},
-				onerror: function(e,val){
-					alert("Contraseña y/o usuario incorrectos");
-				}
-			});
+	    		//},
+				//onerror: function(e,val){
+					//alert("Contraseña y/o usuario incorrectos");
+				//}
+			//});
 
 
-    });//end $(document).ready(function()
+    //});//end $(document).ready(function()
 function btnSeguir(theSeguirBtn)
 {
 myButtonID = theSeguirBtn.id;
@@ -356,7 +356,7 @@ document.getElementById(myButtonID).value='Apuntado';
 										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
 											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
 											<li><a href="#tab-friends" data-toggle="tab">Amigos</a></li>
-											<li><a href="#tab-dj" data-toggle="tab">DJ's</a></li>
+											<!--<li><a href="#tab-dj" data-toggle="tab">DJ's</a></li>-->
 											<li><a href="#tab-club" data-toggle="tab">Locales</a></li>
 											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
 										</ul>
@@ -512,7 +512,7 @@ document.getElementById(myButtonID).value='Apuntado';
 											</div>
 										<!-- Termina Amigos -->	
 										<!-- Comienza DJ's -->
-											<div class="tab-pane fade " id="tab-dj">
+										<!--	<div class="tab-pane fade " id="tab-dj">
 												<ul class="widget-users row">
 													<li class="col-md-6" style="border-color:#ff6b24;">
 														<div class="img" style="">
@@ -573,7 +573,7 @@ document.getElementById(myButtonID).value='Apuntado';
 													
 												<br/>
 												
-											</div>
+											</div>-->
 											
 											<!-- Termina DJ's -->
 											<!-- Comienza Clubs -->

@@ -146,7 +146,7 @@ include_once "../framework/visits.php";
 								<li>
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>NOMBRE DJ</h6>
+										<h6>NOMBRE LOCAL</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
 										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
 										
@@ -187,7 +187,7 @@ include_once "../framework/visits.php";
 						 <ul class="orangeBox1">
 									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i></a>
 									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
+									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre Club</i></a>
 									</li>
 									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
 									</li>
@@ -207,7 +207,7 @@ include_once "../framework/visits.php";
 								<ul class="orangeBox1">
 									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i></a>
 									</li>
-									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre DJ</i></a>
+									<li class="orangeBox1"><a class="orangeBox1">Evento <i>Nombre Club</i></a>
 									</li>
 									<li class="orangeBox1"><a class="orangeBox1">Promocion <i>Nombre Club</i><br><img class="menu-avatar orangeBox1"src="../images/copas.jpg" alt="" /></a>
 									</li>
@@ -235,7 +235,7 @@ include_once "../framework/visits.php";
 								<li id="button2">
 									<div class="timeline-title orangeBox1">
 										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>EVENTO DJ</h6>
+										<h6>EVENTO CLUB</h6>
 										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
 										<a class="orangeBox1" id="button2" onclick="deleteEvent(this.id);"><i class="glyphicon glyphicon-trash"style="color:#000"></i>Borrar</a>
 										
