@@ -63,10 +63,10 @@ var url="../develop/actions/follow.php";
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-			  alert(r.responseText);
+			  
 			},
 			onerror: function(e,val){
-				alert("No se puede introducir seguir ");
+				alert("No se puede  seguir ");
 			}
 	});
 
@@ -92,10 +92,10 @@ var url="../develop/actions/follow.php";
 			dataType: "json",
 			type: "DELETE",
 			complete: function(r){
-			  alert("dejar de seguir");
+			 
 			},
 			onerror: function(e,val){
-				alert("No se puede introducir dejar de seguir");
+				alert("No se puede dejar de seguir");
 			}
 	});
 
@@ -154,7 +154,7 @@ var url="../develop/actions/pubfollowers.php";
 			  
 			},
 			onerror: function(e,val){
-				alert("No se puede introducir dejar de seguir");
+				alert("No se pueden saber los seguidores");
 			}
 	});
 
