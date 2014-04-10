@@ -2,15 +2,15 @@ function paintButton(){
 	
 if(!(ide==ideEvent)){
 	
-	//followers();
+	if(followers()){
+		
+		document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUIENDO'onClick='changeMyClassName(this);'>");  
+		document.getElementById('btn01').className='myClickedButton';
 	
-	
-	//if you  don't follow
+	}else
+		//if you  don't follow
 	document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUEME'onClick='changeMyClassName(this);'>");
 	
-	//else
-	//document.write("<input id='btn01'  class='botonseguir' type='button'value='SIGUIENDO'onClick='changeMyClassName(this);'>");  
-	//document.getElementById('btn01').className='myClickedButton';
 	
 	}
 }
@@ -28,7 +28,7 @@ if(document.getElementById(myButtonID).className=='myClickedButton')
 {
 document.getElementById(myButtonID).className='myDefaultButton';
 document.getElementById(myButtonID).value='SIGUEME';
-//unfollowClub();
+unfollowClub();
 
 
 }
@@ -36,7 +36,7 @@ else
 {
 document.getElementById(myButtonID).className='myClickedButton';
 document.getElementById(myButtonID).value='SIGUIENDO';
-//followClub();
+followClub();
 
 }
 }
@@ -63,7 +63,7 @@ var url="../develop/actions/follow.php";
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-			  alert("seguir");
+			  alert(r.responseText);
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir seguir ");
@@ -106,8 +106,7 @@ var url="../develop/actions/follow.php";
 
 function followers(){
 
-//var follow=false;
-
+var follow=false;
 	
 var params = "/" ;
 	params=params.concat(ide); 
@@ -124,12 +123,34 @@ var url="../develop/actions/pubfollowers.php";
 			url: url,
 			dataType: "json",
 			type: "GET",
+			async: false,
 			complete: function(r){
-			  alert(r.responseText);
-			  
-			  //hacer bucle con var follow para encontrar si le
-			  //sigue ya o no
-			  
+			  var json = JSON.parse(r.responseText);	 
+             //alert(json[0].picture);
+             //alert(json[5].idPPartier);
+             //alert(json[0].name);
+             //alert(json[0].surnames);
+             //alert(json[0].music);
+             //alert(json[0].city);
+             //alert(json[0].drink);
+             
+              
+              var key, count = 0;
+				for(key in json) {
+  					if(json.hasOwnProperty(key)) {
+    				count++;
+  					}
+				}
+	   		count=count-1;
+	   		
+	   		var i=0;
+			 
+			 while (i<count && follow==false){
+			 	
+			 	if(json[i].idPPartier==ide)follow=true;
+			 i++;
+			 }
+	
 			  
 			},
 			onerror: function(e,val){
@@ -138,7 +159,7 @@ var url="../develop/actions/pubfollowers.php";
 	});
 
 
-//return follow;
+return follow;
 
 }
 
