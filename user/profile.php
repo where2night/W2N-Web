@@ -203,7 +203,7 @@ document.getElementById(myButtonID).value='Apuntado';
   include "templates/navbar-header.php";
 ?>
 
-<!-- MiPerfil -->
+<!-- MyProfile -->
 <div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;">
 		<div class="row">
 			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
@@ -360,14 +360,14 @@ document.getElementById(myButtonID).value='Apuntado';
 											<li><a href="#tab-club" data-toggle="tab">Locales</a></li>
 											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
 										</ul>
-										<!-- Comienza Actividad -->
+										<!-- begin Activity -->
 										<div class="tab-content">
 											<div class="tab-pane fade in active" id="tab-activity">
 												
 															
 																<div class="the-timeline">
 																	<ul>
-																		<!-- Comienza Evento -->
+																		<!-- begin Event -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
@@ -382,11 +382,11 @@ document.getElementById(myButtonID).value='Apuntado';
 																				</tr>
 																			</tbody>
 																		</table>
-																		<!-- Termina Evento -->
-																		<!-- Comienza Evento -->
+																		<!--end Event -->
+																		<!-- begin Event -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento DJ</span> Nombre DJ
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
 																				<span style="font-size:12px;color:orange;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
@@ -398,8 +398,8 @@ document.getElementById(myButtonID).value='Apuntado';
 																				</tr>
 																			</tbody>
 																		</table>
-																		<!-- Termina Evento -->
-																		<!-- Comienza Evento -->
+																		<!-- end Event -->
+																		<!-- begin Event -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
@@ -414,8 +414,8 @@ document.getElementById(myButtonID).value='Apuntado';
 																				</tr>
 																			</tbody>
 																		</table>
-																		<!-- Termina Evento -->
-																		<!-- Comienza Evento -->
+																		<!-- end Event -->
+																		<!-- begin Event -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
 																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
@@ -434,12 +434,12 @@ document.getElementById(myButtonID).value='Apuntado';
 																				</tr>
 																			</tbody>
 																		</table>
-																		<!-- Termina Evento -->
+																		<!-- end Event -->
 																	</ul>
 																</div>	
 											</div>
-										<!-- Termina Actividad -->	
-										<!-- Comienza Amigos -->
+										<!-- end Activity -->	
+										<!-- begin friends -->
 											<div class="tab-pane fade " id="tab-friends">
 												<ul class="widget-users row">
 													<li class="col-md-6" style="border-color:#ff6b24;">
@@ -510,8 +510,8 @@ document.getElementById(myButtonID).value='Apuntado';
 												<br/>
 												
 											</div>
-										<!-- Termina Amigos -->	
-										<!-- Comienza DJ's -->
+										<!-- end friends -->	
+										<!-- begin DJ's -->
 										<!--	<div class="tab-pane fade " id="tab-dj">
 												<ul class="widget-users row">
 													<li class="col-md-6" style="border-color:#ff6b24;">
@@ -575,8 +575,8 @@ document.getElementById(myButtonID).value='Apuntado';
 												
 											</div>-->
 											
-											<!-- Termina DJ's -->
-											<!-- Comienza Clubs -->
+											<!-- end DJ's -->
+											<!-- begin Clubs -->
 											<div class="tab-pane fade " id="tab-club">
 												<ul class="widget-users row">
 													<li class="col-md-6" style="border-color:#ff6b24;">
@@ -638,8 +638,8 @@ document.getElementById(myButtonID).value='Apuntado';
 												<br/>
 												
 											</div>
-											<!-- Termina Clubs -->
-											<!-- Comienza Fotos -->
+											<!-- end Clubs -->
+											<!-- begin Fotos -->
 											<div class="tab-pane fade" id="tab-photos">	
 											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
 													<form class="form-inline">
@@ -682,7 +682,7 @@ document.getElementById(myButtonID).value='Apuntado';
 													</div>
 												</div>-->
 	
-											</div>	<!-- Termina Fotos -->
+											</div>	<!--end Fotos -->
 									
 								</div>
 							</div>
@@ -693,7 +693,7 @@ document.getElementById(myButtonID).value='Apuntado';
 			</div>
 		</div>
 	</div>
-<!-- /MiPerfil --> 
+<!-- /MyProfile --> 
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 <script src="../js/profile-test1.js"></script>
 <script src="../js/profile-test2.js"></script>
