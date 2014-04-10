@@ -23,19 +23,13 @@ function loginCallback(result)
         request.execute(function (resp)
         {
 			var name = resp['name']['givenName'];
-			alert(name);
 			var surname = resp['name']['familyName'];
 			var email = resp['emails'].filter(function(v) {
 						return v.type === 'account'; // Filter out the primary email
 						})[0].value;
-			alert(surname);
-			alert(email);
             var gender = resp['gender'];
 			var birthday = resp['birthday'];
 			var image = resp.image.url;
-			alert(gender);
-			alert(birthday);
-			alert(image);
 			$.ajax({
 		url : "../develop/login/logingp.php",
 		dataType : "json",
@@ -51,7 +45,6 @@ function loginCallback(result)
 		},
 		complete : function(r) {
 			var json = JSON.parse(r.responseText);
-			alert(r.responseText);
 			if (json.Token == 0) {
 				alert("error");
 			} else {

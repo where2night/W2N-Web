@@ -23,9 +23,7 @@ function loginFacebook() {
 
 				},
 				complete : function(r) {
-					alert(r.responseText);
 					var json = JSON.parse(r.responseText);
-					alert(json);
 					if (json.Token == 0) {
 						alert("error");
 					} else {
