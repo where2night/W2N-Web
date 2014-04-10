@@ -102,7 +102,17 @@ $(document).ready(function(){
 					var longitude = json[i].longitude;
 					var link = "../club/profile.php?idv=" + id_user;
 
-					//$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Eliminar</a></td></tr>');
+					
+					//Local event
+					$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+					//Events friends attending
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span> Nombre Fiestero<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+					//friend add to favorites a local 
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero agregó a Cats como local favorito</p></td></tr></tbody></table>');
+					//Change state
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su estado a :</p></td></tr></tbody></table>');
+					//Change modo
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');
 				}
 				
 	    		},
@@ -195,98 +205,13 @@ $(document).ready(function(){
 									<div class="row">
 									<div class="col-sm-8">
 										<div class="the-timeline">
-																	<ul>
-																		<!-- Begin event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
-																				<span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- End event -->
+											<ul id="test">
+												
+											</ul>
+																	
+																	
 																		
-																		<!-- Begin event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span> Nombre Fiestero
-																				<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- End event -->
-																		
-																		<!-- Begin event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Local favorito</span> Nombre Amigo Fiestero
-																				<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero agregó a Cats como local favorito</p>
-																					
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- End event -->
-																		<!-- Begin event -->
-																		
-																		<!-- Begin event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> Nombre Amigo Fiestero
-																				<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su estado a :</p>
-																					
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- End event -->
-																		<!-- Begin event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero
-																				<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td>
-																					<p style="color:#707070;font-size:14px;">
-																						Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>								
-																					</p>
-																					
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- End event -->
-																	</ul>
-																</div>	
+										</div>	
 																
 															
 									</div>
