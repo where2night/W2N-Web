@@ -62,7 +62,7 @@ $(document).ready(function(){
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token; 
-        var url1 = "../develop/read/locals.php" + params;
+        var url1 = "../develop/read/news.php" + params;
         $.ajax({
 			url: url1,
 			dataType: "json",
@@ -71,49 +71,27 @@ $(document).ready(function(){
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				for(var i=0; i<json.length; i++){
-					var user_type = "club";
-					var id_user = json[i].idProfile;
 					var localName = json[i].localName;
-					//var poblationLocal = json[i].poblationLocal;
-					//var cpLocal = json[i].cpLocal;
-					var telephoneLocal = json[i].telephoneLocal;
-					var street_int = json[i].street;
-					switch(street_int){
-						case 0:
-						  var street = "Calle";
-						break;
-						case 1:
-						  var street = "Avda.";
-						break;
-						case 2:
-						  var street = "Plaza";
-						break;
-						default:
-						  var street = "Calle";
-					}
-					var streetName = json[i].streetNameLocal;
-					var streetNumber = json[i].streetNumberLocal;
-					//var music = json[i].music;
-					var picture = json[i].picture;
-					if (picture == null || picture.length == 0){
-						picture = "../images/reg1.jpg";
-					}
-					var latitude = json[i].latitude;
-					var longitude = json[i].longitude;
-					var link = "../club/profile.php?idv=" + id_user;
+					var title = json[i].title;
+					var type = json[i].TYPE;
+					if (type == 1){
+						//Local event
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span>'+localName+' <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título: '+title+'</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+					}		
+				}
+
 
 					
-					//Local event
-					$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+					
 					//Events friends attending
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span> Nombre Fiestero<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+					/*$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span> Nombre Fiestero<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 					//friend add to favorites a local 
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero agregó a Cats como local favorito</p></td></tr></tbody></table>');
 					//Change state
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su estado a :</p></td></tr></tbody></table>');
 					//Change modo
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');
-				}
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');*/
+				//}
 				
 	    		},
 				onerror: function(e,val){
