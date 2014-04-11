@@ -70,13 +70,19 @@ $(document).ready(function(){
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
+				alert(r2.responseText);
 				for(var i=0; i<json.length; i++){
-					var localName = json[i].localName;
-					var title = json[i].title;
 					var type = json[i].TYPE;
 					if (type == 1){
+						var localName = json[i].localName;
+						var title = json[i].title;
+						
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						var date = json[i].date;
 						//Local event
-						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span>'+localName+' <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título: '+title+'</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span>'+localName+' <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">FEB</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">18</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><h2 class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</h2><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Atocha</p></div></div>');
 					}		
 				}
 
@@ -198,51 +204,8 @@ $(document).ready(function(){
 										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximos Eventos</span></h3>
 									</div>
 									<section class="events" style="background-color:transparent;">
-									<div class="section-content">
-										<div class="event-item"style="border-color:transparent">
-										<p class="date-label">
-											<span class="month"style="background-color:#404040;color:#34d1be">FEB</span>
-											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">18</span>
-										</p>
-										<div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
-											<h2 class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Girls Night</h2>
-											<p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 10:00am - 18:00pm</p>
-											<p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Atocha</p>                            
-										</div><!--//details-->
-										</div><!--event-item-->  
-										<div class="event-item"style="border-color:transparent">
-										<p class="date-label">
-											<span class="month"style="background-color:#404040;color:#34d1be">SEP</span>
-											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">06</span>
-										</p>
-										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
-											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Happy Hour</h2>
-											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 10:00am - 16:00pm</p>
-											<p class="location"style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Guzman el Bueno</p>                            
-										</div><!--//details-->
-										</div><!--event-item-->
-										<div class="event-item"style="border-color:transparent">
-										<p class="date-label">
-											<span class="month"style="background-color:#404040;color:#34d1be">JUN</span>
-											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">23</span>
-										</p>
-										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
-											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">DJ Remix</h2>
-											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 09:45am - 16:00pm</p>
-											<p class="location"style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Ciudad Universitaria</p>                            
-										</div><!--//details-->
-										</div><!--event-item-->
-										<div class="event-item"style="border-color:transparent">
-										<p class="date-label">
-											<span class="month"style="background-color:#404040;color:#34d1be">May</span>
-											<span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">17</span>
-										</p>
-										<div class="details"style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24">
-											<h2 class="title"style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">Free Drink</h2>
-											<p class="time"style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> 14:00pm - 18:00pm</p>
-											<p class="location" style="color:#E5E4E2;word-wrap: break-word;padding-right:2px;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Moncloa</p>                            
-										</div><!--//details-->
-										</div><!--event-item-->
+									<div id="nextEvents" class="section-content">
+										 
 										
 									</div><!--//section-content-->
 								</section><!--//events-->
