@@ -126,7 +126,29 @@ $(document).ready(function(){
 						alert(status);
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span>'+name+'" "'+surnames+'<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a :</p></td></tr></tbody></table>');
 						
-					}		
+					}else if (type == 3){
+						//Change mode
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var mode =  json[i].mode;
+						var modeString;
+						
+						if (mode == 0){
+							modeString = "De tranquis";
+						}if (mode == 1){
+							modeString = "Hoy no me lío";
+						}if (mode == 2){
+							modeString = "Lo que surja";
+						}if (mode == 3){
+							modeString = "Lo daré todo";
+						}if (mode == 4){
+							modeString = "Destroyer";
+						}if (mode == 5){
+							modeString = "Yo me llamo Ralph";
+						}
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+'" "'+surnames+' cambió su modo a :'+modeString+' <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');
+					}
 				}
 
 
@@ -138,8 +160,7 @@ $(document).ready(function(){
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero agregó a Cats como local favorito</p></td></tr></tbody></table>');
 					
 					
-					//Change modo
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero cambió su modo a : <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');*/
+					*/
 				//}
 				
 	    		},
