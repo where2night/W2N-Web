@@ -58,7 +58,7 @@ document.getElementById(myButtonID).value='Apuntado';
 
 $(document).ready(function(){ 
       
-        //Get clubs info
+        //Get local and friends info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token; 
@@ -70,7 +70,6 @@ $(document).ready(function(){
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-				alert(r2.responseText);
 				for(var i=0; i<json.length; i++){
 					var type = json[i].TYPE;
 					if (type == 1){
@@ -80,9 +79,38 @@ $(document).ready(function(){
 						var startHour = json[i].startHour;
 						var closeHour = json[i].closeHour;
 						var date = json[i].date;
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						var m;
+						if (month == 1){
+							m = "ENE";
+						}else if (month == 2){
+							m = "FEB";
+						}else if (month == 3){
+							m = "MAR";
+						}else if (month == 4){
+							m = "ABR";
+						}else if (month == 5){
+							m = "MAY";
+						}else if (month == 6){
+							m = "JUN";
+						}else if (month == 7){
+							m = "JUL";
+						}else if (month == 8){
+							m = "AGO";
+						}else if (month == 9){
+							m = "SEP";
+						}else if (month == 10){
+							m = "OCT";
+						}else if (month == 11){
+							m = "NOV";
+						}else if (month == 12){
+							m = "DIC";
+						}	
+					
 						//Local event
 						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span>'+localName+' <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
-						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">FEB</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">18</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><h2 class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</h2><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Atocha</p></div></div>');
+						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><h2 class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</h2><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i> Atocha</p></div></div>');
 					}		
 				}
 
