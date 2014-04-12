@@ -148,6 +148,14 @@ $(document).ready(function(){
 						}
 						
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+'" "'+surnames+' cambió su modo a :'+modeString+' <span class="label label">Destroyer</span>	</p></td></tr></tbody></table>');
+					}else if (type == 4){
+						//friend add to favorites a local 
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+'" "'+surnames+'<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+'" "'+surnames+' agregó a '+localName+' como local favorito</p></td></tr></tbody></table>')
+						
 					}
 				}
 
@@ -156,8 +164,7 @@ $(document).ready(function(){
 					
 					//Events friends attending
 					/*$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span> Nombre Fiestero<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
-					//friend add to favorites a local 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span> Nombre Amigo Fiestero<span style="font-size:12px;color:orange;">Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">Nombre Amigo Fiestero agregó a Cats como local favorito</p></td></tr></tbody></table>');
+					;
 					
 					
 					*/
