@@ -36,7 +36,15 @@ parent.removeChild(element);
 }
 
 function newEvent(type) {
-	
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	  
+var url="../develop/create/event.php";
+	url=url.concat(params);
+
 
 var actualdate=document.getElementById("datepicker").value;
 var title2 = document.getElementById("Title").value;
@@ -68,12 +76,9 @@ if (!(title2=="")){
 
 		if(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
 		
-		//ideProfile ---> ide
-		//le paso el idProfile,title,text,Date,StartHour,closehour y me devuelve el id
-		
 		
 		$.ajax({
-			url: "../develop/create/event.php",
+			url:url,
 			dataType: "json",
 			type: "POST",
 			data: {
@@ -173,10 +178,7 @@ $.ajax({
 			 while (i<count)
 			  	{
 			  		
-			  		var image;
-		
-					if(type=="dj") image="src='../images/party3.jpg'";
-						else image="src='../images/party2.jpg'";
+			  		var image="src='../images/party2.jpg'";
 		
 					var events=document.getElementById('ul').innerHTML;
 		
