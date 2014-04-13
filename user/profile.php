@@ -42,7 +42,7 @@ include_once "../framework/sessions.php";
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>	
 <script src="../js/keep-session.js"></script>	
-
+<script src="../js/favouriteClubs.js"></script>
 
 
 <!-- /script -->
@@ -202,6 +202,22 @@ document.getElementById(myButtonID).value='Apuntado';
   /*NavbarHeader*/
   include "templates/navbar-header.php";
 ?>
+
+
+
+
+<?php 
+  $idProfil=$_SESSION['id_user']; 
+  $toke=$_SESSION['token']; 
+
+?>
+
+
+<script>
+var ide = '<?php echo $idProfil; ?>' ;
+var tok = '<?php echo $toke; ?>' ;
+</script>
+
 
 <!-- MyProfile -->
 <div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;">
@@ -506,8 +522,8 @@ document.getElementById(myButtonID).value='Apuntado';
 															</div>
 														</div>
 													</li>
-													
-												<br/>
+												</ul>	
+												
 												
 											</div>
 										<!-- end friends -->	
@@ -578,65 +594,11 @@ document.getElementById(myButtonID).value='Apuntado';
 											<!-- end DJ's -->
 											<!-- begin Clubs -->
 											<div class="tab-pane fade " id="tab-club">
-												<ul class="widget-users row">
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															
-														</div>
-													</li>
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Local</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															
-														</div>
-													</li>
-												<br/>
-												
+												<ul class="widget-users row" id="localfav">
+												<script>
+												favouriteLocals();
+												</script>
+												</ul>
 											</div>
 											<!-- end Clubs -->
 											<!-- begin Fotos -->
