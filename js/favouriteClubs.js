@@ -1,7 +1,7 @@
 function favouriteLocals(){
 	
 		//Get clubs info
-        var params = "/" + ide + "/" + tok; 
+        var params = "/" + id_abs + "/" + tok; 
         var url1 = "../develop/read/locals.php" + params;
         
         
@@ -28,7 +28,7 @@ function favouriteLocals(){
 					
 					var follow=false;
 					var param = "/" ;
-					param=param.concat(ide); 
+					param=param.concat(id_abs); 
 					param=param.concat("/");
 					param=param.concat(tok);
 					param=param.concat("/");
@@ -56,7 +56,7 @@ function favouriteLocals(){
 	   		            var i=0;
 			 			while (i<count && follow==false){
 			 	
-			 				if(json[i].idPPartier==ide)follow=true;
+			 				if(json[i].idPPartier==id_abs)follow=true;
 			 			i++;
 			 			}
 					},

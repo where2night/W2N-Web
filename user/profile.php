@@ -210,12 +210,20 @@ document.getElementById(myButtonID).value='Apuntado';
   $idProfil=$_SESSION['id_user']; 
   $toke=$_SESSION['token']; 
 
+
+ if (isset($_GET['idv'])){
+	$id_partier = $_GET['idv'];
+}else $id_partier = $idProfil;
+  
+
+
 ?>
 
 
 <script>
 var ide = '<?php echo $idProfil; ?>' ;
 var tok = '<?php echo $toke; ?>' ;
+var id_abs = '<?php echo $id_partier; ?>' ;
 </script>
 
 
