@@ -31,13 +31,78 @@ function changeMyClassName(theSeguirBtn)
 			{
 				document.getElementById(myButtonID).className='myDefaultSeguir';
 				document.getElementById(myButtonID).value='Agregar Fiestero';
+				//unfollowFriend();
 			}
 			else
 			{
 				document.getElementById(myButtonID).className='myClickedSeguir';
 				document.getElementById(myButtonID).value='Fiestero Agregado';
+				//followFriend();
 			}
 
 	}
+
+}
+
+
+function followFriend(){
+	
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat("1");//must be id_abs
+
+
+	  
+var url="../develop/actions/followFriend.php";
+	url=url.concat(params);
+
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+				alert(r.responseText);
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede  seguir ");
+			}
+	});
+
+
+
+}
+
+function unfollowFriend(){
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat("1");// must be id_abs 
+
+	  
+var url="../develop/actions/followFriend.php";
+	url=url.concat(params);
+	
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "DELETE",
+			complete: function(r){
+				alert(r.responseText);
+			 
+			},
+			onerror: function(e,val){
+				alert("No se puede dejar de seguir");
+			}
+	});
+
+
 
 }
