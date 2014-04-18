@@ -43,6 +43,7 @@ include_once "../framework/sessions.php";
 <script src="../js/bootstrap.min.js"></script>	
 <script src="../js/keep-session.js"></script>	
 <script src="../js/favouriteClubs.js"></script>
+<script src="../js/followfriend.js"></script>
 
 
 <!-- /script -->
@@ -118,20 +119,6 @@ include_once "../framework/sessions.php";
 
 
     //});//end $(document).ready(function()
-function btnSeguir(theSeguirBtn)
-{
-myButtonID = theSeguirBtn.id;
-if(document.getElementById(myButtonID).className=='myClickedSeguir')
-{
-document.getElementById(myButtonID).className='myDefaultSeguir';
-document.getElementById(myButtonID).value='Agregar Fiestero';
-}
-else
-{
-document.getElementById(myButtonID).className='myClickedSeguir';
-document.getElementById(myButtonID).value='Fiestero Agregado';
-}
-}
 </script>
 <script type="text/javascript">
 function btnApuntar(theApuntarBtn)
@@ -275,7 +262,11 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 										
 										<a href="#" class="">
 							
-											<input id="btn01"  class="btn btn-success botonseguir" type="button"value="Agregar Fiestero"onClick="btnSeguir(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+							              <script>
+											paintButton();
+											</script>
+											
+											
 											
 										</a>
 									</div>
