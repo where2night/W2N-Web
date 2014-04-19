@@ -144,42 +144,10 @@ var tok = '<?php echo $toke; ?>' ;
 				
 				<!-- Next Events -->
 						<div  class="timeline">
-							<ul>
-								<li>
-									<div class="timeline-title orangeBox1 ">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>NOMBRE CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">31/01/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-									</div>
-								</li>
-								<li>
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party3.jpg" alt="" />
-										<h6>NOMBRE LOCAL</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">02/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-										
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-									</div>
-								</li>
-								<li>
-									<div class="timeline-title orangeBox1">
-										<img class="menu-avatar time-title-img orangeBox1"  src="../images/party2.jpg" alt="" />
-										<h6>NOMBRE CLUB</h6>
-										<i class="glyphicon glyphicon-time"style="color:#FF6B24">14/02/2014</i>
-										<a class="orangeBox1"><i class="glyphicon glyphicon-thumbs-up"style="color:#000"></i>Me gusta</a>
-									</div>
-									<div class="timeline-content orangeBox1">
-										<p>Dnim eiusmod high life accusamus terry richardson ado squid. 3 wolfmoon officia aute, non cupidatat</p>
-										<img src="../images/copas.jpg" alt="" />
-									</div>
-								</li>
+							<ul id="nextev">
+								<script>
+								nextEvents();
+								</script>
 							</ul>
 						</div>
 						</div><!-- col-md-5-->

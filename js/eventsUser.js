@@ -25,7 +25,7 @@ $.ajax({
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-				alert(r.responseText);
+				//alert(r.responseText);
 			 //var json = JSON.parse(r.responseText);	 
              /*alert(json[0].idEvent);
              alert(json[0].title);
@@ -84,3 +84,78 @@ $.ajax({
 	
 	
 }
+
+
+
+function nextEvents(){
+		
+	
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	
+	var url = "../develop/read/news.php";
+	url=url.concat(params);
+		 
+        
+        $.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+				for(var i=0; i<json.length; i++){
+					var type = json[i].TYPE;
+					
+					if (type == 1){
+						var localName = json[i].localName;
+						var title = json[i].title;	
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						var date = json[i].date;
+						var text = json[i].text;
+						
+					   var events=document.getElementById('nextev').innerHTML;
+					   events=events.concat("<li><div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='../images/party2.jpg' alt='' /> <h6>");
+		               events=events.concat(localName);
+		               events=events.concat(" ");
+		               events=events.concat("<span class='glyphicon glyphicon-arrow-right'></span>");
+		               events=events.concat(" ");
+		               events=events.concat(title);
+					   events=events.concat("</h6> <i style='color:#FF6B24'> <span class='glyphicon glyphicon-time'>");
+					   events=events.concat(" ");
+					   events=events.concat(date);
+					   events=events.concat("   ");
+					   events=events.concat(startHour);				
+					   events=events.concat("</span></i> <a class='orangeBox1'><i class='glyphicon glyphicon-thumbs-up'style='color:#000'></i> Me apunto</a>");				
+					   events=events.concat("</div> <div class='timeline-content orangeBox1'><p>");					
+					   events=events.concat(text);					
+					   events=events.concat("</p></div></li>");			
+									
+					   document.getElementById('nextev').innerHTML=events;
+									
+								
+				
+				
+				
+				
+					}
+				}
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+	
+	
+	
+	
+	
+}
+
+
+
