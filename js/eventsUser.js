@@ -110,12 +110,15 @@ function nextEvents(){
 					var type = json[i].TYPE;
 					
 					if (type == 1){
+						
+						var idEven = json[i].idEvent;
 						var localName = json[i].localName;
 						var title = json[i].title;	
 						var startHour = json[i].startHour;
 						var closeHour = json[i].closeHour;
 						var date = json[i].date;
 						var text = json[i].text;
+						
 						
 					   var events=document.getElementById('nextev').innerHTML;
 					   events=events.concat("<li><div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='../images/party2.jpg' alt='' /> <h6>");
@@ -129,7 +132,9 @@ function nextEvents(){
 					   events=events.concat(date);
 					   events=events.concat("   ");
 					   events=events.concat(startHour);				
-					   events=events.concat("</span></i> <a class='orangeBox1'><i class='glyphicon glyphicon-thumbs-up'style='color:#000'></i> Me apunto</a>");				
+					   events=events.concat("</span></i> <a class='orangeBox1'><i class='glyphicon glyphicon-thumbs-up'style='color:#000'></i> <span id='");
+					   events=events.concat(idEven);
+					   events=events.concat("'onclick='joinEvent(this.id);'>Me apunto</span></a>");				
 					   events=events.concat("</div> <div class='timeline-content orangeBox1'><p>");					
 					   events=events.concat(text);					
 					   events=events.concat("</p></div></li>");			
@@ -156,6 +161,46 @@ function nextEvents(){
 	
 	
 }
+
+
+
+function joinEvent(id){
+	
+	
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(id);
+	
+	var url = "../develop/actions/goToEvent.php";
+	url=url.concat(params);
+	
+	
+    $.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				
+				
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+
+
+
+
+}
+
+
+
 
 
 
