@@ -112,6 +112,75 @@ include_once "../framework/sessions.php";
             }
         }));
       });
+	  
+	        $("#change-data1").on("click", function (event) {
+          
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+        var name = $('#name').val();
+        var surnames = $('#surname').val();
+        var day = $('#day').val();
+        if (day.length < 2){
+          day = "0"+day;
+        } 
+        var month = $('#month').val();
+        if (month.length < 2){
+          month = "0"+month;
+        }
+        var year = $('#year').val();
+        var birthdate = year+"/"+month+"/"+day;
+        var gender = $("input[type='radio']:checked").val();
+        var music = $('#favourite-music').val();
+        var civil_state = $('#marital-status').val();
+        var city = $('#city').val();
+        var drink = $('#favourite-drink').val();
+        var about = $('#about-you').val();
+        var params = "/" + idProfile + "/" + token;
+        
+         console.log($.ajax({
+            url: "../develop/update/user.php" + params,
+            dataType: "json",
+            type: "POST",
+            timeout: 5000,
+            data: {
+              idProfile:idProfile,
+              name:name,
+              surnames: surnames,
+              birthdate: birthdate,
+              gender: gender,
+              music: music,
+              civil_state: civil_state,
+              city: city,
+              drink: drink,
+              about: about
+            },
+            complete: function(r){
+              $.post("../framework/session_start.php",
+                    {
+                      	type_login: 'normal',
+                      	user_type: 'user',
+                     	id_user: idProfile,
+				    	token: token,
+	                    name: name,
+	                    surnames: surnames,
+	                    birthdate: birthdate,
+	                    gender: gender,
+	                    music: music,
+	                    civil_state: civil_state,
+	                    city: city,
+	                    drink: drink,
+	                    about: about
+                    },
+                    function(data,status){
+                      window.location.href="home.php";
+                    });
+                
+              },
+            onerror: function(e,val){
+              alert("Hay error");
+            }
+        }));
+      });
       
     });//end $(document).ready(function()
     
@@ -274,7 +343,7 @@ include_once "../framework/sessions.php";
                                                         </div>
                                                        
                                                     </form>
-													 <a href="#"id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
+													 <a id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
 																
 											</div>
 										<!-- Termina Basic -->	
@@ -314,7 +383,7 @@ include_once "../framework/sessions.php";
                                                         </div>
 														
                                                      </form>   
-													<a href="#"id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>	
+													<a id="change-data1" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>	
 													
 											</div>
 										<!-- Termina Details -->	

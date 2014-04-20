@@ -242,14 +242,7 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 									<div class="profile-since"style="color:#707070;">
 										Miembro desde: Ene 2012
 									</div>
-									<div class="profile-message-btn center-block text-center">
-										
-										<a href="#" class="">
-							
-											<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Voy a ir"onClick="btnVoy(this);"style="margin-top:3%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-											
-										</a>
-									</div>
+	
 									<div class="profile-details" style="background-color:#1B1E24;border-color:#ff6b24;">
 										<ul class="fa-ul">
 											<li  style="color:#ff6b24;">Seguidores: <span> 456</span></li>
