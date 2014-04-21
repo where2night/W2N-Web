@@ -41,7 +41,7 @@ include_once "../framework/visits.php";
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
-<script src="../js/follow.js"></script>
+<script src="../js/follow-test.js"></script>
 
 <script type="text/javascript"> 
 	function getData(){
@@ -244,22 +244,6 @@ include_once "../framework/visits.php";
 	});//end $(document).ready(function()
 	</script>
 <script type="text/javascript">
-function btnSeguir(theSeguirBtn)
-{
-myButtonID = theSeguirBtn.id;
-if(document.getElementById(myButtonID).className=='myClickedSeguir')
-{
-document.getElementById(myButtonID).className='myDefaultSeguir';
-document.getElementById(myButtonID).value='Agregar Local';
-}
-else
-{
-document.getElementById(myButtonID).className='myClickedSeguir';
-document.getElementById(myButtonID).value='Local Agregado';
-}
-}
-</script>
-<script type="text/javascript">
 function btnVoy(theVoyBtn)
 {
 myButtonID = theVoyBtn.id;
@@ -313,37 +297,20 @@ $.ajax({
 			while (i<count)
 			  	{
 					var events=document.getElementById('ul').innerHTML;
-					
-					/*<li class="">
-			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <?php echo get_local_name_club(); ?>
-							<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-							</li>
-			<table class="table  tablaC1">
-							<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>*/
-		
+	
 					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
 					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> hace 3 min</span></li>");
-				
-					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>");
+					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
-					events = events.concat("</h5><p style='color:#707070;font-size:14px;'></p>");
-					
-					if(ide != idRequest){
-						if(partierEvents.indexOf(json[i].idEvent) > -1){//Event in array, display disjoin
-							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Desapunto<i class="glyphicon glyphicon-thumbs-down iconColor"></i></button> </li>');
-						}else{//Event not in array, display join
-							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button> </li>');
-						}
-					}
+					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+					events = events.concat(json[i].text);
+					events = events.concat("</P>");
+					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
+					events = events.concat(json[i].date);
+					events = events.concat("</b></p>");
+					events = events.concat("<input id='btn03'  class='btn btn-success botonapuntar' type='button'value='Me Apunto'onClick='btnApuntar(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
+					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('ul').innerHTML=events;		
 				
@@ -429,11 +396,16 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
 										Miembro desde: Ene 2012	
 										<ul class="fa-ul" >
+											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span style="color:#34d1be"> 456</span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span><span style="color:#34d1be"> 828</span></li>
+											
 										</ul>
-										<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										<script>
+											paintButton();
+										</script>
+										<!--<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">-->
 									</div>			
 								</div>
 							</div>
@@ -463,9 +435,9 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																			eventProfileTest("<?php echo $id_event;?>");
 																		</script>
 																		<!-- Comienza Evento -->
-																		<li class="">
+																	<!--	<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <?php echo get_local_name_club(); ?>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> 
 																				<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
@@ -479,9 +451,9 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																		</table>
 																		<!-- Termina Evento -->
 																		<!-- Comienza Evento -->
-																		<li class="">
+																		<!--<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> <?php echo get_local_name_club(); ?>
+																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> 
 																				<span style="font-size:12px;color:orange;"> publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
 																		</li>
 																		<table class="table  tablaC1">
@@ -492,7 +464,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																					</td>
 																				</tr>
 																			</tbody>
-																		</table>
+																		</table> 
 																		<!-- Termina Evento -->
 																	</ul>
 																</div>	
