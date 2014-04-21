@@ -275,7 +275,89 @@ document.getElementById(myButtonID).value='Voy a ir';
 }
 }
 </script>
+<script type="text/javascript">
+function eventProfileTest(idRequest) {
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(idRequest);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
 
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			var json = JSON.parse(r.responseText);	 
+            var partierEvents;
+            if(ide != idRequest){
+            	partierEvents = getVisitorEvents();
+            } 
+			  
+			var key, count = 0;
+			for(key in json) {
+	  			if(json.hasOwnProperty(key)) {
+		    		count++;
+		  		}
+			}
+	   		count=count-3;		  
+			
+			var i=0;
+		
+			while (i<count)
+			  	{
+					var events=document.getElementById('ul').innerHTML;
+					
+					/*<li class="">
+			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <?php echo get_local_name_club(); ?>
+							<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+							</li>
+			<table class="table  tablaC1">
+							<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>*/
+		
+					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
+					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
+					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> hace 3 min</span></li>");
+				
+					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>");
+					events = events.concat(json[i].title);
+					events = events.concat("</h5><p style='color:#707070;font-size:14px;'></p>");
+					
+					if(ide != idRequest){
+						if(partierEvents.indexOf(json[i].idEvent) > -1){//Event in array, display disjoin
+							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Desapunto<i class="glyphicon glyphicon-thumbs-down iconColor"></i></button> </li>');
+						}else{//Event not in array, display join
+							events=events.concat('<p> </p> <button type="button" id="join-event-' + json[i].idEvent + '" class="btn joinEventButton" style="margin-left:80%" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto<i class="glyphicon glyphicon-thumbs-up iconColor"></i></button> </li>');
+						}
+					}
+					
+					document.getElementById('ul').innerHTML=events;		
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+}
+</script>
 </head>
 
 <body>
@@ -376,7 +458,10 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												
 															
 																<div class="the-timeline">
-																	<ul>
+																	<ul id="ul">
+																		<script>
+																			eventProfileTest("<?php echo $id_event;?>");
+																		</script>
 																		<!-- Comienza Evento -->
 																		<li class="">
 																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
