@@ -3,7 +3,6 @@ function createState(){
 	var value = document.getElementById("state-user").value;
 	document.getElementById("state-user").value = "";
 	var url1 = "../develop/update/status.php" ;
-	alert(value);
 	
 	$.ajax({
 					url : url1,
@@ -27,8 +26,8 @@ function changeMode(){
 
 	var e = document.getElementById("mode");
 	var mode_user = e.options[e.selectedIndex].text;
-	alert(mode_user);
 	var m_user;
+	
 	if (mode_user == "De tranquis"){
 		m_user = 0;
 	} else if (mode_user == "Hoy no me lio"){
@@ -42,8 +41,6 @@ function changeMode(){
 	} else if (mode_user == "Yo me llamo Ralph"){
 		m_user = 5;
 	}
-	
-	alert(m_user);
 	
 	var url1 = "../develop/update/mode.php" ;
 

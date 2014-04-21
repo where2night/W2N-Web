@@ -257,15 +257,15 @@ $(document).ready(function(){
 						
 						if (mode == 0){
 							modeString = "De tranquis";
-						}if (mode == 1){
+						}else if (mode == 1){
 							modeString = "Hoy no me lío";
-						}if (mode == 2){
+						}else if (mode == 2){
 							modeString = "Lo que surja";
-						}if (mode == 3){
+						}else if (mode == 3){
 							modeString = "Lo daré todo";
-						}if (mode == 4){
+						}else if (mode == 4){
 							modeString = "Destroyer";
-						}if (mode == 5){
+						}else if (mode == 5){
 							modeString = "Yo me llamo Ralph";
 						}
 						
@@ -290,13 +290,6 @@ $(document).ready(function(){
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
 					}
 				}
-
-
-					
-					
-					
-					
-					
 					
 				
 				//}
@@ -304,6 +297,37 @@ $(document).ready(function(){
 	    		},
 				onerror: function(e,val){
 					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+			
+		var url2 = "../develop/update/partier.php" + params;
+			
+			$.ajax({
+				url:url2,
+				dataType: "json",
+				type: "GET",
+				complete: function(r3){
+					var json = JSON.parse(r3.responseText);
+					var mode = json.mode;
+					if (mode == 0){
+							modeString = "De tranquis";
+					}else if (mode == 1){
+						modeString = "Hoy no me lío";
+					}else if (mode == 2){
+						modeString = "Lo que surja";
+					}else if (mode == 3){
+						modeString = "Lo daré todo";
+					}else if (mode == 4){
+						modeString = "Destroyer";
+					}else if (mode == 5){
+						modeString = "Yo me llamo Ralph";
+					}
+					
+					$('#mode').append('<span class="label label">'+modeString+'</span>');
+				  
+				},
+				onerror: function(e,val){
+					alert("No se puede introducir evento 2");
 				}
 			});
 
@@ -389,8 +413,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 									
 									<img src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									
-									<div class="profile-label">
-										<span class="label label">Destroyer</span>
+									<div class="profile-label" id="mode">
+										
 									</div>
 									
 									<div class="profile-stars">

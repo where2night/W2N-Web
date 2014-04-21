@@ -106,36 +106,7 @@ $(document).ready(function(){
 						var title = json[i].title;	
 						var startHour = json[i].startHour;
 						var closeHour = json[i].closeHour;
-						var date = json[i].date;
-						var month = date.substring(5,7);
-						var day = date.substring(8,11);
 						
-						var m;
-						if (month == 1){
-							m = "ENE";
-						}else if (month == 2){
-							m = "FEB";
-						}else if (month == 3){
-							m = "MAR";
-						}else if (month == 4){
-							m = "ABR";
-						}else if (month == 5){
-							m = "MAY";
-						}else if (month == 6){
-							m = "JUN";
-						}else if (month == 7){
-							m = "JUL";
-						}else if (month == 8){
-							m = "AGO";
-						}else if (month == 9){
-							m = "SEP";
-						}else if (month == 10){
-							m = "OCT";
-						}else if (month == 11){
-							m = "NOV";
-						}else if (month == 12){
-							m = "DIC";
-						}	
 						var id_local =  json[i].idProfileLocal;
 						var link = "../club/profile.php?idv=" + id_local;
 						var streetNameLocal = json[i].streetNameLocal;
@@ -144,7 +115,7 @@ $(document).ready(function(){
 						
 						//Local event
 						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
-						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="'+link+'" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
+						
 					}else if (type == 2){
 						var name =  json[i].name;
 						var surnames =  json[i].surnames;
@@ -210,7 +181,67 @@ $(document).ready(function(){
 					alert("Contraseña y/o usuario incorrectos");
 				}
 			});
-
+			
+			
+			/*Next Events*/
+			var url2 = "../develop/actions/myEvents.php" + params;
+			
+			$.ajax({
+				url:url2,
+				dataType: "json",
+				type: "GET",
+				complete: function(r3){
+					alert(r3.responseText);
+					var json = JSON.parse(r3.responseText);
+					var rows = json.rows;
+					for(var i=0; i<rows; i++){
+						var localName = json[i].localName;
+						var title = json[i].title;	
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						var id_local =  json[i].idProfileCreator;
+						var link = "../club/profile.php?idv=" + id_local;
+						var date = json[i].date;
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						
+						var m;
+						if (month == 1){
+							m = "ENE";
+						}else if (month == 2){
+							m = "FEB";
+						}else if (month == 3){
+							m = "MAR";
+						}else if (month == 4){
+							m = "ABR";
+						}else if (month == 5){
+							m = "MAY";
+						}else if (month == 6){
+							m = "JUN";
+						}else if (month == 7){
+							m = "JUL";
+						}else if (month == 8){
+							m = "AGO";
+						}else if (month == 9){
+							m = "SEP";
+						}else if (month == 10){
+							m = "OCT";
+						}else if (month == 11){
+							m = "NOV";
+						}else if (month == 12){
+							m = "DIC";
+						}	
+						var streetNameLocal = json[i].streetNameLocal;
+						var streetNumberLocal = json[i].streetNumberLocal;
+						
+						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
+					}
+				  
+				},
+				onerror: function(e,val){
+					alert("No se puede introducir evento 2");
+				}
+			});
     });//end $(document).ready(function()
 
 </script>
