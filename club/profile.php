@@ -30,17 +30,18 @@ include_once "../framework/visits.php";
     <link href="../css/custom.css" rel="stylesheet" media="screen">
   	<link href="../css/application.css" media="screen" rel="stylesheet" type="text/css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <link rel="stylesheet" href="../css/profile-club.css" type="text/css" /><!-- Style -->	
+	<link rel="stylesheet" href="../css/profile-test1.css" type="text/css" /><!-- Responsive -->
+	<link rel="stylesheet" href="../css/club-template.css" type="text/css" /><!-- Responsive -->
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
-
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 	<!-- script -->
 <script src="../js/events.js"></script>
-	<script src="../js/jquery.js"></script>
+<script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="../js/keep-session.js"></script>
-<script src="../js/follow.js"></script>
+<script src="../js/follow-test.js"></script>
 
 <script type="text/javascript"> 
 	function getData(){
@@ -242,8 +243,88 @@ include_once "../framework/visits.php";
 		
 	});//end $(document).ready(function()
 	</script>
+<script type="text/javascript">
+function btnVoy(theVoyBtn)
+{
+myButtonID = theVoyBtn.id;
+if(document.getElementById(myButtonID).className=='myClickedVoy')
+{
+document.getElementById(myButtonID).className='myDefaultVoy';
+document.getElementById(myButtonID).value='Quiero Asitir';
+}
+else
+{
+document.getElementById(myButtonID).className='myClickedVoy';
+document.getElementById(myButtonID).value='Voy a ir';
+}
+}
+</script>
+<script type="text/javascript">
+function eventProfileTest(idRequest) {
 	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(idRequest);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
 
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			var json = JSON.parse(r.responseText);	 
+            var partierEvents;
+            if(ide != idRequest){
+            	partierEvents = getVisitorEvents();
+            } 
+			  
+			var key, count = 0;
+			for(key in json) {
+	  			if(json.hasOwnProperty(key)) {
+		    		count++;
+		  		}
+			}
+	   		count=count-3;		  
+			
+			var i=0;
+		
+			while (i<count)
+			  	{
+					var events=document.getElementById('ul').innerHTML;
+	
+					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
+					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
+					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> hace 3 min</span></li>");
+					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
+					events = events.concat(json[i].title);
+					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+					events = events.concat(json[i].text);
+					events = events.concat("</P>");
+					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
+					events = events.concat(json[i].date);
+					events = events.concat("</b></p>");
+					events = events.concat("<input id='btn03'  class='btn btn-success botonapuntar' type='button'value='Me Apunto'onClick='btnApuntar(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
+					events = events.concat("</td></tr></tbody></table>");
+					
+					document.getElementById('ul').innerHTML=events;		
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+}
+</script>
 </head>
 
 <body>
@@ -298,208 +379,283 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 
 
 <!-- MiPerfil -->
-<div class="main-content" style="background-image:url(../images/CollageNeon.jpg);height:2000px; margin-left:0px;margin-bottom:-50px;" > 
-<div class="wrapper">
-		<div class="container">
+<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;">
 		<div class="row">
-			<div class="col-md-12 profile-margin">
-				<div class="col-md-4">
-					<div class="profile-sec-head banner2">
-						<img src="../images/profile.jpg" alt="" />
-						<h1>
-							<?php echo get_local_name_club(); ?>
-						</h1>
-						<p style="color:#FF6B24"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i><?php echo get_poblation_local_club();?></p>
-					</div>
-					<div>
-						<script>
-						paintButton();
-						</script>
-						
-					</div>
-                   	 </div>
-		</div><!-- col-md-12 -->
-        </div><!-- row -->
-			
-			<div class="row">
-			<div class="col-md-12 the-timeline-margin">
-                        <div class="col-md-6">
-                        
-					<!-- Begin timeline Events -->
-						
-                  		<div class="titulos">
-                        <ul><li>EVENTOS</li></ul>
-                       
-                        </div>
-						<div class="the-timeline">
-
-							<ul id="ul">
-								<script>
-									eventProfile("<?php echo $id_event;?>");
-								</script>
-							</ul>
-						</div><!-- End div .the-timeline -->
-						<!-- End timeline -->
-					</div><!-- End div .col-sm-6 -->
-                     <div class="col-md-6">
-                        
-					<!-- Begin timeline Listas -->
-               <div class="titulos">
-                        <ul><li>LISTAS</li></ul>
-                       
-                        </div>
-                  		<div class="the-timeline">
-							<ul><li><div class="the-date">
-										<span>01</span>
-										<small>Feb</small>
-									</div>
-									<h4>Show Lista</h4>
-									<p>
-												
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>31</span>
-										<small>Jan</small>
-									</div>
-									<h4>Show Lista</h4>
-									<p>
-												
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>12</span>
-										<small>agos</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>05</span>
-										<small>Jun</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-                                <li>
-									<div class="the-date">
-										<span>08</span>
-										<small>May</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-								<li>
-									<div class="the-date">
-										<span>03</span>
-										<small>May</small>
-									</div>
-                                    <h4>show Lista!!</h4>
-									<p>
-									 
-									</p>
-									<button type="button" class="btn joinEventButton" style="margin-left:80%">Me Apunto</button>
-								</li>
-                           
-                           
-							</ul>
-						</div><!-- End div .the-timeline -->
-								
-                        
-							
+			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
+				<div class="row">
+					<div class="col-lg-12">
+					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;margin-left:1%;margin-right:-20%">
+					<h1 style="color:#ff6b24;font-size:30px;margin-left:4%;">Perfil Local</h1>
+					</header>
+						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
+							<div class="col-lg-11 col-md-8 col-sm-8" >
+								<div class="main-box clearfix"style="margin-left:4%;width:100%;background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
+									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo get_local_name_club(); ?></h2>
 									
-					</div><!-- End div .col-sm-6 -->
-    </div><!-- col-md-12 -->
-        </div><!-- row -->
-        <div class="row">
-			<div class="col-md-12">
-        <div class="titulos">
-                        <ul><li>FOTOS</li></ul>
-                        </div>
-      <div class="seguidores">
-              	<ul><li></li></ul>
-              </div>
-					    
-             </div><!-- col-md-12 -->
-              </div><!-- row -->
-              <div class="row">
-             <div class="col-md-12">
-        <div class="titulos">
-                        <ul><li>SEGUIDORES</li></ul>
-                       
-                        </div>
-                        <div class="seguidores">
-              	<ul><li></li></ul>
-              </div>
-					
-					    
-             </div><!-- col-md-12 -->
-        </div><!-- row -->
-		 <div class="row">
-             <div class="col-md-12">
-        <div class="titulos">
-                        <ul><li>INFORMACIÓN</li></ul>
-                       
-                        </div>
-						<div class="seguidores">
-              	<ul><li>
-				<h4 style="color:#1B1E24">Acerca de Mi:</h4><p style="font-size:14px;"><?php echo $_SESSION['about'];?></p>
-				<h4 style="color:#1B1E24">Estilo de Música:</h4><p style="font-size:14px;"><?php echo $_SESSION['music']; ?></p>
-				<h4 style="color:#1B1E24">Precio Entrada:</h4><p style="font-size:14px;"><?php echo $_SESSION['entry_price']; ?></p>
-				<h4 style="color:#1B1E24">Precio Bebida:</h4><p style="font-size:14px;"><?php echo $_SESSION['drink_price']; ?></p>
-				</li></ul>	 </div>   
-             </div><!-- col-md-12 -->
-        </div><!-- row -->
-         <div class="row">
-             <div class="col-md-12">
-        <div class="titulos">
-                        <ul><li>CONTACTO</li></ul>
-                       
-                        </div>
-              <div class="mapa">
-              	<li>
-				<?php include "map.php";?>
-				<div class="contactBox">
-					<h1>Dirección:</h1> 
-					<p>
-						<?php if (get_street_club() == 0) echo 'Calle'; ?>
-						<?php if (get_street_club() == 1) echo 'Avd.'; ?>
-						<?php if (get_street_club() == 2) echo 'Plaza'; ?>
-						<?php echo get_street_name_club(); ?>,<br>
-						<?php echo get_poblation_local_club();?>
-						<?php echo get_cp_local_club();?>
-					</p>
-					<h1>Teléfono:</h1>
-					<p><?php echo get_telephone_club();?></p>
-					<h1>Horario:</h1>	
-					<p><b>Apertura: </b><?php echo get_opening_hours_club();?></p>
-					<p><b>Cierre: </b><?php echo get_close_hours_club();?></p>			
+									<img src="../images/profile-club.jpg" alt="" class="profile-img img-responsive center-block banner1" style="width:1024px;max-height:42%;border-color:#ff6b24;"/>
+									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
+										Miembro desde: Ene 2012	
+										<ul class="fa-ul" >
+											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
+											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span style="color:#34d1be"> 456</span></li>
+											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span><span style="color:#34d1be"> 828</span></li>
+											
+										</ul>
+										<script>
+											paintButton();
+										</script>
+										<!--<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">-->
+									</div>			
+								</div>
+							</div>
+						</div>
+						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
+							
+							
+							<div class="col-lg-11 col-md-8 col-sm-8">
+								<div class="main-box clearfix " style="margin-left:9%;background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;">
+									
+									
+									<div class="tabs-wrapper profile-tabs" >
+										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
+											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
+											<li><a href="#tab-friends" data-toggle="tab">Seguidores</a></li>
+											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
+											<li><a href="#tab-contact" data-toggle="tab">Contacto</a></li>
+										</ul>
+										<!-- Comienza Actividad -->
+										<div class="tab-content" style="overflow:visible;">
+											<div class="tab-pane fade in active" id="tab-activity">
+												
+															
+																<div class="the-timeline">
+																	<ul id="ul">
+																		<script>
+																			eventProfileTest("<?php echo $id_event;?>");
+																		</script>
+																		<!-- Comienza Evento -->
+																	<!--	<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> 
+																				<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																		<!-- Termina Evento -->
+																		<!-- Comienza Evento -->
+																		<!--<li class="">
+																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
+																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> 
+																				<span style="font-size:12px;color:orange;"> publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
+																		</li>
+																		<table class="table  tablaC1">
+																			<tbody>
+																				<tr class="">
+																					<td><h5 style="color:#ff6b24">Título Lista</h5><p style="color:#707070;font-size:14px;"></p>
+																					<input id="btn02"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table> 
+																		<!-- Termina Evento -->
+																	</ul>
+																</div>	
+											</div>
+										<!-- Termina Actividad -->	
+										<!-- Comienza Amigos -->
+											<div class="tab-pane fade " id="tab-friends">
+												<ul class="widget-users row">
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6" style="border-color:#ff6b24;">
+														<div class="img" style="">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details" style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													<li class="col-md-6"style="border-color:#ff6b24;">
+														<div class="img">
+															<img src="../images/profile.jpg" alt=""/>
+														</div>
+														<div class="details"style="background-color:#1B1E24;border:0px">
+															<div class="name">
+																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
+															</div>
+															<div class="time">
+																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
+															</div>
+															<div class="type">
+																<span class="label">Modo</span>
+															</div>
+														</div>
+													</li>
+													
+												</ul>
+												
+											</div>
+										<!-- Termina Amigos -->	
+										
+								
+											<!-- Comienza Fotos -->
+											<div class="tab-pane fade" id="tab-photos">	
+											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
+													<form class="form-inline">
+													<div class="form-group">
+														<a href="#"id="image-gallery-button" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Ver todas</a>
+													</div>
+													</form>
+													<br>
+												<!-- The container for the list of example images -->
+												<!-- 	<div id="links"></div>
+													<br>
+												</div>
+											<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+											<!-- 	<div id="blueimp-gallery" class="blueimp-gallery" >
+												<!-- The container for the modal slides -->
+												<!-- 	<div class="slides"></div>
+													<!-- Controls for the borderless lightbox -->
+												<!-- 	<h3 class="title"></h3>
+													<a class="prev">‹</a>
+													<a class="next">›</a>
+													<a class="close">×</a>
+													<a class="play-pause"></a>
+													<ol class="indicator"></ol>
+													<!-- The modal dialog, which will be used to wrap the lightbox content -->
+												<!-- 	<div class="modal fade" style="background-color:transparent; width:100%;height:100%;margin-top:20%;">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" aria-hidden="true">&times;</button>
+																	<h4 class="modal-title"></h4>
+																</div>
+																<div class="modal-body next"></div>
+																<div class="modal-footer">
+																	<a href="#" class="btn btn-success pull-left prev" style="background-color:#000;border-color:#ff6b24;color:#34d1be;"><i class="glyphicon glyphicon-chevron-left"></i> Anterior </a>
+																	<a href="#" class="btn btn-success pull-right next" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Siguiente <i class="glyphicon glyphicon-chevron-right"></i></a>
+												
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>-->
+	
+											</div>	<!-- Termina Fotos -->
+											<div class="tab-pane fade " id="tab-contact">
+												<div class="col-lg-4 " >
+													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
+													<p style="color:#707070;margin-left:3%;margin-right:3%;font-size:14px">
+															<?php echo $_SESSION['about']; ?>
+													</p>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Estilo de música <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['music']; ?></span>
+														</div>	
+													</div>
+													<br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Precio de Entrada <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if( $_SESSION['entry_price']!=0) echo $_SESSION['entry_price']." €"; ?></span>
+														</div>	
+													</div>
+													<br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Precio de Bebida <span style="margin-left:3%;color:#707070; font-size:14px"> <?php if($_SESSION['drink_price']!= 0) echo $_SESSION['drink_price']." €" ;?></span>
+														</div>	
+													</div>
+												</div>
+												<div class="col-lg-8">
+													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>	
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Dirección <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if (get_street_club() == 0) echo 'Calle'; ?>
+																				<?php if (get_street_club() == 1) echo 'Avd.'; ?>
+																				<?php if (get_street_club() == 2) echo 'Plaza'; ?>
+																				<?php echo get_street_name_club(); ?>,
+																				<?php echo get_poblation_local_club();?>
+																				<?php echo get_cp_local_club();?></span>
+														</div>	
+													</div><br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Teléfono <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo get_telephone_club();?></span>
+														</div>	
+													</div><br>
+													<div class="profile-user-details clearfix">
+														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
+															Horario <span style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
+																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre: <?php echo get_close_hours_club();?></span>
+														</div>	
+													</div>
+												</div>
+												<div class="row">
+												<div class="col-lg-8" style="margin-left:10%;margin-top:2%">
+												<?php include "map.php";?>
+												</div>
+												</div>
+											</div>
+											
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
 				</div>
-				
-				</li>
-              </div>
-					   
-             </div><!-- col-md-12 -->
-        </div><!-- row -->
-		</div><!-- Container -->
-	</div><!-- Wrapper -->
-
-</div>
+			</div>
+		</div>
+	</div>
 <!-- /MiPerfil --> 
-
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
 </body>
 </html>
