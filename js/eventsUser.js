@@ -16,6 +16,7 @@ $.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
+			async: false,
 			complete: function(r){
 			 var json = JSON.parse(r.responseText);	 
              /*alert(json[0].idEvent);
@@ -44,18 +45,18 @@ $.ajax({
 		
 					
 		
-		  			   events=events.concat("<li id='");
-		  			   events=events.concat(json[i].idEvent);
-		  			   events=events.concat("'><div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='../images/party2.jpg' alt='' /> <h6>");
+		  			   events=events.concat("<li>");
+		  			   events=events.concat("<div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='../images/party2.jpg' alt='' /> <h6>");
 		               events=events.concat(json[i].title);
 					   events=events.concat("</h6> <i style='color:#FF6B24'> <span class='glyphicon glyphicon-time'>");
 					   events=events.concat(" ");
 					   events=events.concat(json[i].date);
 					   events=events.concat("   ");
 					   events=events.concat(json[i].startHour);				
-					   events=events.concat("</span></i> <a class='orangeBox1'><i class='glyphicon glyphicon-trash'style='color:#000'></i> <span id='");
+					   events=events.concat("</span></i> <a id='");
 					   events=events.concat(json[i].idEvent);
-					   events=events.concat("'onclick='disjoinEvent(this.id);'>Borrar</span></a>");				
+					   events =events.concat("'class='orangeBox1'onclick='disjoinEvent(this.id);' ><i class='glyphicon glyphicon-trash'style='color:#000'></i> <span");
+					   events=events.concat(">Borrar</span></a>");				
 					   events=events.concat("</div> ");										
 					   events=events.concat("</li>");			
 									
@@ -99,6 +100,7 @@ function nextEvents(){
 			dataType: "json",
 			type: "GET",
 			timeout: 5000,
+			async: false,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				for(var i=0; i<json.length; i++){
@@ -178,6 +180,7 @@ function joinEvent(id){
 			dataType: "json",
 			type: "GET",
 			timeout: 5000,
+			async: false,
 			complete: function(r2){
 				
 				
@@ -220,6 +223,7 @@ var params = "/" ;
 			dataType: "json",
 			type: "DELETE",
 			timeout: 5000,
+			async: false,
 			complete: function(r2){
 				
 				
