@@ -33,17 +33,19 @@ include_once "../framework/sessions.php";
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->
 	
 	<!--<link rel="stylesheet" href="../css/images-user.css">
-<link rel="stylesheet" href="../css/images-user1.css">
-<link rel="stylesheet" href="../css/images-user2.css">-->
+	<link rel="stylesheet" href="../css/images-user1.css">
+	<link rel="stylesheet" href="../css/images-user2.css">-->
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
-<!-- script -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>	
-<script src="../js/keep-session.js"></script>	
-<script src="../js/favouriteClubs.js"></script>
-<script src="../js/followfriend.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+	<!-- script -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>	
+	<script src="../js/keep-session.js"></script>	
+	<script src="../js/favouriteClubs.js"></script>
+	<script src="../js/followfriend.js"></script>
+	<script src="../js/moment-with-langs.js"></script>
+	<script src="../js/moment.min.js"></script>	
 
 
 <!-- /script -->
@@ -152,6 +154,163 @@ document.getElementById(myButtonID).value='Apuntado';
 }
 }
 </script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+      
+        //Get local and friends info
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+        var url1 = "../develop/read/news.php" + params;
+        $.ajax({
+			url: url1,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+				for(var i=0; i<json.length; i++){
+					var type = json[i].TYPE;
+					var goes = json[i].GOES;
+					var date = json[i].createdTime;
+					
+					moment.lang('es', {
+						 relativeTime : {
+										future : "en %s",
+										past : "hace %s",
+										s : "unos segundos",
+										m : "un minuto",
+										mm : "%d minutos",
+										h : "una hora",
+										hh : "%d horas",
+										d : "un día",
+										dd : "%d días",
+										M : "un mes",
+										MM : "%d meses",
+										y : "un año",
+										yy : "%d años"
+									}
+					});
+					var dateActivity = moment(date);
+					if (dateActivity.isValid()){
+						var activityFromNow = dateActivity.fromNow();
+					}	
+					
+					if (type == 1){
+						var localName = json[i].localName;
+						var title = json[i].title;	
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						var date = json[i].date;
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						
+						var m;
+						if (month == 1){
+							m = "ENE";
+						}else if (month == 2){
+							m = "FEB";
+						}else if (month == 3){
+							m = "MAR";
+						}else if (month == 4){
+							m = "ABR";
+						}else if (month == 5){
+							m = "MAY";
+						}else if (month == 6){
+							m = "JUN";
+						}else if (month == 7){
+							m = "JUL";
+						}else if (month == 8){
+							m = "AGO";
+						}else if (month == 9){
+							m = "SEP";
+						}else if (month == 10){
+							m = "OCT";
+						}else if (month == 11){
+							m = "NOV";
+						}else if (month == 12){
+							m = "DIC";
+						}	
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+						var streetNameLocal = json[i].streetNameLocal;
+						var streetNumberLocal = json[i].streetNumberLocal;
+						var text = json[i].text;
+						
+						//Local event
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						
+					}else if (type == 2){
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var status =  json[i].status;
+						//Change status
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
+						
+					}else if (type == 3){
+						//Change mode
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var mode =  json[i].mode;
+						var modeString;
+						
+						if (mode == 0){
+							modeString = "De tranquis";
+						}if (mode == 1){
+							modeString = "Hoy no me lío";
+						}if (mode == 2){
+							modeString = "Lo que surja";
+						}if (mode == 3){
+							modeString = "Lo daré todo";
+						}if (mode == 4){
+							modeString = "Destroyer";
+						}if (mode == 5){
+							modeString = "Yo me llamo Ralph";
+						}
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+					}else if (type == 4){
+						//friend add to favorites a local 
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
+						
+					}else if (type == 5){
+						//Events friends attending
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var title = json[i].title;
+						var text = json[i].text;
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+					}
+				}
+
+
+					
+					
+					
+					
+					
+					
+				
+				//}
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+    });//end $(document).ready(function()
+</script>
+
+
 </head>
 
 <body>
@@ -374,75 +533,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												
 															
 																<div class="the-timeline">
-																	<ul>
-																		<!-- begin Event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
-																				<span style="font-size:12px;color:orange"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!--end Event -->
-																		<!-- begin Event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> Nombre Local
-																				<span style="font-size:12px;color:orange;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn02"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- end Event -->
-																		<!-- begin Event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
-																				<span style="font-size:12px;color:orange;">Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><p style="color:#707070;font-size:14px;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su estado a :</p>
-																					
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- end Event -->
-																		<!-- begin Event -->
-																		<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> <?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
-																				<span style="font-size:12px;color:orange;">Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td>
-																					<p style="color:#707070;font-size:14px;">
-																						<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?> cambió su modo a : <span class="label label">Destroyer</span>								
-																					</p>
-																					
-																					
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- end Event -->
+																	<ul id="test">
+												
 																	</ul>
 																</div>	
 											</div>

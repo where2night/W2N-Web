@@ -32,13 +32,13 @@ include_once "../framework/sessions.php";
 	<link rel="stylesheet" href="../css/profile-test2.css" type="text/css" /><!-- Responsive -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 	
-<!-- script -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>	
-<script src="../js/keep-session.js"></script>
-<script src="../js/moment-with-langs.js"></script>
-<script src="../js/moment.min.js"></script>	
+	<!-- script -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>	
+	<script src="../js/keep-session.js"></script>
+	<script src="../js/moment-with-langs.js"></script>
+	<script src="../js/moment.min.js"></script>	
 	
 
 
