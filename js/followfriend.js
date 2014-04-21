@@ -1,6 +1,6 @@
 function paintButton(){
 	
-if(!(ide==id_abs)){
+if((ide==id_abs)){
 	
 	//if(follow()){
 		
@@ -24,20 +24,20 @@ if(!(ide==id_abs)){
 function changeMyClassName(theSeguirBtn)
 {
 	
-	if(!(ide==id_abs)){
+	if((ide==id_abs)){
 	
 			myButtonID = theSeguirBtn.id;
 			if(document.getElementById(myButtonID).className=='myClickedSeguir')
 			{
 				document.getElementById(myButtonID).className='myDefaultSeguir';
 				document.getElementById(myButtonID).value='Agregar Fiestero';
-				//unfollowFriend();
+				unfollowFriend();
 			}
 			else
 			{
 				document.getElementById(myButtonID).className='myClickedSeguir';
 				document.getElementById(myButtonID).value='Fiestero Agregado';
-				//followFriend();
+				followFriend();
 			}
 
 	}

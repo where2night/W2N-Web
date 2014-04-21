@@ -39,15 +39,29 @@ include_once "../framework/sessions.php";
 <script src="../js/keep-session.js"></script>
 <!-- /script -->
 
-  <!--<script type="text/javascript">  
-  /*  $(document).ready(function(){ 
+<?php 
+  $idProfil=$_SESSION['id_user']; 
+  $toke=$_SESSION['token']; 
+
+?>
+
+
+<script>
+var ide = '<?php echo $idProfil; ?>' ;
+var tok = '<?php echo $toke; ?>' ;
+</script>
+
+
+
+  <script type="text/javascript">  
+    $(document).ready(function(){ 
       
          
-          //Get DJ's info
-        var idProfile = 
-        var token = 
-		var params = "/" + idProfile + "/" + token; 
-        var url1 = "../develop/read/djs.php" + params;
+          //Get USER's info 
+		var params = "/" + ide + "/" + tok; 
+        var url1 = "../develop/read/partiers.php" + params;
+        
+        
         $.ajax({
 			url: url1,
 			dataType: "json",
@@ -55,10 +69,11 @@ include_once "../framework/sessions.php";
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
+				
 				for(var i=0; i<json.length; i++){
-					var user_type = "dj";
+					
+					
 					var id_user = json[i].idProfile;
-					var nameDJ = json[i].nameDJ;
 					var music = json[i].music;
 					if (music == null || music.length == 0){
 						music = "Estilo no definido";
@@ -67,51 +82,30 @@ include_once "../framework/sessions.php";
 					if (picture == null || picture.length == 0){
 						picture = "../images/reg1.jpg";
 					}
-					var link = "../dj/profile.php?idv=" + id_user;
+					var link = "../user/profile.php?idv=" + id_user;
+				
+				    var name = json[i].name;
+					var surnames = json[i].surnames;
+					var city = json[i].city;
+					var drink = json[i].drink;
+
+				
 					
-					$('#dj-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture + '" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ nameDJ +'</a><span class="user-subhead">DJ</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a class="label">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="width:20%;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#"id="" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Eliminar</a></td></tr>');
-				}style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"
-				/*var picture = json.picture;
-				var name = json.name;
-				var surnames = json.surnames;
-				var birthdate = json.birthdate;
-				var gender = json.gender;
-				var music = json.music;
-				var civil_state = json.civil_state;
-				var city = json.city;
-				var drink = json.drink;
-				var about = json.about;*/
-			/*	$.post("../framework/session_start.php",
-				  {
-				  	user_type: 'user',
-				    type_login: login_type,
-				    id_user: id,
-				    token: token,
-					picture: picture,
-					name: name,
-					surnames: surnames,
-					birthdate: birthdate,
-					gender: gender,
-					music: music,
-					civil_state: civil_state,
-					city: city,
-					drink: drink,
-					about: about
-				  },
-				  function(data,status){
-					//alert("Data: " + data + "\nStatus: " + status);
-					//window.location.href = "../user/home.php";										  
-				  });*/
-	    		//},
-				//onerror: function(e,val){
-					//alert("Contraseña y/o usuario incorrectos");
-				//}
-			//});
+				$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"><a href="#" style="color:#1B1E24">'+ city +'</a></td></tr>');
+					
+				
+				}
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
 
 
-    //});//end $(document).ready(function()
+    });//end $(document).ready(function()
     
-  </script> -->
+  </script> 
 
 </head>
 
@@ -166,15 +160,15 @@ include_once "../framework/sessions.php";
 							<div class="col-lg-12">
 								
 									<div class="table-responsive">
-										<table id="dj-list" class="table user-list">
+										<table id="user-list" class="table user-list">
 											<thead>
 												<tr>
-													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>
-													<th>&nbsp;</th>													
-													<th class=""><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
+													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Bebida favorita</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Música favorita</span></th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
-													</tr>
+												</tr>
 											</thead>
 											<tbody>
 											</tbody>
