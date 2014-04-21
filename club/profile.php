@@ -35,13 +35,15 @@ include_once "../framework/visits.php";
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 	<!-- script -->
-<script src="../js/events.js"></script>
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/register.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="../js/keep-session.js"></script>
-<script src="../js/follow-test.js"></script>
+	<script src="../js/events.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/register.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="../js/keep-session.js"></script>
+	<script src="../js/follow-test.js"></script>
+	<script src="../js/moment-with-langs.js"></script>
+	<script src="../js/moment.min.js"></script>	
 
 <script type="text/javascript"> 
 	function getData(){
@@ -297,10 +299,34 @@ $.ajax({
 			while (i<count)
 			  	{
 					var events=document.getElementById('ul').innerHTML;
+					
+					var date = json[i].createdTime;
+					
+					moment.lang('es', {
+						 relativeTime : {
+										future : "en %s",
+										past : "hace %s",
+										s : "unos segundos",
+										m : "un minuto",
+										mm : "%d minutos",
+										h : "una hora",
+										hh : "%d horas",
+										d : "un día",
+										dd : "%d días",
+										M : "un mes",
+										MM : "%d meses",
+										y : "un año",
+										yy : "%d años"
+									}
+					});
+					var dateActivity = moment(date);
+					if (dateActivity.isValid()){
+						var activityFromNow = dateActivity.fromNow();
+					}
 	
 					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
 					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
-					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> hace 3 min</span></li>");
+					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
 					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
