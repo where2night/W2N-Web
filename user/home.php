@@ -39,6 +39,7 @@ include_once "../framework/sessions.php";
 	<script src="../js/keep-session.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>	
+	<script src="../js/state-mode-user.js"></script>
 	
 
 
@@ -244,12 +245,25 @@ $(document).ready(function(){
 
 
 <?php 
-  /*NavbarHeader*/
-  include "templates/navbar-header.php";
+  	/*NavbarHeader*/
+ 	include "templates/navbar-header.php";
 
-  /*Sidebar*/
-  include "templates/sidebar.php";
+ 	 /*Sidebar*/
+  	include "templates/sidebar.php";
+
+
+$idProfile=$_SESSION['id_user']; 
+$token=$_SESSION['token']; 
+
 ?>
+
+
+<script>
+	
+var idProfile = '<?php echo $idProfile; ?>' ;
+var token = '<?php echo $token; ?>' ;
+	
+</script>
 <!-- MiPerfil -->
 <div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">
 		<div class="row">
@@ -266,9 +280,9 @@ $(document).ready(function(){
 								<!--Aqui empieza-->	
 								<div class="col-lg-8">	
 								<form method="post" class="well padding-bottom-10" onsubmit="return false;"style="border-radius:0px;background: #D1D0CE;box-shadow: 1px 1px 2px 0 #ff6b24">
-									<textarea rows="2" class="form-control" style="border-radius:0px;background-color:#E5E4E2"placeholder="¿En qué fiesta estas pensando?"></textarea>
+									<textarea rows="2" class="form-control" style="border-radius:0px;background-color:#E5E4E2"placeholder="¿En qué fiesta estas pensando?" id="state-user"></textarea>
 									<div class="margin-top-10">
-										<a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%">Publicar</a>
+										<a href="#"id="" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-top:10px;margin-left:44%" onclick="createState();">Publicar</a>
 										<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24"></i></a>
 										<a href="" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i class="glyphicon glyphicon-camera" style="color:#ff6b24"></i></a>
 									</div>
@@ -278,13 +292,13 @@ $(document).ready(function(){
 									<div class="profile-header" style="text-align:center">
 										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Modo</span></h3>
 										<div class="form-group col-sm-2" style="margin-left:9%">
-										<select class="form-control textModo" style="background-color:#E5E4E2" >
-											<option value="">De tranquis</option>
-											<option value="">Hoy no me lio</option>
-											<option value="">Lo que surja</option>
-											<option value="">Lo daré todo</option>
-											<option value="">Destroyer</option>
-											<option value="">Yo me llamo Ralph</option>
+										<select id="mode" onchange="changeMode();" class="form-control textModo" style="background-color:#E5E4E2"  >
+											<option  value="De tranquis" id="id1">De tranquis</option>
+											<option value="Hoy no me lio" id="id2">Hoy no me lio</option>
+											<option value="Lo que surja" id="id3" >Lo que surja</option>
+											<option value="Lo daré todo" id="id4" >Lo daré todo</option>
+											<option value="Destroyer" id="id5" >Destroyer</option>
+											<option value="Yo me llamo Ralph" id="id6" >Yo me llamo Ralph</option>
 										</select>
 									</div>			
 									</div>
