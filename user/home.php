@@ -65,7 +65,8 @@ $(document).ready(function(){
         //Get local and friends info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
-		var params = "/" + idProfile + "/" + token; 
+		var params = "/" + idProfile + "/" + token;
+		
         var url1 = "../develop/read/news.php" + params;
         $.ajax({
 			url: url1,
@@ -74,7 +75,10 @@ $(document).ready(function(){
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-				for(var i=0; i<json.length; i++){
+
+				var num_elements = json.numElems;
+				
+				for(var i=0; i<num_elements; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
 					var date = json[i].createdTime;
@@ -191,7 +195,6 @@ $(document).ready(function(){
 				dataType: "json",
 				type: "GET",
 				complete: function(r3){
-					alert(r3.responseText);
 					var json = JSON.parse(r3.responseText);
 					var rows = json.rows;
 					for(var i=0; i<rows; i++){
