@@ -157,6 +157,7 @@ document.getElementById(myButtonID).value='Apuntado';
 
 <script type="text/javascript">
 $(document).ready(function(){ 
+
       
         //Get local and friends info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
@@ -299,7 +300,8 @@ $(document).ready(function(){
 					alert("Contraseña y/o usuario incorrectos");
 				}
 			});
-			
+
+		//Get user info
 		var url2 = "../develop/update/partier.php" + params;
 			
 			$.ajax({
@@ -308,6 +310,32 @@ $(document).ready(function(){
 				type: "GET",
 				complete: function(r3){
 					var json = JSON.parse(r3.responseText);
+					var picture = json.picture;
+					//$("#profile-img").attr("src", picture);
+					var name = json.name;
+					var surnames = json.surnames;
+					$("#complete-name").text(name + " " + surnames);
+					$("#complete-name2").text(name + " " + surnames);
+					var birthdate = json.birthdate;
+					var birth_array = birthdate.split("/");
+					$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
+					var gender = json.gender;
+					if(gender == male){
+						$("#gender").text("Hombre");
+					}
+					if(gender == female){
+						$("#gender").text("Mujer");
+					}
+					var music = json.music;
+					$("#music").text(music);
+					var civil_state = json.civil_state;
+					$("#civil_state").text(civil_state);
+					var city = json.city;
+					$("#city").text(city);
+					var drink = json.drink;
+					$("#drink").text(drink);
+					var about = json.about;
+					$("#about").text(about);
 					var mode = json.mode;
 					if (mode == 0){
 							modeString = "De tranquis";
@@ -409,9 +437,9 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
 							<div class="col-lg-3 col-md-4 col-sm-4" >
 								<div class="main-box clearfix"style="background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo $_SESSION['name']." ".$_SESSION['surnames'];?></h2>
+									<h2 id="complete-name" style="color:#ff6b24;text-transform: uppercase; text-align:center;"></h2>
 									
-									<img src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
+									<img id="profile-img" src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									
 									<div class="profile-label" id="mode">
 										
@@ -455,8 +483,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 										<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Acerca de mí</span></h3>
 									</div>
 									
-									<p style="color:#707070;">
-										<?php echo $_SESSION['about']; ?>
+									<p id="about" style="color:#707070;">
+										<?php //echo $_SESSION['about']; ?>
 									</p>
 									
 									<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
@@ -467,8 +495,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Nombre y Apellidos
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['name']." ".$_SESSION['surnames'];?>
+												<div id="complete-name2" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php //echo $_SESSION['name']." ".$_SESSION['surnames'];?>
 												</div>
 											</div>
 											<br>
@@ -476,7 +504,7 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Fecha de Nacimiento
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+												<div id="birthdate" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
 													<?php
 														$birth_array = explode ('/',$_SESSION['birthdate']);
 														$day = $birth_array[2];
@@ -491,8 +519,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Sexo
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php if ($_SESSION['gender']=="male") echo "Hombre" ?><?php if ($_SESSION['gender']=="female") echo "Mujer" ?>
+												<div id="gender" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php //if ($_SESSION['gender']=="male") echo "Hombre" ?><?php //if ($_SESSION['gender']=="female") echo "Mujer" ?>
 												</div>
 											</div>
 											<br>
@@ -500,8 +528,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Estado Civil
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['civil_state']; ?>
+												<div id="civil_state" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php// echo $_SESSION['civil_state']; ?>
 												</div>
 											</div>
 											<br>
@@ -509,8 +537,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Ciudad Actual
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['city']; ?>
+												<div id="city" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php //echo $_SESSION['city']; ?>
 												</div>
 											</div>
 											<br>
@@ -518,8 +546,8 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Música Favorita
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-													<?php echo $_SESSION['music']; ?>
+												<div id="music" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+													<?php //echo $_SESSION['music']; ?>
 												</div>
 											</div>
 											<br>
@@ -527,7 +555,7 @@ var id_abs = '<?php echo $id_partier; ?>' ;
 												<div class="profile-user-details-label"style="color:#34d1be;">
 													Bebida Favorita
 												</div>
-												<div class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
+												<div id="drink" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
 													<?php echo $_SESSION['drink']; ?>
 												</div>
 											</div>
