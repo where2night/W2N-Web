@@ -58,6 +58,141 @@ var tok = '<?php echo $toke; ?>' ;
       
          
           //Get USER's info 
+
+
+						var params = "/" ;
+							params=params.concat(ide); 
+							params=params.concat("/");
+							params=params.concat(tok);
+	
+
+	  					var url="../develop/read/myFriends.php";
+							url=url.concat(params);
+	
+					var Array_friends = new Array();
+					$.ajax({
+								url: url,
+								dataType: "json",
+								type: "GET",
+								async: false,
+								complete: function(r){
+			  							var json = JSON.parse(r.responseText);
+													  							var count=json.numFriends;
+	   									var i=0;
+			 
+			 							while (i<count){
+			 							
+			 							var id_user = json[i].idProfile;
+										Array_friends[Array_friends.length]=id_user;
+										var music = json[i].music;
+										if (music == null || music.length == 0){
+										music = "Estilo no definido";
+										}
+										var picture = json[i].picture;
+										if (picture == null || picture.length == 0){
+										picture = "../images/reg1.jpg";
+										}
+										var link = "../user/profile.php?idv=" + id_user;
+				
+				    					var name = json[i].name;
+										var surnames = json[i].surnames;
+										var drink = json[i].drink;
+										var mode =  json[i].mode;
+										var modeString;
+						
+										if (mode == 0){
+											modeString = "De tranquis";
+											}else if (mode == 1){
+											modeString = "Hoy no me lío";
+											}else if (mode == 2){
+											modeString = "Lo que surja";
+											}else if (mode == 3){
+											modeString = "Lo daré todo";
+											}else if (mode == 4){
+											modeString = "Destroyer";
+											}else if (mode == 5){
+											modeString = "Yo me llamo Ralph";
+											}
+
+
+
+			 							
+			 							
+			 								$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-user" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span>Eliminar</span></a></td></tr>');
+						
+			 							     i=i+1;
+			 								}
+								},
+								onerror: function(e,val){
+									alert("No se pueden saber los seguidores");
+									}
+								});
+
+
+                         		                     	
+			                     	var url="../develop/read/petFriendship.php";
+										url=url.concat(params);
+
+					
+					var Array_request = new Array();
+									$.ajax({
+											url: url,
+											dataType: "json",
+											type: "GET",
+											async: false,
+											complete: function(r){
+			  									var json = JSON.parse(r.responseText);
+						 									var count=json.numPetitions;
+	   											var i=0;
+			 
+			 									while (i<count){
+			
+												var id_user = json[i].idProfile;
+												Array_request[Array_request.length]=id_user;
+												var music = json[i].music;
+												if (music == null || music.length == 0){
+													music = "Estilo no definido";
+													}
+												var picture = json[i].picture;
+												if (picture == null || picture.length == 0){
+													picture = "../images/reg1.jpg";
+													}
+												var link = "../user/profile.php?idv=" + id_user;
+				
+				    							var name = json[i].name;	
+												var surnames = json[i].surnames;
+												var city = json[i].city;
+												var drink = json[i].drink;
+												var mode =  json[i].mode;
+												var modeString;
+												if (mode == 0){
+													modeString = "De tranquis";
+												}else if (mode == 1){
+														modeString = "Hoy no me lío";
+												}else if (mode == 2){
+														modeString = "Lo que surja";
+												}else if (mode == 3){
+														modeString = "Lo daré todo";
+												}else if (mode == 4){
+														modeString = "Destroyer";
+												}else if (mode == 5){
+														modeString = "Yo me llamo Ralph";
+												}
+
+
+
+			 										$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-envelope" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2">SOLICITUD PENDIENTE</td></tr>');
+													i=i+1;		
+			    								}
+											},
+												onerror: function(e,val){
+													alert("No se pueden saber los seguidores");
+														}
+										});
+
+
+
+
 		var params = "/" + ide + "/" + tok; 
         var url1 = "../develop/read/partiers.php" + params;
         
@@ -108,82 +243,13 @@ var tok = '<?php echo $toke; ?>' ;
 							modeString = "Yo me llamo Ralph";
 						}
 
-
-
-						var followers=false;
-	
-						var params = "/" ;
-							params=params.concat(ide); 
-							params=params.concat("/");
-							params=params.concat(tok);
-	
-
-	  					var url="../develop/read/myFriends.php";
-							url=url.concat(params);
-	
-						$.ajax({
-								url: url,
-								dataType: "json",
-								type: "GET",
-								async: false,
-								complete: function(r){
-			  							var json = JSON.parse(r.responseText);
-			  							var count=json.numFriends;
-	   									var i=0;
-			 
-			 							while (i<count){
-			 								if(json[i].idProfile==id_user)followers=true;
-			    							i=i+1;
-			    							}
-								},
-								onerror: function(e,val){
-									alert("No se pueden saber los seguidores");
-									}
-								});
-
-
-                                 if(followers) $('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-user" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span>Eliminar</span></a></td></tr>');
-			
-			                     else {
-			                     	var follow=false;
-			                     	
-			                     	var url="../develop/read/petFriendship.php";
-										url=url.concat(params);
-
-									$.ajax({
-											url: url,
-											dataType: "json",
-											type: "GET",
-											async: false,
-											complete: function(r){
-			  									var json = JSON.parse(r.responseText);
-			 									var count=json.numPetitions;
-	   											var i=0;
-			 
-			 									while (i<count){
-			 										if(json[i].idProfile==id_user)follow=true;
-			    									i=i+1;		
-			    								}
-											},
-												onerror: function(e,val){
-													alert("No se pueden saber los seguidores");
-														}
-										});
-    	
-                                 if(follow)
-			    					$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"><span class="glyphicon glyphicon-envelope" style="color:#000000;font-size: 30px"></span></td></tr>');
-				                 else	
-			    					$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="4"></td></tr>');
-			
-	
-			                     	
-			                     	
-			                     } 
-			                     
-			                     
-			                     	
-				
-				}
+	    					
+	    					var contains_friend=$.inArray(id_user, Array_friends);
+	    					var contains_request=$.inArray(id_user, Array_request);
+	    					
+	    				if(contains_friend==-1 && contains_request==-1 )	
+	    					$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="4"></td></tr>');
+						}
 				
 	    		},
 				onerror: function(e,val){
