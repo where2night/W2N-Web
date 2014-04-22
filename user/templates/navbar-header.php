@@ -55,13 +55,13 @@ if(where=="logo"){
 }
 
 
-function name(){
+/*function name(){
 	
 		if (type=="club")
 				document.write("<?php echo $_SESSION['local_name'];?>");
 						else 
                             document.write("<?php echo $_SESSION['name'].' '.$_SESSION['surnames'];?>");
-}
+}*/
 
 </script>
 
@@ -139,8 +139,11 @@ function name(){
               <span>
                 <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 				<script>
-				name();
+				//name();
 				</script>
+				 <span id="navbar-complete-name">
+					 <?php //echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+				 </span>
 				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
@@ -151,8 +154,8 @@ function name(){
                   <div class="avatar">
                     <img src="../images/profile.jpg" />
                   </div>
-                  <span>
-					 <?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
+                  <span id="navbar-complete-name2">
+					 <?php //echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
 				  </span>
                 </li>
 

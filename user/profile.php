@@ -265,6 +265,8 @@ $(document).ready(function(){
 					var surnames = json.surnames;
 					$("#complete-name").text(name + " " + surnames);
 					$("#complete-name2").text(name + " " + surnames);
+					$("#navbar-complete-name").text(name + " " + surnames);
+					$("#navbar-complete-name2").text(name + " " + surnames);
 					var birthdate = json.birthdate;
 					var birth_array = birthdate.split("/");
 					$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
