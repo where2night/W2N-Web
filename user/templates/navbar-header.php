@@ -43,10 +43,10 @@ if(where=="logo"){
 	} else{
 	
 	if (type=="user")
-		document.write("<a href='../user/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+		document.write("<a href='../user/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24;'></i></a>");
 	else
 		if (type=="club")
-			document.write("<a href='../club/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
+			document.write("<a href='../club/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; '></i></a>");
 				//else
 					//document.write("<a href='../dj/home.php' style='font-size:12px ;color:#6C6C6C' onmouseout='javascript:this.style.color='#6C6C6C';'onmouseover='javascript:this.style.color='#F2A116';'><strong>Inicio</strong>&nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-home' style='color:#FF6B24; margin-top:15px'></i></a>");
 
@@ -92,19 +92,40 @@ function name(){
       <div class="collapse navbar-collapse navbar-collapse-top">
         <div class="navbar-right">
 		
-           <ul class="nav navbar-nav navbar-left">
+           <ul class="nav navbar-nav navbar-left" style="margin-top:-2.5%">
         
           <script>
 		     goToHome("notlogo");
 		  </script>
-
-		<li>
-              <a href= class="dropdown-toggle" data-toggle="dropdown"></a>
-              	
-            	</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-left">
+			<li class="dropdown hidden-xs">
+						<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
+							<i class="glyphicon glyphicon-warning-sign"style="color:#ff6b24"></i>
+							<span class="count" style="color:#34d1be">8</span>
+						</a>
+						<ul class="dropdown-menu notifications-list"style="border-radius:0px;box-width:300px">
+							
+							<li class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
+							
+							
+							<li class="item"style="line-height:15px;">
+								<a href="#">
+									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+									<span class="content">Fulanito desea ser tu amigo</span><br>
+									<span class="time"><i class="glyphicon glyphicon-time"></i> hace 13 min.</span>
+								</a>
+							</li>
+							<li class="item-footer"style="line-height:15px;">
+								<a href="#">
+									Ver todas las notificaciones
+								</a>
+							</li>
+						</ul>
+					</li>
                
-          </ul>
-			
+          
+			</ul>
            <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
