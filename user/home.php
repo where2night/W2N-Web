@@ -87,7 +87,15 @@ function showMore(){
 
 					div.innerHTML = '';
 				}
-				for(var i=0; i<num_elements; i++){
+				
+				 var len = num_elements - actual_page*10;
+				 var max_elemts ;
+				 if (len > 10){
+					max_elemts = 10;
+				 }else if (len < 10){
+					max_elemts = len;
+				 }
+				for(var i=0; i<max_elemts; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
 					var date = json[i].createdTime;
@@ -127,7 +135,7 @@ function showMore(){
 						var text = json[i].text;
 						
 						//Local event
-						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 						
 					}else if (type == 2){
 						var name =  json[i].name;
@@ -208,7 +216,7 @@ $(document).ready(function(){
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				var num_elements = json.numElems;
-				for(var i=0; i<num_elements; i++){
+				for(var i=0; i<10; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
 					var date = json[i].createdTime;
@@ -248,7 +256,7 @@ $(document).ready(function(){
 						var text = json[i].text;
 						
 						//Local event
-						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 						
 					}else if (type == 2){
 						var name =  json[i].name;
@@ -371,7 +379,7 @@ $(document).ready(function(){
 				}
 			});
 			
-			$('#show_more').append('<a href="#" onclick="showMore();">Mostrar más..</a>	');
+			$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 			
     });//end $(document).ready(function()
 
@@ -477,7 +485,7 @@ var token = '<?php echo $token; ?>' ;
 																	
 																		
 										</div>	
-										<div id="show_more">						
+										<div id="show_more" name="both">						
 											
 										</div>
 									</div>

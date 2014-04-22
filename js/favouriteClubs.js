@@ -1,9 +1,15 @@
 function favouriteLocals(){
 	
 		//Get clubs info
-        var params = "/" + id_abs + "/" + tok; 
-        var url1 = "../develop/read/locals.php" + params;
         
+        
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+
+	var url1="../develop/read/locals.php";
+	url1=url1.concat(params);
         
        $.ajax({
 			url: url1,
@@ -28,7 +34,7 @@ function favouriteLocals(){
 					
 					var follow=false;
 					var param = "/" ;
-					param=param.concat(id_abs); 
+					param=param.concat(ide); 
 					param=param.concat("/");
 					param=param.concat(tok);
 					param=param.concat("/");
