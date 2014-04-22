@@ -87,7 +87,15 @@ function showMore(){
 
 					div.innerHTML = '';
 				}
-				for(var i=0; i<num_elements; i++){
+				
+				 var len = num_elements - actual_page*10;
+				 var max_elemts ;
+				 if (len > 10){
+					max_elemts = 10;
+				 }else if (len < 10){
+					max_elemts = len;
+				 }
+				for(var i=0; i<max_elemts; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
 					var date = json[i].createdTime;
@@ -208,7 +216,7 @@ $(document).ready(function(){
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				var num_elements = json.numElems;
-				for(var i=0; i<num_elements; i++){
+				for(var i=0; i<10; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
 					var date = json[i].createdTime;
@@ -371,7 +379,7 @@ $(document).ready(function(){
 				}
 			});
 			
-			$('#show_more').append('<a href="#" onclick="showMore();">Mostrar más..</a>	');
+			$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 			
     });//end $(document).ready(function()
 
@@ -477,7 +485,7 @@ var token = '<?php echo $token; ?>' ;
 																	
 																		
 										</div>	
-										<div id="show_more">						
+										<div id="show_more" name="both">						
 											
 										</div>
 									</div>
