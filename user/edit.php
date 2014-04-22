@@ -56,18 +56,39 @@ include_once "../framework/sessions.php";
       type: "GET",
       complete: function(r3){
         var json = JSON.parse(r3.responseText);
-      /*  var picture = json.picture;
-        //$("#profile-img").attr("src", picture);*/
+        var picture = json.picture;
+        //$("#profile-img").attr("src", picture);
         var name = json.name;
+        $("#name").val(name);
         var surnames = json.surnames;
-        //$("#complete-name").text(name + " " + surnames);
-        //$("#complete-name2").text(name + " " + surnames);
+        $("#surname").val(surnames);
         $("#navbar-complete-name").text(name + " " + surnames);
         $("#navbar-complete-name2").text(name + " " + surnames);
-      /*  var birthdate = json.birthdate;
+
+        var birthdate = json.birthdate;
+        var birth_array = birthdate.split("/");
+        var day = birth_array[2];
+        if (day.substr(0, 1) == "0"){
+          day = day.substr(1,2);
+        }
+        $('#day').val(day);
+        var month = birth_array[1];
+         if (month.substr(0, 1) == "0"){
+          month = month.substr(1,2);
+        }
+        $('#month').val(month);
+        var year = birth_array[0];
+        $('#year').val(year);
         var birth_array = birthdate.split("/");
         $("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
+
         var gender = json.gender;
+/*var $radios = $('input:radio[name=gender]');
+    if($radios.is(':checked') === false) {
+        $radios.filter('[value=Male]').prop('checked', true);
+    }*/
+        var radios = $("input[type='radio']");
+        radios.filter('[value=' + gender + ']').prop('checked', true);
         if(gender == "male"){
           $("#gender").text("Hombre");
         }
@@ -100,12 +121,13 @@ include_once "../framework/sessions.php";
         }
         
         $('#mode').append('<span class="label label">'+modeString+'</span>');
-        */
+        
       },
       onerror: function(e,val){
         alert("No se puede introducir evento 2");
       }
     });
+
             
       $("#change-data").on("click", function (event) {
           
@@ -320,20 +342,20 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="name" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre</label>
                                                             <div class="col-lg-9">
-                                                                <input type="email" class="form-control" style=""id="name" placeholder="Nombre" value="<?php echo $_SESSION['name']; ?>">
+                                                                <input type="email" class="form-control" style=""id="name" placeholder="Nombre" value="<?php ///echo $_SESSION['name']; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="surname" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Apellidos</label>
                                                             <div class="col-lg-9">
-                                                                <input type="email" class="form-control" id="surname" placeholder="Apellidos" value="<?php echo $_SESSION['surnames']; ?>">
+                                                                <input type="email" class="form-control" id="surname" placeholder="Apellidos" value="<?php //echo $_SESSION['surnames']; ?>">
                                                             </div>
                                                         </div>
 														<?php
-															$birth_array = explode ('/',$_SESSION['birthdate']);
+															/*$birth_array = explode ('/',$_SESSION['birthdate']);
 															$day = $birth_array[2];
 															$month = $birth_array[1];
-															$year = $birth_array[0]; 
+															$year = $birth_array[0]; */
 														?>
 														<div class="form-group">
 															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Fecha de nacimiento</label>
@@ -384,14 +406,14 @@ include_once "../framework/sessions.php";
 															<label  class="col-sm-2 control-label" style="color:#ff6b24;font-size:13px;">Sexo</label>
 															<div class="col-sm-8">
 																<label class="radio-inline">
-																	<input name="radioGroup" id="radio1" value="male" type="radio" <?php if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
+																	<input name="radioGroup" id="radio1" value="male" type="radio" <?php //if ($_SESSION['gender']=="male") echo "checked=checked" ?>><span style="color: #FFFFCC">Hombre</span>
 																</label>
 																<label class="radio-inline">
-																	<input name="radioGroup" id="radio2" value="female" type="radio" <?php if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
+																	<input name="radioGroup" id="radio2" value="female" type="radio" <?php //if ($_SESSION['gender']=="female") echo "checked=checked" ?>><span style="color: #FFFFCC">Mujer</span>
 																</label>
 															</div>
 														</div>
-                                                        <div class="form-group">
+                                                <!--        <div class="form-group">
                                                             <label for="inputemail" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Correo Electrónico</label>
                                                             <div class="col-lg-9">
                                                                 <input type="email" class="form-control" id="inputemail" placeholder="Correo Electrónico">
@@ -403,7 +425,7 @@ include_once "../framework/sessions.php";
                                                                 <input type="password" class="form-control" id="inputpassword" placeholder="Contraseña">
                                                                 <input type="password" class="form-control together" id="inputpassword2" placeholder="Repite Contraseña">
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                        
                                                     </form>
 													 <a id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
