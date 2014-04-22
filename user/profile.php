@@ -269,10 +269,10 @@ $(document).ready(function(){
 					var birth_array = birthdate.split("/");
 					$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
 					var gender = json.gender;
-					if(gender == male){
+					if(gender == "male"){
 						$("#gender").text("Hombre");
 					}
-					if(gender == female){
+					if(gender == "female"){
 						$("#gender").text("Mujer");
 					}
 					var music = json.music;
