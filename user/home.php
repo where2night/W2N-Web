@@ -45,6 +45,7 @@ include_once "../framework/sessions.php";
 
 <!-- /script -->
 <script type="text/javascript">
+var actual_page = 0;
 function btnApuntar(theApuntarBtn)
 {
 myButtonID = theApuntarBtn.id;
@@ -60,24 +61,32 @@ document.getElementById(myButtonID).value='Apuntado';
 }
 }
 
-$(document).ready(function(){ 
-      
-        //Get local and friends info
+function showMore(){
+	actual_page = actual_page +1;
+	
+	//Get local and friends info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token;
+		var page = 0;
+        var url1 = "../develop/read/news.php" + params+"/"+actual_page;
 		
-        var url1 = "../develop/read/news.php" + params;
         $.ajax({
+		
 			url: url1,
 			dataType: "json",
 			type: "GET",
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-
 				var num_elements = json.numElems;
-				
+				var num_page = Math.floor(num_elements/10);
+				if (num_page == actual_page){
+					var s = document.getElementById('show_more');
+					var div = document.getElementById('show_more');
+
+					div.innerHTML = '';
+				}
 				for(var i=0; i<num_elements; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
@@ -169,16 +178,130 @@ $(document).ready(function(){
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
 					}
 				}
-
-
-					
-					
-					
-					
-					
-					
 				
-				//}
+				
+				
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+}
+
+$(document).ready(function(){ 
+      
+        //Get local and friends info
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token;
+		var page = 0;
+        var url1 = "../develop/read/news.php" + params+"/"+page;
+		
+        $.ajax({
+		
+			url: url1,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+				var num_elements = json.numElems;
+				for(var i=0; i<num_elements; i++){
+					var type = json[i].TYPE;
+					var goes = json[i].GOES;
+					var date = json[i].createdTime;
+					
+					moment.lang('es', {
+						 relativeTime : {
+										future : "en %s",
+										past : "hace %s",
+										s : "unos segundos",
+										m : "un minuto",
+										mm : "%d minutos",
+										h : "una hora",
+										hh : "%d horas",
+										d : "un día",
+										dd : "%d días",
+										M : "un mes",
+										MM : "%d meses",
+										y : "un año",
+										yy : "%d años"
+									}
+					});
+					var dateActivity = moment(date);
+					if (dateActivity.isValid()){
+						var activityFromNow = dateActivity.fromNow();
+					}	
+					
+					if (type == 1){
+						var localName = json[i].localName;
+						var title = json[i].title;	
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+						var streetNameLocal = json[i].streetNameLocal;
+						var streetNumberLocal = json[i].streetNumberLocal;
+						var text = json[i].text;
+						
+						//Local event
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						
+					}else if (type == 2){
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var status =  json[i].status;
+						//Change status
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
+						
+					}else if (type == 3){
+						//Change mode
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var mode =  json[i].mode;
+						var modeString;
+						
+						if (mode == 0){
+							modeString = "De tranquis";
+						}if (mode == 1){
+							modeString = "Hoy no me lío";
+						}if (mode == 2){
+							modeString = "Lo que surja";
+						}if (mode == 3){
+							modeString = "Lo daré todo";
+						}if (mode == 4){
+							modeString = "Destroyer";
+						}if (mode == 5){
+							modeString = "Yo me llamo Ralph";
+						}
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+					}else if (type == 4){
+						//friend add to favorites a local 
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
+						
+					}else if (type == 5){
+						//Events friends attending
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var title = json[i].title;
+						var text = json[i].text;
+						
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+					}
+				}
+				
+				
+				
 				
 	    		},
 				onerror: function(e,val){
@@ -239,12 +362,17 @@ $(document).ready(function(){
 						
 						$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
 					}
+					
+					
 				  
 				},
 				onerror: function(e,val){
 					alert("No se puede introducir evento 2");
 				}
 			});
+			
+			$('#show_more').append('<a href="#" onclick="showMore();">Mostrar más..</a>	');
+			
     });//end $(document).ready(function()
 
 </script>
@@ -349,8 +477,9 @@ var token = '<?php echo $token; ?>' ;
 																	
 																		
 										</div>	
-																
-															
+										<div id="show_more">						
+											
+										</div>
 									</div>
 									<div class="col-sm-3" style="margin-left:4%" >
 									<div class="profile-header" style="text-align:center">
