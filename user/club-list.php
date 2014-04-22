@@ -99,8 +99,71 @@ parent.removeChild(element);
 </script>
 
 
-						  <script type="text/javascript">  
+<script type="text/javascript">  
     $(document).ready(function(){ 
+
+    		//Get user info
+	var idProfile = <?php echo $_SESSION['id_user'];?>;
+    var token = "<?php echo $_SESSION['token'];?>";
+	var params = "/" + idProfile + "/" + token; 
+	var url2 = "../develop/update/partier.php" + params;
+		
+		$.ajax({
+			url:url2,
+			dataType: "json",
+			type: "GET",
+			complete: function(r3){
+				var json = JSON.parse(r3.responseText);
+			/*	var picture = json.picture;
+				//$("#profile-img").attr("src", picture);*/
+				var name = json.name;
+				var surnames = json.surnames;
+				//$("#complete-name").text(name + " " + surnames);
+				//$("#complete-name2").text(name + " " + surnames);
+				$("#navbar-complete-name").text(name + " " + surnames);
+				$("#navbar-complete-name2").text(name + " " + surnames);
+			/*	var birthdate = json.birthdate;
+				var birth_array = birthdate.split("/");
+				$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
+				var gender = json.gender;
+				if(gender == "male"){
+					$("#gender").text("Hombre");
+				}
+				if(gender == "female"){
+					$("#gender").text("Mujer");
+				}
+				var music = json.music;
+				$("#music").text(music);
+				var civil_state = json.civil_state;
+				$("#civil_state").text(civil_state);
+				var city = json.city;
+				$("#city").text(city);
+				var drink = json.drink;
+				$("#drink").text(drink);
+				var about = json.about;
+				$("#about").text(about);
+				var mode = json.mode;
+				if (mode == 0){
+						modeString = "De tranquis";
+				}else if (mode == 1){
+					modeString = "Hoy no me lío";
+				}else if (mode == 2){
+					modeString = "Lo que surja";
+				}else if (mode == 3){
+					modeString = "Lo daré todo";
+				}else if (mode == 4){
+					modeString = "Destroyer";
+				}else if (mode == 5){
+					modeString = "Yo me llamo Ralph";
+				}
+				
+				$('#mode').append('<span class="label label">'+modeString+'</span>');
+			  */
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+		});
       
         //Get clubs info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
