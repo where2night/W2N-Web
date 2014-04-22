@@ -25,13 +25,13 @@
 					<span>Listas</span>
 				</a>
 			</li>
-			<li class="photos.php">
+			<!--<li class="photos.php">
 				<span class="glow"></span>
 				<a href="">
 					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Fotos</span>
 				</a>
-			</li>
+			</li>-->
 			<li class="">
 				<span class="glow"></span>
 				<a href="fans.php">

@@ -334,6 +334,10 @@ $.ajax({
 					events = events.concat("</P>");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
 					events = events.concat(json[i].date);
+					events = events.concat("</b> , a partir de  <b style='color:#34d1be'>");
+					events = events.concat(json[i].startHour);
+					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
+					events = events.concat(json[i].closeHour);
 					events = events.concat("</b></p>");
 					events = events.concat("<input id='btn03'  class='btn btn-success botonapuntar' type='button'value='Me Apunto'onClick='btnApuntar(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
 					events = events.concat("</td></tr></tbody></table>");
