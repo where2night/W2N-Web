@@ -451,7 +451,7 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="favourite-music" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Música Favorita</label>
                                                             <div class="col-lg-10">
-                                                                <input id="city" name="favourite-music" type="text" placeholder="Música Favorita" class="form-control"value="<?php echo $_SESSION['music']; ?>">
+                                                                <input id="favourite-music" name="favourite-music" type="text" placeholder="Música Favorita" class="form-control"value="<?php echo $_SESSION['music']; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
