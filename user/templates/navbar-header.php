@@ -104,20 +104,45 @@ function name(){
 							<i class="glyphicon glyphicon-warning-sign"style="color:#ff6b24"></i>
 							<span class="count" style="color:#34d1be">8</span>
 						</a>
-						<ul class="dropdown-menu notifications-list"style="border-radius:0px;box-width:300px">
+						<ul class="dropdown-menu notifications-list"style="width:400px;border-radius:0px; ">
 							
 							<li class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
 							
 							
 							<li class="item"style="line-height:15px;">
-								<a href="#">
+								<a href="">
 									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
-									<span class="content">Fulanito desea ser tu amigo</span><br>
-									<span class="time"><i class="glyphicon glyphicon-time"></i> hace 13 min.</span>
+									<span class="content" style="font-size:13px"><b style="text-transform: uppercase;color:#000"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo
+									<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+									<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
 								</a>
 							</li>
-							<li class="item-footer"style="line-height:15px;">
-								<a href="#">
+							<li class="item"style="line-height:15px;">
+								<a href="">
+									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+									<span class="content"><b style="text-transform: uppercase;"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo  
+									<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+									<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
+								</a>
+							</li>
+							<li class="item"style="line-height:15px;">
+								<a href="">
+									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+									<span class="content"><b style="text-transform: uppercase;"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo  
+									<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+									<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
+								</a>
+							</li>
+							<li class="item"style="line-height:15px;">
+								<a href="">
+									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+									<span class="content"><b style="text-transform: uppercase;"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo  
+									<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+									<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
+								</a>
+							</li>
+							<li class="item-footer"style="line-height:15px;border-color:#ff6b24;">
+								<a style="text-shadow:none;">
 									Ver todas las notificaciones
 								</a>
 							</li>
