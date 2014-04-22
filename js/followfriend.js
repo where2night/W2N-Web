@@ -5,16 +5,24 @@ if(!(ide==id_abs)){
 	
 	var status=follow();
 	
+	if(status==2){
+		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Agregar Fiestero'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
+	}
 	
-	//if(follow()){
-		
-		//document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Fiestero Agregado'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");  
-		//document.getElementById('btn01').className='myClickedButton';
+	if(status==1){
 	
-	//}else
-		//if you  don't follow
+		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Fiestero Agregado'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");  
+		document.getElementById('btn01').className='myClickedSeguir';
 	
-	document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Agregar Fiestero'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
+	}
+	
+	if(status==0){
+	
+		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Enviada solicitud de amistad'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");  
+		document.getElementById('btn01').className='myClickedRequest';
+	
+	
+	}
 	
 	
 	
@@ -29,21 +37,23 @@ function changeMyClassName(theSeguirBtn)
 {
 	
 	if(!(ide==id_abs)){
-	
 			myButtonID = theSeguirBtn.id;
-			if(document.getElementById(myButtonID).className=='myClickedSeguir')
-			{
-				document.getElementById(myButtonID).className='myDefaultSeguir';
-				document.getElementById(myButtonID).value='Agregar Fiestero';
-				unfollowFriend();
-			}
-			else
-			{
-				document.getElementById(myButtonID).className='myClickedSeguir';
-				document.getElementById(myButtonID).value='Fiestero Agregado';
-				followFriend();
-			}
+			if(!(document.getElementById(myButtonID).className=='myClickedRequest')){
+					
+					if(document.getElementById(myButtonID).className=='myClickedSeguir')
+					{
+						document.getElementById(myButtonID).className='myDefaultSeguir';
+						document.getElementById(myButtonID).value='Agregar Fiestero';
+						unfollowFriend();
+					}
+					else
+					{
+						document.getElementById(myButtonID).className='myClickedRequest';
+						document.getElementById(myButtonID).value='Enviada solicitud de amistad';
+						followFriend();
+					}
 
+			}
 	}
 
 }
@@ -69,7 +79,6 @@ var url="../develop/actions/followFriend.php";
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-				alert(r.responseText);
 			  
 			},
 			onerror: function(e,val){
@@ -99,7 +108,6 @@ var url="../develop/actions/followFriend.php";
 			dataType: "json",
 			type: "DELETE",
 			complete: function(r){
-				alert(r.responseText);
 			 
 			},
 			onerror: function(e,val){
