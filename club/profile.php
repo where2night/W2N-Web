@@ -67,50 +67,76 @@ include_once "../framework/visits.php";
 	timeout: 5000,
 	complete: function(r2){
 		var json = JSON.parse(r2.responseText);
-		var companyName = json.companyName;
+
+		var companyName = json.companyNameLocal;
+		$('[name="companyName"]').text(companyName);
 		var localName = json.localName;
+		$('[name="localName"]').text(localName);
 		var cif = json.cif;
-		var poblationLocal = json.poblationLocal;
-		var cpLocal = json.cpLocal;
+		$('[name="localName"]').text(localName);
 		var telephoneLocal = json.telephoneLocal;
+		$('[name="telephoneLocal"]').text(telephoneLocal);
+
+		var address = "";
 		var street = json.street;
+		switch(street){
+		case 0:
+		  address += "Calle ";
+		  break;
+		case 1:
+		  address += "Avd. ";
+		  break;
+		case 2:
+		  address += "Plaza ";
+		  break;
+		default:
+		  address += "Calle ";
+		}
 		var streetName = json.streetNameLocal;
+		address += streetName + " ";
 		var streetNumber = json.streetNumberLocal;
+		address += "Nº " + streetNumber + ", ";
+		var cpLocal = json.cpLocal;
+		address += "C.P. " + cpLocal + " ";
+		var poblationLocal = json.poblationLocal;
+		address += poblationLocal + " ";
+		$('[name="address"]').text(address);
+
 		var music = json.music;
+		$('[name="music"]').text(music);
+
 		var entryPrice = json.entryPrice;
+		if (entryPrice != '0'){
+			$('[name="entryPrice"]').text(entryPrice + " €");
+		}else{
+			$('[name="entryPrice"]').text("Información no disponible");
+		}
+
 		var drinkPrice = json.drinkPrice;
+		if (drinkPrice != '0'){
+			$('[name="drinkPrice"]').text(drinkPrice + " €");
+		}else{
+			$('[name="drinkPrice"]').text("Información no disponible");
+		}
+
 		var openingHours = json.openingHours;
+		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
 		var closeHours = json.closeHours;
+		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
 		var picture = json.picture;
+		//$('[name="picture"]').attr("src", picture);
 		var about = json.about;
+		$('[name="about"]').text(about);
 		var latitude = json.latitude;
+		$('[name="latitude"]').text(latitude);
 		var longitude = json.longitude;
-		$.post("../framework/visits_add.php",
-		  {
-		  	user_type: 'club',
-		    id_user: idProfile,
-			companyName: companyName,
-			localName: localName,
-			cif: cif,
-			poblationLocal: poblationLocal,
-			cpLocal: cpLocal,
-			telephoneLocal: telephoneLocal,
-			street: street,
-			streetName: streetName,
-			streetNumber: streetNumber,
-			music: music,
-			entryPrice: entryPrice,
-			drinkPrice: drinkPrice,
-			openingHours: openingHours,
-			closeHours: closeHours,
-			picture: picture,
-			about: about,
-			latitude: latitude,
-			longitude: longitude
-		  },
-		  function(data,status){
-			//alert("Data: " + data + "\nStatus: " + status);								  ;
-		  });
+		$('[name="longitude"]').text(longitude);
+		var follow = json.follow;
+		$('[name="follow"]').text(follow);
+		var followers = json.followers;
+		$('[name="followers"]').text(followers);
+		var goto = json.goto;
+		$('[name="goto"]').text(goto);
 		},
 		onerror: function(e,val){
 			alert("Contraseña y/o usuario incorrectos");
