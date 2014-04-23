@@ -91,8 +91,11 @@ function nextEvents(){
 	params=params.concat("/");
 	params=params.concat(tok);
 	
+	var page = 0;
+	
 	var url = "../develop/read/news.php";
-	url=url.concat(params);
+	url=url.concat(params) + "/"+page;
+	
 		 
         
         $.ajax({
@@ -103,11 +106,13 @@ function nextEvents(){
 			async: false,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-				for(var i=0; i<json.length; i++){
+				var num_elements = json.numElems;
+				var type_1 ;
+				
+				for(var i=0; i<num_elements; i++){
 					var type = json[i].TYPE;
-					
 					if (type == 1){
-						
+						type_1 = type_1 +1;
 						var idEven = json[i].idEvent;
 						var localName = json[i].localName;
 						var title = json[i].title;	
@@ -134,24 +139,23 @@ function nextEvents(){
 					   events=events.concat("'onclick='joinEvent(this.id);'>Me apunto</span></a>");				
 					   events=events.concat("</div> <div class='timeline-content orangeBox1'><p>");					
 					   events=events.concat(text);					
-					   events=events.concat("</p></div></li>");			
+					   events=events.concat("</p></div></li>");		
 									
 					   document.getElementById('nextev').innerHTML=events;
-									
-								
-				
-				
-				
+											
 				
 					}
+					
+					
 				}
+				
+				
 				
 	    		},
 				onerror: function(e,val){
 					alert("Contraseña y/o usuario incorrectos");
 				}
 			});
-
 	
 	
 	
@@ -159,7 +163,71 @@ function nextEvents(){
 	
 }
 
+/*function showMore(){
+	actual_page = actual_page +1;
+	
+	//Get local and friends info
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token;
+		var page = 0;
+        var url1 = "../develop/read/news.php" + params+"/"+actual_page;
+		
+        $.ajax({
+		
+			url: url1,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+				var num_elements = json.numElems;
+				var num_page = Math.floor(num_elements/10);
+				if (num_page == actual_page){
+					var s = document.getElementById('show_more');
+					var div = document.getElementById('show_more');
 
+					div.innerHTML = '';
+				}
+				
+				 var len = num_elements - actual_page*10;
+				 var max_elemts ;
+				 if (len > 10){
+					max_elemts = 10;
+				 }else if (len < 10){
+					max_elemts = len;
+				 }
+				for(var i=0; i<max_elemts; i++){
+					var type = json[i].TYPE;
+					
+					if (type == 1){
+						var localName = json[i].localName;
+						var title = json[i].title;	
+						var startHour = json[i].startHour;
+						var closeHour = json[i].closeHour;
+						
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+						var streetNameLocal = json[i].streetNameLocal;
+						var streetNumberLocal = json[i].streetNumberLocal;
+						var text = json[i].text;
+						
+						//Local event
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						
+					}
+				}
+				
+				
+				
+				
+	    		},
+				onerror: function(e,val){
+					alert("Contraseña y/o usuario incorrectos");
+				}
+			});
+
+}*/
 
 function joinEvent(id){
 	

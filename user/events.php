@@ -197,7 +197,7 @@ var tok = '<?php echo $toke; ?>' ;
 		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" style="border: 1.5px solid #FF6B24; background-color: #000000;">
-			<li class="active"><a href="#Events" data-toggle="tab" >Proximos Eventos</a></li>
+			<li class="active"><a href="#Events" data-toggle="tab" >Próximos Eventos</a></li>
 			<li><a href="#Lists" data-toggle="tab">Listas de locales</a></li>
 			<li><a href="#MyEvents" data-toggle="tab">Mis eventos</a></li>
 		</ul>
@@ -208,13 +208,22 @@ var tok = '<?php echo $toke; ?>' ;
 			<div class="tab-pane active" id="Events" style="margin-left: 35px; margin-right: 200px;">
 				
 				<!-- Next Events -->
+						
 						<div  class="timeline">
 							<ul id="nextev">
 								<script>
 								nextEvents();
+								
 								</script>
+								
 							</ul>
 						</div>
+						<div id="show_more" >						
+											
+						</div>
+						<script>
+								document.getElementById('show_more').innerHTML="hola";
+						</script>
 						</div><!-- col-md-5-->
 						
 				
