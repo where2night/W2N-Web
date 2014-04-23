@@ -45,7 +45,6 @@ var params = "/" ;
 var url="../develop/create/event.php";
 	url=url.concat(params);
 
-
 var actualdate=document.getElementById("datepicker").value;
 var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
@@ -90,7 +89,7 @@ if (!(title2=="")){
 				closeHour: time2
 			},
 			complete: function(r){
-			  alert("evento creado");
+			  			  
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
