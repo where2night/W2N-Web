@@ -43,7 +43,8 @@ include_once "../framework/visits.php";
 	<script src="../js/keep-session.js"></script>
 	<script src="../js/follow-test.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
-	<script src="../js/moment.min.js"></script>	
+	<script src="../js/moment.min.js"></script>
+	<script src="../js/localFans.js"></script>	
 
 <script type="text/javascript"> 
 	function getData(){
@@ -502,72 +503,12 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 										<!-- Termina Actividad -->	
 										<!-- Comienza Amigos -->
 											<div class="tab-pane fade " id="tab-friends">
-												<ul class="widget-users row">
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Seguidor</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													
+												<ul class="widget-users row" id="friends">
+														<script>
+															
+															showFans();
+														</script>
+														
 												</ul>
 												
 											</div>
