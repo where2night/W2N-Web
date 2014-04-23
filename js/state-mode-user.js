@@ -2,14 +2,14 @@
 function createState(){
 	var value = document.getElementById("state-user").value;
 	document.getElementById("state-user").value = "";
-	var url1 = "../develop/update/status.php" ;
+	var params = "/" + idProfile + "/" + token; 
+	var url1 = "../develop/update/status.php" + params;
 	
 	$.ajax({
 					url : url1,
 					dataType : "json",
 					type : "POST",
 					data : {
-						idProfile : idProfile,
 						status : value
 					},
 					complete : function(r) {
@@ -42,7 +42,8 @@ function changeMode(){
 		m_user = 5;
 	}
 	
-	var url1 = "../develop/update/mode.php" ;
+	var params = "/" + idProfile + "/" + token; 
+	var url1 = "../develop/update/mode.php" + params;
 
 	
 	$.ajax({
@@ -50,7 +51,6 @@ function changeMode(){
 					dataType : "json",
 					type : "POST",
 					data : {
-						idProfile : idProfile,
 						mode : m_user
 					},
 					complete : function(r) {
