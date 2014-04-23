@@ -77,16 +77,66 @@ if(where=="logo"){
 var ide = '<?php echo $idProfil; ?>' ;
 var tok = '<?php echo $toke; ?>' ;
 </script>
-
 <script type="text/javascript">  
+function aceptarbtn(id){
+   //Get user info
+		var idProfile = <?php echo $_SESSION['id_user'];?>;
+	    var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token + "/" + id; 
+		var url2 = "../develop/actions/followFriend.php" + params;
+		alert(id);
+		$.ajax({
+			url: url2,
+			dataType: "json",
+			type: "POST",
+			async: false,
+			complete: function(r){
+				alert(r.responseText);
+			}
+			},
+			onerror: function(e,val){
+			alert("No se puede aceptar peticion");
+			}
+		});
+}
+</script>
+<script type="text/javascript">  
+function numNotifications(){
+   //Get user info
+		var idProfile = <?php echo $_SESSION['id_user'];?>;
+	    var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+		var url2 = "../develop/actions/myPetFriendship.php" + params;
+		
+		$.ajax({
+			url: url2,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			var json = JSON.parse(r.responseText);
+			var count=json.numPetitions;
+			if (count != 0){
+			var noti=document.getElementById('numNoti').innerHTML;
+			noti = noti.concat(count);
+			document.getElementById('numNoti').innerHTML=noti;	
+			}
+			},
+			onerror: function(e,val){
+			alert("No se pueden saber las notificaciones");
+			}
+		});
+}
+</script>
+<script type="text/javascript">
 function notifications(){ 
     	
          //Get user info
 		var idProfile = <?php echo $_SESSION['id_user'];?>;
 	    var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token; 
-		var url2 = "../develop/action/myPetFriendship.php" + params;
-		var Array_request = new Array();
+		var url2 = "../develop/actions/myPetFriendship.php" + params;
+		
 		$.ajax({
 			url: url2,
 			dataType: "json",
@@ -96,10 +146,10 @@ function notifications(){
 			var json = JSON.parse(r.responseText);
 			var count=json.numPetitions;
 	   		var i=0;
-			 
+			document.write("<li class='item-header'style='line-height:15px;'>Tienes "+ count + " peticiones de amistad</li>");
+			
 			while (i<count){
-				var id_user = json[i].idProfile;
-				Array_request[Array_request.length]=id_user;			
+				var id_user = json[i].idProfile;			
 				var picture = json[i].picture;
 				if (picture == null || picture.length == 0){
 					picture = "../images/reg1.jpg";
@@ -107,8 +157,20 @@ function notifications(){
 				var link = "../user/profile.php?idv=" + id_user;
 				var name = json[i].name;	
 				var surnames = json[i].surnames;
-				$('#noti').append(surnames);
-			 	
+				
+				
+						/*<li class="item"style="line-height:15px;">
+							<a href="">
+								<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+								<span class="content" style="font-size:13px"><b style="text-transform: uppercase;color:#000"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo
+								<input id="'+id_user+'" class="btn pull-right" onclick='aceptarbtn(this.id);' type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+								<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
+							</a>
+						</li>	*/
+				
+				
+				document.write("<li class='item'style='line-height:15px;'><a><i class='glyphicon glyphicon-user'style='color:#ff6b24;'>holaaaaa </i></a><a id='"+id_user+"' class='btn pull-right' onclick='aceptarbtn(this.id);' type='button'value='Aceptar'></a></</li>");
+				
 					i=i+1;		
 			}
 			},
@@ -157,15 +219,15 @@ function notifications(){
 				<li id="noti"class="dropdown hidden-xs">
 					<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
 						<i class="glyphicon glyphicon-warning-sign"style="color:#ff6b24"></i>
-						<span class="count" style="color:#34d1be">8</span>
+						<span id="numNoti" class="count" style="color:#34d1be"><script>numNotifications();</script></span>
 					</a>
-					<script>
-							notifications();
-					</script>
-					<!--<ul class="dropdown-menu notifications-list"style="max-height:200px;width:400px;border-radius:0px;overflow-y: scroll; ">
+					
+					<ul class="dropdown-menu notifications-list"style="max-height:200px;width:400px;border-radius:0px;overflow-y: scroll; ">
 						
-							
-						<li id =""class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
+						<script>
+							notifications();
+						</script>	
+						<!--<li class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
 						<li class="item"style="line-height:15px;">
 							<a href="">
 								<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
@@ -173,8 +235,8 @@ function notifications(){
 								<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
 								<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
 							</a>
-						</li>	
-					</ul>-->
+						</li>	-->
+					</ul>
 				</li>
 			</ul>
 			<!-- /Notifications -->
