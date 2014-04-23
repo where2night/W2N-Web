@@ -147,7 +147,7 @@ var url="../develop/read/myFriends.php";
 			async: false,
 			complete: function(r){
 			  var json = JSON.parse(r.responseText);
-		      alert(r.responseText);
+		      
 			  
            var count=json.numFriends;
 	   		

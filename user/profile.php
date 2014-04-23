@@ -42,7 +42,7 @@ include_once "../framework/sessions.php";
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>	
 	<script src="../js/keep-session.js"></script>	
-	<script src="../js/favouriteClubs.js"></script>
+	<script src="../js/favourites.js"></script>
 	<script src="../js/followfriend.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>	
@@ -524,71 +524,11 @@ $(document).ready(function(){
 										<!-- end Activity -->	
 										<!-- begin friends -->
 											<div class="tab-pane fade " id="tab-friends">
-												<ul class="widget-users row">
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6" style="border-color:#ff6b24;">
-														<div class="img" style="">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details" style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 3 min
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
-													<li class="col-md-6"style="border-color:#ff6b24;">
-														<div class="img">
-															<img src="../images/profile.jpg" alt=""/>
-														</div>
-														<div class="details"style="background-color:#1B1E24;border:0px">
-															<div class="name">
-																<a href="#" style="color:#ff6b24; font-size:16px;">Nombre Amigo</a>
-															</div>
-															<div class="time">
-																<i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:11px;"></i> Última publicación: 1 semana
-															</div>
-															<div class="type">
-																<span class="label">Modo</span>
-															</div>
-														</div>
-													</li>
+												<ul class="widget-users row" id="friends">
+												  <script>
+												  	myfriends();
+												  </script> 
+														
 												</ul>	
 												
 												
