@@ -65,7 +65,61 @@ if(where=="logo"){
 
 </script>
 
+<!--inventos yuli-->
+<?php 
+  $idProfil=$_SESSION['id_user']; 
+  $toke=$_SESSION['token']; 
 
+?>
+
+
+<script>
+var ide = '<?php echo $idProfil; ?>' ;
+var tok = '<?php echo $toke; ?>' ;
+</script>
+
+<script type="text/javascript">  
+function notifications(){ 
+    	
+         //Get user info
+		var idProfile = <?php echo $_SESSION['id_user'];?>;
+	    var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+		var url2 = "../develop/action/myPetFriendship.php" + params;
+		var Array_request = new Array();
+		$.ajax({
+			url: url2,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			var json = JSON.parse(r.responseText);
+			var count=json.numPetitions;
+	   		var i=0;
+			 
+			while (i<count){
+				var id_user = json[i].idProfile;
+				Array_request[Array_request.length]=id_user;			
+				var picture = json[i].picture;
+				if (picture == null || picture.length == 0){
+					picture = "../images/reg1.jpg";
+				}
+				var link = "../user/profile.php?idv=" + id_user;
+				var name = json[i].name;	
+				var surnames = json[i].surnames;
+				$('#noti').append(surnames);
+			 	
+					i=i+1;		
+			}
+			},
+			onerror: function(e,val){
+			alert("No se pueden saber las notificaciones");
+			}
+		});
+}//end function notifications()
+    
+</script> 
+<!-- fin inventos yuli -->
 
 
 
@@ -98,32 +152,32 @@ if(where=="logo"){
 		     goToHome("notlogo");
 		  </script>
 			</ul>
+			<!-- Notifications -->
 			<ul class="nav navbar-nav navbar-left">
-			<li class="dropdown hidden-xs">
-						<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
-							<i class="glyphicon glyphicon-warning-sign"style="color:#ff6b24"></i>
-							<span class="count" style="color:#34d1be">8</span>
-						</a>
-						<ul class="dropdown-menu notifications-list"style="max-height:200px;width:400px;border-radius:0px;overflow-y: scroll; ">
+				<li id="noti"class="dropdown hidden-xs">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
+						<i class="glyphicon glyphicon-warning-sign"style="color:#ff6b24"></i>
+						<span class="count" style="color:#34d1be">8</span>
+					</a>
+					<script>
+							notifications();
+					</script>
+					<!--<ul class="dropdown-menu notifications-list"style="max-height:200px;width:400px;border-radius:0px;overflow-y: scroll; ">
+						
 							
-							<li class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
-							
-							
-							<li class="item"style="line-height:15px;">
-								<a href="">
-									<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
-									<span class="content" style="font-size:13px"><b style="text-transform: uppercase;color:#000"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo
-									<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
-									<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
-								</a>
-							</li>
-							
-							
-						</ul>
-					</li>
-               
-          
+						<li id =""class="item-header"style="line-height:15px;">Tienes 8 peticiones de amistad</li>
+						<li class="item"style="line-height:15px;">
+							<a href="">
+								<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
+								<span class="content" style="font-size:13px"><b style="text-transform: uppercase;color:#000"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo
+								<input class="btn pull-right" type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
+								<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
+							</a>
+						</li>	
+					</ul>-->
+				</li>
 			</ul>
+			<!-- /Notifications -->
            <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="search-query animated" placeholder="Buscar" style="margin-top:-1px" >
