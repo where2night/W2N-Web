@@ -117,14 +117,110 @@ include_once "../framework/visits.php";
 		}
 	});
 
+
+<?php		
+	}else{//(!isset($_GET['idv']))
+?>
+
+
+	var idProfile = <?php echo $_SESSION['id_user'];?>;
+	var id = <?php echo $_SESSION['id_user'];?>;
+	var token = "<?php echo $_SESSION['token'];?>";
+	var params = "/" + idProfile + "/" + token; 
+	var url1 = "../develop/update/";
+	var params = "/" + id + "/" + token + "/" + idProfile;
+	url1 += "local.php";
+	url1 += params;
+	$.ajax({
+	url: url1,
+	dataType: "json",
+	type: "GET",
+	timeout: 5000,
+	complete: function(r2){
+		var json = JSON.parse(r2.responseText);
+
+		var companyName = json.companyNameLocal;
+		$('[name="companyName"]').text(companyName);
+		var localName = json.localName;
+		$('[name="localName"]').text(localName);
+		var cif = json.cif;
+		$('[name="localName"]').text(localName);
+		var telephoneLocal = json.telephoneLocal;
+		$('[name="telephoneLocal"]').text(telephoneLocal);
+
+		var address = "";
+		var street = json.street;
+		switch(street){
+		case 0:
+		  address += "Calle ";
+		  break;
+		case 1:
+		  address += "Avd. ";
+		  break;
+		case 2:
+		  address += "Plaza ";
+		  break;
+		default:
+		  address += "Calle ";
+		}
+		var streetName = json.streetNameLocal;
+		address += streetName + " ";
+		var streetNumber = json.streetNumberLocal;
+		address += "Nº " + streetNumber + ", ";
+		var cpLocal = json.cpLocal;
+		address += "C.P. " + cpLocal + " ";
+		var poblationLocal = json.poblationLocal;
+		address += poblationLocal + " ";
+		$('[name="address"]').text(address);
+
+		var music = json.music;
+		$('[name="music"]').text(music);
+
+		var entryPrice = json.entryPrice;
+		if (entryPrice != '0'){
+			$('[name="entryPrice"]').text(entryPrice + " €");
+		}else{
+			$('[name="entryPrice"]').text("Información no disponible");
+		}
+
+		var drinkPrice = json.drinkPrice;
+		if (drinkPrice != '0'){
+			$('[name="drinkPrice"]').text(drinkPrice + " €");
+		}else{
+			$('[name="drinkPrice"]').text("Información no disponible");
+		}
+
+		var openingHours = json.openingHours;
+		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
+		var closeHours = json.closeHours;
+		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
+		var picture = json.picture;
+		//$('[name="picture"]').attr("src", picture);
+		var about = json.about;
+		$('[name="about"]').text(about);
+		var latitude = json.latitude;
+		$('[name="latitude"]').text(latitude);
+		var longitude = json.longitude;
+		$('[name="longitude"]').text(longitude);
+		var follow = json.follow;
+		$('[name="follow"]').text(follow);
+		var followers = json.followers;
+		$('[name="followers"]').text(followers);
+		var goto = json.goto;
+		$('[name="goto"]').text(goto);
 	
+		},
+		onerror: function(e,val){
+			alert("Contraseña y/o usuario incorrectos");
+		}
+	});
 
 
 <?php		
-	}// end (isset($_GET['idv']))
+	}//end else (!isset($_GET['idv']))
 ?>
 
-}
+}//end getData()
     
     
     </script>
@@ -326,7 +422,7 @@ $.ajax({
 					}
 	
 					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
-					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
+					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php //echo get_local_name_club(); ?>");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
@@ -421,14 +517,14 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
 							<div class="col-lg-11 col-md-8 col-sm-8" >
 								<div class="main-box clearfix"style="margin-left:4%;width:100%;background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<h2 style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php echo get_local_name_club(); ?></h2>
+									<h2 name="localName" style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php //echo get_local_name_club(); ?></h2>
 									
 									<img src="../images/profile-club.jpg" alt="" class="profile-img img-responsive center-block banner1" style="width:1024px;max-height:42%;border-color:#ff6b24;"/>
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
 										Miembro desde: Ene 2012	
 										<ul class="fa-ul" >
 											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
-											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span style="color:#34d1be"> 456</span></li>
+											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span><span style="color:#34d1be"> 828</span></li>
 											
 										</ul>
@@ -562,24 +658,24 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 											<div class="tab-pane fade " id="tab-contact">
 												<div class="col-lg-4 " >
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
-													<p style="color:#707070;margin-left:3%;margin-right:3%;font-size:14px">
-															<?php echo $_SESSION['about']; ?>
+													<p name="about" style="color:#707070;margin-left:3%;margin-right:3%;font-size:14px">
+															<?php //echo $_SESSION['about']; ?>
 													</p>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Estilo de música <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo $_SESSION['music']; ?></span>
+															Estilo de música <span name="music" style="margin-left:2%;color:#707070; font-size:14px"> <?php //echo $_SESSION['music']; ?></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Entrada <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if( $_SESSION['entry_price']!=0) echo $_SESSION['entry_price']." €"; ?></span>
+															Precio de Entrada <span name="entryPrice" style="margin-left:2%;color:#707070; font-size:14px"> <?php //if( $_SESSION['entry_price']!=0) echo $_SESSION['entry_price']." €"; ?></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Bebida <span style="margin-left:3%;color:#707070; font-size:14px"> <?php if($_SESSION['drink_price']!= 0) echo $_SESSION['drink_price']." €" ;?></span>
+															Precio de Bebida <span  name="drinkPrice" style="margin-left:3%;color:#707070; font-size:14px"> <?php //if($_SESSION['drink_price']!= 0) echo $_SESSION['drink_price']." €" ;?></span>
 														</div>	
 													</div>
 												</div>
@@ -587,23 +683,26 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>	
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Dirección <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if (get_street_club() == 0) echo 'Calle'; ?>
+															<!--Dirección <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if (get_street_club() == 0) echo 'Calle'; ?>
 																				<?php if (get_street_club() == 1) echo 'Avd.'; ?>
 																				<?php if (get_street_club() == 2) echo 'Plaza'; ?>
 																				<?php echo get_street_name_club(); ?>,
 																				<?php echo get_poblation_local_club();?>
-																				<?php echo get_cp_local_club();?></span>
+																				<?php echo get_cp_local_club();?></span>-->
+															Dirección <span name="address" style="margin-left:2%;color:#707070; font-size:14px"></span>
 														</div>	
 													</div><br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Teléfono <span style="margin-left:2%;color:#707070; font-size:14px"> <?php echo get_telephone_club();?></span>
+															Teléfono <span name="telephoneLocal" style="margin-left:2%;color:#707070; font-size:14px"> <?php //echo get_telephone_club();?></span>
 														</div>	
 													</div><br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Horario <span style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
-																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre: <?php echo get_close_hours_club();?></span>
+														<!--	Horario <span name="openingHours" style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
+																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre: <?php echo get_close_hours_club();?></span> -->
+															Horario <span name="openingHours" style="margin-left:2%;color:#707070; font-size:14px"></span>
+															<br><span name="closeHours" style="margin-left:12%;color:#707070; font-size:14px"></span>
 														</div>	
 													</div>
 												</div>
