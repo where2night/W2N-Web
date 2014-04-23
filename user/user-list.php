@@ -127,6 +127,8 @@ var tok = '<?php echo $toke; ?>' ;
 							params=params.concat(ide); 
 							params=params.concat("/");
 							params=params.concat(tok);
+							params=params.concat("/");
+							params=params.concat(ide);
 	
 
 	  					var url="../develop/read/myFriends.php";

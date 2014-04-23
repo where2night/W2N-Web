@@ -1,9 +1,11 @@
 function paintButton(){
 	
 
+
 if(!(ide==id_abs)){
 	
 	var status=follow();
+	
 	
 	if(status==2){
 		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button'value='Agregar Fiestero'onClick='changeMyClassName(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
@@ -129,6 +131,8 @@ var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
 	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
 	
 
 	  
@@ -143,6 +147,7 @@ var url="../develop/read/myFriends.php";
 			async: false,
 			complete: function(r){
 			  var json = JSON.parse(r.responseText);
+		      alert(r.responseText);
 			  
            var count=json.numFriends;
 	   		
@@ -165,6 +170,12 @@ var url="../develop/read/myFriends.php";
 
     if (followers==2){
     	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+
+
 	var url="../develop/read/petFriendship.php";
 	url=url.concat(params);
 
@@ -176,6 +187,7 @@ var url="../develop/read/myFriends.php";
 			async: false,
 			complete: function(r){
 			  var json = JSON.parse(r.responseText);
+	          
 			 
            var count=json.numPetitions;
 	   		
