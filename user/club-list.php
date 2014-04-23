@@ -168,8 +168,74 @@ parent.removeChild(element);
         //Get clubs info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
+		
+				var param = "/" ;
+					param=param.concat(idProfile); 
+					param=param.concat("/");
+					param=param.concat(token);
+					param=param.concat("/");
+					param=param.concat(idProfile);
+
+	  				var url="../develop/actions/myFavLocals.php";
+					url=url.concat(param);
+	                 
+	                 var array_follow=new Array();
+	               
+	               
+	               	$.ajax({
+						url: url,
+						dataType: "json",
+						type: "GET",
+						async: false,
+						complete: function(r){
+			  			var json = JSON.parse(r.responseText);	 
+             			count=json.rows;
+	   		
+	   		            var i=0;
+			 			while (i<count){
+								var user_type = "club";
+								var id_user = json[i].idProfile;
+								array_follow[array_follow.length]=id_user;
+								var localName = json[i].localName;
+								var telephoneLocal = json[i].telephoneLocal;
+								var street_int = json[i].street;
+								switch(street_int){
+								case 0:
+						  			var street = "Calle";
+									break;
+								case 1:
+						  			var street = "Avda.";
+								break;
+								case 2:
+						  			var street = "Plaza";
+								break;
+									default:
+						  					var street = "Calle";
+									}
+								var streetName = json[i].streetNameLocal;
+								var streetNumber = json[i].streetNumberLocal;
+								var picture = json[i].picture;
+								if (picture == null || picture.length == 0){
+									picture = "../images/reg1.jpg";
+									}
+								var latitude = json[i].latitude;
+								var longitude = json[i].longitude;
+								var link = "../club/profile.php?idv=" + id_user;
+			 	
+							$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-star" style="color:#FFFF00;font-size: 30px" id="b'+i+'"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
+			 				i++;
+			 			}
+					},
+					onerror: function(e,val){
+						alert("No se pueden saber los seguidores");
+				}
+			});
+	
+		
 		var params = "/" + idProfile + "/" + token; 
         var url1 = "../develop/read/locals.php" + params;
+        
+        
         $.ajax({
 			url: url1,
 			dataType: "json",
@@ -181,8 +247,6 @@ parent.removeChild(element);
 					var user_type = "club";
 					var id_user = json[i].idProfile;
 					var localName = json[i].localName;
-					//var poblationLocal = json[i].poblationLocal;
-					//var cpLocal = json[i].cpLocal;
 					var telephoneLocal = json[i].telephoneLocal;
 					var street_int = json[i].street;
 					switch(street_int){
@@ -200,7 +264,6 @@ parent.removeChild(element);
 					}
 					var streetName = json[i].streetNameLocal;
 					var streetNumber = json[i].streetNumberLocal;
-					//var music = json[i].music;
 					var picture = json[i].picture;
 					if (picture == null || picture.length == 0){
 						picture = "../images/reg1.jpg";
@@ -210,84 +273,16 @@ parent.removeChild(element);
 					var link = "../club/profile.php?idv=" + id_user;
 
 
-					var follow=false;
-					var params = "/" ;
-					params=params.concat(ide); 
-					params=params.concat("/");
-					params=params.concat(tok);
-					params=params.concat("/");
-					params=params.concat(json[i].idProfile);
-
-	  				var url="../develop/actions/pubfollowers.php";
-					url=url.concat(params);
 	
-					$.ajax({
-						url: url,
-						dataType: "json",
-						type: "GET",
-						async: false,
-						complete: function(r){
-			  			var json = JSON.parse(r.responseText);	 
-             			var key, count = 0;
-						for(key in json) {
-  							if(json.hasOwnProperty(key)) {
-    							count++;
-  							}
-						}
-	   					count=count-1;
-	   		
-	   					var i=0;
-			 			while (i<count && follow==false){
-			 	
-			 				if(json[i].idPPartier==ide)follow=true;
-			 			i++;
-			 			}
-					},
-					onerror: function(e,val){
-						alert("No se pueden saber los seguidores");
-				}
-			});
-      
+            var contains_follow=$.inArray(id_user, array_follow);
 
-            
-            if(follow)
-					$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-star" style="color:#FFFF00;font-size: 30px" id="b'+i+'"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
-			     else
+            if(contains_follow==-1 )
+				
 					$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24" target="_blank">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="3"></td></tr>');
 			
 				
 				}
-				/*var picture = json.picture;
-				var name = json.name;
-				var surnames = json.surnames;
-				var birthdate = json.birthdate;
-				var gender = json.gender;
-				var music = json.music;
-				var civil_state = json.civil_state;
-				var city = json.city;
-				var drink = json.drink;
-				var about = json.about;*/
-			/*	$.post("../framework/session_start.php",
-				  {
-				  	user_type: 'user',
-				    type_login: login_type,
-				    id_user: id,
-				    token: token,
-					picture: picture,
-					name: name,
-					surnames: surnames,
-					birthdate: birthdate,
-					gender: gender,
-					music: music,
-					civil_state: civil_state,
-					city: city,
-					drink: drink,
-					about: about
-				  },
-				  function(data,status){
-					//alert("Data: " + data + "\nStatus: " + status);
-					//window.location.href = "../user/home.php";										  
-				  });*/
+			
 	    		},
 				onerror: function(e,val){
 					alert("Contraseña y/o usuario incorrectos");
