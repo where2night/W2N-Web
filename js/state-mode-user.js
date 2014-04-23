@@ -29,7 +29,7 @@ function createState() {
 }
 
 /**
- * When the state of a user is changed (De tranquis,Hoy no me lio,Lo que surja,Lo daré todo,Destroyer,Yo me llamo Ralph)
+ * When the mode of a user is changed (De tranquis,Hoy no me lio,Lo que surja,Lo daré todo,Destroyer,Yo me llamo Ralph)
  * that information is sent to the server where the database is to be stored
  */
 function changeMode() {

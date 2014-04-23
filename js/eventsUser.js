@@ -93,11 +93,9 @@ function nextEvents(){
 	
 	var page = 0;
 	
-	var url = "../develop/read/news.php";
-	url=url.concat(params) + "/"+page;
+	var url = "../develop/actions/eventsDontGo.php";
+	url=url.concat(params);
 	
-		 
-        
         $.ajax({
 			url: url,
 			dataType: "json",
@@ -106,24 +104,28 @@ function nextEvents(){
 			async: false,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-				var num_elements = json.numElems;
+				var num_elements = json.rows;
 				var type_1 ;
 				
 				for(var i=0; i<num_elements; i++){
-					var type = json[i].TYPE;
-					if (type == 1){
+				
+					/*var type = json[i].TYPE;
+					if (type == 1){*/
 						type_1 = type_1 +1;
 						var idEven = json[i].idEvent;
-						var localName = json[i].localName;
+						var localName = json[i].name;
 						var title = json[i].title;	
 						var startHour = json[i].startHour;
 						var closeHour = json[i].closeHour;
 						var date = json[i].date;
 						var text = json[i].text;
+						var picture = json[i].pictureC;
+						if (picture==0 || picture=="" || picture==null)
+							picture = "../images/party2.jpg";
 						
 						
 					   var events=document.getElementById('nextev').innerHTML;
-					   events=events.concat("<li><div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='../images/party2.jpg' alt='' /> <h6>");
+					   events=events.concat("<li><div class='timeline-title orangeBox1'><img class='menu-avatar time-title-img orangeBox1'  src='"+picture+"' alt='' /> <h6>");
 		               events=events.concat(localName);
 		               events=events.concat(" ");
 		               events=events.concat("<span class='glyphicon glyphicon-arrow-right'></span>");
@@ -144,7 +146,7 @@ function nextEvents(){
 					   document.getElementById('nextev').innerHTML=events;
 											
 				
-					}
+					//}
 					
 					
 				}

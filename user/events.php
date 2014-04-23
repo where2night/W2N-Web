@@ -222,7 +222,7 @@ var tok = '<?php echo $toke; ?>' ;
 											
 						</div>
 						<script>
-								document.getElementById('show_more').innerHTML="hola";
+								document.getElementById('show_more').innerHTML="";
 						</script>
 						</div><!-- col-md-5-->
 						
