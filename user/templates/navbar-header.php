@@ -84,7 +84,7 @@ function aceptarbtn(id){
 	    var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token + "/" + id; 
 		var url2 = "../develop/actions/followFriend.php" + params;
-		alert(id);
+
 		$.ajax({
 			url: url2,
 			dataType: "json",
@@ -92,7 +92,6 @@ function aceptarbtn(id){
 			async: false,
 			complete: function(r){
 				alert(r.responseText);
-			}
 			},
 			onerror: function(e,val){
 			alert("No se puede aceptar peticion");
@@ -116,11 +115,15 @@ function numNotifications(){
 			complete: function(r){
 			var json = JSON.parse(r.responseText);
 			var count=json.numPetitions;
-			if (count != 0){
 			var noti=document.getElementById('numNoti').innerHTML;
-			noti = noti.concat(count);
-			document.getElementById('numNoti').innerHTML=noti;	
+			if (count != 0)
+				noti = noti.concat(count);
+			else{
+				noti = noti.concat("<b style='color:#000'>");
+				noti = noti.concat(count);
+				noti = noti.concat("</b>");
 			}
+			document.getElementById('numNoti').innerHTML=noti;
 			},
 			onerror: function(e,val){
 			alert("No se pueden saber las notificaciones");
@@ -146,7 +149,12 @@ function notifications(){
 			var json = JSON.parse(r.responseText);
 			var count=json.numPetitions;
 	   		var i=0;
-			document.write("<li class='item-header'style='line-height:15px;'>Tienes "+ count + " peticiones de amistad</li>");
+			if (count==0)
+				document.write("<li class='item-header'style='line-height:15px;'>No tienes peticiones de amistad</li>");
+			else if (count==1)
+				document.write("<li class='item-header'style='line-height:15px;'>Tienes "+ count + " petición de amistad</li>");
+			else
+				document.write("<li class='item-header'style='line-height:15px;'>Tienes "+ count + " peticiones de amistad</li>");
 			
 			while (i<count){
 				var id_user = json[i].idProfile;			
@@ -158,18 +166,7 @@ function notifications(){
 				var name = json[i].name;	
 				var surnames = json[i].surnames;
 				
-				
-						/*<li class="item"style="line-height:15px;">
-							<a href="">
-								<i class="glyphicon glyphicon-user"style="color:#ff6b24;"></i>
-								<span class="content" style="font-size:13px"><b style="text-transform: uppercase;color:#000"><?php echo $_SESSION['name']." ".$_SESSION['surnames']; ?></b>  desea ser tu amigo
-								<input id="'+id_user+'" class="btn pull-right" onclick='aceptarbtn(this.id);' type="button"value="Aceptar"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></span>
-								<p style="font-size:11px"><i class="glyphicon glyphicon-time" style="font-size:11px;margin-left:5%;color:#ff6b24"></i> hace 13 min</p>
-							</a>
-						</li>	*/
-				
-				
-				document.write("<li class='item'style='line-height:15px;'><a><i class='glyphicon glyphicon-user'style='color:#ff6b24;'>holaaaaa </i></a><a id='"+id_user+"' class='btn pull-right' onclick='aceptarbtn(this.id);' type='button'value='Aceptar'></a></</li>");
+				document.write("<li class='item'style='line-height:15px;'><i class='glyphicon glyphicon-user'style='margin-top:4%;margin-left:3%;color:#ff6b24;'></i><span class='content' style='font-size:13px'><b style='text-transform: uppercase;margin-left:3%;color:#000'>"+name+" "+surnames+"</b><b style='margin-left:2%'>desea ser tu amigo</b><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='aceptarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Aceptar</button></span><p style='font-size:11px'><i class='glyphicon glyphicon-time' style='font-size:11px;margin-left:9%;color:#ff6b24'></i> hace 13 min</p></li>");
 				
 					i=i+1;		
 			}
