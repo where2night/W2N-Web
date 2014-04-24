@@ -256,28 +256,6 @@ function showMore(){
 }
 	$(document).ready(function(){
 
-	//Get user info
-	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
-	var token =  "<?php echo $_SESSION['token']; ?>	";
-	var params = "/" + idProfile + "/" + token;
-	var url2 = "../develop/update/partier.php" + params;
-
-	$.ajax({
-	url:url2,
-	dataType: "json",
-	type: "GET",
-	complete: function(r3){
-	var json = JSON.parse(r3.responseText);
-	var name = json.name;
-	var surnames = json.surnames;
-	$("#navbar-complete-name").text(name + " " + surnames);
-	$("#navbar-complete-name2").text(name + " " + surnames);
-	},
-	onerror: function(e,val){
-	alert("No se puede introducir evento 2");
-	}
-	});
-
 	/*prepares attributes for the server*/
 	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
 	var token =  "<?php echo $_SESSION['token']; ?>";
