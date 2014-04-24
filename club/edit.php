@@ -200,7 +200,7 @@ include_once "../framework/sessions.php";
 							about: about
 						},
 	                    function(data,status){
-	                      //window.location.href="home.php";
+	                      window.location.href="home.php";
 	                    });
 	                
 	              },
@@ -309,7 +309,7 @@ include_once "../framework/sessions.php";
 							about: about
 						},
 	                    function(data,status){
-	                      //window.location.href="home.php";
+	                      window.location.href="home.php";
 	                    });
 	                
 	              },
