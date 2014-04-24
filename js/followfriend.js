@@ -176,7 +176,7 @@ var params = "/" ;
 	params=params.concat(tok);
 
 
-	var url="../develop/read/petFriendship.php";
+	var url="../develop/actions/myPetFriendship.php";
 	url=url.concat(params);
 
 

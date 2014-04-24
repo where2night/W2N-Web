@@ -131,7 +131,7 @@ var tok = '<?php echo $toke; ?>' ;
 
 
                          		                     	
-			                     	var url="../develop/read/petFriendship.php";
+			                     	var url="../develop/actions/myPetFriendship.php";
 										url=url.concat(params);
 
 					
