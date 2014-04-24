@@ -329,11 +329,19 @@ body{
     </style>
 
 <?php 
-  /*NavbarHeader*/
-  include "templates/navbar-header.php";
+    /*NavbarHeader*/
+  if($_SESSION['user_type'] == "user"){
+  	include "templates/navbar-header.php"; 
+  } else if($_SESSION['user_type'] == "club"){
+  	include "../club/templates/navbar-header.php"; 
+  }
 
   /*Sidebar*/
-  include "templates/sidebar.php";
+  if($_SESSION['user_type'] == "user"){
+ 	 include "templates/sidebar.php";
+  } else if($_SESSION['user_type'] == "club"){
+  	include "../club/templates/sidebar.php"; 
+  }
 ?>
 <!-- MiPerfil -->
 <div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">

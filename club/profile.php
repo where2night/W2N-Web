@@ -398,8 +398,12 @@ $.ajax({
     </style>
 <?php 
   /*NavbarHeader*/
-  include "templates/navbar-header.php";
-  
+  if($_SESSION['user_type'] == "club"){
+  	include "templates/navbar-header.php"; 
+  } else if($_SESSION['user_type'] == "user"){
+  	include "../user/templates/navbar-header.php"; 
+  }
+
   $idProfile=$_SESSION['id_user']; 
   $token=$_SESSION['token']; 
 

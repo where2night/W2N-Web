@@ -55,13 +55,7 @@ if(where=="logo"){
 }
 
 
-/*function name(){
-	
-		if (type=="club")
-				document.write("<?php echo $_SESSION['local_name'];?>");
-						else 
-                            document.write("<?php echo $_SESSION['name'].' '.$_SESSION['surnames'];?>");
-}*/
+
 
 </script>
 
@@ -249,12 +243,8 @@ function notifications(){
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
                 <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
-				<script>
-				//name();
-				</script>
-				 <span id="navbar-complete-name">
-					 <?php //echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
-				 </span>
+
+				 <span name="nav-name"></span>
 				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
@@ -265,9 +255,7 @@ function notifications(){
                   <div class="avatar">
                     <img src="../images/profile.jpg" />
                   </div>
-                  <span id="navbar-complete-name2">
-					 <?php //echo $_SESSION['name']." ".$_SESSION['surnames']; ?>
-				  </span>
+                  <span name="nav-name"></span>
                 </li>
 
                 <li class="divider"></li>
@@ -283,4 +271,49 @@ function notifications(){
       </div><!-- /.navbar-collapse -->
       </div>
     </div>
+    <script type="text/javascript"> 
+	    var idProfile = <?php echo $_SESSION['id_user'];?>;
+		var id = <?php echo $_SESSION['id_user'];?>;
+		var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+		var url1 = "../develop/update/";
+		var params = "/" + id + "/" + token + "/" + idProfile;
+		if (type=="club"){
+		  url1 += "local.php";
+		  url1 += params;
+		  $.ajax({
+		    url: url1,
+		    dataType: "json",
+		    type: "GET",
+		    timeout: 5000,
+		    async: false,
+		    complete: function(r2){
+		      var json = JSON.parse(r2.responseText);
+		      var localName = json.localName;
+		      $('[name="nav-name"]').text(localName);
+		    },
+		    onerror: function(e,val){
+		    }
+		  });
+		} else {
+		 url1 += "user.php";
+		  url1 += params;
+		  $.ajax({
+		    url: url1,
+		    dataType: "json",
+		    type: "GET",
+		    timeout: 5000,
+		    async: false,
+		    complete: function(r2){
+		      var json = JSON.parse(r2.responseText);
+		      var name = json.name;
+		      var surnames = json.surnames;
+		      $('[name="nav-name"]').text(name + " " + surnames);
+
+		    },
+		    onerror: function(e,val){
+		    }
+		  });
+		}
+    </script>
 <!-- /NavbarHeader -->

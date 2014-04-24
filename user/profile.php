@@ -337,8 +337,6 @@ $(document).ready(function(){
 				var surnames = json.surnames;
 				$("#complete-name").text(name + " " + surnames);
 				$("#complete-name2").text(name + " " + surnames);
-				$("#navbar-complete-name").text(name + " " + surnames);
-				$("#navbar-complete-name2").text(name + " " + surnames);
 				var birthdate = json.birthdate;
 				var birth_array = birthdate.split("/");
 				$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
@@ -421,16 +419,15 @@ $(document).ready(function(){
 	}	
 			
     </style>
-
-
+    
 <?php 
   /*NavbarHeader*/
-  include "templates/navbar-header.php";
+  if($_SESSION['user_type'] == "user"){
+  	include "templates/navbar-header.php"; 
+  } else if($_SESSION['user_type'] == "club"){
+  	include "../club/templates/navbar-header.php"; 
+  }
 ?>
-
-
-
-
 
 <!-- MyProfile -->
 <div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;">
