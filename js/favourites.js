@@ -11,6 +11,8 @@ function favouriteLocals(){
 
 	  				var url="../develop/actions/myFavLocals.php";
 					url=url.concat(param);
+					
+					
 	                 
 	                 
 	               	$.ajax({
@@ -28,16 +30,18 @@ function favouriteLocals(){
 			 				var picture = json[i].picture;
 							if (picture == null || picture.length == 0){
 								picture = "../images/reg1.jpg";
-							}
+						}
 							
-							var localName = json[i].localName;
-			 	
+						var localName = json[i].localName;
+						var id_user = json[i].idProfile;
+						
+						var link = "../club/profile.php?idv=" + id_user;
 			 	
 			 			var local=document.getElementById('localfav').innerHTML;
 					
 		      			local=local.concat("<li class='col-md-6'style='border-color:#ff6b24;'> <div class='img'> <img src='");
 						local=local.concat(picture);
-						local=local.concat("' alt=''/></div><div class='details'style='background-color:#1B1E24;border:0px'><div class='name'><a href='#' style='color:#ff6b24; font-size:16px;'>");
+						local=local.concat("' alt=''/></div><div class='details'style='background-color:#1B1E24;border:0px'><div class='name'><a href='"+link+"' style='color:#ff6b24; font-size:16px;'>");
 						local=local.concat(localName);
 						local=local.concat("</a></div><div class='time'><i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:11px;'></i> Última publicación: 1 semana</div></div></li>");
 
