@@ -325,10 +325,16 @@ $(document).ready(function(){
 	}else{//(!isset($_GET['idv']))
 ?>
 
-		var url2 = "../develop/update/partier.php" + params;
+		var id = <?php echo $_SESSION['id_user'];?>;
+		var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+		var url1 = "../develop/update/";
+		var params = "/" + id + "/" + token + "/" + id;
+		url1 += "user.php";
+		url1 += params;
 		
 		$.ajax({
-			url:url2,
+			url:url1,
 			dataType: "json",
 			type: "GET",
 			async: false,
