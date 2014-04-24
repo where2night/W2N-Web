@@ -244,7 +244,6 @@ $(document).ready(function(){
 		timeout: 5000,
 		complete: function(r2){
 			/*In response the server a list of 10 activities is received*/
-			alert(r2.responseText);
 			var json = JSON.parse(r2.responseText);
 			var num_elements = json.numElems;
 			
