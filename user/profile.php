@@ -269,8 +269,12 @@ w2n_session_check();
 		timeout: 5000,
 		complete: function(r2){
 				var json = JSON.parse(r2.responseText);
+				
 				var num_elements = json.numElems;
-
+				var div = document.getElementById('activities');
+				div.innerHTML = num_elements;
+				
+				
 				for(var i=0; i<10; i++){
 					var type = json[i].TYPE;
 					var goes = json[i].GOES;
@@ -614,13 +618,25 @@ if(isset($_GET['idv'])){
 										<div class="profile-details" style="background-color:#1B1E24;border-color:#ff6b24;">
 											<ul class="fa-ul">
 												<li  style="color:#ff6b24;">
-													Seguidores: <span> 456</span>
+													Seguidores:
+													<span id="followers"> 
+														<script> 
+															my_followers(); 
+														</script>
+													</span>
 												</li>
 												<li  style="color:#ff6b24;">
-													Siguiendo: <span> 828</span>
+													Siguiendo: 
+													<span id="following"> 
+														<script> 
+															following(); 
+														</script>
+													</span>
 												</li>
 												<li  style="color:#ff6b24;">
-													Publicaciones: <span> 828</span>
+													Publicaciones: 
+													<span id="activities"> 
+													</span>
 												</li>
 											</ul>
 										</div>

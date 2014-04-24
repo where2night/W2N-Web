@@ -91,7 +91,7 @@ var url="../develop/read/myFriends.php";
 			  var json = JSON.parse(r.responseText);
 			  
 			  var count=json.numFriends;
-	   		
+				var num_friends=document.getElementById('friends').innerHTML;
 	   		var i=0;
 			 
 			 while (i<count){
@@ -150,11 +150,108 @@ var url="../develop/read/myFriends.php";
 			}
 	});
 
+}
 
 
+function my_followers(){
 
-															
-													
+	var params = "/" ;
+	var count;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(id_abs);
+	
+	var url="../develop/read/myFriends.php";
+	url=url.concat(params);
+	
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			var json = JSON.parse(r.responseText);
+			  
+			count = json.numFriends;
+			var div = document.getElementById('followers');
+			div.innerHTML = count;
+			  
+        		  
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los seguidores");
+			}
+	});
+	
+}
 
+function following(){
 
+	var params = "/" ;
+	var num_friends;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(id_abs);
+	
+	var url="../develop/read/myFriends.php";
+	url=url.concat(params);
+	
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			var json = JSON.parse(r.responseText);
+			  
+			num_friends = json.numFriends;
+			var div = document.getElementById('followers');
+			div.innerHTML = num_friends;
+			  
+        		  
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los seguidores");
+			}
+	});
+	
+	
+	var param = "/" ;
+	param=param.concat(ide); 
+	param=param.concat("/");
+	param=param.concat(tok);
+	param=param.concat("/");
+	param=param.concat(id_abs);
+
+	var url="../develop/actions/myFavLocals.php";
+	url=url.concat(param);
+	                 
+	var num_favourites_pubs ;                
+	$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			
+			complete: function(r){
+			var json = JSON.parse(r.responseText);	 
+			num_favourites_pubs=json.rows;
+
+				
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los seguidores");
+			}
+	});
+	
+	var total_followers = num_friends + num_favourites_pubs;
+
+	var div = document.getElementById('following');
+			div.innerHTML = total_followers;
+	
+	
 }
