@@ -57,13 +57,36 @@ if(where=="logo"){
 	}					
 }
 
-function name(){
+/*function name(){
 	
 		if (type=="club")
 				document.write("<?php echo $_SESSION['local_name'];?>");
 						else 
                             document.write("<?php echo $_SESSION['name'].' '.$_SESSION['surnames'];?>");
-}
+}*/
+var idProfile = <?php echo $_SESSION['id_user'];?>;
+var id = <?php echo $_SESSION['id_user'];?>;
+var token = "<?php echo $_SESSION['token'];?>";
+var params = "/" + idProfile + "/" + token; 
+var url1 = "../develop/update/";
+var params = "/" + id + "/" + token + "/" + idProfile;
+url1 += "local.php";
+url1 += params;
+$.ajax({
+  url: url1,
+  dataType: "json",
+  type: "GET",
+  timeout: 5000,
+  complete: function(r2){
+    var json = JSON.parse(r2.responseText);
+    var localName = json.localName;
+    $('[name="nav-localName"]').text(localName);
+
+  },
+  onerror: function(e,val){
+    alert("Contraseña y/o usuario incorrectos");
+  }
+});
 
 </script>
 
@@ -120,8 +143,9 @@ function name(){
               <span>
                 <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 				<script>
-				name();
+				//name();
 				</script>
+        <span name="nav-localName"></span>
 				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
               </span>
               </a>
@@ -132,9 +156,7 @@ function name(){
                   <div class="avatar">
                     <img src="../images/profile.jpg" />
                   </div>
-                  <span>
-					<?php echo $_SESSION['local_name']; ?>
-				  </span>
+                  <span name="nav-localName"></span>
                 </li>
 
                 <li class="divider"></li>

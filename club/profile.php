@@ -139,7 +139,7 @@ include_once "../framework/visits.php";
 		$('[name="goto"]').text(goto);
 		},
 		onerror: function(e,val){
-			alert("Contraseña y/o usuario incorrectos");
+			//alert("Contraseña y/o usuario incorrectos");
 		}
 	});
 
@@ -170,7 +170,7 @@ include_once "../framework/visits.php";
 		var localName = json.localName;
 		$('[name="localName"]').text(localName);
 		var cif = json.cif;
-		$('[name="localName"]').text(localName);
+		$('[name="cif"]').text(cif);
 		var telephoneLocal = json.telephoneLocal;
 		$('[name="telephoneLocal"]').text(telephoneLocal);
 
@@ -237,7 +237,7 @@ include_once "../framework/visits.php";
 	
 		},
 		onerror: function(e,val){
-			alert("Contraseña y/o usuario incorrectos");
+			//alert("Contraseña y/o usuario incorrectos");
 		}
 	});
 
@@ -399,6 +399,7 @@ $.ajax({
 <?php 
   /*NavbarHeader*/
   include "templates/navbar-header.php";
+  
   $idProfile=$_SESSION['id_user']; 
   $token=$_SESSION['token']; 
 
