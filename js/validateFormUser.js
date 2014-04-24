@@ -111,8 +111,12 @@ function validateForm() {
 							var login_type = 'normal';
 							
 							set_session_info(id, token, user_type, login_type);
-						} else
+						} else{
+							cleanPopOvers();
+							email_duplicated();
+							
 							console.log("error registro");
+						}
 					},
 					onerror : function(e, val) {
 						alert("Hay error");
@@ -123,6 +127,18 @@ function validateForm() {
 		}
 	}
 
+}
+
+function email_duplicated(){
+	var email_dup = '#email';
+	$(email_dup).popover({
+			content : '<label style="font-family:Adobe Hebrew; font-size:13px;"><img src="../images/error.jpe" alt="error"> Correo duplicado </label>',
+			html : true,
+			placement : 'bottom',
+			trigger : 'manual'
+		});
+
+		$(email_dup).popover('show');
 }
 
 function validField(field, fieldValue) {
