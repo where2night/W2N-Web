@@ -128,9 +128,9 @@ include_once "../framework/visits.php";
 		var about = json.about;
 		$('[name="about"]').text(about);
 		var latitude = json.latitude;
-		$('[name="latitude"]').text(latitude);
+		$('#latitude').val(latitude);
 		var longitude = json.longitude;
-		$('[name="longitude"]').text(longitude);
+		$('#longitude').val(longitude);
 		var follow = json.follow;
 		$('[name="follow"]').text(follow);
 		var followers = json.followers;
@@ -225,9 +225,9 @@ include_once "../framework/visits.php";
 		var about = json.about;
 		$('[name="about"]').text(about);
 		var latitude = json.latitude;
-		$('[name="latitude"]').text(latitude);
+		$('#latitude').val(latitude);
 		var longitude = json.longitude;
-		$('[name="longitude"]').text(longitude);
+		$('#longitude').val(longitude);
 		var follow = json.follow;
 		$('[name="follow"]').text(follow);
 		var followers = json.followers;
@@ -623,6 +623,9 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</div>
 												<div class="row">
 												<div class="col-lg-8" style="margin-left:10%;margin-top:2%">
+												<!-- Hidden values for map -->
+													<input type="hidden" id="latitude" name="latitude"/>
+													<input type="hidden" id="longitude" name="longitude"/>
 												<?php include "map.php";?>
 												</div>
 												</div>
