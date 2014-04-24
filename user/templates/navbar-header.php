@@ -94,6 +94,28 @@ function aceptarbtn(id){
 }
 </script>
 <script type="text/javascript">  
+function cancelarbtn(id){
+   //Get user info
+		var idProfile = <?php echo $_SESSION['id_user'];?>;
+	    var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token + "/" + id; 
+		var url2 = "../develop/actions/followFriend.php" + params;
+
+		$.ajax({
+			url: url2,
+			dataType: "json",
+			type: "DELETE",
+			async: false,
+			complete: function(r){
+				alert(r.responseText);
+			},
+			onerror: function(e,val){
+			alert("No se puede cancelar peticion");
+			}
+		});
+}
+</script>
+<script type="text/javascript">  
 function numNotifications(){
    //Get user info
 		var idProfile = <?php echo $_SESSION['id_user'];?>;
@@ -160,7 +182,7 @@ function notifications(){
 				var name = json[i].name;	
 				var surnames = json[i].surnames;
 				
-				document.write("<li class='item'style='line-height:15px;'><i class='glyphicon glyphicon-user'style='margin-top:4%;margin-left:3%;color:#ff6b24;'></i><span class='content' style='font-size:13px'><b style='text-transform: uppercase;margin-left:3%;color:#000'>"+name+" "+surnames+"</b><b style='margin-left:2%'>desea ser tu amigo</b><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='aceptarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Aceptar</button></span><p style='font-size:11px'><i class='glyphicon glyphicon-time' style='font-size:11px;margin-left:9%;color:#ff6b24'></i> hace 13 min</p></li>");
+				document.write("<li class='item'style='line-height:15px;'><i class='glyphicon glyphicon-user'style='margin-top:4%;margin-left:3%;color:#ff6b24;'></i><span class='content' style='font-size:13px'><b style='text-transform: uppercase;margin-left:3%;color:#000'>"+name+" "+surnames+"</b><b style='margin-left:2%'>desea ser tu amigo</b><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='aceptarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Aceptar</button><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='cancelarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Cancelar</button></span><p style='font-size:11px'><i class='glyphicon glyphicon-time' style='font-size:11px;margin-left:9%;color:#ff6b24'></i> hace 13 min</p></li>");
 				
 					i=i+1;		
 			}
