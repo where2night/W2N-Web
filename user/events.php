@@ -256,38 +256,7 @@ var params = "/" ;
 			});
 	myEvents();	
 }
-<<<<<<< HEAD
 function allEvents(){
-=======
-	$(document).ready(function(){
-
-	//Get user info
-	var id = <?php echo $_SESSION['id_user'];?>;
-	var token = "<?php echo $_SESSION['token'];?>";
-	var params = "/" + idProfile + "/" + token; 
-	var url1 = "../develop/update/";
-	var params = "/" + id + "/" + token + "/" + id;
-	url1 += "user.php";
-	url1 += params;
-	
-	$.ajax({
-		url:url1,
-		dataType: "json",
-		type: "GET",
-		complete: function(r3){
-		var json = JSON.parse(r3.responseText);
-		var name = json.name;
-		var surnames = json.surnames;
-		$("#navbar-complete-name").text(name + " " + surnames);
-		$("#navbar-complete-name2").text(name + " " + surnames);
-	},
-	onerror: function(e,val){
-		//alert("No se puede introducir evento 2");
-	}
-	});
-
-	/*prepares attributes for the server*/
->>>>>>> 8e890de7f8131d02b5e53d2752896874f2ed7983
 	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
 	var token =  "<?php echo $_SESSION['token']; ?>";
 	var params = "/" + idProfile + "/" + token;
