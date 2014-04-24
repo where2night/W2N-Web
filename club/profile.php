@@ -35,7 +35,7 @@ include_once "../framework/visits.php";
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
 	<!-- script -->
-	<script src="../js/events.js"></script>
+	
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/register.js"></script>
@@ -274,6 +274,106 @@ document.getElementById(myButtonID).value='Voy a ir';
 }
 </script>
 <script type="text/javascript">
+function getVisitorEvents(){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	  
+	var url = "../develop/actions/myEvents.php";
+	url = url.concat(params);
+	var array_ids = new Array(); 
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				
+			  	for (var i = 0; i < json.rows; i++) {
+			  		array_ids[i] = "" +json[i].idEvent;
+		  		}
+			},
+			onerror: function(e,val){
+				alert("Error al buscar eventos de usuario");
+			}
+	});
+	return array_ids;
+}
+
+
+//Check if function is join or disjoin
+function clickedJoinEvent(idRequest, idEvent){
+	var partierEvents = new Array();
+    if(ide != idRequest){
+    	partierEvents = getVisitorEvents();
+    } 
+    if(partierEvents.indexOf(idEvent) > -1){//Event in array, display disjoin
+		disjoinEvent (idRequest, idEvent)
+	}else{//Event not in array, display join
+		joinEvent (idRequest, idEvent)
+	}
+}
+
+function joinEvent (idRequest, idEvent){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	params = params.concat("/");
+	params = params.concat(idEvent);
+	  
+	var url = "../develop/actions/goToEvent.php";
+	url = url.concat(params);
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 	var json = JSON.parse(r.responseText);	 
+          		var button = document.getElementById("join-event-" + idEvent);
+		  		button.innerHTML ='Me Desapunto';
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puedo añadir al evento");
+			}
+	});
+}
+
+
+function disjoinEvent (idRequest, idEvent){
+
+	var params = "/" ;
+	params = params.concat(ide); 
+	params = params.concat("/");
+	params = params.concat(tok);
+	params = params.concat("/");
+	params = params.concat(idEvent);
+	  
+	var url = "../develop/actions/goToEvent.php";
+	url = url.concat(params);
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "DELETE",
+			complete: function(r){
+			 	var json = JSON.parse(r.responseText);
+          		var button = document.getElementById("join-event-" + idEvent);
+		  		button.innerHTML ='Me Apunto';
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puedo eliminar del evento");
+			}
+	});
+}
+
+</script>
+<script type="text/javascript">
 function eventProfileTest(idRequest) {
 	
 var params = "/" ;
@@ -312,7 +412,16 @@ $.ajax({
 			  	{
 					var events=document.getElementById('ul').innerHTML;
 					
+					var dateEvent = json[i].date; 
+					var year = dateEvent.substring(0,4);
+					var month = dateEvent.substring(5,7);
+					var day = dateEvent.substring(8,11);
+					var eventDate = day+'-'+month+'-'+year;
 					var date = json[i].createdTime;
+					var startHour = json[i].startHour;
+					var starH = startHour.substring(0,5);
+					var closeHour = json[i].closeHour;
+					var closeH = closeHour.substring(0,5);
 					
 					moment.lang('es', {
 						 relativeTime : {
@@ -337,7 +446,7 @@ $.ajax({
 					}
 	
 					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
-					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php //echo get_local_name_club(); ?>");
+					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> <?php echo get_local_name_club(); ?>");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
@@ -345,13 +454,19 @@ $.ajax({
 					events = events.concat(json[i].text);
 					events = events.concat("</P>");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
-					events = events.concat(json[i].date);
-					events = events.concat("</b> , a partir de  <b style='color:#34d1be'>");
-					events = events.concat(json[i].startHour);
+					events = events.concat(eventDate);
+					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
+					events = events.concat(starH);
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
-					events = events.concat(json[i].closeHour);
-					events = events.concat("</b></p>");
-					events = events.concat("<input id='btn03'  class='btn btn-success botonapuntar' type='button'value='Me Apunto'onClick='btnApuntar(this);'style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>");
+					events = events.concat(closeH);
+					events = events.concat("</b> hrs.</p>");
+					if(ide != idRequest){
+						if(partierEvents.indexOf(json[i].idEvent) > -1){//Event in array, display disjoin
+							events=events.concat('<button type="button" id="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button>');
+						}else{//Event not in array, display join
+							events=events.concat('<button type="button" id="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button>');
+						}
+					}
 					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('ul').innerHTML=events;		
