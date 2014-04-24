@@ -51,7 +51,7 @@ include_once "../framework/visits.php";
 	var idProfile = <?php echo $_SESSION['id_user'];?>;
     var token = "<?php echo $_SESSION['token'];?>";
 	var params = "/" + idProfile + "/" + token; 
-	var url2 = "../develop/update/partier.php" + params;
+	var url2 = "../develop/update/user.php" + params;
 		
 		$.ajax({
 			url:url2,
