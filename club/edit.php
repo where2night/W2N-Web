@@ -45,13 +45,68 @@ include_once "../framework/sessions.php";
 	
 	<script type="text/javascript">  
     $(document).ready(function(){ 
-      
+      	
+      	var idProfile = <?php echo $_SESSION['id_user'];?>;
+		var id = <?php echo $_SESSION['id_user'];?>;
+		var token = "<?php echo $_SESSION['token'];?>";
+		var params = "/" + idProfile + "/" + token; 
+		var url1 = "../develop/update/";
+		var params = "/" + id + "/" + token + "/" + idProfile;
+		url1 += "local.php";
+		url1 += params;
+		$.ajax({
+			url: url1,
+			dataType: "json",
+			type: "GET",
+			timeout: 5000,
+			complete: function(r2){
+				var json = JSON.parse(r2.responseText);
+
+				var companyName = json.companyNameLocal;
+				$('#company_name').val(companyName);
+				var localName = json.localName;
+				$('#local_name').val(localName);
+				var cif = json.cif;
+				$('#cif').val(cif);
+				var telephoneLocal = json.telephoneLocal;
+				$('#telephone').val(telephoneLocal);
+				var street = json.street;
+				$('#street').val(street);
+				var streetName = json.streetNameLocal;
+				$("#streetName").val(streetName);
+				var streetNumber = json.streetNumberLocal;
+				$("#streetNumber").val(streetNumber);
+				var cpLocal = json.cpLocal;
+				$('#postal-code').val(cpLocal);
+				var poblationLocal = json.poblationLocal;
+				$('#poblation').text(poblationLocal);
+				$('[name="address"]').text(address);
+				var music = json.music;
+				$('#music-style').val(music);
+				var entryPrice = json.entryPrice;
+				$('#entryPrice').val(entryPrice);
+				var drinkPrice = json.drinkPrice;
+				$('#drinkPrice').val(drinkPrice);
+				var openingHours = json.openingHours;
+				$('#openingHours').val(openingHours);
+				var closeHours = json.closeHours;
+				$('#closeHours').val(closeHours);
+				var picture = json.picture;
+				//$('[name="picture"]').attr("src", picture);
+				var about = json.about;
+				$('#about-you').val(about);
+		
+			},
+			onerror: function(e,val){
+				
+			}
+		});
 	                
 	    $("#change-data").on("click", function (event) {
 	          
 	        var idProfile = <?php echo $_SESSION['id_user'];?>;
 	        var token = "<?php echo $_SESSION['token'];?>";
-	        var companyName = $('#name').val();
+	        var companyName = $('#company_name').val();
 	        var localName = $('#local_name').val();
 	        var cif = $('#cif').val();
 	        var poblationLocal = $('#poblation').val();
@@ -155,11 +210,12 @@ include_once "../framework/sessions.php";
 	            }
 	        }));
 	    });
+
 		$("#change-data1").on("click", function (event) {
 	          
 	        var idProfile = <?php echo $_SESSION['id_user'];?>;
 	        var token = "<?php echo $_SESSION['token'];?>";
-	        var companyName = $('#name').val();
+	        var companyName = $('#company_name').val();
 	        var localName = $('#local_name').val();
 	        var cif = $('#cif').val();
 	        var poblationLocal = $('#poblation').val();
@@ -343,17 +399,24 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="local_name" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre Local</label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="local_name" name="local_name" placeholder="Nombre Local" value="<?php echo $_SESSION['local_name']; ?>">
+                                                                <input type="text" class="form-control" id="local_name" name="local_name" placeholder="Nombre Local" value="<?php //echo $_SESSION['local_name']; ?>">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="company_name" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre Empresa</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Nombre Empresa">
                                                             </div>
                                                         </div>
                                                         
 														<div class="form-group">
 															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Dirección </label>
 															<div class="col-sm-2 " >
-															<select class="form-control" style="height:26px;margin-top:4%;padding-bottom:2%;padding-top:1%" id="street" required>
-																<option value="0" <?php if ($_SESSION['street'] == 0) echo 'selected="1"'; ?>>Calle</option>
-																<option value="1" <?php if ($_SESSION['street'] == 1) echo 'selected="1"'; ?>>Avd.</option>
-																<option value="2" <?php if ($_SESSION['street'] == 2) echo 'selected="1"'; ?>>Plaza</option>
+															<select id="street" class="form-control" style="height:26px;margin-top:4%;padding-bottom:2%;padding-top:1%" id="street" required>
+																<option value="0">Calle</option>
+																<option value="1">Avd.</option>
+																<option value="2">Plaza</option>
 															</select>
 															</div>
 															<div class="col-sm-6 control-label">
@@ -377,7 +440,7 @@ include_once "../framework/sessions.php";
 																<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Teléfono"value="<?php echo $_SESSION['telephone']; ?>" >
 															</div>
 														</div>
-                                                        <div class="form-group">
+                                                      <!--  <div class="form-group">
                                                             <label for="inputemail" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Correo Electrónico</label>
                                                             <div class="col-lg-9">
                                                                 <input type="email" class="form-control" id="inputemail" placeholder="Correo Electrónico">
@@ -389,7 +452,7 @@ include_once "../framework/sessions.php";
                                                                 <input type="password" class="form-control" id="inputpassword" placeholder="Contraseña">
                                                                 <input type="password" class="form-control together" id="inputpassword2" placeholder="Repite Contraseña">
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                        
                                                     </form>
 													<a id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
@@ -409,11 +472,11 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="entryPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Entrada</label>
                                                             <div class="col-lg-1">
-                                                                <input id="entryPrice" name="favourite-drink" type="text" placeholder="Precio Entrada" class="form-control" value="<?php echo $_SESSION['entry_price']; ?>">
+                                                                <input id="entryPrice" name="favourite-drink" type="text" placeholder="Precio Entrada" class="form-control" value="<?php echo $_SESSION['entry_price']; ?>"> €
                                                             </div>
 															<label for="drinkPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Bebida</label>
                                                             <div class="col-lg-1">
-                                                                <input id="drinkPrice" name="favourite-drink" type="text" placeholder="Precio Bebida" class="form-control" value="<?php echo $_SESSION['drink_price']; ?>">
+                                                                <input id="drinkPrice" name="favourite-drink" type="text" placeholder="Precio Bebida" class="form-control" value="<?php echo $_SESSION['drink_price']; ?>"> €
                                                             </div>
                                                         </div>
 														<div class="form-group">

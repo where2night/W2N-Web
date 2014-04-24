@@ -83,10 +83,6 @@ include_once "../framework/sessions.php";
         $("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
 
         var gender = json.gender;
-/*var $radios = $('input:radio[name=gender]');
-    if($radios.is(':checked') === false) {
-        $radios.filter('[value=Male]').prop('checked', true);
-    }*/
         var radios = $("input[type='radio']");
         radios.filter('[value=' + gender + ']').prop('checked', true);
         if(gender == "male"){
