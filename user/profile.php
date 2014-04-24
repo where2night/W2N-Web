@@ -113,6 +113,7 @@ $(document).ready(function(){
         var token = "<?php echo $_SESSION['token'];?>";
 		var params = "/" + idProfile + "/" + token; 
         var url1 = "../develop/read/news.php" + params;
+
         $.ajax({
 			url: url1,
 			dataType: "json",
@@ -268,6 +269,7 @@ $(document).ready(function(){
 			dataType: "json",
 			type: "GET",
 			timeout: 5000,
+			async: false,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				var picture = json.picture;
@@ -329,6 +331,7 @@ $(document).ready(function(){
 			url:url2,
 			dataType: "json",
 			type: "GET",
+			async: false,
 			complete: function(r3){
 				var json = JSON.parse(r3.responseText);
 				var picture = json.picture;

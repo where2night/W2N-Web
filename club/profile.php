@@ -65,6 +65,7 @@ include_once "../framework/visits.php";
 	dataType: "json",
 	type: "GET",
 	timeout: 5000,
+	async: false,
 	complete: function(r2){
 		var json = JSON.parse(r2.responseText);
 
@@ -148,7 +149,6 @@ include_once "../framework/visits.php";
 	}else{//(!isset($_GET['idv']))
 ?>
 
-
 	var idProfile = <?php echo $_SESSION['id_user'];?>;
 	var id = <?php echo $_SESSION['id_user'];?>;
 	var token = "<?php echo $_SESSION['token'];?>";
@@ -162,6 +162,7 @@ include_once "../framework/visits.php";
 	dataType: "json",
 	type: "GET",
 	timeout: 5000,
+	async: false,
 	complete: function(r2){
 		var json = JSON.parse(r2.responseText);
 
