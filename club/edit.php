@@ -79,7 +79,7 @@ include_once "../framework/sessions.php";
 				var cpLocal = json.cpLocal;
 				$('#postal-code').val(cpLocal);
 				var poblationLocal = json.poblationLocal;
-				$('#poblation').text(poblationLocal);
+				$('#poblation').val(poblationLocal);
 				var music = json.music;
 				$('#music-style').val(music);
 				var entryPrice = json.entryPrice;
@@ -87,10 +87,16 @@ include_once "../framework/sessions.php";
 				var drinkPrice = json.drinkPrice;
 				$('#drinkPrice').val(drinkPrice);
 				var openingHours = json.openingHours;
-				$('#openingHours').val(openingHours);
+				$('#timepicker_open').val(openingHours);
 				var closeHours = json.closeHours;
-				$('#closeHours').val(closeHours);
-				var picture = json.picture;
+				$('#timepicker_close').val(closeHours);
+				$("#timepicker_open").kendoTimePicker({
+				    format: "HH:mm"
+				});
+				$("#timepicker_close").kendoTimePicker({
+				    format: "HH:mm"
+				}); 
+						var picture = json.picture;
 				//$('[name="picture"]').attr("src", picture);
 				var about = json.about;
 				$('#about-you').val(about);
@@ -398,7 +404,7 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="local_name" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre Local</label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="local_name" name="local_name" placeholder="Nombre Local" value="<?php //echo $_SESSION['local_name']; ?>">
+                                                                <input type="text" class="form-control" id="local_name" name="local_name" placeholder="Nombre Local">
                                                             </div>
                                                         </div>
 
@@ -428,15 +434,15 @@ include_once "../framework/sessions.php";
 														<div class="form-group">
 															<label for="poblation" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Población</label>
 															<div class="col-sm-2">
-																<input type="text" class="form-control" id="poblation" placeholder="Población"value="<?php echo $_SESSION['poblation_local']; ?>">
+																<input type="text" class="form-control" id="poblation" placeholder="Población">
 															</div>
 															<label for="postal-code" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px; margin-left:-5%">C.P. </label>
 															<div class="col-sm-2">
-																<input type="text" class="form-control" id="postal-code" name="postal-code" placeholder="C.P"value="<?php echo $_SESSION['cp_local']; ?>">
+																<input type="text" class="form-control" id="postal-code" name="postal-code" placeholder="C.P">
 															</div>
 															<label for="telephone" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Teléfono</label>
 															<div class="col-sm-2">
-																<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Teléfono"value="<?php echo $_SESSION['telephone']; ?>" >
+																<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Teléfono">
 															</div>
 														</div>
                                                       <!--  <div class="form-group">
@@ -465,27 +471,27 @@ include_once "../framework/sessions.php";
                                                         <div class="form-group">
                                                             <label for="music-style" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Estilo de Música</label>
                                                             <div class="col-lg-10">
-                                                                <input id="music-style" name="favourite-music" type="text" placeholder="Estilo de Música" class="form-control"value="<?php echo $_SESSION['music']; ?>">
+                                                                <input id="music-style" name="favourite-music" type="text" placeholder="Estilo de Música" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="entryPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Entrada</label>
+                                                            <label for="entryPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Entrada (en €)</label>
                                                             <div class="col-lg-1">
-                                                                <input id="entryPrice" name="favourite-drink" type="text" placeholder="Precio Entrada" class="form-control" value="<?php echo $_SESSION['entry_price']; ?>"> €
+                                                                <input id="entryPrice" name="favourite-drink" type="text" placeholder="Precio Entrada" class="form-control">
                                                             </div>
-															<label for="drinkPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Bebida</label>
+															<label for="drinkPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Bebida (en €)</label>
                                                             <div class="col-lg-1">
-                                                                <input id="drinkPrice" name="favourite-drink" type="text" placeholder="Precio Bebida" class="form-control" value="<?php echo $_SESSION['drink_price']; ?>"> €
+                                                                <input id="drinkPrice" name="favourite-drink" type="text" placeholder="Precio Bebida" class="form-control">
                                                             </div>
                                                         </div>
 														<div class="form-group">
                                                            <label for="timepicker_open" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Apertura</label>
                                                             <div class="col-lg-2" >
-                                                                 <input id="timepicker_open" style="height:22px"value="<?php echo $_SESSION[opening_hours];?>" />
+                                                                 <input id="timepicker_open" style="height:22px"/>
                                                             </div>
 															<label for="timepicker_close" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Cierre</label>
                                                             <div class="col-lg-2">
-                                                                <input id="timepicker_close" style="height:22px"value="<?php echo $_SESSION[close_hours];?>" />
+                                                                <input id="timepicker_close" style="height:22px"/>
                                                             </div>
 															
                                                         </div>
@@ -493,7 +499,7 @@ include_once "../framework/sessions.php";
 														<div class="form-group">
                                                             <label for="about-you" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Acerca de Mi</label>
                                                             <div class="col-lg-10">
-                                                                <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"><?php echo $_SESSION['about']; ?></textarea>
+                                                                <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"></textarea>
                                                             </div>
                                                         </div>
 														
