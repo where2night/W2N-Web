@@ -166,7 +166,10 @@ function showMore(){
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
 					
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
+					
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> <a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
 
 				}else if (type == 3){
 					/*3.- Friends we follow, change mode*/
@@ -192,7 +195,11 @@ function showMore(){
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
+					
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span><a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+					
 				}else if (type == 4){
 					/*4.-friend add to favorites a local*/
 					var name =  json[i].name;
@@ -203,7 +210,10 @@ function showMore(){
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
+
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>');
 
 				}else if (type == 5){
 					/*5.- Events friends attending*/
@@ -212,7 +222,11 @@ function showMore(){
 					var title = json[i].title;
 					var text = json[i].text;
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+					var id_user = json[i].idPartierFriend;
+						
+					var link = "../user/profile.php?idv=" + id_user;
+
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 				}
 			}
 
@@ -311,7 +325,10 @@ $(document).ready(function(){
 					var surnames =  json[i].surnames;
 					var status =  json[i].status;
 					
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
+					
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> <a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
 
 				}else if (type == 3){
 					/*3.- Friends we follow, change their mode(De tranquis,Hoy no me lio,Lo que surja,Lo daré todo,Destroyer,Yo me llamo Ralph)*/
@@ -337,7 +354,10 @@ $(document).ready(function(){
 					modeString = "Yo me llamo Ralph";
 					}
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
+					
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span><a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
 				}else if (type == 4){
 					/*4.- Friend add to favorites a local*/
 					if (picture==0 || picture=="" || picture==null)
@@ -348,8 +368,11 @@ $(document).ready(function(){
 					var localName =  json[i].localName;
 					var id_local =  json[i].idProfileLocal;
 					var link = "../club/profile.php?idv=" + id_local;
+					
+					var id_user = json[i].idPartierFriend;		
+					var link_user = "../user/profile.php?idv=" + id_user;
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>');
 
 				}else if (type == 5){
 					/*5.- Events friends attending */
@@ -360,13 +383,13 @@ $(document).ready(function(){
 					var surnames =  json[i].surnames;
 					var title = json[i].title;
 					var text = json[i].text;
+					
+					var id_user = json[i].idPartierFriend;
+						
+					var link = "../user/profile.php?idv=" + id_user;
 
-					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 				}
-			}
-			
-			if (num_elements){
-				$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 			}
 
 		},
@@ -377,14 +400,14 @@ $(document).ready(function(){
 
 	/*Next Events*/
 	var url2 = "../develop/actions/myEvents.php" + params;
-	var rows;
+
 	$.ajax({
 		url:url2,
 		dataType: "json",
 		type: "GET",
 		complete: function(r3){
 			var json = JSON.parse(r3.responseText);
-			rows = json.rows;
+			var rows = json.rows;
 			for(var i=0; i<rows; i++){
 				var localName = json[i].localName;
 				var title = json[i].title;
@@ -427,16 +450,14 @@ $(document).ready(function(){
 
 				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
 			}
-			
-			
 
 		},
 		onerror: function(e,val){
 		alert("No se puede introducir evento 2");
 		}
 		});
-		
-		
+
+		$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 
 	});//end $(document).ready(function()
 
