@@ -64,7 +64,12 @@ var url2="../develop/actions/myEvents.php";
 			for(var i=0; i<rows; i++){
 				var events=document.getElementById('myEvents').innerHTML;
 				var picture = json[i].picture;
-				var date = json[i].date;
+				var dateEvent = json[i].date; 
+				var year = dateEvent.substring(0,4);
+				var month = dateEvent.substring(5,7);
+				var day = dateEvent.substring(8,11);
+				var eventDate = day+'-'+month+'-'+year;
+				var date = json[i].createdTime;
 				/*Calculates uptime*/
 				moment.lang('es', {
 					relativeTime : {
@@ -90,14 +95,17 @@ var url2="../develop/actions/myEvents.php";
 					
 					var title = json[i].title;
 					var startHour = json[i].startHour;
+					var starH = startHour.substring(0,5);
 					var closeHour = json[i].closeHour;
+					var closeH = closeHour.substring(0,5);
 					var text = json[i].text;
+					var localName = json[i].name;
 					var idEvent = json[i].idEvent;
 
 				if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
 					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
-					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> NOMBRE LOCAL");
+					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> "+localName+" ");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
@@ -105,13 +113,13 @@ var url2="../develop/actions/myEvents.php";
 					events = events.concat(json[i].text);
 					events = events.concat("</P>");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
-					events = events.concat(json[i].date);
-					events = events.concat("</b> , a partir de  <b style='color:#34d1be'>");
-					events = events.concat(json[i].startHour);
+					events = events.concat(eventDate);
+					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
+					events = events.concat(starH);
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
-					events = events.concat(json[i].closeHour);
-					events = events.concat("</b></p>");
-					events = events.concat("<a href='events.php'id='"+idEvent+"'class='orangeBox1' onclick='disjoinEvent(this.id);' ><i class='glyphicon glyphicon-trash'style='color:#000'></i> <span>Borrar</span></a>");
+					events = events.concat(closeH);
+					events = events.concat("</b> hrs.</p>");
+					events = events.concat("<a href='events.php'id='"+idEvent+"'class='btn pull-right' onclick='disjoinEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Me Desapunto</span></a>");
 					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('myEvents').innerHTML=events;			   
@@ -373,68 +381,7 @@ function showMore(){
 		alert("Contraseña y/o usuario incorrectos");
 		}
 	});
-	/*MY Events*/
-	/*var url2 = "../develop/actions/myEvents.php" + params;
-
-	$.ajax({
-		url:url2,
-		dataType: "json",
-		type: "GET",
-		complete: function(r3){
-			var json = JSON.parse(r3.responseText);
-			var rows = json.rows;
-			for(var i=0; i<rows; i++){
-				
-				var picture = json[i].picture;
-				var date = json[i].date;
-				/*Calculates uptime*/
-				/*moment.lang('es', {
-					relativeTime : {
-					future : "en %s",
-					past : "hace %s",
-					s : "unos segundos",
-					m : "un minuto",
-					mm : "%d minutos",
-					h : "una hora",
-					hh : "%d horas",
-					d : "un día",
-					dd : "%d días",
-					M : "un mes",
-					MM : "%d meses",
-					y : "un año",
-					yy : "%d años"
-				}
-				});
-				var dateActivity = moment(date);
-				if (dateActivity.isValid()){
-					var activityFromNow = dateActivity.fromNow();
-				}
-					
-					var title = json[i].title;
-					var startHour = json[i].startHour;
-					var closeHour = json[i].closeHour;
-					var text = json[i].text;
-					var idEvent = json[i].idEvent;
-					
-					
-					
-					
-
-
-				if (picture==0 || picture=="" || picture==null)
-					picture = "../images/reg2.jpg";
-					$('#myEvents2').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span>NOMBRE LOCAL <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><a id="'+idEvent+'"class="orangeBox1" onclick="disjoinEvent(this.id);" ><i class="glyphicon glyphicon-trash"style="color:#000"></i> <span>Borrar</span></a></td></tr></tbody></table>');
-					
-					
-					   
-					   
-			}
-
-		},
-		onerror: function(e,val){
-		alert("No se puede introducir evento 2");
-		}
-		});*/
+	
 	$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 
 });//end $(document).ready(function()
