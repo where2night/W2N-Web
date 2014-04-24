@@ -80,7 +80,6 @@ include_once "../framework/sessions.php";
 				$('#postal-code').val(cpLocal);
 				var poblationLocal = json.poblationLocal;
 				$('#poblation').text(poblationLocal);
-				$('[name="address"]').text(address);
 				var music = json.music;
 				$('#music-style').val(music);
 				var entryPrice = json.entryPrice;
