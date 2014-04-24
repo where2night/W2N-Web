@@ -121,10 +121,13 @@ var url="../develop/read/myFriends.php";
 
 
 				var friend=document.getElementById('friends').innerHTML;
+				var id_user = json[i].idProfile;
+				
+				var link = "../user/profile.php?idv=" + id_user;
 
 		      			friend=friend.concat("<li class='col-md-6'style='border-color:#ff6b24;'> <div class='img'> <img src='");
 						friend=friend.concat(picture);
-						friend=friend.concat("' alt=''/></div><div class='details'style='background-color:#1B1E24;border:0px'><div class='name'><a href='#' style='color:#ff6b24; font-size:16px;'>");
+						friend=friend.concat("' alt=''/></div><div class='details'style='background-color:#1B1E24;border:0px'><div class='name'><a href='"+link+"' style='color:#ff6b24; font-size:16px;'>");
 						friend=friend.concat(name);
 						friend=friend.concat(" ");
 						friend=friend.concat(surname);
