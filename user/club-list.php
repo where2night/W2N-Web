@@ -37,6 +37,7 @@ include_once "../framework/sessions.php";
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="../js/keep-session.js"></script>
+
 <!-- /script -->
 
 
@@ -97,7 +98,7 @@ parent.removeChild(element);
 
 <script type="text/javascript">  
     $(document).ready(function(){ 
-      
+
         //Get clubs info
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
@@ -155,7 +156,7 @@ parent.removeChild(element);
 								var longitude = json[i].longitude;
 								var link = "../club/profile.php?idv=" + id_user;
 			 	
-							$('#club-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-star" style="color:#ff6b24;font-size: 30px" id="b'+i+'"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
+							$('#club-favourite tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ localName +'</a><span class="user-subhead">Local</span></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ street + " " + streetName + " " + 'Nº' + " " + streetNumber +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ telephoneLocal +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-star" style="color:#ff6b24;font-size: 30px" id="b'+i+'"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
 			 				i++;
 			 			}
 					},
@@ -174,6 +175,7 @@ parent.removeChild(element);
 			dataType: "json",
 			type: "GET",
 			timeout: 5000,
+			async: false,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				for(var i=0; i<json.length; i++){
@@ -221,6 +223,10 @@ parent.removeChild(element);
 					alert("Contraseña y/o usuario incorrectos");
 				}
 			});
+
+		$('#club-favourite').dataTable();
+      	$('#club-list').dataTable();
+
 
     });//end $(document).ready(function()
     
@@ -290,6 +296,33 @@ body{
 							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 									<div class="row">
 							<div class="col-lg-12">
+
+									<div class="table-responsive">
+										<table id="club-favourite" class="table user-list">
+											<thead>
+												<tr>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Local</span></th>									
+													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Dirección</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Teléfono</span></th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								<!--	<ul class="pagination pull-right">
+										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">3</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">4</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">5</a></li>
+										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
+									</ul> -->
+								</div>
 								
 									<div class="table-responsive">
 										<table id="club-list" class="table user-list">
@@ -299,14 +332,13 @@ body{
 													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Dirección</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Teléfono</span></th>
 													<th>&nbsp;</th>
-													<th>&nbsp;</th>
 												</tr>
 											</thead>
 											<tbody>
 											</tbody>
 										</table>
 									</div>
-									<ul class="pagination pull-right">
+								<!--	<ul class="pagination pull-right">
 										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
@@ -314,7 +346,7 @@ body{
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">4</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">5</a></li>
 										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
-									</ul>
+									</ul> -->
 								</div>
 							
 						</div>
@@ -332,5 +364,6 @@ body{
 <script src="../js/profile-test1.js"></script>
 <script src="../js/profile-test2.js"></script>
 <script src="../js/club-list.js"></script>
+<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
 </body>
 </html>
