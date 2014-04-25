@@ -38,7 +38,8 @@ include_once "../framework/visits.php";
 	<script src="../js/fillDate.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/keep-session.js"></script>
-	<script src="../js/events.js"></script>
+	<script src="../js/moment-with-langs.js"></script>
+	<script src="../js/moment.min.js"></script>
 	<!-- /script -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -79,6 +80,144 @@ jQuery(function($){
 	
 		
     </script>
+<script type="text/javascript">
+function myEvents(){
+	
+
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/events.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			var json = JSON.parse(r.responseText);	 
+            
+			var key, count = 0;
+			for(key in json) {
+	  			if(json.hasOwnProperty(key)) {
+		    		count++;
+		  		}
+			}
+	   		count=count-3;		  
+			
+			var i=0;
+		
+			while (i<count)
+			  	{
+					var events=document.getElementById('myEvents').innerHTML;
+					
+					var dateEvent = json[i].date; 
+					var year = dateEvent.substring(0,4);
+					var month = dateEvent.substring(5,7);
+					var day = dateEvent.substring(8,11);
+					var eventDate = day+'-'+month+'-'+year;
+					var date = json[i].createdTime;
+					var startHour = json[i].startHour;
+					var starH = startHour.substring(0,5);
+					var closeHour = json[i].closeHour;
+					var closeH = closeHour.substring(0,5);
+					var idEvent = json[i].idEvent;
+					
+					moment.lang('es', {
+						 relativeTime : {
+										future : "en %s",
+										past : "hace %s",
+										s : "unos segundos",
+										m : "un minuto",
+										mm : "%d minutos",
+										h : "una hora",
+										hh : "%d horas",
+										d : "un día",
+										dd : "%d días",
+										M : "un mes",
+										MM : "%d meses",
+										y : "un año",
+										yy : "%d años"
+									}
+					});
+					var dateActivity = moment(date);
+					if (dateActivity.isValid()){
+						var activityFromNow = dateActivity.fromNow();
+					}
+	
+					events = events.concat("<li><div class='workflow-item hover' style='background-image:url(../images/reg2.jpg);background-size:100% 100%'></div>");
+					events = events.concat("<span class='label label-dark-blue' style='font-size:12px'>Evento Local</span> ");
+					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
+					events = events.concat(json[i].title);
+					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+					events = events.concat(json[i].text);
+					events = events.concat("</P>");
+					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
+					events = events.concat(eventDate);
+					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
+					events = events.concat(starH);
+					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
+					events = events.concat(closeH);
+					events = events.concat("</b> hrs.</p>");
+					events = events.concat("<a href='events.php'id='"+idEvent+"'class='btn pull-right' onclick='deleteEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
+					events = events.concat("</td></tr></tbody></table>");
+					
+					document.getElementById('myEvents').innerHTML=events;		
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+	
+}
+function deleteEvent(id) {
+	
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(id);
+
+	  
+	var url="../develop/update/event.php";
+		url=url.concat(params);
+
+
+//aqui habria que eliminar el evento de la base de datos
+// habria que pasarle el id evento y el id del profile
+
+$.ajax({
+			url: url,
+			dataType: "json",
+			type: "DELETE",
+			timeout: 5000,
+			async: false,
+			complete: function(r){
+			  alert(r.responseText);
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+myEvents();
+	
+	
+}
+</script>
 </head>
 
 <body>
@@ -98,9 +237,10 @@ $token=$_SESSION['token'];
 
 <script>
 	
+
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
-	
+var ideEvent = '<?php echo $id_event; ?>' ;	
 </script>
 	<style>  
 		body{
@@ -173,36 +313,36 @@ var tok = '<?php echo $token; ?>' ;
                                                         </div>
                                                     </div>
 													<div class="form-group">
-                                                            <label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Fecha</label>
+                                                            <label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:6.5%;">Fecha</label>
                                                             <div class="col-lg-1">
                                                                 <a id="datepicker" readonly="readonly" type="button"><i  class="glyphicon glyphicon-calendar" style="font-size:18px;margin-top:10%;color:#34d1be;"></i></a>
                                                             </div>
-															<label for="" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Hora Inicio</label>
-                                                            <div class="col-lg-2">
-                                                                <select id="hour-init" style="width: 8%; color:#fff;margin-left:10%">
+															<label for="" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:-5%;">Hora Inicio</label>
+                                                            <div class="col-sm-2">
+                                                                <select id="hour-init" class="form-control" style="width:45%">
 																	<option value="0" selected="1">HH</option>
 																	<script>
 																		SelectOptionRange(0,24);
 																	</script>	
 																</select>
-																<span style="font-size:1.7em ">:</span>
-																<select id="minutes-init" style="width: 8%;color:#fff">
+																<span style="font-size:1.7em ">:
+																<select id="minutes-init" class="form-control"style="width:45%">
 																	<option value="0" selected="1">MM</option>
 																	<script>
 																		SelectOptionRange(0,60);
 																	</script>
-																</select>
+																</select></span>
                                                             </div>
 															<label for="" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Hora Fin</label>
-                                                            <div class="col-lg-2">
-																<select id="hour" style="width: 8%; margin-left: 5%;color:#fff">
+                                                            <div class="col-sm-2">
+																<select id="hour" class="form-control"style="width:45%">
 																	<option value="0" selected="1">HH</option>
 																	<script>
 																		SelectOptionRange(0,24);
 																	</script>	
 																</select>
 																<span style="font-size:1.7em ">:</span>
-																<select id="minutes" style="width: 8%;color:#fff">
+																<select id="minutes" class="form-control"style="width:45%">
 																	<option value="0" selected="1">MM</option>
 																	<script>
 																		SelectOptionRange(0,60);
@@ -211,64 +351,19 @@ var tok = '<?php echo $token; ?>' ;
                                                             </div>
                                                         </div>
 												</form>
-												<a id="" class="btn btn-success" onclick="newEvent('club');"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Evento</a>
-	   
-				<!--<form>
-					<label for="title">TÍTULO</label>
-					<input id="Title" type="text" placeholder="título del evento" style="background: #111;color: #fff;border: 1px solid #000;"/>
-					<label for="description">DESCRIPCIÓN</label>
-					<textarea id="Description" placeholder="descripción" style="background: #111;color: #fff;height:200px;border: 1px solid #000;"></textarea>
-					<label for="startendate">FECHA <span style="margin-left:22%">INICIO EVENTO </span> <span style="margin-left:15%">FIN EVENTO </span> </label>
-					
-					<input type="text" id="datepicker" readonly="readonly" style="width:10%;background: #111;color: #fff;border: 1px solid #000;" placeholder="fecha" />
-                    
-						<select id="hour-init" style="width: 8%; color:#fff;margin-left:10%">
-	            			<option value="0" selected="1">HH</option>
-	          					<script>
-	        						SelectOptionRange(0,24);
-	        					</script>	
-	            	 	</select>
-						<span style="font-size:1.7em ">:</span>
-	            		<select id="minutes-init" style="width: 8%;color:#fff">
-	            			<option value="0" selected="1">MM</option>
-	            				<script>
-	        						SelectOptionRange(0,60);
-	        					</script>
-	                	</select>
-									
-						<select id="hour" style="width: 8%; margin-left: 5%;color:#fff">
-	            			<option value="0" selected="1">HH</option>
-	          					<script>
-	        						SelectOptionRange(0,24);
-	        					</script>	
-	            	 	</select>
-	            	<span style="font-size:1.7em ">:</span>
-	            		<select id="minutes" style="width: 8%;color:#fff">
-	            			<option value="0" selected="1">MM</option>
-	            				<script>
-	        						SelectOptionRange(0,60);
-	        					</script>
-	                	</select>
-						
-					
-
-	            	
-					<label for="photo" style="margin-top:3%; margin-left:2%">FOTO DE PROMOCIÓN</label>
-					<input type=file id="upload" style="margin-left:3%"/>
-		
-					
-			<input type="button" value="CREAR EVENTO" style="width:20%; margin-left:40%" onclick="newEvent('club');"/>
-				</form>-->
-
-
-
-				
+												<a id="" class="btn btn-success" onclick="newEvent('club');"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Evento</a>	
 	       
 											</div>
 										<!-- Termina Basic -->	
 										<!-- Comienza Details -->
 											<div class="tab-pane fade " id="tab-myEvents">
-												 
+												<div class="the-timeline">
+													<ul id="myEvents">
+														<script>
+															myEvents();
+														</script>
+													</ul>
+												</div>
 											</div>
 										<!-- Termina Details -->		
 								</div> <!-- Termina tab-content -->
@@ -281,6 +376,8 @@ var tok = '<?php echo $token; ?>' ;
 		</div>
 	</div>
 <!-- /MiPerfil --> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 <script src="../js/profile-test1.js"></script>
 <script src="../js/profile-test2.js"></script>
