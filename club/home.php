@@ -101,7 +101,16 @@ $.ajax({
 			  		
 					var events=document.getElementById('ul').innerHTML;
 					
+					var dateEvent = json[i].date; 
+					var year = dateEvent.substring(0,4);
+					var month = dateEvent.substring(5,7);
+					var day = dateEvent.substring(8,11);
+					var eventDate = day+'-'+month+'-'+year;
 					var date = json[i].createdTime;
+					var startHour = json[i].startHour;
+					var starH = startHour.substring(0,5);
+					var closeHour = json[i].closeHour;
+					var closeH = closeHour.substring(0,5);
 					
 					moment.lang('es', {
 						 relativeTime : {
@@ -134,12 +143,12 @@ $.ajax({
 					events = events.concat(json[i].text);
 					events = events.concat("</P>");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
-					events = events.concat(json[i].date);
-					events = events.concat("</b> , a partir de  <b style='color:#34d1be'>");
-					events = events.concat(json[i].startHour);
+					events = events.concat(eventDate);
+					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
+					events = events.concat(starH);
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
-					events = events.concat(json[i].closeHour);
-					events = events.concat("</b></p>");
+					events = events.concat(closeH);
+					events = events.concat("</b> hrs.</p>");
 					events = events.concat("<a href='events.php'><input class='btn btn-success ' type='button'value='Editar'style='margin-left:42%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'></a>");
 					events = events.concat("</td></tr></tbody></table>");
 
@@ -222,7 +231,7 @@ var tok = '<?php echo $token; ?>' ;
 							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 							<!--Aqui empieza-->	
 								<!--EVENTS-->	
-								<div class="col-sm-6">	
+								<div class="col-sm-12">	
 									<div class="profile-header" style="text-align:left">
 										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Eventos</span><a href="events.php"><input class="btn pull-right" type="button"value="Crear Evento"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-right:8%;"></a></h3>
 										
@@ -238,20 +247,20 @@ var tok = '<?php echo $token; ?>' ;
 								</div>
 									<!--LISTS-->
 
-								<div class="col-sm-6">
+								<!--<div class="col-sm-6">
 										<div class="profile-header" style="text-align:left">
 										<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Listas</span><!--<a href=""><input class="btn pull-right" type="button"value="Crear Lista"style="font-family:'Lucida Sans Unicode','Lucida Grande', sans-serif;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-right:8%;"></a>--></h3>
-										</div>
+									<!--	</div>
 									
 									<div class="the-timeline">
 										<ul id="ul">
 											<!--<script>
 												eventHomeTest();
 											</script>-->
-										</ul>
+									<!--	</ul>
 									</div>
 																	
-								</div>
+								</div>-->
 							<!--Aqui termina-->	
 							</div>
 						</div>
