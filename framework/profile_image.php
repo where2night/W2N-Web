@@ -18,22 +18,21 @@ $path = "../profilesImages/";
 							$tmp = $_FILES['photoimg']['tmp_name'];
 							if(move_uploaded_file($tmp, $path.$actual_image_name))
 								{
-								//mysql_query("UPDATE users SET profile_image='$actual_image_name' WHERE uid='$session_id'");
 									
-									echo "<img id='profile_photo' src='http://www.where2night.es/profilesImages/".$actual_image_name."' class='preview'>";
+									echo "<img id='profile_photo' src='http://www.where2night.es/profilesImages/".$actual_image_name."' class='preview' style='width:300px;margin:10px;padding:10px;''>";
 								}
 							else
-								echo "failed";
+								echo "Lo sentimos, se ha producido un fallo";
 						}
 						else
-						echo "Image file size max 1 MB";					
+						echo "Tamaño de imagen máximo: 1 MB";					
 						}
 						else
-						echo "Invalid file format..";	
+						echo "Formato inválido";	
 				}
 				
 			else
-				echo "Please select image..!";
+				echo "Por favor, seleccione una imagen";
 				
 			exit;
 		}

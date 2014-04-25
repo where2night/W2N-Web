@@ -63,7 +63,11 @@ include_once "../framework/sessions.php";
       complete: function(r3){
         var json = JSON.parse(r3.responseText);
         var picture = json.picture;
-        $("#photoimg").attr("src", picture);
+        if (picture.length >0){
+          //$("#photoimg").attr("src", picture);     
+          $( "#imageform" ).prepend('<div> <label for="actual-photo" class="col-lg-2 control-label" style="color:#ff6b24;font-size:15px;">Imagen actual</label><img src="' + picture + '" name="actual-photo" id="actual-photo" style="width:300px;margin:10px;padding:10px;" /> </div>');
+        }
+        
         var name = json.name;
         $("#name").val(name);
         var surnames = json.surnames;
@@ -147,9 +151,7 @@ include_once "../framework/sessions.php";
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
         var img_url = $("#preview").find("#profile_photo").attr("src");
-        alert("hola");
-        alert(img_url);
-        if (img_url.length > 0){
+        if (img_url != undefined){
           var picture = img_url;
         }
         var params = "/" + idProfile + "/" + token;
@@ -178,7 +180,7 @@ include_once "../framework/sessions.php";
                       	type_login: 'normal',
                       	user_type: 'user',
                      	id_user: idProfile,
-				    	token: token,
+				             	token: token,
 	                    name: name,
 	                    surnames: surnames,
 	                    birthdate: birthdate,
@@ -200,7 +202,7 @@ include_once "../framework/sessions.php";
         }));
       });
 	  
-	        $("#change-data1").on("click", function (event) {
+	   $("#change-data1").on("click", function (event) {
           
         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
@@ -222,8 +224,8 @@ include_once "../framework/sessions.php";
         var city = $('#city').val();
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
-        var img_url = $("#preview img").attr("src");
-        if (img_url.length > 0){
+        var img_url = $("#preview").find("#profile_photo").attr("src");
+        if (img_url != undefined){
           var picture = img_url;
         }
         var params = "/" + idProfile + "/" + token;
@@ -243,24 +245,99 @@ include_once "../framework/sessions.php";
               civil_state: civil_state,
               city: city,
               drink: drink,
+              picture: picture,
               about: about
             },
             complete: function(r){
               $.post("../framework/session_start.php",
                     {
-                      	type_login: 'normal',
-                      	user_type: 'user',
-                     	id_user: idProfile,
-				    	token: token,
-	                    name: name,
-	                    surnames: surnames,
-	                    birthdate: birthdate,
-	                    gender: gender,
-	                    music: music,
-	                    civil_state: civil_state,
-	                    city: city,
-	                    drink: drink,
-	                    about: about
+                        type_login: 'normal',
+                        user_type: 'user',
+                      id_user: idProfile,
+                      token: token,
+                      name: name,
+                      surnames: surnames,
+                      birthdate: birthdate,
+                      gender: gender,
+                      music: music,
+                      civil_state: civil_state,
+                      city: city,
+                      drink: drink,
+                      about: about
+                    },
+                    function(data,status){
+                      window.location.href="home.php";
+                    });
+                
+              },
+            onerror: function(e,val){
+              alert("Hay error");
+            }
+        }));
+      });
+
+      $("#change-data3").on("click", function (event) {
+          
+        var idProfile = <?php echo $_SESSION['id_user'];?>;
+        var token = "<?php echo $_SESSION['token'];?>";
+        var name = $('#name').val();
+        var surnames = $('#surname').val();
+        var day = $('#day').val();
+        if (day.length < 2){
+          day = "0"+day;
+        } 
+        var month = $('#month').val();
+        if (month.length < 2){
+          month = "0"+month;
+        }
+        var year = $('#year').val();
+        var birthdate = year+"/"+month+"/"+day;
+        var gender = $("input[type='radio']:checked").val();
+        var music = $('#favourite-music').val();
+        var civil_state = $('#marital-status').val();
+        var city = $('#city').val();
+        var drink = $('#favourite-drink').val();
+        var about = $('#about-you').val();
+        var img_url = $("#preview").find("#profile_photo").attr("src");
+        if (img_url != undefined){
+          var picture = img_url;
+        }
+        var params = "/" + idProfile + "/" + token;
+        
+         console.log($.ajax({
+            url: "../develop/update/user.php" + params,
+            dataType: "json",
+            type: "POST",
+            timeout: 5000,
+            data: {
+              idProfile:idProfile,
+              name:name,
+              surnames: surnames,
+              birthdate: birthdate,
+              gender: gender,
+              music: music,
+              civil_state: civil_state,
+              city: city,
+              drink: drink,
+              picture: picture,
+              about: about
+            },
+            complete: function(r){
+              $.post("../framework/session_start.php",
+                    {
+                        type_login: 'normal',
+                        user_type: 'user',
+                      id_user: idProfile,
+                      token: token,
+                      name: name,
+                      surnames: surnames,
+                      birthdate: birthdate,
+                      gender: gender,
+                      music: music,
+                      civil_state: civil_state,
+                      city: city,
+                      drink: drink,
+                      about: about
                     },
                     function(data,status){
                       window.location.href="home.php";
@@ -1769,13 +1846,18 @@ function log() {
 											</div>
 										<!-- Termina Details -->	
 										<!-- Comienza Photo -->
-											<div class="tab-pane fade " id="tab-photo">
+											<div align="center" class="tab-pane fade" id="tab-photo" style="color:#ff6b24;font-size:12px;">
 												
 												<form id="imageform" method="post" enctype="multipart/form-data" action='../framework/profile_image.php'>
-                        Subir imagen <input type="file" name="photoimg" id="photoimg" />
+                          
+                          <label for="file" class="col-lg-2 control-label" style="color:#ff6b24;font-size:15px;">Subir imagen</label>
+                          <input type="file" name="photoimg" id="photoimg" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"/>
                         </form>
-                        <div id='preview'></div>
 
+                        <div id='preview'></div>
+                        <div width"100%" align="center">
+                          <a id="change-data3" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin:10px;padding:10px;">Guardar Cambios</a>  
+                        </div>
 											</div>
 											
 											<!-- Termina Photo -->
