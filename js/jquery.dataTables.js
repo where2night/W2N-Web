@@ -9306,7 +9306,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Mostrando desde 0 hata 0 de 0 entradas",
+			"sInfoEmpty": "Mostrando desde 0 hasta 0 de 0 entradas",
 		
 		
 			/**
