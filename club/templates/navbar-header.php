@@ -110,7 +110,7 @@ if(where=="logo"){
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img class="menu-avatar" src="../images/profile.jpg" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+                <img name="profile-photo" class="menu-avatar" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 
                 <span name="nav-name"></span>
         				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
@@ -121,7 +121,7 @@ if(where=="logo"){
 
                 <li class="with-image">
                   <div class="avatar">
-                    <img src="../images/profile.jpg" />
+                    <img name="profile-photo"/>
                   </div>
                   <span name="nav-name"></span>
                 </li>
@@ -139,7 +139,7 @@ if(where=="logo"){
       </div><!-- /.navbar-collapse -->
       </div>
     </div>
-       <script type="text/javascript"> 
+   <script type="text/javascript"> 
       var idProfile = <?php echo $_SESSION['id_user'];?>;
     var id = <?php echo $_SESSION['id_user'];?>;
     var token = "<?php echo $_SESSION['token'];?>";
@@ -159,6 +159,12 @@ if(where=="logo"){
           var json = JSON.parse(r2.responseText);
           var localName = json.localName;
           $('[name="nav-name"]').text(localName);
+          var picture = json.picture;
+          if (picture.length >0){ 
+           $('[name="profile-photo"]').attr("src", picture);
+          }else{
+              $('[name="profile-photo"]').attr("src", "../images/profile.jpg");
+          }
         },
         onerror: function(e,val){
         }
@@ -177,7 +183,12 @@ if(where=="logo"){
           var name = json.name;
           var surnames = json.surnames;
           $('[name="nav-name"]').text(name + " " + surnames);
-
+          var picture = json.picture;
+          if (picture.length >0){ 
+            $('[name="profile-photo"]').attr("src", picture);
+          }else{
+              $('[name="profile-photo"]').attr("src", "../images/profile.jpg");
+          }
         },
         onerror: function(e,val){
         }
