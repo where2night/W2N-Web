@@ -87,8 +87,6 @@ include_once "../framework/sessions.php";
         $('#month').val(month);
         var year = birth_array[0];
         $('#year').val(year);
-       // var birth_array = birthdate.split("/");
-        //$("#birthdate").text(birth_array[2] + "/" + birth_array[1] + "/" + birth_array[0]);
 
         var gender = json.gender;
         var radios = $("input[type='radio']");
@@ -153,6 +151,8 @@ include_once "../framework/sessions.php";
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
+        }else{
+          var picture = $("#actual-photo").attr("src");
         }
         var params = "/" + idProfile + "/" + token;
         
@@ -227,6 +227,8 @@ include_once "../framework/sessions.php";
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
+        }else{
+          var picture = $("#actual-photo").attr("src");
         }
         var params = "/" + idProfile + "/" + token;
         
@@ -278,7 +280,7 @@ include_once "../framework/sessions.php";
 
       $("#change-data3").on("click", function (event) {
           
-        var idProfile = <?php echo $_SESSION['id_user'];?>;
+         var idProfile = <?php echo $_SESSION['id_user'];?>;
         var token = "<?php echo $_SESSION['token'];?>";
         var name = $('#name').val();
         var surnames = $('#surname').val();
@@ -301,6 +303,8 @@ include_once "../framework/sessions.php";
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
+        }else{
+          var picture = $("#actual-photo").attr("src");
         }
         var params = "/" + idProfile + "/" + token;
         
