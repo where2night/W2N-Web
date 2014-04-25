@@ -258,6 +258,9 @@ var tok = '<?php echo $toke; ?>' ;
 				}
 			});
 
+		$('#user-favourite').dataTable();
+      	$('#user-list').dataTable();
+
 
     });//end $(document).ready(function()
     
@@ -309,11 +312,39 @@ var tok = '<?php echo $toke; ?>' ;
 					<header class="page-header"style="background-color:#000; border-color:#ff6b24;margin-bottom:1%;padding-bottom:1px;padding-top:1px;margin-top:0%;width:102%">
 					<h1 style="color:#ff6b24;font-size:30px;">Amigos Fiesteros</h1>
 					</header>
-					<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
+					<div class="row" style="background-color:#000; padding-top:8px;margin-left:0px;width:102%;margin-right:-20%;margin-top:-1%">
 						<div class="col-lg-9 col-md-8 col-sm-8">
 							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 									<div class="row">
 							<div class="col-lg-12">
+
+									<div class="table-responsive">
+										<table id="user-favourite" class="table user-list">
+											<thead>
+												<tr>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
+													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Bebida favorita</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Música favorita</span></th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+							<!--		<ul class="pagination pull-right">
+										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">3</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">4</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">5</a></li>
+										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
+									</ul> -->
+								</div>
 								
 									<div class="table-responsive">
 										<table id="user-list" class="table user-list">
@@ -331,7 +362,7 @@ var tok = '<?php echo $toke; ?>' ;
 											</tbody>
 										</table>
 									</div>
-									<ul class="pagination pull-right">
+							<!--		<ul class="pagination pull-right">
 										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
@@ -339,7 +370,7 @@ var tok = '<?php echo $toke; ?>' ;
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">4</a></li>
 										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">5</a></li>
 										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
-									</ul>
+									</ul> -->
 								</div>
 							
 						</div>
@@ -357,5 +388,6 @@ var tok = '<?php echo $toke; ?>' ;
 <script src="../js/profile-test1.js"></script>
 <script src="../js/profile-test2.js"></script>
 <script src="../js/club-list.js"></script>
+<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
 </body>
 </html>
