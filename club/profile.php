@@ -124,8 +124,14 @@ include_once "../framework/visits.php";
 		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
 		var closeHours = json.closeHours;
 		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
+
 		var picture = json.picture;
-		//$('[name="picture"]').attr("src", picture);
+		if (picture != undefined && picture.length > 0){
+			$('[name="club-image"]').attr("src", picture);			
+		}else{
+			$('[name="club-image"]').attr("src", "../images/profile-club.jpg");
+		}
+		
 		var about = json.about;
 		$('[name="about"]').text(about);
 		var latitude = json.latitude;
@@ -221,8 +227,15 @@ include_once "../framework/visits.php";
 		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
 		var closeHours = json.closeHours;
 		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
+
 		var picture = json.picture;
-		//$('[name="picture"]').attr("src", picture);
+		alert(picture);
+		if (picture != undefined && picture.length > 0){
+			$('[name="club-image"]').attr("src", picture);			
+		}else{
+			$('[name="club-image"]').attr("src", "../images/profile-club.jpg");
+		}
+
 		var about = json.about;
 		$('[name="about"]').text(about);
 		var latitude = json.latitude;
@@ -555,7 +568,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 								<div class="main-box clearfix"style="margin-left:4%;width:100%;background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
 									<h2 name="localName" style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php //echo get_local_name_club(); ?></h2>
 									
-									<img src="../images/profile-club.jpg" alt="" class="profile-img img-responsive center-block banner1" style="width:1024px;max-height:42%;border-color:#ff6b24;"/>
+									<img name="club-image" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
 										Miembro desde: Ene 2012	
 										<ul class="fa-ul" >
