@@ -474,7 +474,7 @@ $.ajax({
 				
 				i=i+1;	
 				}
-			  
+				document.getElementById('local_followers').innerHTML=i;	
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
@@ -561,7 +561,9 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 										<ul class="fa-ul" >
 											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
-											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span><span style="color:#34d1be"> 828</span></li>
+											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span>
+												
+											<span style="color:#34d1be" id="local_followers">  </span></li>
 											
 										</ul>
 										<script>
