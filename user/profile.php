@@ -430,7 +430,11 @@ if(isset($_GET['idv'])){
 		complete: function(r2){
 				var json = JSON.parse(r2.responseText);
 				var picture = json.picture;
-				//$("#profile-img").attr("src", picture);
+				if (picture.length >0){ 
+		        	$('[name="profile-photo"]').attr("src", picture);
+		        }else{
+		            $('[name="profile-photo"]').attr("src", "../images/reg1.jpg");
+		        }
 				var name = json.name;
 				var surnames = json.surnames;
 				$("#complete-name").text(name + " " + surnames);
@@ -496,7 +500,11 @@ if(isset($_GET['idv'])){
 		complete : function(r3) {
 			var json = JSON.parse(r3.responseText);
 			var picture = json.picture;
-			//$("#profile-img").attr("src", picture);
+			if (picture.length >0){ 
+	        	$('[name="profile-photo"]').attr("src", picture);
+	        }else{
+	            $('[name="profile-photo"]').attr("src", "../images/reg1.jpg");
+	        }
 			var name = json.name;
 			var surnames = json.surnames;
 			$("#complete-name").text(name + " " + surnames);
@@ -600,7 +608,7 @@ if(isset($_GET['idv'])){
 									<div class="main-box clearfix"style="background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
 										<h2 id="complete-name" style="color:#ff6b24;text-transform: uppercase; text-align:center;"></h2>
 
-										<img id="profile-img" src="../images/reg1.jpg" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
+										<img name="profile-photo" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 
 										<div class="profile-label" id="mode">
 
