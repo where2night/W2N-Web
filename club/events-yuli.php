@@ -166,7 +166,7 @@ $.ajax({
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
 					events = events.concat(closeH);
 					events = events.concat("</b> hrs.</p>");
-					events = events.concat("<a href='events.php'id='"+idEvent+"'class='btn pull-right' onclick='deleteEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
+					events = events.concat("<a href=''id='"+idEvent+"'class='btn pull-right' onclick='deleteEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
 					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('myEvents').innerHTML=events;		
@@ -184,12 +184,11 @@ $.ajax({
 }
 function deleteEvent(id) {
 	
-	var params = "/" ;
-	params=params.concat(ide); 
+
+var params = "/" ;
+	params=params.concat(id); 
 	params=params.concat("/");
-	params=params.concat(tok);
-	params=params.concat("/");
-	params=params.concat(id);
+	params=params.concat(ide);
 
 	  
 	var url="../develop/update/event.php";
@@ -213,7 +212,9 @@ $.ajax({
 			}
 	});
 
-myEvents();
+var element=document.getElementById(id);
+var parent = element.parentNode;
+parent.removeChild(element);
 	
 	
 }
