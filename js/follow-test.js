@@ -4,12 +4,12 @@ if(!(ide==ideEvent)){
 	
 	if(followers()){
 	
-		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button' value='Local Agregado'onClick='btnSeguir(this);'style='margin-left:50%;margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none; '>");  
+		document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button' value='Local Agregado'onClick='btnSeguir(this);' onmouseout='changeNameOut(this);' onmouseover='changeNameOver(this);'style='margin-left:50%;margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none; '>");  
 		document.getElementById('btn01').className='myClickedSeguir';
 	
 	}else
 		//if you  don't follow
-	document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button' value='Agregar Local'onClick='btnSeguir(this);'style='margin-left:50%;margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none; '>");
+	document.write("<input id='btn01'  class='btn btn-success botonseguir' type='button' value='Agregar Local'onClick='btnSeguir(this);' onmouseout='changeNameOut(this);' onmouseover='changeNameOver(this);'style='margin-left:50%;margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none; '>");
 	
 	
 	}
@@ -22,9 +22,14 @@ function btnSeguir(theSeguirBtn)
 		myButtonID = theSeguirBtn.id;
 		if(document.getElementById(myButtonID).className=='myClickedSeguir')
 		{
-			document.getElementById(myButtonID).className='myDefaultSeguir';
-			document.getElementById(myButtonID).value='Agregar Local';
-			unfollowClub();
+			
+			var unfollow = confirm("¿Dejar de seguir?");
+
+						if (unfollow==true){
+							document.getElementById(myButtonID).className='myDefaultSeguir';
+							document.getElementById(myButtonID).value='Agregar Local';
+							unfollowClub();
+							}
 		}
 		else
 		{
@@ -158,3 +163,26 @@ return follow;
 }
 
 
+function changeNameOver(theSeguirBtn)
+{
+	
+	if(!(ide==ideEvent)){
+			myButtonID = theSeguirBtn.id;
+			if(document.getElementById(myButtonID).value=='Local Agregado'){
+			document.getElementById(myButtonID).value='Dejar de seguir'
+			}
+	}
+
+}
+
+function changeNameOut(theSeguirBtn)
+{
+	
+	if(!(ide==ideEvent)){
+			myButtonID = theSeguirBtn.id;
+			if(document.getElementById(myButtonID).value=='Dejar de seguir'){
+			document.getElementById(myButtonID).value='Local Agregado'
+			}
+	}
+
+}

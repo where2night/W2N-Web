@@ -20,7 +20,7 @@ $.ajax({
 			dataType: "json",
 			type: "DELETE",
 			complete: function(r){
-			  alert("evento borrado");
+			  
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
@@ -73,7 +73,7 @@ if (!(title2=="")){
 
 	if (!actualdate==""){
 
-		if(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
+		fif(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
 		
 		
 		$.ajax({

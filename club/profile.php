@@ -229,7 +229,7 @@ include_once "../framework/visits.php";
 		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
 
 		var picture = json.picture;
-		alert(picture);
+		//alert(picture);
 		if (picture != undefined && picture.length > 0){
 			$('[name="club-image"]').attr("src", picture);			
 		}else{
