@@ -43,6 +43,7 @@ include_once "../framework/sessions.php";
 	<script src="../js/keep-session.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>	
+	<script src="../js/autoRefresh.js"></script>
 	<!-- /script -->
 
 <script type="text/javascript">
@@ -168,7 +169,7 @@ $.ajax({
 
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 <style>  
 
  navbar-fixed-top{

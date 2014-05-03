@@ -39,7 +39,8 @@ include_once "../framework/sessions.php";
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/keep-session.js"></script>	
+	<script src="../js/keep-session.js"></script>
+<script src="../js/autoRefresh.js"></script>	
 	<!--  <script src="../js/jquery.form.js"></script>-->
 	
 	
@@ -1760,7 +1761,7 @@ function log() {
 
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 	<style>  
 		body{
 			  background-color: #000;

@@ -40,6 +40,7 @@ include_once "../framework/visits.php";
 	<script src="../js/keep-session.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>
+	<script src="../js/autoRefresh.js"></script>
 	<!-- /script -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -221,7 +222,7 @@ parent.removeChild(element);
 </script>
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 <?php 
   	/*NavbarHeader*/
  	include "templates/navbar-header.php";

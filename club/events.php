@@ -35,7 +35,7 @@ include_once "../framework/visits.php";
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/events.js"></script>
 	<script src="../js/keep-session.js"></script>
-     
+     <script src="../js/autoRefresh.js"></script>
 	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -83,7 +83,7 @@ jQuery(function($){
 	
 </head>
 
-<body id="home">
+<body id="home" onload="JavaScript:timedRefresh(30000);">
 
 <?php 
   	/*NavbarHeader*/
