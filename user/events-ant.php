@@ -32,7 +32,7 @@ include_once "../framework/visits.php";
     <link rel="stylesheet" href="../css/profile-partier.css" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
 	<script src="../js/jquery.js"></script>	
-
+<script src="../js/autoRefresh.js"></script>
    	<script>
 	$('#myTab a').click(function (e) {
 		e.preventDefault()
@@ -113,7 +113,7 @@ include_once "../framework/visits.php";
    
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 	
 	<style>
 

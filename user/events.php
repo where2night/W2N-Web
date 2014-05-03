@@ -42,7 +42,7 @@ include_once "../framework/visits.php";
 	<script src="../js/keep-session.js"></script>
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>
-	
+<script src="../js/autoRefresh.js"></script>	
 <script type="text/javascript">
 function getVisitorEvents(){
 
@@ -357,7 +357,7 @@ function allEvents(){
 </script>
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 	<style>  
 		body{
 			  background-color: #000;

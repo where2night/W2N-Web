@@ -37,7 +37,7 @@ include_once "../framework/sessions.php";
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="../js/keep-session.js"></script>
-
+<script src="../js/autoRefresh.js"></script>
 <!-- /script -->
 
 
@@ -235,7 +235,7 @@ parent.removeChild(element);
 
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 <style>  
 body{
 	background-color:#000;

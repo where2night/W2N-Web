@@ -47,7 +47,7 @@ w2n_session_check();
 		<script src="../js/followfriend.js"></script>
 		<script src="../js/moment-with-langs.js"></script>
 		<script src="../js/moment.min.js"></script>
-
+<script src="../js/autoRefresh.js"></script>
 		<?php $idProfil = $_SESSION['id_user'];
 		$toke = $_SESSION['token'];
 
@@ -558,7 +558,7 @@ if(isset($_GET['idv'])){
 
 	</head>
 
-	<body>
+	<body onload="JavaScript:timedRefresh(30000);">
 		<style>
 			navbar-fixed-top {
 				z-index: 1030;

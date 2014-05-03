@@ -38,6 +38,7 @@ include_once "../framework/sessions.php";
 <script type="text/javascript" src="../js/register.js"></script>
 <script src="../js/keep-session.js"></script>
 <script src="../js/user-list.js"></script>
+<script src="../js/autoRefresh.js"></script>
 <!-- /script -->
 
 <?php 
@@ -268,7 +269,7 @@ var tok = '<?php echo $toke; ?>' ;
 
 </head>
 
-<body>
+<body onload="JavaScript:timedRefresh(30000);">
 <style>  
 
  navbar-fixed-top{

@@ -40,7 +40,7 @@ w2n_session_check();
 		<script src="../js/moment-with-langs.js"></script>
 		<script src="../js/moment.min.js"></script>
 		<script src="../js/state-mode-user.js"></script>
-
+<script src="../js/autoRefresh.js"></script>
 		<!-- /script -->
 		<script type="text/javascript">
 			var actual_page = 0;
@@ -464,7 +464,7 @@ $(document).ready(function(){
 		</script>
 	</head>
 
-	<body>
+	<body onload="JavaScript:timedRefresh(30000);">
 		<style>
 			navbar-fixed-top {
 				z-index: 1030;
