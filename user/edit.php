@@ -354,7 +354,7 @@ include_once "../framework/sessions.php";
       });
 
       //Upload image
-        $(document.body).on('change', '#photoimg', function() {
+      $(document.body).on('change', '#photoimg', function() {
         $("#preview").html('');
         $("#preview").html('<img src="../images/edit/loader.gif" alt="Subiendo imagen..."/>');
         $("#imageform").ajaxForm({
