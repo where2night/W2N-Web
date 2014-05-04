@@ -120,7 +120,7 @@ var tok = '<?php echo $toke; ?>' ;
 
 			 							
 			 							
-			 								$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span id="b'+i+'" class="glyphicon glyphicon-user" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
+			 								$('#user-friends tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span id="b'+i+'" class="glyphicon glyphicon-user" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
 						
 			 							     i=i+1;
 			 								}
@@ -183,7 +183,7 @@ var tok = '<?php echo $toke; ?>' ;
 
 
 
-			 										$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-envelope" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2">SOLICITUD PENDIENTE</td></tr>');
+			 										$('#user-pending tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ name+' '+surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><span class="glyphicon glyphicon-envelope" style="color:#000000;font-size: 30px"></span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="2">SOLICITUD PENDIENTE</td></tr>');
 													i=i+1;		
 			    								}
 											},
@@ -269,7 +269,8 @@ var tok = '<?php echo $toke; ?>' ;
 
 </head>
 
-<body onload="JavaScript:timedRefresh(30000);">
+<!--<body onload="JavaScript:timedRefresh(30000);"> -->
+<body>
 <style>  
 
  navbar-fixed-top{
@@ -318,15 +319,17 @@ var tok = '<?php echo $toke; ?>' ;
 							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 									<div class="row">
 							<div class="col-lg-12">
-
+									<h1 style="color:#ff6b24;font-size:26px;">Amigos</h1>
 									<div class="table-responsive">
-										<table id="user-favourite" class="table user-list">
+										<table id="user-friends" class="table user-list">
 											<thead>
 												<tr>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
 													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Bebida favorita</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Música favorita</span></th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
@@ -347,6 +350,8 @@ var tok = '<?php echo $toke; ?>' ;
 									</ul> -->
 								</div>
 								
+								<div class="col-lg-12">
+									<h1 style="color:#ff6b24;font-size:26px;">Todos</h1>
 									<div class="table-responsive">
 										<table id="user-list" class="table user-list">
 											<thead>
@@ -355,6 +360,39 @@ var tok = '<?php echo $toke; ?>' ;
 													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Bebida favorita</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Música favorita</span></th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+							<!--		<ul class="pagination pull-right">
+										<li ><a href="#"><i class="glyphicon glyphicon-chevron-left" style="color:#FF6B24;"></i></a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">1</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">2</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">3</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">4</a></li>
+										<li ><a href="#"style="color:#FF6B24;border-radius:0px 0px 0px 0px;padding-bottom:3px;">5</a></li>
+										<li><a href="#"><i class="glyphicon glyphicon-chevron-right"style="color:#FF6B24"></i></a></li>
+									</ul> -->
+								</div>
+
+								<div class="col-lg-12">
+									<h1 style="color:#ff6b24;font-size:26px;">Pendientes de confirmación</h1>
+									<div class="table-responsive">
+										<table id="user-pending" class="table user-list">
+											<thead>
+												<tr>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
+													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Modo</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Bebida favorita</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Música favorita</span></th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
+													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 												</tr>
