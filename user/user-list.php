@@ -213,22 +213,23 @@ var tok = '<?php echo $toke; ?>' ;
 					
 					
 					var id_user = json[i].idProfile;
-					var music = json[i].music;
-					if (music == null || music.length == 0){
-						music = "Estilo no definido";
-					}
-					var picture = json[i].picture;
-					if (picture == null || picture.length == 0){
-						picture = "../images/reg1.jpg";
-					}
-					var link = "../user/profile.php?idv=" + id_user;
-				
-				    var name = json[i].name;
-					var surnames = json[i].surnames;
-					var city = json[i].city;
-					var drink = json[i].drink;
+					if (id_user != ide){
+						var music = json[i].music;
+						if (music == null || music.length == 0){
+							music = "Estilo no definido";
+						}
+						var picture = json[i].picture;
+						if (picture == null || picture.length == 0){
+							picture = "../images/reg1.jpg";
+						}
+						var link = "../user/profile.php?idv=" + id_user;
 					
-					var mode =  json[i].mode;
+					    var name = json[i].name;
+						var surnames = json[i].surnames;
+						var city = json[i].city;
+						var drink = json[i].drink;
+						
+						var mode =  json[i].mode;
 						var modeString;
 						
 						if (mode == 0){
@@ -251,13 +252,14 @@ var tok = '<?php echo $toke; ?>' ;
 	    					
 	    				if(contains_friend==-1 && contains_request==-1 )	
 	    					$('#user-list tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+ name+' '+ surnames +'</a><span class="user-subhead">Fiestero</span></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ modeString +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ drink+'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ music +'</a></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"></td><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;" colspan="4"></td></tr>');
-						}
-				
-	    		},
-				onerror: function(e,val){
-					alert("Contraseña y/o usuario incorrectos");
-				}
-			});
+	    			}//end if (id_user != ide)
+				}//end for
+					
+    		},
+			onerror: function(e,val){
+				alert("Contraseña y/o usuario incorrectos");
+			}
+		});
 
 		$('#user-favourite').dataTable();
       	$('#user-list').dataTable();
