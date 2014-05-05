@@ -315,7 +315,7 @@ function notifications(){
             <li class="dropdown">
               <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
               <span>
-                <img name="profile-photo" class="menu-avatar" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
+                <img name="nav-profile-photo" class="menu-avatar" /> <span onmouseout="javascript:this.style.color='#6C6C6C';"onmouseover="javascript:this.style.color='#F2A116';">
 
 				 <span name="nav-name"></span>
 				&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"style="color:#FF6B24"></i></span>
@@ -326,7 +326,7 @@ function notifications(){
 
                 <li class="with-image">
                   <div class="avatar">
-                    <img name="profile-photo"/>
+                    <img name="nav-profile-photo"/>
                   </div>
                   <span name="nav-name"></span>
                 </li>
@@ -366,9 +366,9 @@ function notifications(){
 		      $('[name="nav-name"]').text(localName);
 		      var picture = json.picture;
 		      if (picture.length >0){ 
-		     	 $('[name="profile-photo"]').attr("src", picture);
+		     	 $('[name="nav-profile-photo"]').attr("src", picture);
 		      }else{
-		      	  $('[name="profile-photo"]').attr("src", "../images/profile.jpg");
+		      	  $('[name="nav-profile-photo"]').attr("src", "../images/profile.jpg");
 		      }
 		    },
 		    onerror: function(e,val){
@@ -390,9 +390,9 @@ function notifications(){
 		      $('[name="nav-name"]').text(name + " " + surnames);
 		      var picture = json.picture;
 		      if (picture.length >0){ 
-		      	$('[name="profile-photo"]').attr("src", picture);
+		      	$('[name="nav-profile-photo"]').attr("src", picture);
 		      }else{
-		      	  $('[name="profile-photo"]').attr("src", "../images/profile.jpg");
+		      	  $('[name="nav-profile-photo"]').attr("src", "../images/profile.jpg");
 		      }
 		    },
 		    onerror: function(e,val){
