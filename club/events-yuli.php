@@ -222,7 +222,7 @@ parent.removeChild(element);
 </script>
 </head>
 
-<body onload="JavaScript:timedRefresh(30000);">
+<body> <!--onload="JavaScript:timedRefresh(30000);">-->
 <?php 
   	/*NavbarHeader*/
  	include "templates/navbar-header.php";

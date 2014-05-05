@@ -464,7 +464,7 @@ $(document).ready(function(){
 		</script>
 	</head>
 
-	<body onload="JavaScript:timedRefresh(30000);">
+	<body ><!--onload="JavaScript:timedRefresh(30000);">-->
 		<style>
 			navbar-fixed-top {
 				z-index: 1030;

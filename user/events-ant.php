@@ -113,7 +113,7 @@ include_once "../framework/visits.php";
    
 </head>
 
-<body onload="JavaScript:timedRefresh(30000);">
+<body> <!--onload="JavaScript:timedRefresh(30000);">-->
 	
 	<style>
 

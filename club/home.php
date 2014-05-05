@@ -169,7 +169,7 @@ $.ajax({
 
 </head>
 
-<body onload="JavaScript:timedRefresh(30000);">
+<body> <!--onload="JavaScript:timedRefresh(30000);">-->
 <style>  
 
  navbar-fixed-top{

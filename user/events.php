@@ -357,7 +357,7 @@ function allEvents(){
 </script>
 </head>
 
-<body onload="JavaScript:timedRefresh(30000);">
+<body> <!--onload="JavaScript:timedRefresh(30000);">-->
 	<style>  
 		body{
 			  background-color: #000;

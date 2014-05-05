@@ -83,7 +83,7 @@ jQuery(function($){
 	
 </head>
 
-<body id="home" onload="JavaScript:timedRefresh(30000);">
+<body id="home">  <!--onload="JavaScript:timedRefresh(30000);">-->
 
 <?php 
   	/*NavbarHeader*/
