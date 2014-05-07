@@ -391,6 +391,11 @@ $(document).ready(function(){
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
 				}
 			}
+			
+			if (num_elements){
+				$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
+			}
+
 
 		},
 		onerror: function(e,val){
@@ -457,7 +462,6 @@ $(document).ready(function(){
 		}
 		});
 
-		$('#show_more').append('<a href="home.php#both" onclick="showMore();">Mostrar más..</a>	');
 
 	});//end $(document).ready(function()
 
