@@ -24,7 +24,7 @@ function add_song() {
 						
 			},
 			onerror: function(e,val){
-				alert("No se puede introducir evento 2");
+				alert("No se puede introducir la canción");
 			}
 	});
  
