@@ -1,8 +1,6 @@
 
 
 function add_song() {
-alert("paso x songs");
-
 	var params = "/" ;
 		params=params.concat(ide); 
 		params=params.concat("/");
@@ -11,10 +9,7 @@ alert("paso x songs");
 	var url="../develop/create/track.php";
 		url=url.concat(params);
 	var name = document.getElementById("song_name").value;
-	alert(name);
 	var artist = document.getElementById("artist").value;
-	alert(artist);
-	
 		$.ajax({
 			url:url,
 			dataType: "json",
@@ -24,9 +19,9 @@ alert("paso x songs");
 				artist: artist
 			},
 			complete: function(r){
-				
-			  		alert("completo");	 
-						alert(r.responseText);
+					cleanInputs();
+			  		alert("canción añadida");
+						
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
@@ -34,6 +29,11 @@ alert("paso x songs");
 	});
  
 
+}
+
+function cleanInputs(){
+	$('#song_name').val("");	
+	$('#artist').val("");
 }
 
 
