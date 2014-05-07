@@ -42,6 +42,14 @@
 			
 			<li class="">
 				<span class="glow"></span>
+				<a href="">
+					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+					<span>Canciones</span>
+				</a>
+			</li>
+			
+			<li class="">
+				<span class="glow"></span>
 				<a href="edit.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Editar Perfil</span>
