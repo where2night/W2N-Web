@@ -42,7 +42,7 @@
 			
 			<li class="">
 				<span class="glow"></span>
-				<a href="">
+				<a href="songs-list.php">
 					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
 					<span>Canciones</span>
 				</a>
