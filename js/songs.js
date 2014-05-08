@@ -41,7 +41,7 @@ function cleanInputs(){
 	$('#artist').val("");
 }
 
-function show_songs_list(){
+function show_songs_list(type_home){
 	
 
 
@@ -62,7 +62,7 @@ $.ajax({
 			type: "GET",
 			complete: function(r){
 				var json = JSON.parse(r.responseText);	
-				show_songs(json);
+				show_songs(json,type_home);
 		  
 			},
 			onerror: function(e,val){
@@ -75,10 +75,12 @@ $.ajax({
 	
 }
 
+
+
 /**
 * Show all the playlist from the server and paint at page
 */
-function show_songs(json){
+function show_songs(json,type){
 
 	var count = 0;
 				
@@ -91,17 +93,33 @@ function show_songs(json){
 	}
 	count=count-3;
 	var i=0;
-		 
-	while (i<count) {
-		var song_name = json[i].trackName;
-		var artist_name = json[i].trackArtist;
-		var votes = json[i].votes;
-		var id_track = json[i].id_track;
-		$('#my_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub('+id_track+');">Eliminar</span></a></td></tr>');
+	alert(type);
+	alert(count);
+	if (type == "home"){
+		while (i<count) {
+			var song_name = json[i].trackName;
+			var artist_name = json[i].trackArtist;
+			var votes = json[i].votes;
+			var id_track = json[i].id_track;
+			$('#my_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteSong('+id_track+');">Eliminar</span></a></td></tr>');
 
-	
-		i=i+1;	
+		
+			i=i+1;	
+		}
+	} else if (type == "profile"){
+		alert("paso x prfile");
+		while (i<count) {
+			var song_name = json[i].trackName;
+			var artist_name = json[i].trackArtist;
+			var votes = json[i].votes;
+			var id_track = json[i].id_track;
+			$('#local_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="voteSong('+id_track+');">Votar</span></a></td></tr>');
+
+		
+			i=i+1;	
+		}
 	}
+	
 			
 }
 

@@ -176,7 +176,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																	<th>&nbsp;</th>
 																</tr>
 																<script>
-																	show_songs_list();
+																	show_songs_list("home");
 																 </script>
 															</thead>
 															<tbody>

@@ -45,7 +45,8 @@ include_once "../framework/visits.php";
 	<script src="../js/moment-with-langs.js"></script>
 	<script src="../js/moment.min.js"></script>
 	<script src="../js/localFans.js"></script>	
-<script src="../js/autoRefresh.js"></script>
+	<script src="../js/autoRefresh.js"></script>
+	<script src="../js/songs.js"></script>
 	
 <script type="text/javascript"> 
 	function getData(){
@@ -600,10 +601,11 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
 											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
 											<li><a href="#tab-friends" data-toggle="tab">Seguidores</a></li>
+											<li><a href="#tab-songs" data-toggle="tab">Canciones</a></li>
 											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
 											<li><a href="#tab-contact" data-toggle="tab">Contacto</a></li>
 										</ul>
-										<!-- Comienza Actividad -->
+										<!-- Begin Activity -->
 										<div class="tab-content" style="overflow:visible;">
 											<div class="tab-pane fade in active" id="tab-activity">
 												
@@ -648,8 +650,8 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																	</ul>
 																</div>	
 											</div>
-										<!-- Termina Actividad -->	
-										<!-- Comienza Amigos -->
+										<!-- End Activity -->	
+										<!-- Begin Friends -->
 											<div class="tab-pane fade " id="tab-friends">
 												<ul class="widget-users row" id="friends">
 														<script>
@@ -660,10 +662,34 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</ul>
 												
 											</div>
-										<!-- Termina Amigos -->	
+										<!-- End Friends -->	
 										
-								
-											<!-- Comienza Fotos -->
+										<!-- Begin Songs -->
+											<div class="tab-pane fade " id="tab-songs">
+												<div class="container" >
+		
+													<div class="row">
+														<table id="local_songs" class="table user-list">
+															<thead>
+																<tr>
+																	<th><span style="color:#FF6B24;border-color:#ff6b24">Canción</span></th>									
+																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Nombre artista</span></th>
+																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>
+																	<th>&nbsp;</th>
+																</tr>
+																<script>
+																	show_songs_list("profile");
+																 </script>
+															</thead>
+															<tbody>
+															</tbody>
+														</table>
+													</div>	
+				
+												</div>
+											</div>
+										<!-- End Songs -->
+											<!-- Begin Photos -->
 											<div class="tab-pane fade" id="tab-photos">	
 											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
 													<form class="form-inline">
@@ -706,7 +732,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 													</div>
 												</div>-->
 	
-											</div>	<!-- Termina Fotos -->
+											</div>	<!-- End Photos -->
 											<div class="tab-pane fade " id="tab-contact">
 												<div class="col-lg-4 " >
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
