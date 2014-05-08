@@ -167,7 +167,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												<div class="container" >
 		
 													<div class="row">
-														<table id="club-favourite" class="table user-list">
+														<table id="my_songs" class="table user-list">
 															<thead>
 																<tr>
 																	<th><span style="color:#FF6B24;border-color:#ff6b24">Canción</span></th>									
@@ -175,6 +175,9 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>
 																	<th>&nbsp;</th>
 																</tr>
+																<script>
+																	show_songs_list();
+																 </script>
 															</thead>
 															<tbody>
 															</tbody>

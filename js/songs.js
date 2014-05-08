@@ -1,5 +1,7 @@
 
-
+/**
+* Add a song at list
+*/
 function add_song() {
 	var params = "/" ;
 		params=params.concat(ide); 
@@ -31,10 +33,76 @@ function add_song() {
 
 }
 
+/**
+* Next to add a song, clean the inputs
+*/
 function cleanInputs(){
 	$('#song_name').val("");	
 	$('#artist').val("");
 }
 
+function show_songs_list(){
+	
+
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ide);
+	  
+var url="../develop/read/playList.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				show_songs(json);
+		  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+
+	
+}
+
+/**
+* Show all the playlist from the server and paint at page
+*/
+function show_songs(json){
+
+	var count = 0;
+				
+	for(key in json) {
+	
+		if(json.hasOwnProperty(key)) {
+			count = count + 1;
+		}
+			
+	}
+	count=count-3;
+	var i=0;
+		 
+	while (i<count) {
+		var song_name = json[i].trackName;
+		var artist_name = json[i].trackArtist;
+		var votes = json[i].votes;
+		var id_track = json[i].id_track;
+		$('#my_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub('+id_track+');">Eliminar</span></a></td></tr>');
+
+	
+		i=i+1;	
+	}
+			
+}
 
 
