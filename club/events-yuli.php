@@ -297,8 +297,33 @@ if (!(title2=="")){
    }else
    		alert("introduce al menos un título");
 
-   
+	clean();
 
+}
+function clean(){
+	
+	var inputText=document.getElementById("Title");
+	var inputTextArea=document.getElementById("Description");
+    var inputdate=document.getElementById("datepicker");
+	
+
+var list_hour_init= document.getElementById("hour-init");
+list_hour_init.selectedIndex=0;
+
+var list_minutes_init= document.getElementById("minutes-init");
+list_minutes_init.selectedIndex=0;
+
+var list_hour= document.getElementById("hour");
+list_hour.selectedIndex=0;
+
+var list_minutes= document.getElementById("minutes");
+list_minutes.selectedIndex=0;
+
+
+    
+    inputdate.value="";
+    inputText.value="";
+    inputTextArea.value="";
 }
 </script>
 </head>
