@@ -11,8 +11,6 @@ var params = "/" ;
 var url="../develop/create/event.php";
 	url=url.concat(params);
 
-
-
 var actualdate=document.getElementById("datepicker").value;
 var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
@@ -36,6 +34,10 @@ time1=time1.concat(minutes_init);
 var time2 = hour.concat(":");
 time2=time2.concat(minutes);
 
+var year = actualdate.substring(6,11);
+var day = actualdate.substring(3,5);
+var month = actualdate.substring(0,2);
+actualdate = day+'/'+month+'/'+year;
 
 //var fileName = document.getElementById('upload').value;
 if (!(title2=="")){

@@ -35,7 +35,7 @@ time2=time2.concat(minutes);
 var year = actualdate.substring(6,11);
 var day = actualdate.substring(3,5);
 var month = actualdate.substring(0,2);
-var actualdate = day+'/'+month+'/'+year;
+actualdate = day+'/'+month+'/'+year;
 					
 
 if (!(title2=="")){
