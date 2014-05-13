@@ -65,8 +65,8 @@ if (!(title2=="")){
 			}
 	});
 		
-    //document.getElementById('ul').innerHTML="";
-     //events(type);		    
+    document.getElementById('myLists').innerHTML="";
+     		    myLists();
 		   
 		  }else alert("evento sin hora");
 	   
@@ -126,7 +126,6 @@ $.ajax({
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-			alert(r.responseText);
 			var json = JSON.parse(r.responseText);	 
             
 			var key, count = 0;
@@ -139,10 +138,10 @@ $.ajax({
 			
 			var i=0;
 		 
-		    var picture=json.pictureC;
-		    if (picture == null || picture.length == 0){
+	    var picture=json.pictureC;
+	    if (picture == null || picture.length == 0){
 					picture = "../images/profile-club.jpg";
-					}
+				}
 		    
 		
 			while (i<count)
