@@ -12,6 +12,13 @@
               <span>Perfil Fiestero</span>
           </a>
         </li>
+		<li class="">
+          <span class="glow"></span>
+          <a href="messages.php">
+              <i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+              <span>Mensajes</span>
+          </a>
+        </li>
          <li class="">
           <span class="glow"></span>
           <a href="events.php">
