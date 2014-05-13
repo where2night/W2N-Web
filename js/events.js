@@ -178,7 +178,7 @@ if (!(title2=="")){
 
 	if (!actualdate==""){
 
-		fif(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
+		if(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
 		
 		
 		$.ajax({

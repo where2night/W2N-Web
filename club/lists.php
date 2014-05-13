@@ -41,6 +41,7 @@ include_once "../framework/visits.php";
 	<script src="../js/moment.min.js"></script>
 	<script src="../js/keep-session.js"></script>
     <script src="../js/autoRefresh.js"></script>
+    <script src="../js/Lists.js"></script>
 	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -210,7 +211,7 @@ var tok = '<?php echo $token; ?>' ;
                                                             </div>
                                                         </div>
 												</form>
-												<a id="" class="btn btn-success" onclick="newEvent('club');"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Lista</a>	
+												<a id="" class="btn btn-success" onclick="newList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Lista</a>	
 	       
 											</div>
 										<!-- Termina Basic -->	
