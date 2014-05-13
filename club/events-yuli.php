@@ -37,6 +37,7 @@ include_once "../framework/visits.php";
 	<link href="../css/events-yuli.css" media="screen" rel="stylesheet" type="text/css" /> 
 	<link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.7.2.custom.css" />
     <!-- script -->
+    <script src="../js/events2.js"></script>
 	<script src="../js/fillDate.js"></script>
    	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
@@ -199,9 +200,6 @@ var params = "/" ;
 		url=url.concat(params);
 
 
-//aqui habria que eliminar el evento de la base de datos
-// habria que pasarle el id evento y el id del profile
-
 $.ajax({
 			url: url,
 			dataType: "json",
@@ -209,122 +207,20 @@ $.ajax({
 			timeout: 5000,
 			async: false,
 			complete: function(r){
-			  alert(r.responseText);
+			  
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
 			}
 	});
 
-var element=document.getElementById(id);
+/*var element=document.getElementById(id);
 var parent = element.parentNode;
 parent.removeChild(element);
-	
+	*/
 	
 }
 
-</script>
-<script type="text/javascript">
-function newEvent(type) {
-
-var params = "/" ;
-	params=params.concat(ide); 
-	params=params.concat("/");
-	params=params.concat(tok);
-	  
-var url="../develop/create/event.php";
-	url=url.concat(params);
-
-var actualdate=document.getElementById("datepicker").value;
-var title2 = document.getElementById("Title").value;
-var description = document.getElementById("Description").value;
-
-var list_hour_init= document.getElementById("hour-init");
-var hour_init = list_hour_init.options[list_hour_init.selectedIndex].text;
-
-var list_minutes_init= document.getElementById("minutes-init");
-var minutes_init = list_minutes_init.options[list_minutes_init.selectedIndex].text;
-
-var list_hour= document.getElementById("hour");
-var hour = list_hour.options[list_hour.selectedIndex].text;
-
-var list_minutes= document.getElementById("minutes");
-var minutes = list_minutes.options[list_minutes.selectedIndex].text;
-
-
-var time1 = hour_init.concat(":");
-time1=time1.concat(minutes_init);
-
-var time2 = hour.concat(":");
-time2=time2.concat(minutes);
-
-//var fileName = document.getElementById('upload').value;
-if (!(title2=="")){
-
-	if (!actualdate==""){
-
-		fif(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
-		
-		
-		$.ajax({
-			url:url,
-			dataType: "json",
-			type: "POST",
-			data: {
-				idProfile:ide,
-				title: title2,
-				text: description,
-				date: actualdate,
-				startHour: time1,
-				closeHour: time2
-			},
-			complete: function(r){
-			  			  
-			},
-			onerror: function(e,val){
-				alert("No se puede introducir evento 2");
-			}
-	});
-		
-    document.getElementById('ul').innerHTML="";
-     events(type);		    
-		   
-		  }else alert("evento sin hora");
-	   
-   		} else alert("introduce fecha");
-   
-   
-   }else
-   		alert("introduce al menos un título");
-
-	clean();
-
-}
-function clean(){
-	
-	var inputText=document.getElementById("Title");
-	var inputTextArea=document.getElementById("Description");
-    var inputdate=document.getElementById("datepicker");
-	
-
-var list_hour_init= document.getElementById("hour-init");
-list_hour_init.selectedIndex=0;
-
-var list_minutes_init= document.getElementById("minutes-init");
-list_minutes_init.selectedIndex=0;
-
-var list_hour= document.getElementById("hour");
-list_hour.selectedIndex=0;
-
-var list_minutes= document.getElementById("minutes");
-list_minutes.selectedIndex=0;
-
-
-    
-    inputdate.value="";
-    inputText.value="";
-    inputTextArea.value="";
-}
 </script>
 </head>
 
@@ -348,7 +244,7 @@ $token=$_SESSION['token'];
 
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
-var ideEvent = '<?php echo $id_event; ?>' ;	
+//var ideEvent = '<?php echo $id_event; ?>' ;	
 </script>
 	<style>  
 		body{
