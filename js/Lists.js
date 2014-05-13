@@ -199,7 +199,7 @@ $.ajax({
 					lists = lists.concat("</b> hrs. </br> Cierre de listas a las  <b style='color:#34d1be'>");
 					lists = lists.concat(closeH);
 					lists = lists.concat("</b>hrs.</br></p>");
-					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='deleteEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
+					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='deleteList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
 					lists = lists.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('myLists').innerHTML=lists;		
@@ -215,5 +215,42 @@ $.ajax({
 
 
 	
+	
+}
+
+
+
+function deleteList(id) {
+	
+
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+ 	params=params.concat("/");
+	params=params.concat(id);
+	  
+	var url="../develop/update/list.php";
+		url=url.concat(params);
+
+
+$.ajax({
+			url: url,
+			dataType: "json",
+			type: "DELETE",
+			timeout: 5000,
+			async: false,
+			complete: function(r){
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+/*var element=document.getElementById(id);
+var parent = element.parentNode;
+parent.removeChild(element);
+	*/
 	
 }
