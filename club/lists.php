@@ -41,7 +41,7 @@ include_once "../framework/visits.php";
 	<script src="../js/moment.min.js"></script>
 	<script src="../js/keep-session.js"></script>
     <script src="../js/autoRefresh.js"></script>
-    <script src="../js/Lists.js"></script>
+    <script src="../js/lists.js"></script>
 	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -218,7 +218,11 @@ var tok = '<?php echo $token; ?>' ;
 										<!-- Comienza Details -->
 											<div class="tab-pane fade " id="tab-myEvents">
 												<div class="the-timeline">
-													
+													<ul id="myLists">
+														<script>
+															myLists();
+														</script>
+													</ul>
 												</div>
 											</div>
 										<!-- Termina Details -->		
