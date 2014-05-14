@@ -1,4 +1,5 @@
 function newList(){
+
 	
 var params = "/" ;
 	params=params.concat(ide); 
@@ -8,7 +9,11 @@ var params = "/" ;
 var url="../develop/create/list.php";
 	url=url.concat(params);
 
-var actualdate=document.getElementById("datepicker").value;
+
+var actualdate=document.getElementById("date").value;
+var dateClose=document.getElementById("dateClose").value;
+var max=document.getElementById("Max").value;
+
 var title2 = document.getElementById("Title").value;
 var description = document.getElementById("Description").value;
 
@@ -36,38 +41,53 @@ var year = actualdate.substring(6,11);
 var day = actualdate.substring(3,5);
 var month = actualdate.substring(0,2);
 actualdate = day+'/'+month+'/'+year;
-					
+
+
+var yearClose = dateClose.substring(6,11);
+var dayClose = dateClose.substring(3,5);
+var monthClose = dateClose.substring(0,2);
+dateClose = dayClose+'/'+monthClose+'/'+yearClose;
+
 
 if (!(title2=="")){
+	
 
-	if (!actualdate==""){
+	if (actualdate!="//" && dateClose!="//"){
 
 		if(!(hour=="HH"||minutes=="MM"||hour_init=="HH"||minutes_init=="MM")){
 		
+				if (!isNaN(max) && !max==""){
+
+
 		
-		$.ajax({
-			url:url,
-			dataType: "json",
-			type: "POST",
-			data: {
-				idProfile:ide,
-				title: title2,
-				text: description,
-				date: actualdate,
-				startHour: time1,
-				closeHour: time2
-			},
-			complete: function(r){
+						$.ajax({
+							url:url,
+							dataType: "json",
+							type: "POST",
+							data: {
+								idProfile:ide,
+								title: title2,
+								text: description,
+								date: actualdate,
+								closeDate: dateClose,
+								maxGuest: max,
+								startHour: time1,
+								closeHour: time2
+									},
+							complete: function(r){
+								alert(r.responseText);
 			  			  
-			},
-			onerror: function(e,val){
-				alert("No se puede introducir evento 2");
-			}
-	});
+								},
+							onerror: function(e,val){
+								alert("No se puede introducir evento 2");
+							}
+						});
 		
     document.getElementById('myLists').innerHTML="";
      		    myLists();
 		   
+		  
+		  }else alert("el máximo número de acompañantes debería ser un número");
 		  }else alert("evento sin hora");
 	   
    		} else alert("introduce fecha");
@@ -76,7 +96,7 @@ if (!(title2=="")){
    }else
    		alert("introduce al menos un título");
 
-    clean();
+    //clean();
 
 	
 }

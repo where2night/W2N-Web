@@ -66,11 +66,13 @@ jQuery(function($){
 		showMonthAfterYear: false,
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['es']);
+
+
 });    
 
         $(document).ready(function() {
 
-           $("#datepicker").datepicker();
+           $(".datepicker").datepicker();
 
         });
 		
@@ -172,10 +174,10 @@ var tok = '<?php echo $token; ?>' ;
                                                         </div>
                                                     </div>
 													<div class="form-group">
-														<label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:0%;">Fecha</label>
+														<label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:0%;">Fecha fiesta</label>
 														<div class="col-sm-2">
 															<i  class="glyphicon glyphicon-calendar" style="margin-left:0px;font-size:18px;margin-top:3%;color:#34d1be;"></i> 
-															<input type="text" id="datepicker" readonly="readonly" style="width:75%;background: #1B1E24;color: #fff;border: 1px solid #1B1E24;" placeholder=""/>
+															<input type="text" id="date" class="datepicker" readonly="readonly" style="width:75%;background: #1B1E24;color: #fff;border: 1px solid #1B1E24;" placeholder=""/>
                                                          </div>   
 															<label for="" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:-5%;">Hora Inicio</label>
 															<div class="col-sm-2">
@@ -209,9 +211,23 @@ var tok = '<?php echo $token; ?>' ;
 																	</script>
 																</select>    
                                                             </div>
+                                                          
+                                                        <label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:0%;margin-top: 5%">Cierre lista</label>
+														<div class="col-sm-2" style="margin-top: 5%">
+															<i  class="glyphicon glyphicon-calendar" style="margin-left:0px;font-size:18px;margin-top:3%;color:#34d1be;"></i> 
+															<input type="text" id="dateClose" class="datepicker" readonly="readonly" style="width:75%;background: #1B1E24;color: #fff;border: 1px solid #1B1E24;" placeholder=""/>
+                                                         </div>   
+													 	
+													<div style="float: left;;margin-top: 5%">
+														<label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:10%">Máx. Acompañantes</label>
+														 <input type="text" class="form-control" id="Max" name="" placeholder="" style="width: 8%">
+                                                    </div>
+                                                        
+                                                        
                                                         </div>
+                                                        
 												</form>
-												<a id="" class="btn btn-success" onclick="newList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Lista</a>	
+												<a id="" class="btn btn-success" onclick="newList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%;">Crear Lista</a>	
 	       
 											</div>
 										<!-- Termina Basic -->	
