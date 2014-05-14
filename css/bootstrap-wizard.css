@@ -9,23 +9,31 @@
 	width:750px;
 	margin-left:-375px;
 	top:50%;
-	background: #fff;
+	background:#1B1E24;
 	left: 50%;
 	overflow: hidden;
 	bottom: auto;
 	position: fixed;
+	border-radius:0px;
 }
 .wizard-modal-footer {
 	padding:0;
+	border-radius:0px;
 }
 .wizard-modal-header.modal-header h3 {
 	border-bottom: 0 none;
     border-left: 10px solid #C2C2C2;
     margin: 0 -15px;
     padding: 5px 0 5px 20px;
+	border-radius:0px;
+	color:#ff6b24;
+
 }
 .wizard-modal-header.modal-header {
 	border-bottom:0;
+	border-radius:0px;
+	background:#000;
+	
 }
 
 .wizard-subtitle {
@@ -46,7 +54,7 @@
 	overflow-y:auto;
 	height:300px;
 	display:none;
-	border-top: 1px solid #EEE;
+	border-top: 0px !important;
 	margin-right: 5px;
 }
 

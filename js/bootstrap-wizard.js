@@ -343,23 +343,13 @@
 			'<div class="modal wizard-modal" role="dialog">',
 
 				'<div class="wizard-modal-header modal-header">',
-					'<button class="wizard-close close" type="button">x</button>',
+					'<button class="wizard-close close" style="color:#ff6b24;text-shadow:none"type="button">x</button>',
 					'<h3 class="wizard-title"></h3>',
 					'<span class="wizard-subtitle"></span>',
 				'</div>',
 
 				'<div class="pull-left wizard-steps">',
-					'<div class="wizard-nav-container">',
-						'<ul class="nav nav-list" style="padding-bottom:30px;">',
-						'</ul>',
-					'</div>',
-					'<div class="wizard-progress-container">',
-						'<div class="progress progress-striped">',
-							'<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">',
-								'<span class="sr-only">0% Complete</span>',
-							'</div>',
-						'</div>',
-					'</div>',
+					
 				'</div>',
 
 				'<form>',
@@ -370,7 +360,6 @@
 							'<div class="wizard-buttons-container">',
 								'<button class="btn wizard-cancel wizard-close" type="button">Cancel</button>',
 								'<div class="btn-group-single pull-right">',
-									'<button class="btn wizard-back" type="button">Back</button>',
 									'<button class="btn btn-primary wizard-next" type="button">Next</button>',
 								'</div>',
 							'</div>',
@@ -388,11 +377,11 @@
 			progressBarCurrent: false,
 			increaseHeight: 0,
 			buttons: {
-				cancelText: "Cancel",
+				cancelText: "Cancelar",
 				nextText: "Next",
 				backText: "Back",
-				submitText: "Submit",
-				submittingText: "Submitting...",
+				submitText: "Enviar",
+				submittingText: "Enviando...",
 			}
 		};
 		$.extend(this.args, args || {});

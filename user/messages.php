@@ -48,6 +48,90 @@ include_once "../framework/sessions.php";
 <script>
 var ide = '<?php echo $idProfil; ?>' ;
 var tok = '<?php echo $toke; ?>' ;
+var idContact = 0;
+</script>
+  <script type="text/javascript">  
+    $(document).ready(function(){
+		var params = "/" ;
+			params=params.concat(ide); 
+			params=params.concat("/");
+			params=params.concat(tok);
+		
+		var url="../develop/read/messagesSorted.php";
+			url=url.concat(params);
+		$.ajax({
+								url: url,
+								dataType: "json",
+								type: "GET",
+								async: false,
+								complete: function(r){
+									var json = JSON.parse(r.responseText);
+									alert(r.responseText);
+								},
+								onerror: function(e,val){
+									alert("No se pueden saber los mensajes");
+									}
+			});
+	 });//end $(document).ready(function()
+	 function sendMessage(id){
+		var params = "/" ;
+			params=params.concat(ide); 
+			params=params.concat("/");
+			params=params.concat(tok);
+			params=params.concat("/");
+			params=params.concat(id);
+		
+		var url="../develop/actions/sendMessage.php";
+			url=url.concat(params);
+		$.ajax({
+								url: url,
+								dataType: "json",
+								type: "GET",
+								async: false,
+								complete: function(r){
+									var json = JSON.parse(r.responseText);
+									alert(r.responseText);
+								},
+								onerror: function(e,val){
+									alert("No se pueden saber los mensajes");
+									}
+			});
+	}
+	 function contacts(){
+	 var params = "/" ;
+		params=params.concat(ide); 
+		params=params.concat("/");
+		params=params.concat(tok);
+		params=params.concat("/");
+		params=params.concat(ide);
+	
+		var url="../develop/read/myFriends.php";
+			url=url.concat(params);
+		$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			  	var json = JSON.parse(r.responseText);
+				var count=json.numFriends;
+	   			var i=0;
+				var contacts=document.getElementById('contact').innerHTML;
+				contacts = contacts.concat('<option>Selecciona Contacto</option>');
+					while (i<count){
+							var name = json[i].name;
+							var surnames = json[i].surnames;
+							contacts = contacts.concat('<option>'+name+surnames+'</option>');
+					 i=i+1;
+			 		}
+				document.getElementById('contact').innerHTML=contacts;
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los contactos");
+			}
+		});
+	 
+	}
 </script>
 </head>
 
@@ -116,27 +200,22 @@ body{
 										<div class="col-lg-12">
 											<!--NEW MESSAGE-->
 											
-											<!--<a id="open-wizard" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none"><i class="glyphicon glyphicon-plus"style="font-size:12px;margin-bottom:5%;color:#ff6b24;margin-right:4%;"></i>Mensaje Nuevo</a>-->
-											<button id="open-wizard" class="btn btn-primary">Open wizard</button>
-
-									<div class="wizard" id="wizard-demo">
-										<h1>Create Server</h1>
-							
-										<div class="wizard-card" data-onValidated="setServerName" data-cardname="name">
-											<h3><span>Name &amp; FQDN</span></h3>
-							
-											<div class="wizard-input-section">
-												<p>
-													To begin, please enter the IP of your server or the
-													fully-qualified name.
-												</p>
-							
-												<div class="form-group">
-													<label for="exampleInputEmail1">Email address</label>
-													<input type="text" class="form-control" id="new-server-fqdn" placeholder="FQDN or IP" data-validate="fqdn_or_ip"/>
-												</div>
-											</div>
-											</div>
+											<a id="open-wizard" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none"><i class="glyphicon glyphicon-plus"style="font-size:12px;margin-bottom:5%;color:#ff6b24;margin-right:4%;"></i>Mensaje Nuevo</a>
+											<div class="wizard" id="wizard-demo">
+												<h1>Mensaje Nuevo</h1>
+												<div class="wizard-card" data-onValidated="setServerName" data-cardname="name">
+													<!--TEXT MESSAGE-->
+														<div class="form-group">
+															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:18px;">Para :</label>
+															<div class="col-sm-7 " >
+															<select class="form-control"  id="contact"required><script>contacts();</script></select>
+															</div>
+														</div>
+														<div class="col-lg-14">
+                                                                <textarea id="message" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>
+                                                        </div>
+													<!--/TEXT MESSAGE-->
+												</div>	
 											</div>
 											<!--/NEW MESSAGE-->
 											<div class="table-responsive">
@@ -164,6 +243,14 @@ body{
 		</div>
 </div>
 <!-- /MiPerfil --> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="../js/profile-test1.js"></script>
+<script src="../js/profile-test2.js"></script>
+<script src="../js/club-list.js"></script>
+<script src="../js/messages-pop.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-wizard.js"></script>
+<script src="../js/messages-select.js"></script>
 <script type="text/javascript">
 	function setServerName(card) {
 		var host = $("#new-server-fqdn").val();
@@ -287,16 +374,9 @@ body{
 		$("#open-wizard").click(function() {
 			wizard.show();
 		});
-	
-		wizard.show();
 	});
 	</script>	
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="../js/profile-test1.js"></script>
-<script src="../js/profile-test2.js"></script>
-<script src="../js/club-list.js"></script>
-<script src="../js/bootstrap-wizard.js"></script>
-<script src="../js/messages-select.js"></script>
-<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+
+
 </body>
 </html>
