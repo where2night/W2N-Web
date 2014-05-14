@@ -355,8 +355,7 @@ var tok = '<?php echo $token; ?>' ;
 																</select>    
                                                             </div>
                                                         </div>
-														<input type="button" value="CREAR EVENTO" style="width:20%; margin-left:40%" onclick="newEvent('club');"/>
-														<!--<a id="" class="btn btn-success" onclick="newEvent('club');"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Evento</a>-->
+														<a id="" class="btn btn-success" onclick="newEvent('club');"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Crear Evento</a>
 												</form>
 													
 	       

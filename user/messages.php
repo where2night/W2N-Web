@@ -117,7 +117,27 @@ body{
 											<!--NEW MESSAGE-->
 											
 											<!--<a id="open-wizard" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none"><i class="glyphicon glyphicon-plus"style="font-size:12px;margin-bottom:5%;color:#ff6b24;margin-right:4%;"></i>Mensaje Nuevo</a>-->
-											
+											<button id="open-wizard" class="btn btn-primary">Open wizard</button>
+
+									<div class="wizard" id="wizard-demo">
+										<h1>Create Server</h1>
+							
+										<div class="wizard-card" data-onValidated="setServerName" data-cardname="name">
+											<h3><span>Name &amp; FQDN</span></h3>
+							
+											<div class="wizard-input-section">
+												<p>
+													To begin, please enter the IP of your server or the
+													fully-qualified name.
+												</p>
+							
+												<div class="form-group">
+													<label for="exampleInputEmail1">Email address</label>
+													<input type="text" class="form-control" id="new-server-fqdn" placeholder="FQDN or IP" data-validate="fqdn_or_ip"/>
+												</div>
+											</div>
+											</div>
+											</div>
 											<!--/NEW MESSAGE-->
 											<div class="table-responsive">
 												<table id="user-friends" class="table user-list">
@@ -144,12 +164,139 @@ body{
 		</div>
 </div>
 <!-- /MiPerfil --> 
+<script type="text/javascript">
+	function setServerName(card) {
+		var host = $("#new-server-fqdn").val();
+		var name = $("#new-server-name").val();
+		var displayName = host;
 	
+		if (name) {
+			displayName = name + " ("+host+")";
+		};
+	
+		card.wizard.setSubtitle(displayName);
+		card.wizard.el.find(".create-server-name").text(displayName);
+	}
+	
+	function validateIP(ipaddr) {
+	    //Remember, this function will validate only Class C IP.
+	    //change to other IP Classes as you need
+	    ipaddr = ipaddr.replace(/\s/g, "") //remove spaces for checking
+	    var re = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/; //regex. check for digits and in
+	                                          //all 4 quadrants of the IP
+	    if (re.test(ipaddr)) {
+	        //split into units with dots "."
+	        var parts = ipaddr.split(".");
+	        //if the first unit/quadrant of the IP is zero
+	        if (parseInt(parseFloat(parts[0])) == 0) {
+	            return false;
+	        }
+	        //if the fourth unit/quadrant of the IP is zero
+	        if (parseInt(parseFloat(parts[3])) == 0) {
+	            return false;
+	        }
+	        //if any part is greater than 255
+	        for (var i=0; i<parts.length; i++) {
+	            if (parseInt(parseFloat(parts[i])) > 255){
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
+	    else {
+	        return false;
+	    }
+	}
+	
+	function validateFQDN(val) {
+		return /^[a-z0-9-_]+(\.[a-z0-9-_]+)*\.([a-z]{2,4})$/.test(val);
+	}
+	
+	function fqdn_or_ip(el) {
+		var val = el.val();
+		ret = {
+			status: true
+		};
+		if (!validateFQDN(val)) {
+			if (!validateIP(val)) {
+				ret.status = false;
+				ret.msg = "Invalid IP address or FQDN";
+			}
+		}
+		return ret;
+	}
+	
+	
+	$(function() {
+		
+		$('#sel2').select2();
+	
+		$.fn.wizard.logging = false;
+	
+		var wizard = $("#wizard-demo").wizard({
+			showCancel: true
+		});
+	
+		//$(".chzn-select").chosen();
+	
+		wizard.el.find(".wizard-ns-select").change(function() {
+			wizard.el.find(".wizard-ns-detail").show();
+		});
+	
+		wizard.el.find(".create-server-service-list").change(function() {
+			var noOption = $(this).find("option:selected").length == 0;
+			wizard.getCard(this).toggleAlert(null, noOption);
+		});
+	
+		wizard.cards["name"].on("validated", function(card) {
+			var hostname = card.el.find("#new-server-fqdn").val();
+		});
+	
+		wizard.on("submit", function(wizard) {
+			var submit = {
+				"hostname": $("#new-server-fqdn").val()
+			};
+	
+			setTimeout(function() {
+				wizard.trigger("success");
+				wizard.hideButtons();
+				wizard._submitting = false;
+				wizard.showSubmitCard("success");
+				wizard.updateProgressBar(0);
+			}, 2000);
+		});
+	
+		wizard.on("reset", function(wizard) {
+			wizard.setSubtitle("");
+			wizard.el.find("#new-server-fqdn").val("");
+			wizard.el.find("#new-server-name").val("");
+		});
+	
+		wizard.el.find(".wizard-success .im-done").click(function() {
+			wizard.reset().close();
+		});
+	
+		wizard.el.find(".wizard-success .create-another-server").click(function() {
+			wizard.reset();
+		});
+	
+		$(".wizard-group-list").click(function() {
+			alert("Disabled for demo.");
+		});
+	
+		$("#open-wizard").click(function() {
+			wizard.show();
+		});
+	
+		wizard.show();
+	});
+	</script>	
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 <script src="../js/profile-test1.js"></script>
 <script src="../js/profile-test2.js"></script>
 <script src="../js/club-list.js"></script>
 <script src="../js/bootstrap-wizard.js"></script>
+<script src="../js/messages-select.js"></script>
 <script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
 </body>
 </html>
