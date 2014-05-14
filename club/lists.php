@@ -219,7 +219,7 @@ var tok = '<?php echo $token; ?>' ;
                                                          </div>   
 													 	
 													<div style="float: left;;margin-top: 5%">
-														<label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:10%">Máx. Acompañantes</label>
+														<label for="startendate" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;margin-left:10%">Máx. Invitados</label>
 														 <input type="text" class="form-control" id="Max" name="" placeholder="" style="width: 8%">
                                                     </div>
                                                         

@@ -75,7 +75,6 @@ if (!(title2=="")){
 								closeHour: time2
 									},
 							complete: function(r){
-								alert(r.responseText);
 			  			  
 								},
 							onerror: function(e,val){
@@ -96,7 +95,7 @@ if (!(title2=="")){
    }else
    		alert("introduce al menos un título");
 
-    //clean();
+    clean();
 
 	
 }
@@ -104,8 +103,10 @@ if (!(title2=="")){
 function clean(){
 	
 	var inputText=document.getElementById("Title");
+	var inputText2=document.getElementById("Max");
 	var inputTextArea=document.getElementById("Description");
-    var inputdate=document.getElementById("datepicker");
+    var inputdate=document.getElementById("date");
+    var inputdate2=document.getElementById("dateClose");
 	
 
 var list_hour_init= document.getElementById("hour-init");
@@ -123,7 +124,9 @@ list_minutes.selectedIndex=0;
 
     
     inputdate.value="";
+    inputdate2.value="";
     inputText.value="";
+    inputText2.value="";
     inputTextArea.value="";
 }
 
@@ -174,11 +177,17 @@ $.ajax({
 					var day = dateList.substring(8,11);
 					var listDate = day+'-'+month+'-'+year;
 					var date = json[i].createdTime;
+					var dateClose = json[i].dateClose;
+					var yearClose = dateClose.substring(0,4);
+					var monthClose = dateClose.substring(5,7);
+					var dayClose = dateClose.substring(8,11);
+					var listDateClose = dayClose+'-'+monthClose+'-'+yearClose;
 					var startHour = json[i].startHour;
 					var starH = startHour.substring(0,5);
 					var closeHour = json[i].closeHour;
 					var closeH = closeHour.substring(0,5);
 					var idList = json[i].idLists;
+					
 					
 					moment.lang('es', {
 						 relativeTime : {
@@ -212,13 +221,14 @@ $.ajax({
 					lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 					lists = lists.concat(json[i].about);
 					lists = lists.concat("</P>");
-					lists = lists.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
+					lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 					lists = lists.concat(listDate);
-					lists = lists.concat("</b> </br> Apertura de listas a las  <b style='color:#34d1be'>");
+					lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
 					lists = lists.concat(starH);
-					lists = lists.concat("</b> hrs. </br> Cierre de listas a las  <b style='color:#34d1be'>");
-					lists = lists.concat(closeH);
-					lists = lists.concat("</b>hrs.</br></p>");
+					lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+					lists = lists.concat(listDateClose);
+					lists = lists.concat("</b>");
+					lists = lists.concat("</br></p>");
 					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='deleteList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Eliminar</span></a>");
 					lists = lists.concat("</td></tr></tbody></table>");
 					
