@@ -284,3 +284,134 @@ parent.removeChild(element);
 	*/
 	
 }
+
+
+function myListsProfile(){
+	
+	
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(ideEvent);
+	  
+var url="../develop/read/lists.php";
+	url=url.concat(params);
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			var json = JSON.parse(r.responseText);	 
+            
+			var key, count = 0;
+			for(key in json) {
+	  			if(json.hasOwnProperty(key)) {
+		    		count++;
+		  		}
+			}
+	   		count=count-3;		  
+			
+			var i=0;
+		 
+	    var picture=json.pictureC;
+	    if (picture == null || picture.length == 0){
+					picture = "../images/profile-club.jpg";
+				}
+		    
+		
+			while (i<count)
+			  	{
+					var lists=document.getElementById('myLists').innerHTML;
+					
+					var dateList = json[i].date; 
+					var year = dateList.substring(0,4);
+					var month = dateList.substring(5,7);
+					var day = dateList.substring(8,11);
+					var listDate = day+'-'+month+'-'+year;
+					var date = json[i].createdTime;
+					var dateClose = json[i].dateClose;
+					var yearClose = dateClose.substring(0,4);
+					var monthClose = dateClose.substring(5,7);
+					var dayClose = dateClose.substring(8,11);
+					var listDateClose = dayClose+'-'+monthClose+'-'+yearClose;
+					var startHour = json[i].startHour;
+					var starH = startHour.substring(0,5);
+					var closeHour = json[i].closeHour;
+					var closeH = closeHour.substring(0,5);
+					var idList = json[i].idLists;
+					var max = json[i].maxGuest;
+					
+					moment.lang('es', {
+						 relativeTime : {
+										future : "en %s",
+										past : "hace %s",
+										s : "unos segundos",
+										m : "un minuto",
+										mm : "%d minutos",
+										h : "una hora",
+										hh : "%d horas",
+										d : "un día",
+										dd : "%d días",
+										M : "un mes",
+										MM : "%d meses",
+										y : "un año",
+										yy : "%d años"
+									}
+					});
+					var dateActivity = moment(date);
+					if (dateActivity.isValid()){
+						var activityFromNow = dateActivity.fromNow();
+					}
+	
+					lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
+					lists=lists.concat(picture);
+					lists=lists.concat(");background-size:100% 100%'></div>");
+					lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> ");
+					lists = lists.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+					lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Lista <b style='color:orange'>'");
+					lists = lists.concat(json[i].title);
+					lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+					lists = lists.concat(json[i].about);
+					lists = lists.concat("</P>");
+					lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
+					lists = lists.concat(listDate);
+					lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
+					lists = lists.concat(starH);
+					lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+					lists = lists.concat(listDateClose);
+					lists = lists.concat("</b>");
+					lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests'style='width:12%'>  <option value='0' selected='1'></option>");
+			
+				    
+				    for(var j = 0; j<max; j++ ) {
+    					lists=lists.concat("<option value="+ j +">"+j+"</option>");
+ 						}
+
+					lists = lists.concat("</select> <span style='color:#ff6b24'> Invitados </span>");
+					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='joinList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Entrar en listas</span></a>");
+					lists = lists.concat("</td></tr></tbody></table>");
+					
+					document.getElementById('myLists').innerHTML=lists;		
+				
+				i=i+1;	
+				}
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir evento 2");
+			}
+	});
+
+
+	
+	
+}
+
+
+function joinList(id){
+	alert(id);
+	
+}

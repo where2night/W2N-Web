@@ -47,6 +47,7 @@ include_once "../framework/visits.php";
 	<script src="../js/localFans.js"></script>	
 	<script src="../js/autoRefresh.js"></script>
 	<script src="../js/songs.js"></script>
+	<script src="../js/fillDate.js"></script>
 	<script src="../js/lists.js"></script>
 	
 <script type="text/javascript"> 
@@ -697,7 +698,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 											<div class="the-timeline">
 												<ul id="myLists">
 														<script>
-															myLists();
+															myListsProfile();
 														</script>
 												</ul>
 											</div>
