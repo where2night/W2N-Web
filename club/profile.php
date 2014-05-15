@@ -47,6 +47,7 @@ include_once "../framework/visits.php";
 	<script src="../js/localFans.js"></script>	
 	<script src="../js/autoRefresh.js"></script>
 	<script src="../js/songs.js"></script>
+	<script src="../js/lists.js"></script>
 	
 <script type="text/javascript"> 
 	function getData(){
@@ -602,6 +603,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 											<li class="active"><a href="#tab-activity" data-toggle="tab">Actividad</a></li>
 											<li><a href="#tab-friends" data-toggle="tab">Seguidores</a></li>
 											<li><a href="#tab-songs" data-toggle="tab">Canciones</a></li>
+											<li><a href="#tab-lists" data-toggle="tab">Listas</a></li>
 											<li><a href="#tab-photos" data-toggle="tab">Fotos</a></li>
 											<li><a href="#tab-contact" data-toggle="tab">Contacto</a></li>
 										</ul>
@@ -689,6 +691,20 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</div>
 											</div>
 										<!-- End Songs -->
+										
+										<!-- Begin Lists -->
+										<div class="tab-pane fade " id="tab-lists">
+											<div class="the-timeline">
+												<ul id="myLists">
+														<script>
+															myLists();
+														</script>
+												</ul>
+											</div>
+
+										</div>
+										<!-- End lists -->
+										
 											<!-- Begin Photos -->
 											<div class="tab-pane fade" id="tab-photos">	
 											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
