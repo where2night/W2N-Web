@@ -59,7 +59,6 @@ var params = "/" ;
 var url="../develop/read/playList.php";
 	url=url.concat(params);
 
-alert("paso songs");
 
 $.ajax({
 			url:url,
@@ -134,8 +133,6 @@ function show_songs(json,type){
 
 function deleteSong(id) {
 
-alert(id);
-	
 
 var params = "/" ;
 	params=params.concat(ide); 
@@ -156,7 +153,6 @@ $.ajax({
 			timeout: 5000,
 			async: false,
 			complete: function(r){
-				alert(r.responseText);
 			  alert("eliminado con éxito");
 			},
 			onerror: function(e,val){
