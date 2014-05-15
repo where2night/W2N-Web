@@ -49,15 +49,8 @@ include_once "../framework/visits.php";
 <script type="text/javascript">
 
 $(document).ready(function(){ 
-	var song_name = "nombre canción";
-	var artist_name = "nombre artista";
-	var i = 0;
-	var id_user = 0;
-	var votes = 100;
-	while (i <  15){
-	$('#club-favourite tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteClub(this.id,'+id_user+');">Eliminar</span></a></td></tr>');
-		i = i + 1;
-	}
+
+	
 });//end $(document).ready(function()
 </script>
 
@@ -174,10 +167,13 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Nombre artista</span></th>
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>
 																	<th>&nbsp;</th>
+																	<th>&nbsp;</th>
 																</tr>
+																<div id="ul">
 																<script>
 																	show_songs_list("home");
 																 </script>
+																 </div>
 															</thead>
 															<tbody>
 															</tbody>
