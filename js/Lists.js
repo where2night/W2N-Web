@@ -404,7 +404,8 @@ $.ajax({
 				if(goes==null)
 					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='joinList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Entrar en listas</span></a>");
 				else
-				    lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='disjoinList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Apuntado en listas</span></a>");
+				    lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='disjoinList(this.id);' style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Me Desapunto</span></a>");
+					
 					lists = lists.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('myLists').innerHTML=lists;		
@@ -466,15 +467,16 @@ var url="../develop/actions/joinList.php";
 
 function disjoinList(idList){
 
-	var params = "/" ;
-	params=params.concat(ide); 
-	params=params.concat("/");
-	params=params.concat(tok);
-	params=params.concat("/");
-	params=params.concat(idList);
+	
+				var params = "/" ;
+					params=params.concat(ide); 
+					params=params.concat("/");
+					params=params.concat(tok);
+					params=params.concat("/");
+					params=params.concat(idList);
 	  
-var url="../develop/actions/joinList.php";
-	url=url.concat(params);
+				var url="../develop/actions/joinList.php";
+					url=url.concat(params);
 
 	
 	
