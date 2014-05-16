@@ -48,7 +48,6 @@ include_once "../framework/sessions.php";
 <script>
 var ide = '<?php echo $idProfil; ?>' ;
 var tok = '<?php echo $toke; ?>' ;
-var idContact = 0;
 </script>
   <script type="text/javascript">  
     $(document).ready(function(){
@@ -67,6 +66,22 @@ var idContact = 0;
 								complete: function(r){
 									var json = JSON.parse(r.responseText);
 									alert(r.responseText);
+									for(var i=0; i<json.length; i++){
+										
+										/*var id_user = json[i]['idProfile'];
+										var message = json[i]['message'];
+										var mode = json[i]['mode'];
+										var creatTime = json[i]['createdTime'];*/
+										
+										var id_user = json[i].idProfile;
+										var message = json[i].message;
+										var mode = json[i].mode;
+										var creatTime = json[i].createdTime;
+								
+									
+										$('#messages-friends').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+message+mode+creatTime+'</td><td>holaa</td><td>holaa</td><td>holaa</td></tr>');									
+									}
+									
 								},
 								onerror: function(e,val){
 									alert("No se pueden saber los mensajes");
@@ -83,14 +98,15 @@ var idContact = 0;
 		
 		var url="../develop/actions/sendMessage.php";
 			url=url.concat(params);
+		var messageT = $('#messageText').val();
 		$.ajax({
 								url: url,
 								dataType: "json",
-								type: "GET",
+								type: "POST",
 								async: false,
-								complete: function(r){
-									var json = JSON.parse(r.responseText);
-									alert(r.responseText);
+								data: {
+								message:messageT},
+								complete: function(r){	
 								},
 								onerror: function(e,val){
 									alert("No se pueden saber los mensajes");
@@ -121,7 +137,8 @@ var idContact = 0;
 					while (i<count){
 							var name = json[i].name;
 							var surnames = json[i].surnames;
-							contacts = contacts.concat('<option>'+name+surnames+'</option>');
+							var id_user = json[i].idProfile;
+							contacts = contacts.concat('<option info="'+id_user+'">'+name+" "+surnames+'</option>');
 					 i=i+1;
 			 		}
 				document.getElementById('contact').innerHTML=contacts;
@@ -130,8 +147,53 @@ var idContact = 0;
 				alert("No se pueden saber los contactos");
 			}
 		});
-	 
 	}
+	function btnSend() {
+		var params = "/" ;
+		params=params.concat(ide); 
+		params=params.concat("/");
+		params=params.concat(tok);
+		params=params.concat("/");
+		params=params.concat(ide);
+	
+		var url="../develop/read/myFriends.php";
+			url=url.concat(params);
+		$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			  	var json = JSON.parse(r.responseText);
+				var count=json.numFriends;
+	   			var i=0;
+				var id_user=0;
+				var str=document.getElementById('contact').options[document.getElementById('contact').selectedIndex].text;
+				var allName = str.split(" ");
+				var allName1 = str.split(" ");
+				allName1.shift();
+				var sur = allName1.join(" ");				
+				while (i<count){
+					var name = json[i].name;
+					var surnames = json[i].surnames;
+					if (name == allName[0] && surnames==sur){
+						id_user = json[i].idProfile;
+						i = count;
+					}
+					else
+						i=i+1;
+			 	}						
+				var contacts=document.getElementById('btnSend').innerHTML;
+				contacts = contacts.concat("<button id="+id_user+" class='btn pull-right'  type='button' onclick='sendMessage(this.id);' style='position:fixed;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Enviar</button>");
+				document.getElementById('btnSend').innerHTML=contacts;	
+				
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los contactos");
+			}
+		});
+	 
+	}	
 </script>
 </head>
 
@@ -208,18 +270,23 @@ body{
 														<div class="form-group">
 															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:18px;">Para :</label>
 															<div class="col-sm-7 " >
-															<select class="form-control"  id="contact"required><script>contacts();</script></select>
+															<select class="form-control"id="contact" onchange="btnSend();"required><script>contacts();</script></select>
 															</div>
 														</div>
 														<div class="col-lg-14">
-                                                                <textarea id="message" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>
+                                                                <textarea id="messageText" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>
                                                         </div>
+															<!--<button id="44" class="btn pull-right"  type="button" onclick='sendMessage(this.id);' style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">Enviar</button>
+-->
+														<a id="btnSend">
+															<script>btnSend();</script>
+														</a>
 													<!--/TEXT MESSAGE-->
 												</div>	
 											</div>
 											<!--/NEW MESSAGE-->
 											<div class="table-responsive">
-												<table id="user-friends" class="table user-list">
+												<table id="messages-friends" class="table user-list">
 												<thead>
 												<tr>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
