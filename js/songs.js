@@ -153,7 +153,9 @@ $.ajax({
 			timeout: 5000,
 			async: false,
 			complete: function(r){
-			  alert("eliminado con éxito");
+					alert("eliminado con éxito");
+					$('#my_songs tbody').empty();
+					show_songs_list("home");
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
