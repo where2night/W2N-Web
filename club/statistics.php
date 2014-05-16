@@ -145,6 +145,48 @@ chart.render();
 			var mens = json.mens;
 			var womens = json.womens;
 
+
+CanvasJS.addColorSet("myColorsGender",
+                	[//colorSet Array
+						"#0000FF",
+                		"#FF0000"	                
+                	]);
+
+
+
+					var chart = new CanvasJS.Chart("chartGender",
+    {
+	
+	colorSet: "myColorsGender",
+       title:{
+        text: "Géneros"    
+      },
+      axisY: {
+        title: ""
+      },
+      legend: {
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
+      },
+      theme: "theme2",
+      data: [
+
+      {        
+        type: "column",  
+        showInLegend: true, 
+        legendMarkerColor: "grey",
+        legendText: "Género",
+        dataPoints: [      
+        {y: mens, label: "Hombres"},
+        {y: womens,  label: "Mujeres" }
+        ]
+      }   
+      ]
+    });
+
+    chart.render();
+
+
 			 
 			},
 			onerror: function(e,val){
@@ -217,6 +259,11 @@ body{
 							<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 									<div class="row">
 							    		<div id="chartContainer" style="height: 300px; width: 100%;">
+  										</div>
+  										
+  										<br />
+  										
+  										<div id="chartGender" style="height: 300px; width: 100%;">
   										</div>
 									</div>
 								<!--Aqui empieza-->
