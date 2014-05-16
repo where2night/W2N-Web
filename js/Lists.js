@@ -288,7 +288,12 @@ parent.removeChild(element);
 
 function myListsProfile(){
 	
+	if(ide==ideEvent)
+		myLists();
 	
+	else
+	
+	{
 	var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
@@ -383,7 +388,9 @@ $.ajax({
 					lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
 					lists = lists.concat(listDateClose);
 					lists = lists.concat("</b>");
-					lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests'style='width:12%'>  <option value='0' selected='1'></option>");
+					lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
+					lists = lists.concat(idList); 
+					lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -406,12 +413,47 @@ $.ajax({
 	});
 
 
-	
+	}
 	
 }
 
 
-function joinList(id){
-	alert(id);
+function joinList(idList){
+	
+	var aux="guests";
+	aux = aux.concat(idList);
+	
+	var guests= document.getElementById(aux).value;
+	
+			
+	
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(idList);
+	  
+var url="../develop/actions/joinList.php";
+	url=url.concat(params);
+
+	
+	
+						$.ajax({
+							url:url,
+							dataType: "json",
+							type: "POST",
+				            async: false,
+							data: {
+								numGuest:guests
+									},
+							complete: function(r){
+			  			  
+								},
+							onerror: function(e,val){
+								alert("No se puede introducir evento 2");
+							}
+						});
+
 	
 }
