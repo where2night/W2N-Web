@@ -65,21 +65,25 @@ var tok = '<?php echo $toke; ?>' ;
 								async: false,
 								complete: function(r){
 									var json = JSON.parse(r.responseText);
-									alert(r.responseText);
-									for(var i=0; i<json.length; i++){
-										
-										/*var id_user = json[i]['idProfile'];
-										var message = json[i]['message'];
-										var mode = json[i]['mode'];
-										var creatTime = json[i]['createdTime'];*/
-										
-										var id_user = json[i].idProfile;
-										var message = json[i].message;
-										var mode = json[i].mode;
-										var creatTime = json[i].createdTime;
-								
 									
-										$('#messages-friends').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+message+mode+creatTime+'</td><td>holaa</td><td>holaa</td><td>holaa</td></tr>');									
+									var message="";
+									var mode="";
+									var creatTime="";
+									for(var i=0; i<json.length; i++){
+										var id_user = json[i]['idProfile'];
+										var num = json[i].num;
+										for (var j=0; j<num; j++){
+										
+											var message=json[i][j].message;;
+											var mode = json[i][j].mode;
+											var creatTime = json[i][j].createdTime;
+											$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+mode+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+message+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+creatTime+'</td><td></td></tr>');
+																				
+										}
+										
+										//$('#messages-friends').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+message+mode+creatTime+'</td><td>holaa</td><td>holaa</td><td>holaa</td></tr>');
+									 
+										
 									}
 									
 								},
