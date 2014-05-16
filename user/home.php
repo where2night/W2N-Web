@@ -453,7 +453,7 @@ $(document).ready(function(){
 				var streetNameLocal = json[i].streetNameLocal;
 				var streetNumberLocal = json[i].streetNumberLocal;
 
-				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>'+startHour+'  -'+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
+				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> De '+startHour+' a </br></br> '+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
 			}
 
 		},
@@ -461,6 +461,79 @@ $(document).ready(function(){
 		alert("No se puede introducir evento 2");
 		}
 		});
+
+
+/*Next Events*/
+	var url2 = "../develop/actions/myLists.php" + params;
+
+	$.ajax({
+		url:url2,
+		dataType: "json",
+		type: "GET",
+		complete: function(r3){
+			//alert(r3.responseText);
+			var json = JSON.parse(r3.responseText);
+			var rows = json.rows;
+			for(var i=0; i<rows; i++){
+				var localName = json[i].name;
+				var title = json[i].title;
+				var startHour = json[i].startHour;
+				var closeHour = json[i].closeHour;
+				var id_local =  json[i].idProfile;
+				var link = "../club/profile.php?idv=" + id_local;
+				
+				var date = json[i].date;
+				var month = date.substring(5,7);
+				var day = date.substring(8,11);
+				
+				var dateClose = json[i].dateClose;
+				var yearClose = dateClose.substring(0,4);
+				var dayClose = dateClose.substring(8,11);
+				var monthClose = dateClose.substring(5,7);
+					dateClose = dayClose+'/'+monthClose+'/'+yearClose;
+                   
+
+                
+				var m;
+				if (month == 1){
+				m = "ENE";
+				}else if (month == 2){
+				m = "FEB";
+				}else if (month == 3){
+				m = "MAR";
+				}else if (month == 4){
+				m = "ABR";
+				}else if (month == 5){
+				m = "MAY";
+				}else if (month == 6){
+				m = "JUN";
+				}else if (month == 7){
+				m = "JUL";
+				}else if (month == 8){
+				m = "AGO";
+				}else if (month == 9){
+				m = "SEP";
+				}else if (month == 10){
+				m = "OCT";
+				}else if (month == 11){
+				m = "NOV";
+				}else if (month == 12){
+				m = "DIC";
+				}
+				
+				
+				$('#nextLists').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>Cierre Listas  </br> </br>'+dateClose+' </p></div></div>');
+			
+			}
+
+		},
+		onerror: function(e,val){
+		alert("No se puede introducir evento 2");
+		}
+		});
+
+
+
 
 
 	});//end $(document).ready(function()
@@ -568,6 +641,15 @@ $(document).ready(function(){
 
 														</div><!--//section-content-->
 													</section><!--//events-->
+                                                     <div class="profile-header" style="text-align:center">
+														<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximas listas</span></h3>
+													</div>
+													<section class="events" style="background-color:transparent;">
+														<div id="nextLists" class="section-content">
+
+														</div><!--//section-content-->
+													</section><!--//lists-->
+
 												</div><!--//col-md-3-->
 											</div>
 
