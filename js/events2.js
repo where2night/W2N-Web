@@ -50,6 +50,7 @@ if (!(title2=="")){
 			url:url,
 			dataType: "json",
 			type: "POST",
+			async: false,
 			data: {
 				idProfile:ide,
 				title: title2,
@@ -126,6 +127,7 @@ $.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
+			async: false,
 			complete: function(r){
 			var json = JSON.parse(r.responseText);	 
             

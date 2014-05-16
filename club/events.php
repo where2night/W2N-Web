@@ -105,6 +105,7 @@ $.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
+			async: false,
 			complete: function(r){
 			var json = JSON.parse(r.responseText);	 
             
