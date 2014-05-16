@@ -50,6 +50,14 @@
 			
 			<li class="">
 				<span class="glow"></span>
+				<a href="statistics.php">
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+					<span>Estadisticas</span>
+				</a>
+			</li>
+			
+			<li class="">
+				<span class="glow"></span>
 				<a href="edit.php">
 					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Editar Perfil</span>
