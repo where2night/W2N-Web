@@ -415,6 +415,71 @@ while (one<5){
 		});
 
 		chart.render();
+		
+		
+///////// Civil state
+
+	 var j = json.numGo+70;
+	 var csEnd= j+7;
+	 var toSort = new Array();
+	 
+	 while(j<csEnd){
+	 	toSort[toSort.length]=json[j];
+	 	j++;
+	 }
+	 	
+
+
+
+
+	/*CanvasJS.addColorSet("myColorsCs",
+                	[//colorSet Array
+						"#FFFF00",
+                		"#848484",
+                		"#190707",
+                		"#FF8000",
+                		"#40FF00"	                
+                	]);*/
+
+	 
+var chart = new CanvasJS.Chart("chartCS",
+	{
+	
+	//colorSet: "myColorsCs",
+	  title:{
+        text: "modo estado civil"
+      },
+      legend:{
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
+      },
+      data: [
+      {        
+       indexLabelFontSize: 20,
+       indexLabelFontFamily: "Monospace",       
+       indexLabelFontColor: "darkgrey", 
+       indexLabelLineColor: "darkgrey",        
+       indexLabelPlacement: "outside",
+       type: "pie",       
+       showInLegend: true,
+       dataPoints: [
+       {  y: toSort[0], legendText:"soltero", indexLabel: "Sin compromiso"},
+       {  y: toSort[1], legendText:"ennoviad@", indexLabel: "ennoviad@"},
+       {  y: toSort[2], legendText:" novi@",exploded: true, indexLabel: " con novi@, pero no es problema"},
+       {  y: toSort[3], legendText:"buscando rollete" , indexLabel: "buscando rollete"},
+       {  y: toSort[4], legendText:"casad@" , indexLabel: "casad@"},
+       {  y: toSort[5], legendText:"divorciad@" , indexLabel: "divorciad@"},
+       {  y: toSort[6], legendText:"viud@" , indexLabel: "viud@"},
+       ]
+     }
+     ]
+   });
+
+
+
+    chart.render();
+
+	 		
 	
 	 
 	 
@@ -515,6 +580,11 @@ else
   										<br />
   										
   										<div id="chartDrink" style="height: 300px; width: 100%;">
+  										</div>
+  					
+  										<br />
+  										
+  										<div id="chartCS" style="height: 300px; width: 100%;">
   										</div>
   									
   										
