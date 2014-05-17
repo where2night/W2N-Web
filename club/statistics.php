@@ -270,20 +270,21 @@ while (one<5){
 
 
 
-	CanvasJS.addColorSet("myColorsMusic",
+	/*CanvasJS.addColorSet("myColorsMusic",
                 	[//colorSet Array
 						"#0000FF",
                 		"#FF0000",
                 		"#00FFFF",
                 		"#FF8000",
                 		"#40FF00"	                
-                	]);
+                	]);*/
 
 	 
 	 var chart = new CanvasJS.Chart("chartMusic",
 		{
+			//colorSet: "myColorsMusic",
 			title:{
-				text: "Top 5 Music",
+				text: "Top 5 Música",
 				verticalAlign: 'top',
 				horizontalAlign: 'left'
 			},
@@ -304,6 +305,117 @@ while (one<5){
 		});
 
 		chart.render();
+		
+
+///////// TOP DRINK
+
+	 var j = json.numGo+44;
+	 var drinkEnd= j+26;
+	 var toSort = new Array();
+	 
+	 while(j<drinkEnd){
+	 	toSort[toSort.length]=json[j];
+	 	j++;
+	 }
+	 
+	 
+	 
+	 var drink = toSort;
+	 
+	  for (var i = 0; i < toSort.length; i++) {
+    	toSort[i] = [toSort[i], i];
+  		}
+  		toSort.sort(function(left, right) {
+    					return left[0] < right[0] ? -1 : 1;
+  					});
+  		toSort.sortIndices = [];
+  	for (var j = 0; j < toSort.length; j++) {
+    	toSort.sortIndices.push(toSort[j][1]);
+    	toSort[j] = toSort[j][0];
+ 		 }
+	 
+	 toSort=toSort.sortIndices;
+	 //alert(toSort);
+	 //alert(drink);
+
+var one=0;
+var types = new Array();
+
+while (one<5){
+	var num =25-one;
+	var drinkType=toSort[num];
+	var type="h";
+	 switch (drinkType) { 
+	 				case 0:   type="agua con gas";   break; 
+	 				case 1:   type="agua sin gas";   break; 
+	 				case 2:   type="anís";   break;
+	 				case 3:   type="Bourbon";   break;
+	 				case 4:   type="Brandy";   break;
+	 				case 5:   type="calimocho";   break;
+	 				case 6:   type="cava";   break;
+	 				case 7:   type="Cerveza";   break;
+	 				case 8:   type="Champagne";   break;
+	 				case 9:   type="Coñac";   break;
+	 				case 10:   type="Energética";   break;
+	 				case 11:   type="Ginebra";   break;
+	 				case 12:   type="Horchata";   break;
+	 				case 13:   type="Licor con alcohol";   break;
+	 				case 14:   type="Licor sin alcohol";   break;
+	 				case 15:   type="Refresco con gas";   break;
+	 				case 16:   type="Refresco sin gas";   break;
+	 				case 17:   type="Ron añejo";   break;
+	 				case 18:   type="Ron Blanco";   break;
+	 				case 19:   type="Sidra";   break;
+	 				case 20:   type="Tequila";   break;
+	 				case 21:   type="Vermouth";   break;
+	 				case 22:   type="vino";   break;
+	 				case 23:   type="Vodka";   break;
+	 				case 24:   type="Whisky";   break;
+	 				case 25:   type="Zumo";   break;
+	 				default:   break; 
+	 				}
+
+	types[one]=type;
+ one++;
+}
+
+
+	/*CanvasJS.addColorSet("myColorsDrink",
+                	[//colorSet Array
+						"#FFFF00",
+                		"#848484",
+                		"#190707",
+                		"#FF8000",
+                		"#40FF00"	                
+                	]);*/
+
+	 
+	 var chart = new CanvasJS.Chart("chartDrink",
+		{
+			//colorSet: "myColorsDrink",
+			title:{
+				text: "Top 5 Bebidas",
+				verticalAlign: 'top',
+				horizontalAlign: 'left'
+			},
+			data: [
+			{        
+				type: "doughnut",
+				startAngle:20,
+				dataPoints: [
+				{  y: drink[25], label: types[0] },
+				{  y: drink[24], label: types[1] },
+				{  y: drink[23], label: types[2] },
+				{  y: drink[22],  label: types[3]},
+				{  y: drink[21],  label: types[4]}
+
+				]
+			}
+			]
+		});
+
+		chart.render();
+	
 	 
 	 
 	 
@@ -399,6 +511,12 @@ else
   										
   										<div id="chartMusic" style="height: 300px; width: 100%;">
   										</div>
+  										
+  										<br />
+  										
+  										<div id="chartDrink" style="height: 300px; width: 100%;">
+  										</div>
+  									
   										
 									</div>
 								<!--Aqui empieza-->
