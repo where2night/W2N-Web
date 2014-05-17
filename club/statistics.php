@@ -181,16 +181,138 @@ CanvasJS.addColorSet("myColorsGender",
     chart.render();
 
 
-			 
+///////// TOP MUSIC
+
+	 var j = json.numGo;
+	 var musicEnd= j+44;
+	 var toSort = new Array();
+	 
+	 while(j<musicEnd){
+	 	toSort[toSort.length]=json[j];
+	 	j++;
+	 }
+	 
+	 var music = toSort;
+	 
+	  for (var i = 0; i < toSort.length; i++) {
+    	toSort[i] = [toSort[i], i];
+  		}
+  		toSort.sort(function(left, right) {
+    					return left[0] < right[0] ? -1 : 1;
+  					});
+  		toSort.sortIndices = [];
+  	for (var j = 0; j < toSort.length; j++) {
+    	toSort.sortIndices.push(toSort[j][1]);
+    	toSort[j] = toSort[j][0];
+ 		 }
+	 
+	 toSort=toSort.sortIndices;
+	 //alert(toSort);
+	 //alert(music);
+var one=0;
+var types = new Array();
+
+while (one<5){
+	var num =43-one;
+	var musicType=toSort[num];
+	var type="h";
+	 switch (musicType) { 
+	 				case 0:   type="acid-house";   break; 
+	 				case 1:   type="alternative rock";   break; 
+	 				case 2:   type="beatbox";   break;
+	 				case 3:   type="black metal";   break;
+	 				case 4:   type="country";   break;
+	 				case 5:   type="death metal";   break;
+	 				case 6:   type="deep house";   break;
+	 				case 7:   type="disco";   break;
+	 				case 8:   type="drum n bass";   break;
+	 				case 9:   type="electro";   break;
+	 				case 10:   type="europop";   break;
+	 				case 11:   type="folk";   break;
+	 				case 12:   type="folk rock";   break;
+	 				case 13:   type="funk";   break;
+	 				case 14:   type="hard trance";   break;
+	 				case 15:   type="hard-house";   break;
+	 				case 16:   type="hard-rock";   break;
+	 				case 17:   type="hardcore";   break;
+	 				case 18:   type="hardstyle";   break;
+	 				case 19:   type="heavy metal";   break;
+	 				case 20:   type="hip hop";   break;
+	 				case 21:   type="house";   break;
+	 				case 22:   type="indie rock";   break;
+	 				case 23:   type="italo-disco";   break;
+	 				case 24:   type="italodance";   break;
+	 				case 25:   type="jungle";   break;
+	 				case 26:   type="latin";   break;
+	 				case 27:   type="makina";   break;
+	 				case 28:   type="minimal";   break;
+	 				case 29:   type="Pachanga";   break;
+	 				case 30:   type="pop-rock";   break;
+	 				case 31:   type="progressive house";   break;
+	 				case 32:   type="progressive trance";   break;
+	 				case 33:   type="punk";   break;
+	 				case 34:   type="reggae";   break;
+	 				case 35:   type="reggaeton";   break;
+	 				case 36:   type="rock & roll";   break;
+	 				case 37:   type="ska";   break;
+	 				case 38:   type="soul";   break;
+	 				case 39:   type="soul-jazz";   break;
+	 				case 40:   type="tech-house";   break;
+	 				case 41:   type="techno";   break;
+	 				case 42:   type="trance";   break;
+	 				case 43:   type="tribal-house";   break;
+	 				default:   break; 
+	 				}
+
+	types[one]=type;
+ one++;
+}
+
+
+
+	CanvasJS.addColorSet("myColorsMusic",
+                	[//colorSet Array
+						"#0000FF",
+                		"#FF0000",
+                		"#00FFFF",
+                		"#FF8000",
+                		"#40FF00"	                
+                	]);
+
+	 
+	 var chart = new CanvasJS.Chart("chartMusic",
+		{
+			title:{
+				text: "Top 5 Music",
+				verticalAlign: 'top',
+				horizontalAlign: 'left'
+			},
+			data: [
+			{        
+				type: "doughnut",
+				startAngle:20,
+				dataPoints: [
+				{  y: music[43], label: types[0] },
+				{  y: music[42], label: types[1] },
+				{  y: music[41], label: types[2] },
+				{  y: music[40],  label: types[3]},
+				{  y: music[39],  label: types[4]}
+
+				]
+			}
+			]
+		});
+
+		chart.render();
+	 
+	 
+	 
+	 
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
 			}
 	});
-
-
-
-
   
   
     };
@@ -272,6 +394,12 @@ else
   										
   										<div id="chartGender" style="height: 300px; width: 100%;">
   										</div>
+  										
+  										<br />
+  										
+  										<div id="chartMusic" style="height: 300px; width: 100%;">
+  										</div>
+  										
 									</div>
 								<!--Aqui empieza-->
 							</div>
