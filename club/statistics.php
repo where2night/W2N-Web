@@ -42,12 +42,6 @@ include_once "../framework/sessions.php";
 <!-- /script -->
 
 <?php 
-  /*NavbarHeader*/
- /* if($_SESSION['user_type'] == "club"){
-  	include "templates/navbar-header.php"; 
-  } else if($_SESSION['user_type'] == "user"){
-  	include "../user/templates/navbar-header.php"; 
-  }*/
 
   $idProfile=$_SESSION['id_user']; 
   $token=$_SESSION['token']; 
@@ -240,13 +234,26 @@ body{
 
 <?php 
   /*NavbarHeader*/
-  include "templates/navbar-header.php";
+  if($_SESSION['user_type'] == "club"){
+  	include "templates/navbar-header.php"; 
+  } else if($_SESSION['user_type'] == "user"){
+  	include "../user/templates/navbar-header.php"; 
+  }
 
   /*Sidebar*/
-  include "templates/sidebar.php";
+  if($_SESSION['user_type'] == "club")
+  		include "templates/sidebar.php";
 ?>
 <!-- MiPerfil -->
-<div class="container" style="background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px">
+
+<script>
+if (ide==ideEvent)
+      document.write("<div class='container' style='background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px;margin-left:200px'>");
+else
+      document.write("<div class='container' style='background-image:url(../images/CollageNeon.jpg);margin-bottom:-50px'>");
+
+</script>
+
 		<div class="row">
 			<div class="col-md-10" id="content-wrapper"  style="background-image:url(../images/CollageNeon.jpg)">
 				<div class="row">

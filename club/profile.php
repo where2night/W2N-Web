@@ -49,7 +49,37 @@ include_once "../framework/visits.php";
 	<script src="../js/songs.js"></script>
 	<script src="../js/fillDate.js"></script>
 	<script src="../js/lists.js"></script>
+	<script src="../js/canvasjs.min.js"></script>
+
+
+<?php 
+  /*NavbarHeader*/
+  if($_SESSION['user_type'] == "club"){
+  	include "templates/navbar-header.php"; 
+  } else if($_SESSION['user_type'] == "user"){
+  	include "../user/templates/navbar-header.php"; 
+  }
+
+  $idProfile=$_SESSION['id_user']; 
+  $token=$_SESSION['token']; 
+
+  if (isset($_GET['idv'])){
+	$id_event = $_GET['idv'];
+}else $id_event = $idProfile;
+  
+  
+?>
+
+
+<script>
 	
+
+var ide = '<?php echo $idProfile; ?>' ;
+var tok = '<?php echo $token; ?>' ;
+var ideEvent = '<?php echo $id_event; ?>' ;	
+</script>
+
+
 <script type="text/javascript"> 
 	function getData(){
 <?php 
@@ -529,32 +559,6 @@ $.ajax({
 	}	
 			
     </style>
-<?php 
-  /*NavbarHeader*/
-  if($_SESSION['user_type'] == "club"){
-  	include "templates/navbar-header.php"; 
-  } else if($_SESSION['user_type'] == "user"){
-  	include "../user/templates/navbar-header.php"; 
-  }
-
-  $idProfile=$_SESSION['id_user']; 
-  $token=$_SESSION['token']; 
-
-  if (isset($_GET['idv'])){
-	$id_event = $_GET['idv'];
-}else $id_event = $idProfile;
-  
-  
-?>
-
-
-<script>
-	
-
-var ide = '<?php echo $idProfile; ?>' ;
-var tok = '<?php echo $token; ?>' ;
-var ideEvent = '<?php echo $id_event; ?>' ;	
-</script>
 
 
 
@@ -579,8 +583,12 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span>
-												
 											<span style="color:#34d1be" id="local_followers">  </span></li>
+											
+											<script>
+												if (ide!=ideEvent)
+													document.write("<li  style='color:transparent;'><a href='../club/statistics.php?idv="+ideEvent+"'>Ver estadisticas</a></li>");
+											</script>
 											
 										</ul>
 										<script>
@@ -588,10 +596,12 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 										</script>
 										<!--<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">-->
-									</div>			
+					    
+					                     </div>			
 								</div>
 							</div>
 						</div>
+						
 						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
 							
 							
@@ -750,6 +760,7 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</div>-->
 	
 											</div>	<!-- End Photos -->
+											
 											<div class="tab-pane fade " id="tab-contact">
 												<div class="col-lg-4 " >
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
@@ -810,7 +821,6 @@ var ideEvent = '<?php echo $id_event; ?>' ;
 												</div>
 												</div>
 											</div>
-											
 									
 								</div>
 							</div>
