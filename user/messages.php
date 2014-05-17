@@ -70,20 +70,34 @@ var tok = '<?php echo $toke; ?>' ;
 									var mode="";
 									var creatTime="";
 									for(var i=0; i<json.length; i++){
-										var id_user = json[i]['idProfile'];
+										var id_user = json[i].idProfile;
+										var name  = json[i].name;
+										var surnames = json[i].surnames;
+										var picture = json[i].picture;
+										if (picture == null || picture.length == 0){
+										picture = "../images/reg1.jpg";
+										}
+										var link = "../user/profile.php?idv=" + id_user;
 										var num = json[i].num;
 										for (var j=0; j<num; j++){
-										
-											var message=json[i][j].message;;
-											var mode = json[i][j].mode;
-											var creatTime = json[i][j].createdTime;
-											$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+mode+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+message+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+creatTime+'</td><td></td></tr>');
-																				
-										}
-										
-										//$('#messages-friends').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+id_user+message+mode+creatTime+'</td><td>holaa</td><td>holaa</td><td>holaa</td></tr>');
-									 
-										
+											var createdTime = json[i][j].createdTime;
+											var day = createdTime.substring(8,11);
+											var month = createdTime.substring(5,8);
+											var year = createdTime.substring(0,4);
+											var hour = createdTime.substring(11,14);
+											var min = createdTime.substring(14,16);
+											var men = json[i][j].message;
+											men = men.substring(0,10);
+											if (json[i][j].mode== 0){
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-send" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+											}
+											else if (json[i][0].mode== 1){
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-envelope" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+											}
+											else if (json[i][0].mode== 2){
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-check" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+											}								
+										}	
 									}
 									
 								},
@@ -92,6 +106,8 @@ var tok = '<?php echo $toke; ?>' ;
 									}
 			});
 	 });//end $(document).ready(function()
+	 function getUserName(id){
+	 }
 	 function sendMessage(id){
 		var params = "/" ;
 			params=params.concat(ide); 
@@ -99,7 +115,6 @@ var tok = '<?php echo $toke; ?>' ;
 			params=params.concat(tok);
 			params=params.concat("/");
 			params=params.concat(id);
-		
 		var url="../develop/actions/sendMessage.php";
 			url=url.concat(params);
 		var messageT = $('#messageText').val();
@@ -296,6 +311,7 @@ body{
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
 													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Mensaje</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fecha</span></th>
+													<th><span class="text-center" style="color:#FF6B24;border-color:#ff6b24">Estado</span></th>
 													<th>&nbsp;</th>
 												</tr>
 												</thead>

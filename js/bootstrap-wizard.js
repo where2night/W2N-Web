@@ -359,9 +359,7 @@
 						'<div class="wizard-modal-footer">',
 							'<div class="wizard-buttons-container">',
 								'<button class="btn wizard-cancel wizard-close" type="button">Cancel</button>',
-								'<div class="btn-group-single pull-right">',
-									'<button class="btn btn-primary wizard-next" type="button">Next</button>',
-								'</div>',
+								
 							'</div>',
 						'</div>',
 					'</div>',
