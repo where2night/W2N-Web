@@ -763,7 +763,8 @@ $(document).ready(function(){
 													<div class="profile-header" style="text-align:center">
 														<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximos Eventos</span></h3>
 													</div>
-													<section class="events" style="background-color:transparent;">
+													<section class="events" style="background-color:transparent;margin-bottom: -400px">
+														<section class="events" style="background-color:transparent;margin-bottom: -400px">
 														<div id="nextEvents" class="section-content">
 
 														</div><!--//section-content-->
@@ -778,6 +779,22 @@ $(document).ready(function(){
 													</section><!--//lists-->
 
 												</div><!--//col-md-3-->
+											
+								<!--	<div class="col-sm-3" style="margin-left:4%" >
+											 <div class="profile-header" style="text-align:center">
+														<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximas listas</span></h3>
+													</div>
+													<section class="events" style="background-color:transparent;">
+														<div id="nextLists" class="section-content">
+
+														</div>
+													</section>
+
+											
+										</div>-->
+										
+											
+											
 											</div>
 
 										</div >
