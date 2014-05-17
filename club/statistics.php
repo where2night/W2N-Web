@@ -82,7 +82,6 @@ $.ajax({
 			type: "GET",
 			async: false,
 			complete: function(r){
-			alert(r.responseText);
 			var json = JSON.parse(r.responseText);	 
             var a1820 = json['a18-20'];
 			var a2123 = json['a21-23'];
@@ -478,13 +477,114 @@ var chart = new CanvasJS.Chart("chartCS",
 
 
     chart.render();
+    
+    
+    if(ide==ideEvent){
 
-	 		
+	 //COSTUMERS		
 	
+	 var k = json.numGo;
+	 var toSort = new Array();
 	 
+	while(k<json.rows){
+		toSort[toSort.length]=json[k].num;
+		k++;
+	}
+	
+	 var costumer = toSort;
 	 
+	  for (var i = 0; i < toSort.length; i++) {
+    	toSort[i] = [toSort[i], i];
+  		}
+  		toSort.sort(function(left, right) {
+    					return left[0] < right[0] ? -1 : 1;
+  					});
+  		toSort.sortIndices = [];
+  	for (var j = 0; j < toSort.length; j++) {
+    	toSort.sortIndices.push(toSort[j][1]);
+    	toSort[j] = toSort[j][0];
+ 		 }
 	 
+	 toSort=toSort.sortIndices;
+	
+
+if(costumer.length>0){
+	
+	var t = costumer.length;
+	var x=0;
+	var names = new Array();
+	var surnames = new Array();
+	
+	
+	 while(x<t){
+	 	names[names.length]=json[json.numGo+toSort[x]].name;
+	 	surnames[surnames.length]=json[json.numGo+toSort[x]].surnames;
+	 	x++;
+	 }
+	
+	
+	
+	while(t<5){
+		names[names.length]=" ";
+	 	surnames[surnames.length]=" ";
+		costumer[costumer.length]=0;
+		t++;
+		}
+		
+
+      /*CanvasJS.addColorSet("myColorsCostumer",
+                	[//colorSet Array
+						"#0000FF",
+                		"#FF0000"	                
+                	]);*/
+
+ 
+	var chart = new CanvasJS.Chart("chartCostumer",
+    {
+	
+	//colorSet: "myColorsCostumer",
+       title:{
+        text: "Clientes habituales"    
+      },
+
+	legend:{
+        verticalAlign: "bottom",
+        horizontalAlign: "center"       
+      },
+      theme: "theme2",
+      data: [
+      {        
+       indexLabelFontSize: 20,
+       indexLabelFontFamily: "Monospace",       
+       indexLabelFontColor: "darkgrey", 
+       indexLabelLineColor: "darkgrey",        
+       indexLabelPlacement: "outside",
+       type: "pie",       
+       showInLegend: true,
+       
+       dataPoints: [
+       {  y: costumer[costumer.length-1], legendText:names[4]+" "+surnames[4], indexlabel: surnames[4] },
+       {  y: costumer[costumer.length-2], legendText:names[3]+" "+surnames[3], indexlabel: surnames[3] },
+       {  y: costumer[costumer.length-3], legendText:names[2]+" "+surnames[2], indexlabel: surnames[2] },
+       {  y: costumer[costumer.length-4], legendText:names[1]+" "+surnames[1] , indexlabel: surnames[1]},       
+       {  y: costumer[costumer.length-5], legendText:names[0]+" "+surnames[0], indexlabel: surnames[0]}
+       ]
+     }
+     ]
+   });
+
+
+
+    chart.render();
+
+	}
 	 
+	 } else{
+	 	
+	 	var element=document.getElementById('chartCostumer');
+		var parent = element.parentNode;
+		parent.removeChild(element);
+	 }
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
@@ -577,14 +677,23 @@ else
   										<div id="chartMusic" style="height: 300px; width: 100%;">
   										</div>
   										
-  										<br />
   										
-  										<div id="chartDrink" style="height: 300px; width: 100%;">
-  										</div>
   					
   										<br />
   										
   										<div id="chartCS" style="height: 300px; width: 100%;">
+  										</div>
+  	
+  										
+  										<br />
+  										
+  										<div id="chartDrink" style="height: 300px; width: 100%;">
+  										</div>
+  										
+  										
+  										<br />
+  										
+  										<div id="chartCostumer" style="height: 300px; width: 100%;">
   										</div>
   									
   										
