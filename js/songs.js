@@ -47,7 +47,6 @@ function cleanInputs(){
 }
 
 function show_songs_list(type_home){
-	
 
 var params = "/" ;
 	params=params.concat(ide); 
@@ -80,7 +79,68 @@ $.ajax({
 	
 }
 
+function show_songs_list_profile(){
+	
+var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(idlocal);
 
+	  
+var url="../develop/read/playList.php";
+	url=url.concat(params);
+
+
+$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				
+				show_song_profile(json);
+		  
+			},
+			onerror: function(e,val){
+				alert("No se puede mostrar canciones");
+			}
+	});
+
+
+
+	
+}
+
+function show_song_profile(json){
+
+		alert("paso x profile");
+		
+		var count = 0;
+				
+		for(key in json) {
+		
+			if(json.hasOwnProperty(key)) {
+				count = count + 1;
+			}
+				
+		}
+		count=count-3;
+		var i=0;
+		while (i<count) {
+			var song_name = json[i].trackName;
+			var artist_name = json[i].trackArtist;
+			var votes = json[i].votes;
+			var id_track = json[i].id_track;
+			$('#local_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="voteSong('+id_track+');">Votar</span></a></td></tr>');
+
+		
+			i=i+1;	
+		}
+	
+
+}
 
 /**
 * Show all the playlist from the server and paint at page
@@ -114,19 +174,7 @@ function show_songs(json,type){
 		
 			i=i+1;	
 		}
-	} else if (type == "profile"){
-		alert("paso x prfile");
-		while (i<count) {
-			var song_name = json[i].trackName;
-			var artist_name = json[i].trackArtist;
-			var votes = json[i].votes;
-			var id_track = json[i].id_track;
-			$('#local_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="voteSong('+id_track+');">Votar</span></a></td></tr>');
-
-		
-			i=i+1;	
-		}
-	}
+	} 
 	
 			
 }

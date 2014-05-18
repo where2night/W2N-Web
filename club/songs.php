@@ -69,6 +69,7 @@ $token=$_SESSION['token'];
 <script>
 	var ide = '<?php echo $idProfile; ?>' ;
 	var tok = '<?php echo $token; ?>' ;
+	
 </script>
 	<style>  
 		body{

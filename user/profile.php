@@ -47,6 +47,7 @@ w2n_session_check();
 		<script src="../js/followfriend.js"></script>
 		<script src="../js/moment-with-langs.js"></script>
 		<script src="../js/moment.min.js"></script>
+		<script src="../js/songs.js"></script>
 <script src="../js/autoRefresh.js"></script>
 		<?php $idProfil = $_SESSION['id_user'];
 		$toke = $_SESSION['token'];
@@ -60,6 +61,7 @@ w2n_session_check();
 		<script>var ide =  '<?php echo $idProfil; ?>' ;
 			var tok = '<?php echo $toke; ?>' ;
 			var id_abs = '<?php echo $id_partier; ?>' ;
+			var ideUser =  '<?php echo $idProfil; ?>'
 		</script>
 
 		<script type="text/javascript">
