@@ -100,6 +100,8 @@ function joinEvent (idEvent){
 			complete: function(r){
 			 	var json = JSON.parse(r.responseText);	
 
+				$("#li-event-" + idEvent).appendTo("#myEvents");
+		 		$("#table-event-" + idEvent).appendTo("#myEvents");
 			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Desapunto')
 			  	
 			},
@@ -123,8 +125,10 @@ function disjoinEvent (idEvent){
 			complete: function(r){
 			 	var json = JSON.parse(r.responseText);
 
-			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Apunto')
-			  
+			 	$("#li-event-" + idEvent).appendTo("#allEvents");
+		 		$("#table-event-" + idEvent).appendTo("#allEvents");
+		 		$( "button[name='join-event-" + idEvent + "']" ).html('Me Apunto')
+
 			},
 			onerror: function(e,val){
 				alert("No se puedo eliminar del evento");
@@ -193,10 +197,10 @@ function myEvents(){
 
 				if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
-					events = events.concat("<li><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
+					events = events.concat("<li id='li-event-" + json[i].idEvent + "'><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
 					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> "+localName+" ");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
-					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
+					events = events.concat("<table id='table-event-" + json[i].idEvent + "' class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
 					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 					events = events.concat(json[i].text);
@@ -287,10 +291,10 @@ function allEvents(){
 
 				if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
-					events = events.concat("<li><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
+					events = events.concat("<li id='event-" + json[i].idEvent + "'><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
 					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> "+localName+" ");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
-					events = events.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
+					events = events.concat("<table id='table-event-" + json[i].idEvent + "' class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
 					events = events.concat(json[i].title);
 					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 					events = events.concat(json[i].text);
