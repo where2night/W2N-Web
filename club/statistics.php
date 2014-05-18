@@ -82,6 +82,7 @@ $.ajax({
 			type: "GET",
 			async: false,
 			complete: function(r){
+			//alert(r.responseText);
 			var json = JSON.parse(r.responseText);	 
             var a1820 = json['a18-20'];
 			var a2123 = json['a21-23'];
@@ -182,8 +183,18 @@ CanvasJS.addColorSet("myColorsGender",
 
 ///////// TOP MUSIC
 
-	 var j = json.numGo;
+var aux=json.rows - json.numGo;
+
+	if(ide==ideEvent){
+	var j = json.rows;
+		}
+	else {
+	
+	 var j = json.rows-aux;
+	}
+
 	 var musicEnd= j+44;
+	 
 	 var toSort = new Array();
 	 
 	 while(j<musicEnd){
@@ -308,10 +319,11 @@ while (one<5){
 
 ///////// TOP DRINK
 
-	 var j = json.numGo+44;
-	 var drinkEnd= j+26;
+
+	 var j = musicEnd;
+	 var drinkEnd= j+25;
 	 var toSort = new Array();
-	 
+	
 	 while(j<drinkEnd){
 	 	toSort[toSort.length]=json[j];
 	 	j++;
@@ -341,7 +353,7 @@ var one=0;
 var types = new Array();
 
 while (one<5){
-	var num =25-one;
+	var num =24-one;
 	var drinkType=toSort[num];
 	var type="h";
 	 switch (drinkType) { 
@@ -402,11 +414,11 @@ while (one<5){
 				type: "doughnut",
 				startAngle:20,
 				dataPoints: [
-				{  y: drink[25], label: types[0] },
-				{  y: drink[24], label: types[1] },
-				{  y: drink[23], label: types[2] },
-				{  y: drink[22],  label: types[3]},
-				{  y: drink[21],  label: types[4]}
+				{  y: drink[24], label: types[0] },
+				{  y: drink[23], label: types[1] },
+				{  y: drink[22], label: types[2] },
+				{  y: drink[21],  label: types[3]},
+				{  y: drink[20],  label: types[4]}
 
 				]
 			}
@@ -418,7 +430,7 @@ while (one<5){
 		
 ///////// Civil state
 
-	 var j = json.numGo+70;
+	 var j =drinkEnd;
 	 var csEnd= j+7;
 	 var toSort = new Array();
 	 
