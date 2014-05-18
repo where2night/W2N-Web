@@ -33,7 +33,7 @@ function add_song() {
 			onerror: function(e,val){
 				alert("No se puede introducir la canción");
 			}
-	});
+		});
  
 
 }
@@ -59,7 +59,7 @@ var url="../develop/read/playList.php";
 	url=url.concat(params);
 
 
-$.ajax({
+	$.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
@@ -173,13 +173,50 @@ function show_song_profile(json){
 			var artist_name = json[i].trackArtist;
 			var votes = json[i].votes;
 			var id_track = json[i].id_track;
-			$('#local_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="voteSong('+id_track+');">Votar</span></a></td></tr>');
+			$('#local_songs tbody').append('<tr><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#"id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="buttonVote_'+id_track+'" onclick="voteSong('+id_track+');">Votar</span></a></td></tr>');
 
 		
 			i=i+1;	
 		}
 	
 
+}
+
+
+/**
+* Vote song
+*/
+
+function voteSong(id_track) {
+	var params = "/" ;
+	params=params.concat(ide); 
+	params=params.concat("/");
+	params=params.concat(tok);
+	params=params.concat("/");
+	params=params.concat(idlocal);
+	params=params.concat("/");
+	params=params.concat(id_track);
+	
+	var url="../develop/actions/voteTrack.php";
+	url=url.concat(params);
+	
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "POST",
+			data: {
+				
+			},
+			complete: function(r){
+			
+					alert(r.responseText);
+						
+			},
+			onerror: function(e,val){
+				alert("No se puede introducir la canción");
+			}
+	});
+	
 }
 
 /**
@@ -220,10 +257,12 @@ function show_songs(json,type){
 }
 
 
+
 function deleteSong(id) {
 
+	
 
-var params = "/" ;
+	var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
 	params=params.concat(tok);
@@ -242,14 +281,15 @@ var params = "/" ;
 			timeout: 5000,
 			async: false,
 			complete: function(r){
-					alert("eliminado con éxito");
-					$('#my_songs tbody').empty();
-					show_songs_list("home");
+					var element_tr = '#tr_'+ id;
+					$(element_tr).remove();
 			},
 			onerror: function(e,val){
 				alert("No se puede introducir evento 2");
 			}
 	});
+	
+	
 
 /*var element=document.getElementById(id);
 var parent = element.parentNode;
