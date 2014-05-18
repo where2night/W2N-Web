@@ -49,7 +49,6 @@ function cleanInputs(){
 function show_songs_list(type_home){
 	
 
-
 var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
@@ -201,7 +200,7 @@ var params = "/" ;
 					var element_song_name = '#edit_song_name' + id_track;
 					var element_song_artist = '#edit_artist' + id_track;
 					
-					$(element_tr).replaceWith('<tr id="tr_'+id_track+'"><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><input type="text" class="form-control" id="edit_song_name'+id_track+'" style="width:75%;" name="" ></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><input type="text" class="form-control" id="edit_artist'+id_track+'" style="width:75%;" name="" ></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="accept_'+id_track+'" onclick="acceptChangeSong('+id_track+','+votes+');" >Aceptar</span></a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="cancel_'+id_track+'" onclick="cancelSong('+id_track+');">Cancelar</span></a></td></tr>');
+					$(element_tr).replaceWith('<tr id="tr_'+id_track+'"><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><input type="text" class="form-control" id="edit_song_name'+id_track+'" style="width:75%;" name="" ></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><input type="text" class="form-control" id="edit_artist'+id_track+'" style="width:75%;" name="" ></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="accept_'+id_track+'" onclick="acceptChangeSong('+id_track+','+votes+');" >Aceptar</span></a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="cancel_'+id_track+'" onclick="cancelChangeSong('+id_track +',' + "'" + artist_name + "'" + ',' + "'" + song_name + "'" + ',' + votes + ');">Cancelar</span></a></td></tr>');
 					$(element_song_name).val(song_name);
 					$(element_song_artist).val(artist_name);
 			},
@@ -245,7 +244,6 @@ function acceptChangeSong(id_track,votes){
 			},
 			complete: function(r){
 					var element_tr = '#tr_'+ id_track;
-					alert(votes);
 					
 					$(element_tr).replaceWith('<tr id="tr_'+id_track+'"><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="edit_'+id_track+'" onclick="editSong('+id_track+','+votes+');">Editar</span></a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="'+id_track+'" onclick="deleteSong(this.id);">Eliminar</span></a></td></tr>');
 					
@@ -257,4 +255,11 @@ function acceptChangeSong(id_track,votes){
 	
 
 
+}
+
+function cancelChangeSong(id_track,artist_name,song_name,votes){
+	
+	
+	var element_tr = '#tr_'+ id_track;
+	$(element_tr).replaceWith('<tr id="tr_'+id_track+'"><td style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="" class="user-link"style="color:#FF6B24">'+ song_name +'</a></td><td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ artist_name +'</a></td> <td class="text-center"style="box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" style="color:#1B1E24">'+ votes +'</a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="edit_'+id_track+'" onclick="editSong('+id_track+','+votes+');">Editar</span></a></td><td style="box-shadow:none;width:20%;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid #E5E4E2;vertical-align: middle;padding: 12px 8px;"> <a href="#" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="'+id_track+'" onclick="deleteSong(this.id);">Eliminar</span></a></td></tr>');
 }
