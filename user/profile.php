@@ -65,18 +65,6 @@ w2n_session_check();
 		</script>
 
 		<script type="text/javascript">
-			function btnApuntar(theApuntarBtn) {
-				myButtonID = theApuntarBtn.id;
-				if (document.getElementById(myButtonID).className == 'myClickedApuntar') {
-					document.getElementById(myButtonID).className = 'myDefaultApuntar';
-					document.getElementById(myButtonID).value = 'Me Apunto';
-				} else {
-					document.getElementById(myButtonID).className = 'myClickedApuntar';
-					document.getElementById(myButtonID).value = 'Apuntado';
-				}
-			}
-		</script>
-		<script type="text/javascript">
 			function btnVoy(theVoyBtn) {
 				myButtonID = theVoyBtn.id;
 				if (document.getElementById(myButtonID).className == 'myClickedVoy') {
@@ -88,6 +76,98 @@ w2n_session_check();
 				}
 			}
 		</script>
+
+<script type="text/javascript">
+		/********************** Join Events ******************/
+
+function getVisitorEvents(){
+
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token;
+	  
+	var url = "../develop/actions/myEvents.php" + params;
+
+	var array_ids = new Array(); 
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				
+			  	for (var i = 0; i < json.rows; i++) {
+			  		array_ids[i] = "" +json[i].idEvent;
+		  		}
+			},
+			onerror: function(e,val){
+				alert("Error al buscar eventos de usuario");
+			}
+	});
+	return array_ids;
+}
+
+//Check if function is join or disjoin
+function clickedJoinEvent(idEvent){
+	var partierEvents = new Array();
+	partierEvents = getVisitorEvents();
+
+    if(partierEvents.indexOf(idEvent) > -1){//Event in array, display disjoin
+		disjoinEvent (idEvent)
+	}else{//Event not in array, display join
+		joinEvent (idEvent)
+	}
+}
+
+function joinEvent (idEvent){
+
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token + "/" + idEvent;
+	  
+	var url = "../develop/actions/goToEvent.php" + params;
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+			 	var json = JSON.parse(r.responseText);	
+
+			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Desapunto')
+			  	
+			},
+			onerror: function(e,val){
+				alert("No se puedo añadir al evento");
+			}
+	});
+}
+
+
+function disjoinEvent (idEvent){
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token + "/" + idEvent;
+	  
+	var url = "../develop/actions/goToEvent.php" + params;
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "DELETE",
+			complete: function(r){
+			 	var json = JSON.parse(r.responseText);
+
+			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Apunto')
+			  
+			},
+			onerror: function(e,val){
+				alert("No se puedo eliminar del evento");
+			}
+	});
+}
+
+/********************** Join Events ******************/
+</script>
 
 		<script type="text/javascript">
 			var actual_page = 0;
@@ -172,78 +252,95 @@ w2n_session_check();
 
 						/*must distinguish what type of activity relates (mentioned above), to paint in the html in the right way*/
 						if (type == 1){
-						/*1.- Created by local events that follow*/
-						var localName = json[i].localName;
-						var title = json[i].title;
-						var startHour = json[i].startHour;
-						var closeHour = json[i].closeHour;
+							/*1.- Created by local events that follow*/
+							var localName = json[i].localName;
+							var title = json[i].title;
+							var startHour = json[i].startHour;
+							var closeHour = json[i].closeHour;
 
-						var id_local =  json[i].idProfileLocal;
-						var link = "../club/profile.php?idv=" + id_local;
-						var streetNameLocal = json[i].streetNameLocal;
-						var streetNumberLocal = json[i].streetNumberLocal;
-						var text = json[i].text;
-						if (picture==0 || picture=="" || picture==null)
-						picture = "../images/reg2.jpg";
+							var id_local =  json[i].idProfileLocal;
+							var link = "../club/profile.php?idv=" + id_local;
+							var streetNameLocal = json[i].streetNameLocal;
+							var streetNumberLocal = json[i].streetNumberLocal;
+							var text = json[i].text;
+							if (picture==0 || picture=="" || picture==null)
+							picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+							var idEvent =  json[i].idEvent;
+							var goes =  (json[i].GOES != null);
+
+							if(goes){//User goes to this event, display disjoin
+								$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p<button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button></td></tr></tbody></table>');
+							}else{
+								$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
+							}	
+							
 
 						}else if (type == 2){
-						/*2.- Friends we follow, change status*/
-						var name =  json[i].name;
-						var surnames =  json[i].surnames;
-						var status =  json[i].status;
-						if (picture==0 || picture=="" || picture==null)
-						picture = "../images/reg2.jpg";
+							/*2.- Friends we follow, change status*/
+							var name =  json[i].name;
+							var surnames =  json[i].surnames;
+							var status =  json[i].status;
+							if (picture==0 || picture=="" || picture==null)
+							picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
 
 						}else if (type == 3){
-						/*3.- Friends we follow, change mode*/
-						var name =  json[i].name;
-						var surnames =  json[i].surnames;
-						var mode =  json[i].mode;
-						var modeString;
+							/*3.- Friends we follow, change mode*/
+							var name =  json[i].name;
+							var surnames =  json[i].surnames;
+							var mode =  json[i].mode;
+							var modeString;
 
-						if (mode == 0){
-						modeString = "De tranquis";
-						}else if (mode == 1){
-						modeString = "Hoy no me lío";
-						}else if (mode == 2){
-						modeString = "Lo que surja";
-						}else if (mode == 3){
-						modeString = "Lo daré todo";
-						}else if (mode == 4){
-						modeString = "Destroyer";
-						}else if (mode == 5){
-						modeString = "Yo me llamo Ralph";
-						}
+							if (mode == 0){
+							modeString = "De tranquis";
+							}else if (mode == 1){
+							modeString = "Hoy no me lío";
+							}else if (mode == 2){
+							modeString = "Lo que surja";
+							}else if (mode == 3){
+							modeString = "Lo daré todo";
+							}else if (mode == 4){
+							modeString = "Destroyer";
+							}else if (mode == 5){
+							modeString = "Yo me llamo Ralph";
+							}
 
-						if (picture==0 || picture=="" || picture==null)
-						picture = "../images/reg2.jpg";
+							if (picture==0 || picture=="" || picture==null)
+							picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
 						}else if (type == 4){
-						/*4.-friend add to favorites a local*/
-						var name =  json[i].name;
-						var surnames =  json[i].surnames;
-						var localName =  json[i].localName;
-						var id_local =  json[i].idProfileLocal;
-						var link = "../club/profile.php?idv=" + id_local;
-						if (picture==0 || picture=="" || picture==null)
-						picture = "../images/reg2.jpg";
+							/*4.-friend add to favorites a local*/
+							var name =  json[i].name;
+							var surnames =  json[i].surnames;
+							var localName =  json[i].localName;
+							var id_local =  json[i].idProfileLocal;
+							var link = "../club/profile.php?idv=" + id_local;
+							if (picture==0 || picture=="" || picture==null)
+							picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span>'+name+' '+surnames+'<span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>')
 
 						}else if (type == 5){
-						/*5.- Events friends attending*/
-						var name =  json[i].name;
-						var surnames =  json[i].surnames;
-						var title = json[i].title;
-						var text = json[i].text;
-						if (picture==0 || picture=="" || picture==null)
-						picture = "../images/reg2.jpg";
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+							/*5.- Events friends attending*/
+							var name =  json[i].name;
+							var surnames =  json[i].surnames;
+							var title = json[i].title;
+							var text = json[i].text;
+							if (picture==0 || picture=="" || picture==null)
+							picture = "../images/reg2.jpg";
+
+							var idEvent =  json[i].idEvent;
+							var goes =  (json[i].GOES != null);
+
+							if (goes){//User goes to this event, display disjoin
+								$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button></td></tr></tbody></table>');
+
+							}else{//User doesn't go to this event, display join
+								$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
+							}
 						}
 						}
 
@@ -347,9 +444,22 @@ w2n_session_check();
 						var streetNameLocal = json[i].streetNameLocal;
 						var streetNumberLocal = json[i].streetNumberLocal;
 						var text = json[i].text;
+						var picture = json[i].picture;
+
+						var idEvent =  json[i].idEvent;
+						var goes =  (json[i].GOES != null);
+
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
 
 						//Local event
-						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Acaba de crear un evento <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');
+						if(goes){//User goes to this event, display disjoin
+							$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button></td></tr></tbody></table>');
+
+						}else{//User doesn't go to this event, display join
+							$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
+
+						}
 
 						}else if (type == 2){
 						var name =  json[i].name;
@@ -397,7 +507,18 @@ w2n_session_check();
 						var title = json[i].title;
 						var text = json[i].text;
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><input id="btn01"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"></td></tr></tbody></table>');;
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+
+						var idEvent =  json[i].idEvent;
+						var goes =  (json[i].GOES != null);
+
+						if (goes){//User goes to this event, display disjoin
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button></td></tr></tbody></table>');
+
+						}else{//User doesn't go to this event, display join
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
+						}
 					}
 				}
 
