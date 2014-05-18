@@ -81,19 +81,20 @@ $.ajax({
 
 function show_songs_list_profile(){
 	
-var params = "/" ;
+	var params = "/" ;
 	params=params.concat(ide); 
 	params=params.concat("/");
 	params=params.concat(tok);
 	params=params.concat("/");
 	params=params.concat(idlocal);
 
-	  
-var url="../develop/read/playList.php";
-	url=url.concat(params);
+		  
+	var url="../develop/read/playList.php";
+		url=url.concat(params);
+	
+	
 
-
-$.ajax({
+	$.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
@@ -115,7 +116,6 @@ $.ajax({
 
 function show_song_profile(json){
 
-		alert("paso x profile");
 		
 		var count = 0;
 				
@@ -195,7 +195,7 @@ var params = "/" ;
 		url=url.concat(params);
 
 
-$.ajax({
+	$.ajax({
 			url: url,
 			dataType: "json",
 			type: "DELETE",

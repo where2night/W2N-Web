@@ -64,8 +64,8 @@ include_once "../framework/visits.php";
   $token=$_SESSION['token']; 
 
   if (isset($_GET['idv'])){
-	$id_event = $_GET['idv'];
-}else $id_event = $idProfile;
+	$id_local = $_GET['idv'];
+}else $id_local = $idProfile;
   
   
 ?>
@@ -76,8 +76,7 @@ include_once "../framework/visits.php";
 
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
-var ideEvent = '<?php echo $id_event; ?>' ;	
-var idlocal = '<?php echo $_GET['idv'];?>';
+var idlocal = '<?php echo $id_local; ?>' ;	
 </script>
 
 
@@ -627,7 +626,7 @@ $.ajax({
 																<div class="the-timeline">
 																	<ul id="ul">
 																		<script>
-																			eventProfileTest("<?php echo $id_event;?>");
+																			eventProfileTest("<?php echo $id_local;?>");
 																		</script>
 																		<!-- Comienza Evento -->
 																	<!--	<li class="">
