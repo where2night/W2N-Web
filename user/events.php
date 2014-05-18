@@ -44,15 +44,16 @@ include_once "../framework/visits.php";
 	<script src="../js/moment.min.js"></script>
 <script src="../js/autoRefresh.js"></script>	
 <script type="text/javascript">
+/********************** Join Events ******************/
+
 function getVisitorEvents(){
 
-	var params = "/" ;
-	params = params.concat(ide); 
-	params = params.concat("/");
-	params = params.concat(tok);
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token;
 	  
-	var url = "../develop/actions/myEvents.php";
-	url = url.concat(params);
+	var url = "../develop/actions/myEvents.php" + params;
+
 	var array_ids = new Array(); 
 	$.ajax({
 			url:url,
@@ -73,40 +74,34 @@ function getVisitorEvents(){
 	return array_ids;
 }
 
-
 //Check if function is join or disjoin
-function clickedJoinEvent(idRequest, idEvent){
+function clickedJoinEvent(idEvent){
 	var partierEvents = new Array();
-    if(ide != idRequest){
-    	partierEvents = getVisitorEvents();
-    } 
+	partierEvents = getVisitorEvents();
+
     if(partierEvents.indexOf(idEvent) > -1){//Event in array, display disjoin
-		disjoinEvent (idRequest, idEvent)
+		disjoinEvent (idEvent)
 	}else{//Event not in array, display join
-		joinEvent (idRequest, idEvent)
+		joinEvent (idEvent)
 	}
 }
 
-function joinEvent (idRequest, idEvent){
+function joinEvent (idEvent){
 
-	var params = "/" ;
-	params = params.concat(ide); 
-	params = params.concat("/");
-	params = params.concat(tok);
-	params = params.concat("/");
-	params = params.concat(idEvent);
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token + "/" + idEvent;
 	  
-	var url = "../develop/actions/goToEvent.php";
-	url = url.concat(params);
+	var url = "../develop/actions/goToEvent.php" + params;
 	$.ajax({
 			url:url,
 			dataType: "json",
 			type: "GET",
 			complete: function(r){
-			 	var json = JSON.parse(r.responseText);	 
-          		var button = document.getElementById("join-event-" + idEvent);
-		  		button.innerHTML ='Me Desapunto';
-			  
+			 	var json = JSON.parse(r.responseText);	
+
+			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Desapunto')
+			  	
 			},
 			onerror: function(e,val){
 				alert("No se puedo añadir al evento");
@@ -115,25 +110,20 @@ function joinEvent (idRequest, idEvent){
 }
 
 
-function disjoinEvent (idRequest, idEvent){
-
-	var params = "/" ;
-	params = params.concat(ide); 
-	params = params.concat("/");
-	params = params.concat(tok);
-	params = params.concat("/");
-	params = params.concat(idEvent);
+function disjoinEvent (idEvent){
+	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+	var token =  "<?php echo $_SESSION['token']; ?>";
+	var params = "/" + idProfile + "/" + token + "/" + idEvent;
 	  
-	var url = "../develop/actions/goToEvent.php";
-	url = url.concat(params);
+	var url = "../develop/actions/goToEvent.php" + params;
 	$.ajax({
 			url:url,
 			dataType: "json",
 			type: "DELETE",
 			complete: function(r){
 			 	var json = JSON.parse(r.responseText);
-          		var button = document.getElementById("join-event-" + idEvent);
-		  		button.innerHTML ='Me Apunto';
+
+			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Apunto')
 			  
 			},
 			onerror: function(e,val){
@@ -141,6 +131,8 @@ function disjoinEvent (idRequest, idEvent){
 			}
 	});
 }
+
+/********************** Join Events ******************/
 
 function myEvents(){
 	
@@ -208,7 +200,7 @@ function myEvents(){
 					events = events.concat(json[i].title);
 					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 					events = events.concat(json[i].text);
-					events = events.concat("</P>");
+					events = events.concat("</p");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
 					events = events.concat(eventDate);
 					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
@@ -216,7 +208,8 @@ function myEvents(){
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
 					events = events.concat(closeH);
 					events = events.concat("</b> hrs.</p>");
-					events = events.concat("<a href='events.php'id='"+idEvent+"'class='btn pull-right' onclick='disjoinEvent(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Me Desapunto</span></a>");
+					//Events where user goes, display disjoin
+					events = events.concat('<button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button>');
 					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('myEvents').innerHTML=events;			   
@@ -228,34 +221,7 @@ function myEvents(){
 		}
 		});	
 }
-function disjoinEvent(id){
 
-var params = "/" ;
-	params=params.concat(ide); 
-	params=params.concat("/");
-	params=params.concat(tok);
-	params=params.concat("/");
-	params=params.concat(id);
-	
-	var url = "../develop/actions/goToEvent.php";
-	url=url.concat(params);
-	
-    $.ajax({
-			url: url,
-			dataType: "json",
-			type: "DELETE",
-			timeout: 5000,
-			async: false,
-			complete: function(r2){
-				
-				
-	    		},
-				onerror: function(e,val){
-					alert("Contraseña y/o usuario incorrectos");
-				}
-			});
-	myEvents();	
-}
 function allEvents(){
 	var idProfile = <?php echo $_SESSION['id_user']; ?>	;
 	var token =  "<?php echo $_SESSION['token']; ?>";
@@ -336,13 +302,8 @@ function allEvents(){
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
 					events = events.concat(closeH);
 					events = events.concat("</b> hrs.</p>");
-					//BOTON//
-					/*if(partierEvents.indexOf(json[i].idEvent) > -1){//Event in array, display disjoin
-							events=events.concat('<button type="button" id="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Desapunto</button>');
-						}else{//Event not in array, display join
-							events=events.concat('<button type="button" id="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + idRequest + "'" + ', ' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button>');
-						}*/
-					//FIN BOTON
+					//Events where user doesn't go, display join
+					events=events.concat('<button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button>');
 					events = events.concat("</td></tr></tbody></table>");
 					
 					document.getElementById('allEvents').innerHTML=events;			   
