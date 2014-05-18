@@ -46,8 +46,36 @@ include_once "../framework/visits.php";
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
  	
+<script type="text/javascript">  
+    $(document).ready(function(){ 
 
+        //Get track info
+    var id = <?php echo $_SESSION['id_user'];?>;
+    var token = "<?php echo $_SESSION['token'];?>";
+    var params = "/" + idProfile + "/" + token; 
+    var url1 = "../develop/update/";
+    var params = "/" + id + "/" + token + "/" + id;
+    url1 += "track.php";
+    url1 += params;
+    
+    $.ajax({
+      url:url1,
+      dataType: "json",
+      type: "GET",
+      complete: function(r3){
+		alert(r3.responseText);
+        var json = JSON.parse(r3.responseText);
+        
+        
+      },
+      onerror: function(e,val){
+        //alert("No se puede introducir evento 2");
+      }
+    });
 
+	
+});//end $(document).ready(function()
+</script>
 
 </head>
 
@@ -67,8 +95,11 @@ $token=$_SESSION['token'];
 
 
 <script>
-	var ide = '<?php echo $idProfile; ?>' ;
-	var tok = '<?php echo $token; ?>' ;
+	
+
+var ide = '<?php echo $idProfile; ?>' ;
+var tok = '<?php echo $token; ?>' ;
+var ideEvent = '<?php echo $id_event; ?>' ;	
 </script>
 	<style>  
 		body{
@@ -120,13 +151,13 @@ $token=$_SESSION['token'];
 								<div class="main-box clearfix " style="background-color:#1B1E24;box-shadow: 1px 1px 2px 0 #ff6b24;width:134%">
 									<div class="tabs-wrapper profile-tabs" >
 										<ul class="nav nav-tabs"style="border-color:#ff6b24;">
-											<li class="active" id="addSong"><a href="#tab-newSong" data-toggle="tab">Añadir canción</a></li>
+											<li class="active"><a href="#tab-newEvent" data-toggle="tab">Añadir canción</a></li>
 											<li><a href="#tab-myEvents" data-toggle="tab">Mis canciones</a></li>
 										</ul>
 										
 										<div class="tab-content">
 										<!-- Comienza Basic-->
-											<div class="tab-pane fade in active" id="tab-newSong">
+											<div class="tab-pane fade in active" id="tab-newEvent">
 												<form class="form-horizontal" style="width:99%"role="form">
 													<div class="form-group">
                                                         <label for="title" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre de la canción</label>
