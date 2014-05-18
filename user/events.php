@@ -100,7 +100,7 @@ function joinEvent (idEvent){
 			complete: function(r){
 			 	var json = JSON.parse(r.responseText);	
 
-				$("#li-event-" + idEvent).appendTo("#myEvents");
+			 	$("#li-event-" + idEvent).appendTo("#myEvents");
 		 		$("#table-event-" + idEvent).appendTo("#myEvents");
 			  	$( "button[name='join-event-" + idEvent + "']" ).html('Me Desapunto')
 			  	
@@ -204,7 +204,7 @@ function myEvents(){
 					events = events.concat(json[i].title);
 					events = events.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 					events = events.concat(json[i].text);
-					events = events.concat("</p");
+					events = events.concat("</p>");
 					events = events.concat("<p style='color:#ff6b24'>Fecha : <b style='color:#34d1be'> ");
 					events = events.concat(eventDate);
 					events = events.concat("</b>, a partir de  <b style='color:#34d1be'>");
@@ -291,7 +291,7 @@ function allEvents(){
 
 				if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
-					events = events.concat("<li id='event-" + json[i].idEvent + "'><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
+					events = events.concat("<li id='li-event-" + json[i].idEvent + "'><div class='workflow-item hover' style='background-image:url("+picture+");background-size:100% 100%'></div>");
 					events = events.concat("<span name='localName' class='label label-dark-blue' style='font-size:12px'>Evento Local</span> "+localName+" ");
 					events = events.concat("<span style='font-size:12px;color:orange'>  publicado <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 					events = events.concat("<table id='table-event-" + json[i].idEvent + "' class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'>Título Evento <b style='color:orange'>'");
@@ -402,17 +402,16 @@ var tok = '<?php echo $toke; ?>' ;
 										<!-- Termina Mis Eventos -->	
 										<!-- Comienza Todos los Eventos -->
 											<div class="tab-pane fade " id="tab-allEvents">
-												 <div class="the-timeline">
-														<ul id="allEvents">
-															<script>
-																allEvents();
-															</script>
-														</ul>
+												<div class="the-timeline">
+													<ul id="allEvents">
+														<script>
+															allEvents();
+														</script>
+													</ul>
 
-													</div>
-													<div id="show_more" name="both">
-
-													</div>
+												</div>
+												<div id="show_more" name="both">
+												</div>
 											</div>
 										<!-- Termina Todos los Eventos -->	
 
