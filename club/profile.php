@@ -77,6 +77,7 @@ include_once "../framework/visits.php";
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
 var ideEvent = '<?php echo $id_event; ?>' ;	
+var idlocal = '<?php echo $_GET['idv'];?>';
 </script>
 
 
@@ -691,7 +692,7 @@ $.ajax({
 																	<th>&nbsp;</th>
 																</tr>
 																<script>
-																	show_songs_list("profile");
+																	show_songs_list_profile();
 																 </script>
 															</thead>
 															<tbody>
