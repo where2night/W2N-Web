@@ -148,6 +148,7 @@ var tok = '<?php echo $toke; ?>' ;
 					var year = createdTime.substring(0,4);
 					var hour = createdTime.substring(11,14);
 					var min = createdTime.substring(14,16);
+					
 					if (mode==0){
 						$(ident).append('<div class="conversation-item item-right clearfix"><div class="conversation-user"><img src="'+ picture +'" alt=""/></div><div class="conversation-body" style="background-color:#a7a6a4"><div class="name" style="color:#FF6B24">'+name+" "+surnames+'</div><div class="time hidden-xs">'+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
 						
@@ -159,8 +160,7 @@ var tok = '<?php echo $toke; ?>' ;
 					
 					
 				}
-				
-				//$(ident).append('</div><textarea id="" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>');
+					$(ident).append('<br><br><div class="col-lg-14" ><textarea id="messageText1" class="form-control" placeholder="Escribe tu mensaje..." rows="3" style="font-size:13px"></textarea></div><button id="'+id+'" onclick="sendMessage1(this.id);"class="btn pull-left"  type="button"  style="margin-top:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">Enviar</button>');
 				
 				
 			},
@@ -179,6 +179,8 @@ var tok = '<?php echo $toke; ?>' ;
 		});
 		
 			wizard.show();
+			
+		
 		
 		
 	}
@@ -208,6 +210,33 @@ var tok = '<?php echo $toke; ?>' ;
 			});
 			document.getElementById("messageText").value = "";
 		 document.getElementById("contact").selectedIndex = 0;
+	}
+	 function sendMessage1(id){
+		 
+		var params = "/" ;
+			params=params.concat(ide); 
+			params=params.concat("/");
+			params=params.concat(tok);
+			params=params.concat("/");
+			params=params.concat(id);
+		var url="../develop/actions/sendMessage.php";
+			url=url.concat(params);
+		var messageT = $('#messageText1').val();
+		$.ajax({
+								url: url,
+								dataType: "json",
+								type: "POST",
+								async: false,
+								data: {
+								message:messageT},
+								complete: function(r){	
+								},
+								onerror: function(e,val){
+									alert("No se pueden saber los mensajes");
+									}
+			});
+			document.getElementById("messageText1").value = "";
+		
 	}
 	 function contacts(){
 	 var params = "/" ;

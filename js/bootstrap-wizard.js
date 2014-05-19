@@ -358,8 +358,7 @@
 						'</div>',
 						'<div class="wizard-modal-footer">',
 							'<div class="wizard-buttons-container">',
-								
-								'<button class="btn wizard-cancel wizard-close" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Cancel</button>',
+								'<button class="btn wizard-cancel wizard-close" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Cancelar</button>',
 								
 							'</div>',
 						'</div>',
@@ -468,6 +467,7 @@
 			self.reset();
 			self.close();
 			self.trigger("closed");
+			
 			document.getElementById("messageText").value = "";
 			document.getElementById("contact").selectedIndex = 0;
 		});
