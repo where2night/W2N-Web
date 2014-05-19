@@ -321,7 +321,7 @@ while (one<5){
 
 
 	 var j = musicEnd;
-	 var drinkEnd= j+25;
+	 var drinkEnd= j+26;
 	 var toSort = new Array();
 	
 	 while(j<drinkEnd){
@@ -353,7 +353,7 @@ var one=0;
 var types = new Array();
 
 while (one<5){
-	var num =24-one;
+	var num =25-one;
 	var drinkType=toSort[num];
 	var type="h";
 	 switch (drinkType) { 
@@ -390,7 +390,6 @@ while (one<5){
  one++;
 }
 
-
 	/*CanvasJS.addColorSet("myColorsDrink",
                 	[//colorSet Array
 						"#FFFF00",
@@ -414,11 +413,11 @@ while (one<5){
 				type: "doughnut",
 				startAngle:20,
 				dataPoints: [
-				{  y: drink[24], label: types[0] },
-				{  y: drink[23], label: types[1] },
-				{  y: drink[22], label: types[2] },
-				{  y: drink[21],  label: types[3]},
-				{  y: drink[20],  label: types[4]}
+				{  y: drink[25], label: types[0] },
+				{  y: drink[24], label: types[1] },
+				{  y: drink[23], label: types[2] },
+				{  y: drink[22],  label: types[3]},
+				{  y: drink[21],  label: types[4]}
 
 				]
 			}
