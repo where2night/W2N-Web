@@ -301,27 +301,14 @@ var idlocal = '<?php echo $id_event; ?>' ;
     </script>
 
 
-	<script type="text/javascript">  
-    $(document).ready(function(){ 
+<script type="text/javascript">  
+	$(document).ready(function(){ 
+
 		getData();	
+
 	});//end $(document).ready(function()
-	</script>
-<script type="text/javascript">
-function btnVoy(theVoyBtn)
-{
-myButtonID = theVoyBtn.id;
-if(document.getElementById(myButtonID).className=='myClickedVoy')
-{
-document.getElementById(myButtonID).className='myDefaultVoy';
-document.getElementById(myButtonID).value='Quiero Asitir';
-}
-else
-{
-document.getElementById(myButtonID).className='myClickedVoy';
-document.getElementById(myButtonID).value='Voy a ir';
-}
-}
 </script>
+
 <script type="text/javascript">
 function getVisitorEvents(){
 
@@ -575,13 +562,12 @@ $.ajax({
 						<div class="row" id="user-profile"style="background-color:#000; padding-top:8px;margin-left:1%;margin-right:-20%;margin-top:-1%">
 							<div class="col-lg-11 col-md-8 col-sm-8" >
 								<div class="main-box clearfix"style="margin-left:4%;width:100%;background-color:#1B1E24;border-color:#ff6b24;box-shadow: 1px 1px 2px 0 #ff6b24;">
-									<h2 name="localName" style="color:#ff6b24;text-transform: uppercase; text-align:center;"><?php //echo get_local_name_club(); ?></h2>
+									<h2 name="localName" style="color:#ff6b24;text-transform: uppercase; text-align:center;"></h2>
 									
 									<img name="club-image" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
 										Miembro desde: Ene 2012	
 										<ul class="fa-ul" >
-											<!--<li style="color:#transparent"><i class="glyphicon glyphicon-map-marker"style="color:#FF6B24"></i> <?php echo get_poblation_local_club();?></li>-->
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span>
 											<span style="color:#34d1be" id="local_followers">  </span></li>
@@ -592,10 +578,12 @@ $.ajax({
 											</script>
 											
 										</ul>
+										<input id="date-goToPub" class="datepicker" type="text" size="5" style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"/>
+										<input id="button-goToPub"  class="btn btn-success botonvoy" type="button"value="Voy a ir" style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 										<script>
 											paintButton();
 										</script>
-										<!--<input id="btnVoy01"  class="btn btn-success botonvoy" type="button"value="Quiero Asistir"onClick="btnVoy(this);"style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										<!--
 										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">-->
 					    
 					                     </div>			
@@ -832,9 +820,33 @@ $.ajax({
 			</div>
 		</div>
 	</div>
-<!-- /MiPerfil --> 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="../js/profile-test1.js"></script>
-<script src="../js/profile-test2.js"></script>
+	<!-- /MiPerfil --> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+
+	<script src="../js/profile-test1.js"></script>
+	<script src="../js/profile-test2.js"></script>	<script src="../js/jquery-ui.min.js"></script>
+	<link href="../css/jquery-ui.custom1.css" rel="stylesheet" media="screen">
+	<script type="text/javascript">  
+	$(document).ready(function(){ 
+
+		/****************** Go to club with date ****************/
+		$(".datepicker").datepicker({
+		    dateFormat: 'dd-mm-yy ',
+	        showOn: 'button',
+	        buttonText: 'Show Date',
+	        buttonImageOnly: true,
+	        buttonImage: '../images/calendar-icon.png'
+	    });
+
+	    $("#button-goToPub").on( "click", function() {
+	    	date = $("#date-goToPub").val();
+		  alert( date);
+		});
+
+		/****************** Go to club with date ****************/
+
+
+	});//end $(document).ready(function()
+</script>
 </body>
 </html>
