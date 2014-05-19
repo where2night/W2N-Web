@@ -842,35 +842,36 @@ if (isset($_GET['idv']) && $_SESSION['user_type'] == "user"){
 			var params = "/" + idProfile + "/" + token + "/" + idClub;
 
 			var date = $("#date-goToPub").val();
-			  
-			var url = "../develop/actions/goToPub.php" + params;
 
-			$.ajax({
-					url:url,
-					dataType: "json",
-					type: "POST",
-					async: false,
-					data: {
-						date:date,
-					},
-					complete: function(r){
-						var json = JSON.parse(r.responseText);	
-						
-					  	$("#dialog-goToPub-1").html("<b>Asistirás al local el " + date "</b>");
-					},
-					onerror: function(e,val){
-						alert("Error al buscar eventos de usuario");
-					}
-			});
+			if (date.length > 0){
+				  
+				var url = "../develop/actions/goToPub.php" + params;
+
+				$.ajax({
+						url:url,
+						dataType: "json",
+						type: "POST",
+						async: false,
+						data: {
+							date:date,
+						},
+						complete: function(r){
+							var json = JSON.parse(r.responseText);	
+							
+						  	$("#dialog-goToPub-1").html("<b>Asistirás al local el " + date + "</b>");
+						},
+						onerror: function(e,val){
+							alert("Error al buscar eventos de usuario");
+						}
+				});
+			}else{//No date selected
+				$("#dialog-goToPub-1").append("</br>Debes seleccionar una fecha");
+			}
 		
 		}
 
 		$(".datepicker").datepicker({
 		    dateFormat: 'dd/mm/yy',
-	        showOn: 'button',
-	        buttonText: 'Show Date',
-	        buttonImageOnly: true,
-	        buttonImage: '../images/calendar-icon.png'
 	    });
 
 		$("#dialog-goToPub-1").dialog({ autoOpen: false });
