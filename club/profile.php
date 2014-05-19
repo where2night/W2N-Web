@@ -566,7 +566,7 @@ $.ajax({
 									
 									<img name="club-image" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
-										Miembro desde: Ene 2012	
+										<!--Miembro desde: Ene 2012	-->
 										<ul class="fa-ul" >
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span>
@@ -578,14 +578,22 @@ $.ajax({
 											</script>
 											
 										</ul>
-										<input id="date-goToPub" class="datepicker" type="text" size="5" style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"/>
-										<input id="button-goToPub"  class="btn btn-success botonvoy" type="button"value="Voy a ir" style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+<?php 
+	if (isset($_GET['idv']) && $_SESSION['user_type'] == "user"){
+?>
+										<div id="dialog-goToPub-1" title="Asistir a local" style="display:none" align="center"> 
+											<p>¿Qué día piensas asistir?</p>
+											<input id="date-goToPub" class="datepicker" type="text" size="5" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"/>
+											<input id="button-goToPub-2"  class="myClickedButton" type="button"value="Voy a ir" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
+										</div> 
+										
+										<input id="button-goToPub-1"  class="myClickedButton" type="button"value="Voy a ir" style="margin-top:-5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
 										<script>
 											paintButton();
 										</script>
-										<!--
-										<input id="btn01"  class="btn btn-success botonseguir " type="button"value="Agregar Local"onClick="btnSeguir(this);"style="margin-left:50%;margin-top:-7%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">-->
-					    
+<?php 
+	}
+?>
 					                     </div>			
 								</div>
 							</div>
@@ -754,23 +762,22 @@ $.ajax({
 												<div class="col-lg-4 " >
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
 													<p name="about" style="color:#707070;margin-left:3%;margin-right:3%;font-size:14px">
-															<?php //echo $_SESSION['about']; ?>
 													</p>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Estilo de música <span name="music" style="margin-left:2%;color:#707070; font-size:14px"> <?php //echo $_SESSION['music']; ?></span>
+															Estilo de música <span name="music" style="margin-left:2%;color:#707070; font-size:14px"></span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Entrada <span name="entryPrice" style="margin-left:2%;color:#707070; font-size:14px"> <?php //if( $_SESSION['entry_price']!=0) echo $_SESSION['entry_price']." €"; ?></span>
+															Precio de Entrada <span name="entryPrice" style="margin-left:2%;color:#707070; font-size:14px"> </span>
 														</div>	
 													</div>
 													<br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Precio de Bebida <span  name="drinkPrice" style="margin-left:3%;color:#707070; font-size:14px"> <?php //if($_SESSION['drink_price']!= 0) echo $_SESSION['drink_price']." €" ;?></span>
+															Precio de Bebida <span  name="drinkPrice" style="margin-left:3%;color:#707070; font-size:14px"> </span>
 														</div>	
 													</div>
 												</div>
@@ -778,24 +785,16 @@ $.ajax({
 													<h3 style="border-color:#ff6b24;text-align:center"><span style="color:#ff6b24;border-color:#ff6b24">Localización</span></h3>	
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															<!--Dirección <span style="margin-left:2%;color:#707070; font-size:14px"> <?php if (get_street_club() == 0) echo 'Calle'; ?>
-																				<?php if (get_street_club() == 1) echo 'Avd.'; ?>
-																				<?php if (get_street_club() == 2) echo 'Plaza'; ?>
-																				<?php echo get_street_name_club(); ?>,
-																				<?php echo get_poblation_local_club();?>
-																				<?php echo get_cp_local_club();?></span>-->
 															Dirección <span name="address" style="margin-left:2%;color:#707070; font-size:14px"></span>
 														</div>	
 													</div><br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-															Teléfono <span name="telephoneLocal" style="margin-left:2%;color:#707070; font-size:14px"> <?php //echo get_telephone_club();?></span>
+															Teléfono <span name="telephoneLocal" style="margin-left:2%;color:#707070; font-size:14px"> </span>
 														</div>	
 													</div><br>
 													<div class="profile-user-details clearfix">
 														<div class="profile-user-details-label"style="color:#34d1be;margin-left:3%;font-size:14px">
-														<!--	Horario <span name="openingHours" style="margin-left:2%;color:#707070; font-size:14px"> <b>Apertura: </b><?php echo get_opening_hours_club();?></span>
-																	<br><span style="margin-left:12%;color:#707070; font-size:14px">Cierre: <?php echo get_close_hours_club();?></span> -->
 															Horario <span name="openingHours" style="margin-left:2%;color:#707070; font-size:14px"></span>
 															<br><span name="closeHours" style="margin-left:12%;color:#707070; font-size:14px"></span>
 														</div>	
@@ -826,27 +825,75 @@ $.ajax({
 	<script src="../js/profile-test1.js"></script>
 	<script src="../js/profile-test2.js"></script>	<script src="../js/jquery-ui.min.js"></script>
 	<link href="../css/jquery-ui.custom1.css" rel="stylesheet" media="screen">
+
+<?php 
+if (isset($_GET['idv']) && $_SESSION['user_type'] == "user"){
+?>	
 	<script type="text/javascript">  
+
 	$(document).ready(function(){ 
 
 		/****************** Go to club with date ****************/
+
+		function goToPub(){
+			var idProfile = <?php echo $_SESSION['id_user']; ?>	;
+			var token =  "<?php echo $_SESSION['token']; ?>";
+			var idClub = "<?php echo $_GET['idv']; ?>";
+			var params = "/" + idProfile + "/" + token + "/" + idClub;
+
+			var date = $("#date-goToPub").val();
+			  
+			var url = "../develop/actions/goToPub.php" + params;
+
+			$.ajax({
+					url:url,
+					dataType: "json",
+					type: "POST",
+					async: false,
+					data: {
+						date:date,
+					},
+					complete: function(r){
+						var json = JSON.parse(r.responseText);	
+						
+					  	$("#dialog-goToPub-1").html("<b>Asistirás al local el " + date "</b>");
+					},
+					onerror: function(e,val){
+						alert("Error al buscar eventos de usuario");
+					}
+			});
+		
+		}
+
 		$(".datepicker").datepicker({
-		    dateFormat: 'dd-mm-yy ',
+		    dateFormat: 'dd/mm/yy',
 	        showOn: 'button',
 	        buttonText: 'Show Date',
 	        buttonImageOnly: true,
 	        buttonImage: '../images/calendar-icon.png'
 	    });
 
-	    $("#button-goToPub").on( "click", function() {
-	    	date = $("#date-goToPub").val();
-		  alert( date);
+		$("#dialog-goToPub-1").dialog({ autoOpen: false });
+
+	    $("#button-goToPub-1").on( "click", function() {
+		 	$("#dialog-goToPub-1").dialog('open');
+                return false;
 		});
+
+		$("#button-goToPub-2").on( "click", function() {
+			goToPub();
+		 	
+		});
+
 
 		/****************** Go to club with date ****************/
 
 
 	});//end $(document).ready(function()
 </script>
+
+<?php 
+}
+?>
 </body>
 </html>
