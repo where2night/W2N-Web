@@ -79,25 +79,25 @@ var tok = '<?php echo $toke; ?>' ;
 										}
 										var link = "../user/profile.php?idv=" + id_user;
 										var num = json[i].num;
-										for (var j=0; j<num; j++){
-											var createdTime = json[i][j].createdTime;
+										
+											var createdTime = json[i][0].createdTime;
 											var day = createdTime.substring(8,11);
 											var month = createdTime.substring(5,8);
 											var year = createdTime.substring(0,4);
 											var hour = createdTime.substring(11,14);
 											var min = createdTime.substring(14,16);
-											var men = json[i][j].message;
+											var men = json[i][0].message;
 											men = men.substring(0,10);
-											if (json[i][j].mode== 0){
-												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-send" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+											if (json[i][0].mode== 0){
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-send" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}
 											else if (json[i][0].mode== 1){
-												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-envelope" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-envelope" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}
 											else if (json[i][0].mode== 2){
-												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-check" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a href="#" id="b'+i+'" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:25%"><span id="b'+i+'" onclick="deleteFriend(this.id,'+id_user+');">Abrir</span></a></td></tr>');
+												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-check" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}								
-										}	
+											
 									}
 									
 								},
@@ -106,9 +106,84 @@ var tok = '<?php echo $toke; ?>' ;
 									}
 			});
 	 });//end $(document).ready(function()
-	 function getUserName(id){
-	 }
+	function openMessages(id){
+		var params = "/" ;
+			params=params.concat(ide); 
+			params=params.concat("/");
+			params=params.concat(tok);
+			params=params.concat("/");
+			params=params.concat(id);
+		var url="../develop/read/messagesFriend.php";
+			url=url.concat(params);
+		
+		$.ajax({
+			url: url,
+			dataType: "json",
+			type: "GET",
+			async: false,
+			complete: function(r){
+			  	var json = JSON.parse(r.responseText);
+				var ident = "#allMessages";
+				ident = ident.concat(id);
+				var name = json.name;
+				var surnames = json.surnames;
+				var picture = json.picture;
+				if (picture == null || picture.length == 0){
+					picture = "../images/reg1.jpg";
+				}
+				var nameF = json.nameF;
+				var surnamesF = json.surnamesF;
+				var pictureF = json.pictureF;
+				if (pictureF == null || pictureF.length == 0){
+					pictureF = "../images/reg1.jpg";
+				}
+				var num = json.num;
+			
+				for (var i=0;i < num;i++){
+					var message = json[i].message;
+					var mode = json[i].mode;
+					var createdTime = json[i].createdTime;
+					var day = createdTime.substring(8,11);
+					var month = createdTime.substring(5,8);
+					var year = createdTime.substring(0,4);
+					var hour = createdTime.substring(11,14);
+					var min = createdTime.substring(14,16);
+					if (mode==0){
+						$(ident).append('<div class="conversation-item item-right clearfix"><div class="conversation-user"><img src="'+ picture +'" alt=""/></div><div class="conversation-body" style="background-color:#a7a6a4"><div class="name" style="color:#FF6B24">'+name+" "+surnames+'</div><div class="time hidden-xs">'+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
+						
+						}
+					else {
+						$(ident).append('<div class="conversation-item item-left clearfix"><div class="conversation-user"><img src="'+ pictureF +'" alt=""/></div><div class="conversation-body"style="background-color:#E5E4E2"><div class="name" style="color:#FF6B24">'+nameF+" "+surnamesF+'</div><div class="time hidden-xs">'+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
+						
+					}
+					
+					
+				}
+				
+				//$(ident).append('</div><textarea id="" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>');
+				
+				
+			},
+			onerror: function(e,val){
+				alert("No se pueden saber los contactos");
+			}
+		});
+		
+		$('#sel2').select2();
+	
+		$.fn.wizard.logging = false;
+		var identi = "#wizard-demo1";
+		identi=identi.concat(id);
+		var wizard = $(identi).wizard({
+			showCancel: true
+		});
+		
+			wizard.show();
+		
+		
+	}
 	 function sendMessage(id){
+		 
 		var params = "/" ;
 			params=params.concat(ide); 
 			params=params.concat("/");
@@ -131,6 +206,8 @@ var tok = '<?php echo $toke; ?>' ;
 									alert("No se pueden saber los mensajes");
 									}
 			});
+			document.getElementById("messageText").value = "";
+		 document.getElementById("contact").selectedIndex = 0;
 	}
 	 function contacts(){
 	 var params = "/" ;
@@ -205,7 +282,7 @@ var tok = '<?php echo $toke; ?>' ;
 				var contacts=document.getElementById('btnSend').innerHTML;
 				contacts = contacts.concat("<button id="+id_user+" class='btn pull-right'  type='button' onclick='sendMessage(this.id);' style='position:fixed;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Enviar</button>");
 				document.getElementById('btnSend').innerHTML=contacts;	
-				
+			
 			},
 			onerror: function(e,val){
 				alert("No se pueden saber los contactos");
@@ -287,16 +364,17 @@ body{
 												<div class="wizard-card" data-onValidated="setServerName" data-cardname="name">
 													<!--TEXT MESSAGE-->
 														<div class="form-group">
-															<label class="col-lg-2 control-label" style="color:#ff6b24;font-size:18px;">Para :</label>
-															<div class="col-sm-7 " >
-															<select class="form-control"id="contact" onchange="btnSend();"required><script>contacts();</script></select>
+															<label class="col-lg-2 control-label" style="margin-top:5%;color:#ff6b24;font-size:18px;">Para :</label>
+															<div class="col-sm-10" >
+															<select class="form-control"id="contact" style="margin-left:-10%;margin-top:5%"onchange="btnSend();"required><script>contacts();</script></select>
 															</div>
 														</div>
+														<br><br><br><br>
 														<div class="col-lg-14">
-                                                                <textarea id="messageText" class="form-control" placeholder="Escribe tu mensaje..." rows="6" style="font-size:13px"></textarea>
+                                                                <textarea id="messageText" class="form-control" placeholder="Escribe tu mensaje..." rows="8" style="font-size:13px"></textarea>
                                                         </div>
-															<!--<button id="44" class="btn pull-right"  type="button" onclick='sendMessage(this.id);' style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">Enviar</button>
--->
+
+														<br><br><br>
 														<a id="btnSend">
 															<script>btnSend();</script>
 														</a>
@@ -309,7 +387,7 @@ body{
 												<thead>
 												<tr>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fiestero</span></th>									
-													<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Mensaje</span></th>
+													<th><span style="color:#FF6B24;border-color:#ff6b24">Mensaje</span></th>
 													<th><span style="color:#FF6B24;border-color:#ff6b24">Fecha</span></th>
 													<th><span class="text-center" style="color:#FF6B24;border-color:#ff6b24">Estado</span></th>
 													<th>&nbsp;</th>
@@ -461,6 +539,7 @@ body{
 		$("#open-wizard").click(function() {
 			wizard.show();
 		});
+
 	});
 	</script>	
 
