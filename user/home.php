@@ -537,6 +537,7 @@ $(document).ready(function(){
 		url:url2,
 		dataType: "json",
 		type: "GET",
+		async: false,
 		complete: function(r3){
 			var json = JSON.parse(r3.responseText);
 			var rows = json.rows;
@@ -597,10 +598,14 @@ $(document).ready(function(){
 		url:url2,
 		dataType: "json",
 		type: "GET",
+		async: false,
 		complete: function(r3){
 			//alert(r3.responseText);
 			var json = JSON.parse(r3.responseText);
 			var rows = json.rows;
+			
+			$('#nextEvents').append("<div class='profile-header' style='text-align:center'><h3 style='border-color:transparent'><span style='color:#ff6b24;border-color:#ff6b24'>Próximas Listas</span></h3></div>");
+			
 			for(var i=0; i<rows; i++){
 				var localName = json[i].name;
 				var title = json[i].title;
@@ -649,7 +654,7 @@ $(document).ready(function(){
 				}
 				
 				
-				$('#nextLists').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>Cierre Listas  </br> </br>'+dateClose+' </p></div></div>');
+				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>Cierre Listas  </br> </br>'+dateClose+' </p></div></div>');
 			
 			}
 
@@ -769,14 +774,6 @@ $(document).ready(function(){
 
 														</div><!--//section-content-->
 													</section><!--//events-->
-                                                     <div class="profile-header" style="text-align:center">
-														<h3 style="border-color:transparent"><span style="color:#ff6b24;border-color:#ff6b24">Próximas listas</span></h3>
-													</div>
-													<section class="events" style="background-color:transparent;">
-														<div id="nextLists" class="section-content">
-
-														</div><!--//section-content-->
-													</section><!--//lists-->
 
 												</div><!--//col-md-3-->
 											
