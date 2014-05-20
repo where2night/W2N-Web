@@ -374,7 +374,7 @@ function messages(){
 						
 					</ul>
 				</li>
-				<li id="mess"class="dropdown hidden-xs">
+				<!--<li id="mess"class="dropdown hidden-xs">
 					<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
 						<i class="glyphicon glyphicon-envelope"style="color:#ff6b24"></i>
 						<span id="numMess" class="count" style="color:#34d1be"><script>numMessages();</script></span>
@@ -387,7 +387,7 @@ function messages(){
 						</script>	
 						
 					</ul>
-				</li>
+				</li>-->
 			</ul>
 			<!-- /Notifications -->
            <form class="navbar-form navbar-left" role="search">

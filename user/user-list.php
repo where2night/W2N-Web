@@ -87,9 +87,55 @@ var tok = '<?php echo $toke; ?>' ;
 			 							var id_user = json[i].idProfile;
 										Array_friends[Array_friends.length]=id_user;
 										var music = json[i].music;
-										if (music == null || music.length == 0){
-										music = "Estilo no definido";
-										}
+												if (music == null || music.length == 0){
+													music = "Estilo no definido";
+												}
+												else {
+													if (music == 0){music="Acid-House";}	
+													if (music == 1){music="Alternative Rock";}
+													if (music == 2){music="Beatbox";}
+													if (music == 3){music="Black Metal";}
+													if (music == 4){music="Country";}
+													if (music == 5){music="Death Metal";}
+													if (music == 6){music="Deep House";}
+													if (music == 7){music="Disco";}
+													if (music == 8){music="Drum n Bass";}
+													if (music == 9){music="Electro";}
+													if (music == 10){music="Europop";}
+													if (music == 11){music="Folk";}
+													if (music == 12){music="Folk Rock";}
+													if (music == 13){music="Funk";}
+													if (music == 14){music="Hard Trance";}	
+													if (music == 15){music="Hard-House";}
+													if (music == 16){music="Hard-Rock";}
+													if (music == 17){music="Hardcore";}
+													if (music == 18){music="Hardstyle";}
+													if (music == 19){music="Heavy Metal";}
+													if (music == 20){music="Hip Hop";}
+													if (music == 21){music="House";}
+													if (music == 22){music="Indie Rock";}
+													if (music == 23){music="Italo-Disco";}
+													if (music == 24){music="Italo-Dance";}
+													if (music == 25){music="Jungle";}
+													if (music == 26){music="Latin";}
+													if (music == 27){music="Makina";}	
+													if (music == 28){music="Minimal";}
+													if (music == 29){music="Pachanga";}
+													if (music == 30){music="Pop-Rock";}
+													if (music == 31){music="Progressive House";}
+													if (music == 32){music="Progressive Trance";}
+													if (music == 33){music="Punk";}
+													if (music == 34){music="Reggae";}
+													if (music == 35){music="Reggaeton";}
+													if (music == 36){music="Rock & Roll";}
+													if (music == 37){music="Ska";}
+													if (music == 38){music="Soul";}
+													if (music == 39){music="Soul-Jazz";}
+													if (music == 40){music="Tech-House";}
+													if (music == 41){music="Techno";}
+													if (music == 42){music="Trance";}
+													if (music == 43){music="Tribal-House";}
+												}
 										var picture = json[i].picture;
 										if (picture == null || picture.length == 0){
 										picture = "../images/reg1.jpg";
@@ -99,6 +145,37 @@ var tok = '<?php echo $toke; ?>' ;
 				    					var name = json[i].name;
 										var surnames = json[i].surnames;
 										var drink = json[i].drink;
+										if (drink == null || drink.length == 0){
+											drink= "Bebida no definida";
+										}
+										else {
+											if (drink == 0){drink="Agua con gas";}	
+											if (drink == 1){drink="Agua sin gas";}
+											if (drink == 2){drink="Anís";}
+											if (drink == 3){drink="Bourbon";}
+											if (drink == 4){drink="Brandy";}
+											if (drink == 5){drink="Calimocho";}
+											if (drink == 6){drink="Cava";}
+											if (drink == 7){drink="Cerveza";}
+											if (drink == 8){drink="Champagne";}
+											if (drink == 9){drink="Coñac";}
+											if (drink == 10){drink="Energética";}
+											if (drink == 11){drink="Ginebra";}
+											if (drink == 12){drink="Horchata";}
+											if (drink == 13){drink="Licor con alcohol";}
+											if (drink == 14){drink="Licor sin alcohol";}
+											if (drink == 15){drink="Refresco con gas";}
+											if (drink == 16){drink="Refresco sin gas";}
+											if (drink == 17){drink="Ron añejo";}
+											if (drink == 18){drink="Ron Blanco";}
+											if (drink == 19){drink="Sidra";}
+											if (drink == 20){drink="Tequila";}
+											if (drink == 21){drink="Vermouth";}
+											if (drink == 22){drink="Vino";}
+											if (drink == 23){drink="Vodka";}
+											if (drink == 24){drink="Whisky";}
+											if (drink == 25){drink="Zumo";}
+										}
 										var mode =  json[i].mode;
 										var modeString;
 						
@@ -154,7 +231,53 @@ var tok = '<?php echo $toke; ?>' ;
 												var music = json[i].music;
 												if (music == null || music.length == 0){
 													music = "Estilo no definido";
-													}
+												}
+												else {
+													if (music == 0){music="Acid-House";}	
+													if (music == 1){music="Alternative Rock";}
+													if (music == 2){music="Beatbox";}
+													if (music == 3){music="Black Metal";}
+													if (music == 4){music="Country";}
+													if (music == 5){music="Death Metal";}
+													if (music == 6){music="Deep House";}
+													if (music == 7){music="Disco";}
+													if (music == 8){music="Drum n Bass";}
+													if (music == 9){music="Electro";}
+													if (music == 10){music="Europop";}
+													if (music == 11){music="Folk";}
+													if (music == 12){music="Folk Rock";}
+													if (music == 13){music="Funk";}
+													if (music == 14){music="Hard Trance";}	
+													if (music == 15){music="Hard-House";}
+													if (music == 16){music="Hard-Rock";}
+													if (music == 17){music="Hardcore";}
+													if (music == 18){music="Hardstyle";}
+													if (music == 19){music="Heavy Metal";}
+													if (music == 20){music="Hip Hop";}
+													if (music == 21){music="House";}
+													if (music == 22){music="Indie Rock";}
+													if (music == 23){music="Italo-Disco";}
+													if (music == 24){music="Italo-Dance";}
+													if (music == 25){music="Jungle";}
+													if (music == 26){music="Latin";}
+													if (music == 27){music="Makina";}	
+													if (music == 28){music="Minimal";}
+													if (music == 29){music="Pachanga";}
+													if (music == 30){music="Pop-Rock";}
+													if (music == 31){music="Progressive House";}
+													if (music == 32){music="Progressive Trance";}
+													if (music == 33){music="Punk";}
+													if (music == 34){music="Reggae";}
+													if (music == 35){music="Reggaeton";}
+													if (music == 36){music="Rock & Roll";}
+													if (music == 37){music="Ska";}
+													if (music == 38){music="Soul";}
+													if (music == 39){music="Soul-Jazz";}
+													if (music == 40){music="Tech-House";}
+													if (music == 41){music="Techno";}
+													if (music == 42){music="Trance";}
+													if (music == 43){music="Tribal-House";}
+												}
 												var picture = json[i].picture;
 												if (picture == null || picture.length == 0){
 													picture = "../images/reg1.jpg";
@@ -165,6 +288,37 @@ var tok = '<?php echo $toke; ?>' ;
 												var surnames = json[i].surnames;
 												var city = json[i].city;
 												var drink = json[i].drink;
+										if (drink == null || drink.length == 0){
+											drink= "Bebida no definida";
+										}
+										else {
+											if (drink == 0){drink="Agua con gas";}	
+											if (drink == 1){drink="Agua sin gas";}
+											if (drink == 2){drink="Anís";}
+											if (drink == 3){drink="Bourbon";}
+											if (drink == 4){drink="Brandy";}
+											if (drink == 5){drink="Calimocho";}
+											if (drink == 6){drink="Cava";}
+											if (drink == 7){drink="Cerveza";}
+											if (drink == 8){drink="Champagne";}
+											if (drink == 9){drink="Coñac";}
+											if (drink == 10){drink="Energética";}
+											if (drink == 11){drink="Ginebra";}
+											if (drink == 12){drink="Horchata";}
+											if (drink == 13){drink="Licor con alcohol";}
+											if (drink == 14){drink="Licor sin alcohol";}
+											if (drink == 15){drink="Refresco con gas";}
+											if (drink == 16){drink="Refresco sin gas";}
+											if (drink == 17){drink="Ron añejo";}
+											if (drink == 18){drink="Ron Blanco";}
+											if (drink == 19){drink="Sidra";}
+											if (drink == 20){drink="Tequila";}
+											if (drink == 21){drink="Vermouth";}
+											if (drink == 22){drink="Vino";}
+											if (drink == 23){drink="Vodka";}
+											if (drink == 24){drink="Whisky";}
+											if (drink == 25){drink="Zumo";}
+										}
 												var mode =  json[i].mode;
 												var modeString;
 												if (mode == 0){
@@ -215,9 +369,55 @@ var tok = '<?php echo $toke; ?>' ;
 					var id_user = json[i].idProfile;
 					if (id_user != ide){
 						var music = json[i].music;
-						if (music == null || music.length == 0){
-							music = "Estilo no definido";
-						}
+												if (music == null || music.length == 0){
+													music = "Estilo no definido";
+												}
+												else {
+													if (music == 0){music="Acid-House";}	
+													if (music == 1){music="Alternative Rock";}
+													if (music == 2){music="Beatbox";}
+													if (music == 3){music="Black Metal";}
+													if (music == 4){music="Country";}
+													if (music == 5){music="Death Metal";}
+													if (music == 6){music="Deep House";}
+													if (music == 7){music="Disco";}
+													if (music == 8){music="Drum n Bass";}
+													if (music == 9){music="Electro";}
+													if (music == 10){music="Europop";}
+													if (music == 11){music="Folk";}
+													if (music == 12){music="Folk Rock";}
+													if (music == 13){music="Funk";}
+													if (music == 14){music="Hard Trance";}	
+													if (music == 15){music="Hard-House";}
+													if (music == 16){music="Hard-Rock";}
+													if (music == 17){music="Hardcore";}
+													if (music == 18){music="Hardstyle";}
+													if (music == 19){music="Heavy Metal";}
+													if (music == 20){music="Hip Hop";}
+													if (music == 21){music="House";}
+													if (music == 22){music="Indie Rock";}
+													if (music == 23){music="Italo-Disco";}
+													if (music == 24){music="Italo-Dance";}
+													if (music == 25){music="Jungle";}
+													if (music == 26){music="Latin";}
+													if (music == 27){music="Makina";}	
+													if (music == 28){music="Minimal";}
+													if (music == 29){music="Pachanga";}
+													if (music == 30){music="Pop-Rock";}
+													if (music == 31){music="Progressive House";}
+													if (music == 32){music="Progressive Trance";}
+													if (music == 33){music="Punk";}
+													if (music == 34){music="Reggae";}
+													if (music == 35){music="Reggaeton";}
+													if (music == 36){music="Rock & Roll";}
+													if (music == 37){music="Ska";}
+													if (music == 38){music="Soul";}
+													if (music == 39){music="Soul-Jazz";}
+													if (music == 40){music="Tech-House";}
+													if (music == 41){music="Techno";}
+													if (music == 42){music="Trance";}
+													if (music == 43){music="Tribal-House";}
+												}
 						var picture = json[i].picture;
 						if (picture == null || picture.length == 0){
 							picture = "../images/reg1.jpg";
@@ -228,6 +428,37 @@ var tok = '<?php echo $toke; ?>' ;
 						var surnames = json[i].surnames;
 						var city = json[i].city;
 						var drink = json[i].drink;
+										if (drink == null || drink.length == 0){
+											drink= "Bebida no definida";
+										}
+										else {
+											if (drink == 0){drink="Agua con gas";}	
+											if (drink == 1){drink="Agua sin gas";}
+											if (drink == 2){drink="Anís";}
+											if (drink == 3){drink="Bourbon";}
+											if (drink == 4){drink="Brandy";}
+											if (drink == 5){drink="Calimocho";}
+											if (drink == 6){drink="Cava";}
+											if (drink == 7){drink="Cerveza";}
+											if (drink == 8){drink="Champagne";}
+											if (drink == 9){drink="Coñac";}
+											if (drink == 10){drink="Energética";}
+											if (drink == 11){drink="Ginebra";}
+											if (drink == 12){drink="Horchata";}
+											if (drink == 13){drink="Licor con alcohol";}
+											if (drink == 14){drink="Licor sin alcohol";}
+											if (drink == 15){drink="Refresco con gas";}
+											if (drink == 16){drink="Refresco sin gas";}
+											if (drink == 17){drink="Ron añejo";}
+											if (drink == 18){drink="Ron Blanco";}
+											if (drink == 19){drink="Sidra";}
+											if (drink == 20){drink="Tequila";}
+											if (drink == 21){drink="Vermouth";}
+											if (drink == 22){drink="Vino";}
+											if (drink == 23){drink="Vodka";}
+											if (drink == 24){drink="Whisky";}
+											if (drink == 25){drink="Zumo";}
+										}
 						
 						var mode =  json[i].mode;
 						var modeString;
