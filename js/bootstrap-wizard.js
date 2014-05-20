@@ -358,7 +358,7 @@
 						'</div>',
 						'<div class="wizard-modal-footer">',
 							'<div class="wizard-buttons-container">',
-								'<button class="btn wizard-cancel wizard-close" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Cancelar</button>',
+								'<a href="../user/messages.php"><button class="btn wizard-cancel wizard-close" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Cancelar</button></a>',
 								
 							'</div>',
 						'</div>',

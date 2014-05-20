@@ -574,15 +574,99 @@ if(isset($_GET['idv'])){
 				}
 				
 				var music = json.music;
-				$("#music").text(music);
+					if (music == 0){$("#music").text("Acid-House");}	
+					if (music == 1){$("#music").text("Alternative Rock");}
+					if (music == 2){$("#music").text("Beatbox");}
+					if (music == 3){$("#music").text("Black Metal");}
+					if (music == 4){$("#music").text("Country");}
+					if (music == 5){$("#music").text("Death Metal");}
+					if (music == 6){$("#music").text("Deep House");}
+					if (music == 7){$("#music").text("Disco");}
+					if (music == 8){$("#music").text("Drum n Bass");}
+					if (music == 9){$("#music").text("Electro");}
+					if (music == 10){$("#music").text("Europop");}
+					if (music == 11){$("#music").text("Folk");}
+					if (music == 12){$("#music").text("Folk Rock");}
+					if (music == 13){$("#music").text("Funk");}
+					if (music == 14){$("#music").text("Hard Trance");}	
+					if (music == 15){$("#music").text("Hard-House");}
+					if (music == 16){$("#music").text("Hard-Rock");}
+					if (music == 17){$("#music").text("Hardcore");}
+					if (music == 18){$("#music").text("Hardstyle");}
+					if (music == 19){$("#music").text("Heavy Metal");}
+					if (music == 20){$("#music").text("Hip Hop");}
+					if (music == 21){$("#music").text("House");}
+					if (music == 22){$("#music").text("Indie Rock");}
+					if (music == 23){$("#music").text("Italo-Disco");}
+					if (music == 24){$("#music").text("Italo-Dance");}
+					if (music == 25){$("#music").text("Jungle");}
+					if (music == 26){$("#music").text("Latin");}
+					if (music == 27){$("#music").text("Makina");}	
+					if (music == 28){$("#music").text("Minimal");}
+					if (music == 29){$("#music").text("Pachanga");}
+					if (music == 30){$("#music").text("Pop-Rock");}
+					if (music == 31){$("#music").text("Progressive House");}
+					if (music == 32){$("#music").text("Progressive Trance");}
+					if (music == 33){$("#music").text("Punk");}
+					if (music == 34){$("#music").text("Reggae");}
+					if (music == 35){$("#music").text("Reggaeton");}
+					if (music == 36){$("#music").text("Rock & Roll");}
+					if (music == 37){$("#music").text("Ska");}
+					if (music == 38){$("#music").text("Soul");}
+					if (music == 39){$("#music").text("Soul-Jazz");}
+					if (music == 40){$("#music").text("Tech-House");}
+					if (music == 41){$("#music").text("Techno");}
+					if (music == 42){$("#music").text("Trance");}
+					if (music == 43){$("#music").text("Tribal-House");}
 				var civil_state = json.civil_state;
-				$("#civil_state").text(civil_state);
+					if (civil_state == 0){$("#civil_state").text("Sin compromiso");}
+					if (civil_state == 1){$("#civil_state").text("Ennoviad@");}
+					if (civil_state == 2){$("#civil_state").text("Con novi@,pero no es un problema");}
+					if (civil_state == 3){$("#civil_state").text("Buscando rollete");}
+					if (civil_state == 4){$("#civil_state").text("Casad@");}
+					if (civil_state == 5){$("#civil_state").text("Divorciad@");}
+					if (civil_state == 6){$("#civil_state").text("Viud@");}
 				var city = json.city;
 				$("#city").text(city);
+				
 				var drink = json.drink;
-				$("#drink").text(drink);
+					if (drink == 0){$("#drink").text("Agua con gas");}	
+					if (drink == 1){$("#drink").text("Agua sin gas");}
+					if (drink == 2){$("#drink").text("Anís");}
+					if (drink == 3){$("#drink").text("Bourbon");}
+					if (drink == 4){$("#drink").text("Brandy");}
+					if (drink == 5){$("#drink").text("Calimocho");}
+					if (drink == 6){$("#drink").text("Cava");}
+					if (drink == 7){$("#drink").text("Cerveza");}
+					if (drink == 8){$("#drink").text("Champagne");}
+					if (drink == 9){$("#drink").text("Coñac");}
+					if (drink == 10){$("#drink").text("Energética");}
+					if (drink == 11){$("#drink").text("Ginebra");}
+					if (drink == 12){$("#drink").text("Horchata");}
+					if (drink == 13){$("#drink").text("Licor con alcohol");}
+					if (drink == 14){$("#drink").text("Licor sin alcohol");}
+					if (drink == 15){$("#drink").text("Refresco con gas");}
+					if (drink == 16){$("#drink").text("Refresco sin gas");}
+					if (drink == 17){$("#drink").text("Ron añejo");}
+					if (drink == 18){$("#drink").text("Ron Blanco");}
+					if (drink == 19){$("#drink").text("Sidra");}
+					if (drink == 20){$("#drink").text("Tequila");}
+					if (drink == 21){$("#drink").text("Vermouth");}
+					if (drink == 22){$("#drink").text("Vino");}
+					if (drink == 23){$("#drink").text("Vodka");}
+					if (drink == 24){$("#drink").text("Whisky");}
+					if (drink == 25){$("#drink").text("Zumo");}
 				var about = json.about;
 				$("#about").text(about);
+				var twitter = json.twitter;
+				$("#twitter").text(twitter);
+				document.getElementById('twitter').href=twitter;
+				var facebook = json.facebook;
+				$("#facebook").text(facebook);
+				document.getElementById('facebook').href=facebook;
+				var instagram = json.instagram;
+				$("#instagram").text(instagram);
+				document.getElementById('instagram').href=instagram;
 				var mode = json.mode;
 				if (mode == 0){
 				modeString = "De tranquis";
@@ -643,15 +727,98 @@ if(isset($_GET['idv'])){
 				$("#gender").text("Mujer");
 			}
 			var music = json.music;
-			$("#music").text(music);
+					if (music == 0){$("#music").text("Acid-House");}	
+					if (music == 1){$("#music").text("Alternative Rock");}
+					if (music == 2){$("#music").text("Beatbox");}
+					if (music == 3){$("#music").text("Black Metal");}
+					if (music == 4){$("#music").text("Country");}
+					if (music == 5){$("#music").text("Death Metal");}
+					if (music == 6){$("#music").text("Deep House");}
+					if (music == 7){$("#music").text("Disco");}
+					if (music == 8){$("#music").text("Drum n Bass");}
+					if (music == 9){$("#music").text("Electro");}
+					if (music == 10){$("#music").text("Europop");}
+					if (music == 11){$("#music").text("Folk");}
+					if (music == 12){$("#music").text("Folk Rock");}
+					if (music == 13){$("#music").text("Funk");}
+					if (music == 14){$("#music").text("Hard Trance");}	
+					if (music == 15){$("#music").text("Hard-House");}
+					if (music == 16){$("#music").text("Hard-Rock");}
+					if (music == 17){$("#music").text("Hardcore");}
+					if (music == 18){$("#music").text("Hardstyle");}
+					if (music == 19){$("#music").text("Heavy Metal");}
+					if (music == 20){$("#music").text("Hip Hop");}
+					if (music == 21){$("#music").text("House");}
+					if (music == 22){$("#music").text("Indie Rock");}
+					if (music == 23){$("#music").text("Italo-Disco");}
+					if (music == 24){$("#music").text("Italo-Dance");}
+					if (music == 25){$("#music").text("Jungle");}
+					if (music == 26){$("#music").text("Latin");}
+					if (music == 27){$("#music").text("Makina");}	
+					if (music == 28){$("#music").text("Minimal");}
+					if (music == 29){$("#music").text("Pachanga");}
+					if (music == 30){$("#music").text("Pop-Rock");}
+					if (music == 31){$("#music").text("Progressive House");}
+					if (music == 32){$("#music").text("Progressive Trance");}
+					if (music == 33){$("#music").text("Punk");}
+					if (music == 34){$("#music").text("Reggae");}
+					if (music == 35){$("#music").text("Reggaeton");}
+					if (music == 36){$("#music").text("Rock & Roll");}
+					if (music == 37){$("#music").text("Ska");}
+					if (music == 38){$("#music").text("Soul");}
+					if (music == 39){$("#music").text("Soul-Jazz");}
+					if (music == 40){$("#music").text("Tech-House");}
+					if (music == 41){$("#music").text("Techno");}
+					if (music == 42){$("#music").text("Trance");}
+					if (music == 43){$("#music").text("Tribal-House");}
 			var civil_state = json.civil_state;
-			$("#civil_state").text(civil_state);
+					if (civil_state == 0){$("#civil_state").text("Sin compromiso");}
+					if (civil_state == 1){$("#civil_state").text("Ennoviad@");}
+					if (civil_state == 2){$("#civil_state").text("Con novi@,pero no es un problema");}
+					if (civil_state == 3){$("#civil_state").text("Buscando rollete");}
+					if (civil_state == 4){$("#civil_state").text("Casad@");}
+					if (civil_state == 5){$("#civil_state").text("Divorciad@");}
+					if (civil_state == 6){$("#civil_state").text("Viud@");}
 			var city = json.city;
 			$("#city").text(city);
 			var drink = json.drink;
-			$("#drink").text(drink);
+					if (drink == 0){$("#drink").text("Agua con gas");}	
+					if (drink == 1){$("#drink").text("Agua sin gas");}
+					if (drink == 2){$("#drink").text("Anís");}
+					if (drink == 3){$("#drink").text("Bourbon");}
+					if (drink == 4){$("#drink").text("Brandy");}
+					if (drink == 5){$("#drink").text("Calimocho");}
+					if (drink == 6){$("#drink").text("Cava");}
+					if (drink == 7){$("#drink").text("Cerveza");}
+					if (drink == 8){$("#drink").text("Champagne");}
+					if (drink == 9){$("#drink").text("Coñac");}
+					if (drink == 10){$("#drink").text("Energética");}
+					if (drink == 11){$("#drink").text("Ginebra");}
+					if (drink == 12){$("#drink").text("Horchata");}
+					if (drink == 13){$("#drink").text("Licor con alcohol");}
+					if (drink == 14){$("#drink").text("Licor sin alcohol");}
+					if (drink == 15){$("#drink").text("Refresco con gas");}
+					if (drink == 16){$("#drink").text("Refresco sin gas");}
+					if (drink == 17){$("#drink").text("Ron añejo");}
+					if (drink == 18){$("#drink").text("Ron Blanco");}
+					if (drink == 19){$("#drink").text("Sidra");}
+					if (drink == 20){$("#drink").text("Tequila");}
+					if (drink == 21){$("#drink").text("Vermouth");}
+					if (drink == 22){$("#drink").text("Vino");}
+					if (drink == 23){$("#drink").text("Vodka");}
+					if (drink == 24){$("#drink").text("Whisky");}
+					if (drink == 25){$("#drink").text("Zumo");}	
 			var about = json.about;
 			$("#about").text(about);
+			var twitter = json.twitter;
+			$("#twitter").text(twitter);
+			document.getElementById('twitter').href=twitter;
+			var facebook = json.facebook;
+			$("#facebook").text(facebook);
+			document.getElementById('facebook').href=facebook;
+			var instagram = json.instagram;
+			$("#instagram").text(instagram);
+			document.getElementById('instagram').href=instagram;
 			var mode = json.mode;
 			if (mode == 0) {
 				modeString = "De tranquis";
@@ -795,7 +962,7 @@ if(isset($_GET['idv'])){
 										<h3 style="border-color:#ff6b24"><span style="color:#ff6b24;border-color:#ff6b24">Información</span></h3>
 
 										<div class="row profile-user-info">
-											<div class="col-sm-8">
+											<div class="col-sm-6">
 												<div class="profile-user-details clearfix">
 													<div class="profile-user-details-label"style="color:#34d1be;">
 														Nombre y Apellidos
@@ -843,7 +1010,7 @@ if(isset($_GET['idv'])){
 														Ciudad Actual
 													</div>
 													<div id="city" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-														<?php //echo $_SESSION['city']; ?>
+														
 													</div>
 												</div>
 												<br>
@@ -852,7 +1019,7 @@ if(isset($_GET['idv'])){
 														Música Favorita
 													</div>
 													<div id="music" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-														<?php //echo $_SESSION['music']; ?>
+														
 													</div>
 												</div>
 												<br>
@@ -861,21 +1028,21 @@ if(isset($_GET['idv'])){
 														Bebida Favorita
 													</div>
 													<div id="drink" class="profile-user-details-value"style="color:#707070;margin-bottom:-3%">
-														<?php echo $_SESSION['drink']; ?>
+														
 													</div>
 												</div>
 											</div>
 
-											<div class="col-sm-4 profile-social">
+											<div class="col-sm-6 profile-social">
 												<ul class="fa-ul" style="color:orange">
 													<li>
-														<i class=""></i><a href="#">@Twitter</a>
+														<i class=""></i>@Twitter <a id="twitter"href="" target="_blank"></a>
 													</li>
 													<li>
-														<i class=""></i><a href="#">Facebook</a>
-													</li>
+														<i class=""></i>Facebook <a id="facebook"href=""target="_blank"></a>
+													</li>                                              
 													<li>
-														<i class=""></i><a href="#">Instagram</a>
+														<i class=""></i>Instagram <a id="instagram"href=""target="_blank"></a>
 													</li>
 
 												</ul>
@@ -895,9 +1062,9 @@ if(isset($_GET['idv'])){
 												<li>
 													<a href="#tab-club" data-toggle="tab">Locales</a>
 												</li>
-												<li>
+												<!--<li>
 													<a href="#tab-photos" data-toggle="tab">Fotos</a>
-												</li>
+												</li>-->
 											</ul>
 											<!-- begin Activity -->
 											<div class="tab-content">
@@ -1000,8 +1167,8 @@ if(isset($_GET['idv'])){
 												</div>
 												<!-- end Clubs -->
 												<!-- begin Fotos -->
-												<div class="tab-pane fade" id="tab-photos">
-													<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
+												<!--<div class="tab-pane fade" id="tab-photos">
+														<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
 													<form class="form-inline">
 													<div class="form-group">
 													<a href="#"id="image-gallery-button" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Ver todas</a>
@@ -1040,9 +1207,9 @@ if(isset($_GET['idv'])){
 													</div>
 													</div>
 													</div>
-													</div>-->
+													</div>
 
-												</div>
+												</div>-->
 												<!--end Fotos -->
 
 											</div>

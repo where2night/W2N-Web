@@ -101,6 +101,12 @@ include_once "../framework/sessions.php";
         $("#favourite-drink").val(drink);
         var about = json.about;
         $("#about-you").val(about);
+		var twitter = json.twitter;
+		$("#twitter").val(twitter);
+		var facebook = json.facebook;
+		$("#facebook").val(facebook);
+		var instagram = json.instagram;
+		$("#instagram").val(instagram);
         var mode = json.mode;
         if (mode == 0){
             modeString = "De tranquis";
@@ -147,6 +153,9 @@ include_once "../framework/sessions.php";
         var city = $('#city').val();
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
+		var twitter = $('#twitter').val();
+		var facebook = $('#facebook').val();
+		var instagram = $('#instagram').val();
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
@@ -171,7 +180,10 @@ include_once "../framework/sessions.php";
               city: city,
               drink: drink,
               picture: picture,
-              about: about
+              about: about,
+			  facebook: facebook,
+	    	  twitter: twitter,
+			  instagram: instagram
             },
             complete: function(r){
               $.post("../framework/session_start.php",
@@ -188,7 +200,10 @@ include_once "../framework/sessions.php";
 	                    civil_state: civil_state,
 	                    city: city,
 	                    drink: drink,
-	                    about: about
+	                    about: about,
+						facebook: facebook,
+						twitter: twitter,
+						instagram: instagram
                     },
                     function(data,status){
                       window.location.href="home.php";
@@ -223,6 +238,9 @@ include_once "../framework/sessions.php";
         var city = $('#city').val();
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
+		var twitter = $('#twitter').val();
+		var facebook = $('#facebook').val();
+		var instagram = $('#instagram').val();
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
@@ -247,7 +265,10 @@ include_once "../framework/sessions.php";
               city: city,
               drink: drink,
               picture: picture,
-              about: about
+              about: about,
+			  facebook: facebook,
+			  twitter: twitter,
+			  instagram: instagram
             },
             complete: function(r){
               $.post("../framework/session_start.php",
@@ -264,7 +285,10 @@ include_once "../framework/sessions.php";
                       civil_state: civil_state,
                       city: city,
                       drink: drink,
-                      about: about
+                      about: about,
+					  facebook: facebook,
+					  twitter: twitter,
+					  instagram: instagram
                     },
                     function(data,status){
                       window.location.href="home.php";
@@ -299,6 +323,9 @@ include_once "../framework/sessions.php";
         var city = $('#city').val();
         var drink = $('#favourite-drink').val();
         var about = $('#about-you').val();
+		var twitter = $('#twitter').val();
+		var facebook = $('#facebook').val();
+		var instagram = $('#instagram').val();
         var img_url = $("#preview").find("#profile_photo").attr("src");
         if (img_url != undefined){
           var picture = img_url;
@@ -323,7 +350,10 @@ include_once "../framework/sessions.php";
               city: city,
               drink: drink,
               picture: picture,
-              about: about
+              about: about,
+			  facebook: facebook,
+			  twitter: twitter,
+			  instagram: instagram
             },
             complete: function(r){
               $.post("../framework/session_start.php",
@@ -340,7 +370,10 @@ include_once "../framework/sessions.php";
                       civil_state: civil_state,
                       city: city,
                       drink: drink,
-                      about: about
+                      about: about,
+					  facebook: facebook,
+					  twitter: twitter,
+					  instagram: instagram
                     },
                     function(data,status){
                       window.location.href="home.php";
@@ -528,38 +561,131 @@ include_once "../framework/sessions.php";
 										<!-- Comienza Details -->
 											<div class="tab-pane fade " id="tab-details">
 												 <form class="form-horizontal " style="width:99%"role="form">
-                                                        <div class="form-group">
-                                                            <label for="marital-status" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Estado Civil</label>
-                                                            <div class="col-lg-10">
-                                                                <input type="text" class="form-control" id="marital-status" placeholder="Estado Civil">             
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
+														<div class="form-group">
                                                             <label for="city" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Ciudad Actual</label>
                                                             <div class="col-lg-10">
                                                                 <input type="text" class="form-control" id="city" placeholder="Ciudad Actual">
                                                                 
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="favourite-music" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Música Favorita</label>
-                                                            <div class="col-lg-10">
-                                                                <input id="favourite-music" name="favourite-music" type="text" placeholder="Música Favorita" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="favourite-drink" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Bebida Favorita</label>
-                                                            <div class="col-lg-10">
-                                                                <input id="favourite-drink" name="favourite-drink" type="text" placeholder="Bebida Favorita" class="form-control">
-                                                            </div>
-                                                        </div>
+														<div class="form-group">
+																<label for="marital-status" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Estado Civil</label>
+																<div class="col-sm-2">
+																<select id="marital-status" class="form-control">
+																	<option value="0" selected>Sin compromiso</option>
+																	<option value="1">Ennoviad@</option>
+																	<option value="2">Con novi@,pero no es un problema</option>
+																	<option value="4">Buscando rollete</option>
+																	<option value="5">Casad@</option>
+																	<option value="6">Divorciad@</option>
+																	<option value="7">Viud@</option>
+																</select>
+																</div>
+																<label for="favourite-music" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Música Favorita</label>
+																<div class="col-sm-2">
+																<select id="favourite-music" class="form-control">
+																	<option value="0" selected>Acid-House</option>
+																	<option value="1">Alternative Rock</option>
+																	<option value="2">Beatbox</option>
+																	<option value="3">Black Metal</option>
+																	<option value="4">Country</option>
+																	<option value="5">Death Metal</option>
+																	<option value="6">Deep House</option>
+																	<option value="7">Disco</option>
+																	<option value="8">Drum n Bass</option>
+																	<option value="9">Electro</option>
+																	<option value="10">Europop</option>
+																	<option value="11">Folk</option>
+																	<option value="12">Folk Rock</option>
+																	<option value="13">Funk</option>
+																	<option value="14">Hard Trance</option>
+																	<option value="15">Hard-House</option>
+																	<option value="16">Hard-Rock</option>
+																	<option value="17">Hardcore</option>
+																	<option value="18">Hardstyle</option>
+																	<option value="19">Heavy Metal</option>
+																	<option value="20">Hip Hop</option>
+																	<option value="21">House</option>
+																	<option value="22">Indie Rock</option>
+																	<option value="23">Italo-Disco</option>
+																	<option value="24">Italo-Dance</option>
+																	<option value="25">Jungle</option>
+																	<option value="26">Latin</option>
+																	<option value="27">Makina</option>
+																	<option value="28">Minimal</option>
+																	<option value="29">Pachanga</option>
+																	<option value="30">Pop-Rock</option>
+																	<option value="31">Progressive House</option>
+																	<option value="32">Progressive Trance</option>
+																	<option value="33">Punk</option>
+																	<option value="34">Reggae</option>
+																	<option value="35">Reggaeton</option>
+																	<option value="36">Rock & Roll</option>
+																	<option value="37">Ska</option>
+																	<option value="38">Soul</option>
+																	<option value="39">Soul-Jazz</option>
+																	<option value="40">Tech-House</option>
+																	<option value="41">Techno</option>
+																	<option value="42">Trance</option>
+																	<option value="43">Tribal-House</option>
+																</select>
+																</div>
+																<label for="favourite-drink" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Bebida Favorita</label>
+																<div class="col-sm-2">
+																<select id="favourite-drink" class="form-control">
+																	<option value="0" selected>Agua con gas</option>
+																	<option value="1">Agua sin gas</option>
+																	<option value="2">Anís</option>
+																	<option value="3">Bourbon</option>
+																	<option value="4">Brandy</option>
+																	<option value="5">Calimocho</option>
+																	<option value="6">Cava</option>
+																	<option value="7">Cerveza</option>
+																	<option value="8">Champagne</option>
+																	<option value="9">Coñac</option>
+																	<option value="10">Energética</option>
+																	<option value="11">Ginebra</option>
+																	<option value="12">Horchata</option>
+																	<option value="13">Licor con alcohol</option>
+																	<option value="14">Licor sin alcohol</option>
+																	<option value="15">Refresco con gas</option>
+																	<option value="16">Refresco sin gas</option>
+																	<option value="17">Ron añejo</option>
+																	<option value="18">Ron Blanco</option>
+																	<option value="19">Sidra</option>
+																	<option value="20">Tequila</option>
+																	<option value="21">Vermouth</option>
+																	<option value="22">Vino</option>
+																	<option value="23">Vodka</option>
+																	<option value="24">Whisky</option>
+																	<option value="25">Zumo</option>
+																</select>
+																</div>
+														</div>
+														
 														<div class="form-group">
                                                             <label for="about-you" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Acerca de Mi</label>
                                                             <div class="col-lg-10">
                                                                 <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"></textarea>
                                                             </div>
                                                         </div>
-														
+														<div class="form-group">
+															<label for="twitter" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">@Twitter</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="twitter" placeholder="@Twitter">
+                                                             
+                                                            </div>
+															<label for="facebook" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Facebook</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="facebook" placeholder="Facebook">
+                                                             
+                                                            </div>
+                                                            <label for="instagram" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Instagram</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="instagram" placeholder="Instagram">
+                                                             
+                                                            </div>
+                                                        </div>
                                                      </form>   
 													<a id="change-data1" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>	
 													
