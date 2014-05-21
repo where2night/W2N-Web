@@ -575,10 +575,10 @@ include_once "../framework/sessions.php";
 																	<option value="0" selected>Sin compromiso</option>
 																	<option value="1">Ennoviad@</option>
 																	<option value="2">Con novi@,pero no es un problema</option>
-																	<option value="4">Buscando rollete</option>
-																	<option value="5">Casad@</option>
-																	<option value="6">Divorciad@</option>
-																	<option value="7">Viud@</option>
+																	<option value="3">Buscando rollete</option>
+																	<option value="4">Casad@</option>
+																	<option value="5">Divorciad@</option>
+																	<option value="6">Viud@</option>
 																</select>
 																</div>
 																<label for="favourite-music" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Música Favorita</label>
