@@ -61,7 +61,7 @@ include_once "../framework/sessions.php";
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-				alert(r2.responseText);
+				//alert(r2.responseText);
 				var picture = json.picture;
 		        if (picture.length >0){   
 		          $( "#imageform" ).prepend('<div> <label for="actual-photo" class="col-lg-2 control-label" style="color:#ff6b24;font-size:15px;">Imagen actual</label><img src="' + picture + '" name="actual-photo" id="actual-photo" style="width:300px;margin:10px;padding:10px;" /> </div>');
@@ -102,6 +102,12 @@ include_once "../framework/sessions.php";
 				}); 
 				var about = json.about;
 				$('#about-you').val(about);
+				var facebook = json.facebook;
+				$('#facebook').val(facebook);
+				var twitter = json.twitter;
+				$('#twitter').val(twitter);
+				var instagram = json.instagram;
+				$('#instagram').val(instagram);
 		
 			},
 			onerror: function(e,val){
@@ -162,6 +168,10 @@ include_once "../framework/sessions.php";
 	          var picture = $("#actual-photo").attr("src");
 	        }
 
+	        var facebook = $('#facebook').val();
+	        var twitter = $('#twitter').val();
+	        var instagram = $('#instagram').val();
+
 	        var params = "/" + idProfile + "/" + token;
 	        
 	         console.log($.ajax({
@@ -186,7 +196,10 @@ include_once "../framework/sessions.php";
 	              openingHours: openingHours,
 	              closeHours: closeHours,
 	              picture: picture,
-	              about: about
+	              about: about,
+	              facebook: facebook,
+	              twitter: twitter,
+	              instagram: instagram,
 	            },
 	            complete: function(r){
 	              $.post("../framework/session_start.php",
@@ -224,7 +237,7 @@ include_once "../framework/sessions.php";
 	    });
 
 		$("#change-data1").on("click", function (event) {
-	          
+	        
 	        var idProfile = <?php echo $_SESSION['id_user'];?>;
 	        var token = "<?php echo $_SESSION['token'];?>";
 	        var companyName = $('#company_name').val();
@@ -276,6 +289,10 @@ include_once "../framework/sessions.php";
 	          var picture = $("#actual-photo").attr("src");
 	        }
 
+	        var facebook = $('#facebook').val();
+	        var twitter = $('#twitter').val();
+	        var instagram = $('#instagram').val();
+
 	        var params = "/" + idProfile + "/" + token;
 	        
 	         console.log($.ajax({
@@ -300,7 +317,10 @@ include_once "../framework/sessions.php";
 	              openingHours: openingHours,
 	              closeHours: closeHours,
 	              picture: picture,
-	              about: about
+	              about: about,
+	              facebook: facebook,
+	              twitter: twitter,
+	              instagram: instagram,
 	            },
 	            complete: function(r){
 	              $.post("../framework/session_start.php",
@@ -335,11 +355,10 @@ include_once "../framework/sessions.php";
 	              alert("Hay error");
 	            }
 	        }));
-	    });	
+	    });
 
 		$("#change-data2").on("click", function (event) {
-	          
-	        var idProfile = <?php echo $_SESSION['id_user'];?>;
+	 var idProfile = <?php echo $_SESSION['id_user'];?>;
 	        var token = "<?php echo $_SESSION['token'];?>";
 	        var companyName = $('#company_name').val();
 	        var localName = $('#local_name').val();
@@ -390,6 +409,10 @@ include_once "../framework/sessions.php";
 	          var picture = $("#actual-photo").attr("src");
 	        }
 
+	        var facebook = $('#facebook').val();
+	        var twitter = $('#twitter').val();
+	        var instagram = $('#instagram').val();
+
 	        var params = "/" + idProfile + "/" + token;
 	        
 	         console.log($.ajax({
@@ -414,7 +437,10 @@ include_once "../framework/sessions.php";
 	              openingHours: openingHours,
 	              closeHours: closeHours,
 	              picture: picture,
-	              about: about
+	              about: about,
+	              facebook: facebook,
+	              twitter: twitter,
+	              instagram: instagram,
 	            },
 	            complete: function(r){
 	              $.post("../framework/session_start.php",
@@ -449,8 +475,7 @@ include_once "../framework/sessions.php";
 	              alert("Hay error");
 	            }
 	        }));
-	    });	
-
+	    });
 		$("#timepicker_open").kendoTimePicker({
 		    format: "HH:mm"
 		});
@@ -599,6 +624,7 @@ include_once "../framework/sessions.php";
                                                                 <input type="password" class="form-control together" id="inputpassword2" placeholder="Repite Contraseña">
                                                             </div>
                                                         </div> -->
+
                                                        
                                                     </form>
 													<a id="change-data" class="btn btn-success" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:44%">Guardar Cambios</a>		
@@ -691,6 +717,23 @@ include_once "../framework/sessions.php";
                                                             <label for="about-you" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Acerca de Mi</label>
                                                             <div class="col-lg-9">
                                                                 <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+															<label for="twitter" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">@Twitter</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="twitter" placeholder="@Twitter">
+                                                             
+                                                            </div>
+															<label for="facebook" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Facebook</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="facebook" placeholder="Facebook">
+                                                             
+                                                            </div>
+                                                            <label for="instagram" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Instagram</label>
+                                                            <div class="col-sm-2">
+                                                                <input type="text" class="form-control" id="instagram" placeholder="Instagram">
+                                                             
                                                             </div>
                                                         </div>
 														
