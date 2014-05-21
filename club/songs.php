@@ -130,13 +130,14 @@ $token=$_SESSION['token'];
 											<div class="tab-pane fade in active" id="tab-newSong">
 												<form class="form-horizontal" style="width:99%"role="form">
 													<div class="form-group">
-                                                        <label for="title" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre de la canción</label>
+														
+                                                        <span for="title" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Nombre de la canción</span>
                                                         <div class="col-lg-9">
                                                             <input type="text" class="form-control" id="song_name" style="width:55%;" name="" placeholder="Nombre de la canción">
                                                         </div>
                                                     </div>
 													<div class="form-group">
-                                                        <label for="title" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Artista</label>
+                                                        <span for="title" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Artista</span>
                                                         <div class="col-lg-9">
                                                             <input type="text" class="form-control" id="artist" style="width:55%;" name="" placeholder="Artista">
                                                         </div>
@@ -156,9 +157,11 @@ $token=$_SESSION['token'];
 														<table id="my_songs" class="table user-list">
 															<thead>
 																<tr>
+																	<a id="" class="btn btn-success" onclick="restartPlayList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:84%">Empezar set</a>
 																	<th><span style="color:#FF6B24;border-color:#ff6b24">Canción</span></th>									
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Nombre artista</span></th>
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>
+																	<th>&nbsp;</th>
 																	<th>&nbsp;</th>
 																	<th>&nbsp;</th>
 																</tr>
