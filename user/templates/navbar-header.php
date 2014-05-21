@@ -260,9 +260,9 @@ function numMessages(){
 			async: false,
 			complete: function(r){
 			var json = JSON.parse(r.responseText);
-			var count=json.numPetitions;
+			var count =json.length;
 			
-			var noti=document.getElementById('numNoti').innerHTML;
+			var noti=document.getElementById('numMess').innerHTML;
 			if (count != 0)
 				noti = noti.concat(count);
 			else{
@@ -270,7 +270,7 @@ function numMessages(){
 				noti = noti.concat(count);
 				noti = noti.concat("</b>");
 			}
-			document.getElementById('numNoti').innerHTML=noti;
+			document.getElementById('numMess').innerHTML=noti;
 			},
 			onerror: function(e,val){
 			alert("No se pueden saber las notificaciones");
@@ -294,26 +294,21 @@ function messages(){
 			async: false,
 			complete: function(r){
 			var json = JSON.parse(r.responseText);
-			var count=json.numPetitions;
+			var count=json.length;
 	   		var i=0;
 			if (count==0)
-				document.write("<li id='li' class='item-header'style='line-height:15px;'>No tienes peticiones de amistad</li>");
+				document.write("<li id='li' class='item-header'style='line-height:15px;'>No tienes mensajes nuevos</li>");
 			else if (count==1)
-				document.write("<li id='li' class='item-header'style='line-height:15px;'>Tienes "+ count + " petición de amistad</li>");
+				document.write("<li id='li' class='item-header'style='line-height:15px;'>Tienes "+ count + " mensaje nuevo</li>");
 			else
-				document.write("<li id='li' class='item-header'style='line-height:15px;'>Tienes "+ count + " peticiones de amistad</li>");
+				document.write("<li id='li' class='item-header'style='line-height:15px;'>Tienes "+ count + " mensajes nuevos</li>");
 			
 			while (i<count){
 				var id_user = json[i].idProfile;			
-				var picture = json[i].picture;
-				if (picture == null || picture.length == 0){
-					picture = "../images/reg1.jpg";
-				}
-				var link = "../user/profile.php?idv=" + id_user;
 				var name = json[i].name;	
 				var surnames = json[i].surnames;
 				
-				document.write("<li id="+id_user+" class='item'style='line-height:15px;'><i class='glyphicon glyphicon-user'style='margin-top:4%;margin-left:3%;color:#ff6b24;'></i><span class='content' style='font-size:13px'><b style='text-transform: uppercase;margin-left:3%;color:#000'>"+name+" "+surnames+"</b><b style='margin-left:2%'>desea ser tu amigo</b><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='aceptarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Aceptar</button><button id="+id_user+" class='btn pull-right' value='Aceptar' type='button' onclick='cancelarbtn(this.id);' style='background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Cancelar</button></span><p style='font-size:11px'><i class='glyphicon glyphicon-time' style='font-size:11px;margin-left:9%;color:#ff6b24'></i> hace 13 min</p></li>");
+				document.write("<li id="+id_user+" class='item'style='line-height:15px;'><i class='glyphicon glyphicon-user'style='margin-top:4%;margin-left:3%;color:#ff6b24;'></i><span class='content' style='font-size:13px'><b style='text-transform: uppercase;margin-left:3%;color:#000'>"+name+" "+surnames+"</b><b style='margin-left:2%'>te ha enviado un mensaje</b><p style='font-size:11px'><i class='glyphicon glyphicon-time' style='font-size:11px;margin-left:9%;color:#ff6b24'></i> hace 13 min</p></li>");
 				
 					i=i+1;		
 			}
@@ -374,9 +369,9 @@ function messages(){
 						
 					</ul>
 				</li>
-				<!--<li id="mess"class="dropdown hidden-xs">
+				<li id="mess"class="dropdown hidden-xs">
 					<a class="btn dropdown-toggle" data-toggle="dropdown" style="box-shadow:none;border-bottom:0px;background-color:#000;border-color:#ff6b24">
-						<i class="glyphicon glyphicon-envelope"style="color:#ff6b24"></i>
+						<i class="glyphicon glyphicon-envelope"style="margin-top:30%;color:#ff6b24"></i>
 						<span id="numMess" class="count" style="color:#34d1be"><script>numMessages();</script></span>
 					</a>
 					
@@ -384,10 +379,10 @@ function messages(){
 						
 						<script>
 							messages();
-						</script>	
+						</script>
 						
 					</ul>
-				</li>-->
+				</li>
 			</ul>
 			<!-- /Notifications -->
            <form class="navbar-form navbar-left" role="search">
