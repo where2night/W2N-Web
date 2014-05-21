@@ -61,7 +61,7 @@ include_once "../framework/sessions.php";
 			timeout: 5000,
 			complete: function(r2){
 				var json = JSON.parse(r2.responseText);
-
+				alert(r2.responseText);
 				var picture = json.picture;
 		        if (picture.length >0){   
 		          $( "#imageform" ).prepend('<div> <label for="actual-photo" class="col-lg-2 control-label" style="color:#ff6b24;font-size:15px;">Imagen actual</label><img src="' + picture + '" name="actual-photo" id="actual-photo" style="width:300px;margin:10px;padding:10px;" /> </div>');
@@ -538,7 +538,7 @@ include_once "../framework/sessions.php";
 											<li><a href="#tab-photo" data-toggle="tab">Foto</a></li>
 										</ul>
 										
-										<div class="tab-content">
+										<div class="tab-content" style="overflow-y:hidden !important">
 										<!-- Comienza Basic-->
 											<div class="tab-pane fade in active" id="tab-basic">
 												 <form class="form-horizontal" style="width:99%"role="form">
@@ -607,14 +607,64 @@ include_once "../framework/sessions.php";
 										<!-- Termina Basic -->	
 										<!-- Comienza Details -->
 											<div class="tab-pane fade " id="tab-details">
-												 <form class="form-horizontal " style="width:99%"role="form">
-													
-                                                        <div class="form-group">
+												 <form class="form-horizontal " style="width:99%" role="form">
+														<div class="form-group">
+														<label for="music-style" class="col-lg-2 control-label" style="color:#ff6b24;font-size:13px;">Estilo de Música</label>
+																<div class="col-sm-2">
+																<select id="music-style" class="form-control">
+																	<option value="0" selected>Acid-House</option>
+																	<option value="1">Alternative Rock</option>
+																	<option value="2">Beatbox</option>
+																	<option value="3">Black Metal</option>
+																	<option value="4">Country</option>
+																	<option value="5">Death Metal</option>
+																	<option value="6">Deep House</option>
+																	<option value="7">Disco</option>
+																	<option value="8">Drum n Bass</option>
+																	<option value="9">Electro</option>
+																	<option value="10">Europop</option>
+																	<option value="11">Folk</option>
+																	<option value="12">Folk Rock</option>
+																	<option value="13">Funk</option>
+																	<option value="14">Hard Trance</option>
+																	<option value="15">Hard-House</option>
+																	<option value="16">Hard-Rock</option>
+																	<option value="17">Hardcore</option>
+																	<option value="18">Hardstyle</option>
+																	<option value="19">Heavy Metal</option>
+																	<option value="20">Hip Hop</option>
+																	<option value="21">House</option>
+																	<option value="22">Indie Rock</option>
+																	<option value="23">Italo-Disco</option>
+																	<option value="24">Italo-Dance</option>
+																	<option value="25">Jungle</option>
+																	<option value="26">Latin</option>
+																	<option value="27">Makina</option>
+																	<option value="28">Minimal</option>
+																	<option value="29">Pachanga</option>
+																	<option value="30">Pop-Rock</option>
+																	<option value="31">Progressive House</option>
+																	<option value="32">Progressive Trance</option>
+																	<option value="33">Punk</option>
+																	<option value="34">Reggae</option>
+																	<option value="35">Reggaeton</option>
+																	<option value="36">Rock & Roll</option>
+																	<option value="37">Ska</option>
+																	<option value="38">Soul</option>
+																	<option value="39">Soul-Jazz</option>
+																	<option value="40">Tech-House</option>
+																	<option value="41">Techno</option>
+																	<option value="42">Trance</option>
+																	<option value="43">Tribal-House</option>
+																</select>
+														</div>
+														</div>
+                                                       <!-- <div class="form-group">
                                                             <label for="music-style" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Estilo de Música</label>
                                                             <div class="col-lg-10">
                                                                 <input id="music-style" name="favourite-music" type="text" placeholder="Estilo de Música" class="form-control">
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="form-group">
                                                             <label for="entryPrice" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Precio Entrada (en €)</label>
                                                             <div class="col-lg-1">
@@ -639,7 +689,7 @@ include_once "../framework/sessions.php";
 														
 														<div class="form-group">
                                                             <label for="about-you" class="col-lg-2 control-label"style="color:#ff6b24;font-size:13px;">Acerca de Mi</label>
-                                                            <div class="col-lg-10">
+                                                            <div class="col-lg-9">
                                                                 <textarea id="about-you" class="form-control" placeholder="Acerca de Mi..." rows="6" style="font-size:13px"></textarea>
                                                             </div>
                                                         </div>

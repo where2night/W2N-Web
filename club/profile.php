@@ -138,8 +138,52 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		address += poblationLocal + " ";
 		$('[name="address"]').text(address);
 
+		
 		var music = json.music;
-		$('[name="music"]').text(music);
+					if (music == 0){$('[name="music"]').text("Acid-House");}	
+					if (music == 1){$('[name="music"]').text("Alternative Rock");}
+					if (music == 2){$('[name="music"]').text("Beatbox");}
+					if (music == 3){$('[name="music"]').text("Black Metal");}
+					if (music == 4){$('[name="music"]').text("Country");}
+					if (music == 5){$('[name="music"]').text("Death Metal");}
+					if (music == 6){$('[name="music"]').text("Deep House");}
+					if (music == 7){$('[name="music"]').text("Disco");}
+					if (music == 8){$('[name="music"]').text("Drum n Bass");}
+					if (music == 9){$('[name="music"]').text("Electro");}
+					if (music == 10){$('[name="music"]').text("Europop");}
+					if (music == 11){$('[name="music"]').text("Folk");}
+					if (music == 12){$('[name="music"]').text("Folk Rock");}
+					if (music == 13){$('[name="music"]').text("Funk");}
+					if (music == 14){$('[name="music"]').text("Hard Trance");}	
+					if (music == 15){$('[name="music"]').text("Hard-House");}
+					if (music == 16){$('[name="music"]').text("Hard-Rock");}
+					if (music == 17){$('[name="music"]').text("Hardcore");}
+					if (music == 18){$('[name="music"]').text("Hardstyle");}
+					if (music == 19){$('[name="music"]').text("Heavy Metal");}
+					if (music == 20){$('[name="music"]').text("Hip Hop");}
+					if (music == 21){$('[name="music"]').text("House");}
+					if (music == 22){$('[name="music"]').text("Indie Rock");}
+					if (music == 23){$('[name="music"]').text("Italo-Disco");}
+					if (music == 24){$('[name="music"]').text("Italo-Dance");}
+					if (music == 25){$('[name="music"]').text("Jungle");}
+					if (music == 26){$('[name="music"]').text("Latin");}
+					if (music == 27){$('[name="music"]').text("Makina");}	
+					if (music == 28){$('[name="music"]').text("Minimal");}
+					if (music == 29){$('[name="music"]').text("Pachanga");}
+					if (music == 30){$('[name="music"]').text("Pop-Rock");}
+					if (music == 31){$('[name="music"]').text("Progressive House");}
+					if (music == 32){$('[name="music"]').text("Progressive Trance");}
+					if (music == 33){$('[name="music"]').text("Punk");}
+					if (music == 34){$('[name="music"]').text("Reggae");}
+					if (music == 35){$('[name="music"]').text("Reggaeton");}
+					if (music == 36){$('[name="music"]').text("Rock & Roll");}
+					if (music == 37){$('[name="music"]').text("Ska");}
+					if (music == 38){$('[name="music"]').text("Soul");}
+					if (music == 39){$('[name="music"]').text("Soul-Jazz");}
+					if (music == 40){$('[name="music"]').text("Tech-House");}
+					if (music == 41){$('[name="music"]').text("Techno");}
+					if (music == 42){$('[name="music"]').text("Trance");}
+					if (music == 43){$('[name="music"]').text("Tribal-House");}
 
 		var entryPrice = json.entryPrice;
 		if (entryPrice != '0'){
@@ -242,7 +286,50 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		$('[name="address"]').text(address);
 
 		var music = json.music;
-		$('[name="music"]').text(music);
+					if (music == 0){$('[name="music"]').text("Acid-House");}	
+					if (music == 1){$('[name="music"]').text("Alternative Rock");}
+					if (music == 2){$('[name="music"]').text("Beatbox");}
+					if (music == 3){$('[name="music"]').text("Black Metal");}
+					if (music == 4){$('[name="music"]').text("Country");}
+					if (music == 5){$('[name="music"]').text("Death Metal");}
+					if (music == 6){$('[name="music"]').text("Deep House");}
+					if (music == 7){$('[name="music"]').text("Disco");}
+					if (music == 8){$('[name="music"]').text("Drum n Bass");}
+					if (music == 9){$('[name="music"]').text("Electro");}
+					if (music == 10){$('[name="music"]').text("Europop");}
+					if (music == 11){$('[name="music"]').text("Folk");}
+					if (music == 12){$('[name="music"]').text("Folk Rock");}
+					if (music == 13){$('[name="music"]').text("Funk");}
+					if (music == 14){$('[name="music"]').text("Hard Trance");}	
+					if (music == 15){$('[name="music"]').text("Hard-House");}
+					if (music == 16){$('[name="music"]').text("Hard-Rock");}
+					if (music == 17){$('[name="music"]').text("Hardcore");}
+					if (music == 18){$('[name="music"]').text("Hardstyle");}
+					if (music == 19){$('[name="music"]').text("Heavy Metal");}
+					if (music == 20){$('[name="music"]').text("Hip Hop");}
+					if (music == 21){$('[name="music"]').text("House");}
+					if (music == 22){$('[name="music"]').text("Indie Rock");}
+					if (music == 23){$('[name="music"]').text("Italo-Disco");}
+					if (music == 24){$('[name="music"]').text("Italo-Dance");}
+					if (music == 25){$('[name="music"]').text("Jungle");}
+					if (music == 26){$('[name="music"]').text("Latin");}
+					if (music == 27){$('[name="music"]').text("Makina");}	
+					if (music == 28){$('[name="music"]').text("Minimal");}
+					if (music == 29){$('[name="music"]').text("Pachanga");}
+					if (music == 30){$('[name="music"]').text("Pop-Rock");}
+					if (music == 31){$('[name="music"]').text("Progressive House");}
+					if (music == 32){$('[name="music"]').text("Progressive Trance");}
+					if (music == 33){$('[name="music"]').text("Punk");}
+					if (music == 34){$('[name="music"]').text("Reggae");}
+					if (music == 35){$('[name="music"]').text("Reggaeton");}
+					if (music == 36){$('[name="music"]').text("Rock & Roll");}
+					if (music == 37){$('[name="music"]').text("Ska");}
+					if (music == 38){$('[name="music"]').text("Soul");}
+					if (music == 39){$('[name="music"]').text("Soul-Jazz");}
+					if (music == 40){$('[name="music"]').text("Tech-House");}
+					if (music == 41){$('[name="music"]').text("Techno");}
+					if (music == 42){$('[name="music"]').text("Trance");}
+					if (music == 43){$('[name="music"]').text("Tribal-House");}
 
 		var entryPrice = json.entryPrice;
 		if (entryPrice != '0'){

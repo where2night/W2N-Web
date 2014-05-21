@@ -675,6 +675,9 @@ $(document).ready(function(){
 
 	<body ><!--onload="JavaScript:timedRefresh(30000);">-->
 		<style>
+			body{
+			  background-color: #000;
+			}
 			navbar-fixed-top {
 				z-index: 1030;
 			}
