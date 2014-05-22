@@ -40,6 +40,7 @@ w2n_session_check();
 		<script src="../js/moment-with-langs.js"></script>
 		<script src="../js/moment.min.js"></script>
 		<script src="../js/state-mode-user.js"></script>
+		<script src="../js/lists.js"></script>
 <script src="../js/autoRefresh.js"></script>
 		<!-- /script -->
 		<script type="text/javascript">
@@ -244,7 +245,138 @@ function showMore(){
 					}else{//User doesn't go to this event, display join
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
 					}
-				}
+				}else  if (type == 6){
+							
+						// friend go to pub
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link_local = "../club/profile.php?idv=" + id_local;
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+					
+
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+							
+						var goes =  (json[i].GOES != null);
+
+
+						var actualdate=json[i].assistdate;
+						var year = actualdate.substring(0,4);
+						var month = actualdate.substring(5,7);
+						var day = actualdate.substring(8,10);
+						actualdate = day+'/'+month+'/'+year;
+
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"><a href="'+link_user+'">'+name+' '+surnames+'</a></h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link_local+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
+
+
+	
+						} else  if (type == 7){
+							
+												var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link_local = "../club/profile.php?idv=" + id_local;
+                        var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
+
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span><a href="'+link_user+'"> '+name+' '+surnames+' </a><span style="font-size:12px;color:orange;"> entró  <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;"><a href="'+link_user+'">'+name+' '+surnames+'</a> ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
+					
+					
+											
+							
+							
+						
+						}else  if (type == 8){
+							
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var title = json[i].title;
+						var text = json[i].text;
+						var startHour = json[i].startHour;
+						var date = json[i].date;
+						var year = date.substring(0,4);
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						date = day+'/'+month+'/'+year;
+
+						var listDateClose= json[i].dateClose;
+					
+						var year = listDateClose.substring(0,4);
+						var month = listDateClose.substring(5,7);
+						var day = listDateClose.substring(8,11);
+						listDateClose = day+'/'+month+'/'+year;
+
+						var max=json[i].maxGuest;
+					
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
+					
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+
+						var idList =  json[i].idEvent;
+						var goes =  (json[i].GOES != null);
+	
+						var lists=document.getElementById('test').innerHTML;	
+						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
+						lists=lists.concat(picture);
+						lists=lists.concat(");background-size:100% 100%'></div>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
+						lists = lists.concat(name +" "+surnames+ " ");
+						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
+						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
+						lists = lists.concat(name +" "+surnames+ " ");
+						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
+						lists = lists.concat(title);
+						lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+						lists = lists.concat(text);
+						lists = lists.concat("</P>");
+						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
+						lists = lists.concat(date);
+						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
+						lists = lists.concat(startHour);
+						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(listDateClose);
+						lists = lists.concat("</b>");
+						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
+						lists = lists.concat(idList); 
+						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+			
+				    
+				    for(var j = 0; j<max; j++ ) {
+    					lists=lists.concat("<option value="+ j +">"+j+"</option>");
+ 						}
+
+						lists = lists.concat("</select> <span style='color:#ff6b24'> Invitados </span>");
+				
+				if(!goes)
+					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='joinList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Entrar en listas</span></a>");
+				else
+				    lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='disjoinList(this.id);' style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Me Desapunto</span></a>");
+					
+					lists = lists.concat("</td></tr></tbody></table>");
+				
+							document.getElementById('test').innerHTML=lists;
+							
+							
+						
+					
+							
+							
+							
+							
+						}
+
 			}
 
 		},
@@ -516,7 +648,138 @@ $(document).ready(function(){
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
 					}
 					
-				}
+				}else  if (type == 6){
+							
+						// friend go to pub
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link_local = "../club/profile.php?idv=" + id_local;
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+					
+
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+							
+						var goes =  (json[i].GOES != null);
+
+
+						var actualdate=json[i].assistdate;
+						var year = actualdate.substring(0,4);
+						var month = actualdate.substring(5,7);
+						var day = actualdate.substring(8,10);
+						actualdate = day+'/'+month+'/'+year;
+
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"><a href="'+link_user+'">'+name+' '+surnames+'</a></h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link_local+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
+
+
+	
+						} else  if (type == 7){
+							
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var localName =  json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link_local = "../club/profile.php?idv=" + id_local;
+                        var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
+
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span><a href="'+link_user+'"> '+name+' '+surnames+' </a><span style="font-size:12px;color:orange;"> entró  <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;"><a href="'+link_user+'">'+name+' '+surnames+'</a> ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
+					
+											
+							
+							
+						
+						}else  if (type == 8){
+							
+						var name =  json[i].name;
+						var surnames =  json[i].surnames;
+						var title = json[i].title;
+						var text = json[i].text;
+						var startHour = json[i].startHour;
+						var date = json[i].date;
+						var year = date.substring(0,4);
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						date = day+'/'+month+'/'+year;
+
+						var listDateClose= json[i].dateClose;
+					
+						var year = listDateClose.substring(0,4);
+						var month = listDateClose.substring(5,7);
+						var day = listDateClose.substring(8,11);
+						listDateClose = day+'/'+month+'/'+year;
+
+						var max=json[i].maxGuest;
+					
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
+					
+						if (picture==0 || picture=="" || picture==null)
+						picture = "../images/reg2.jpg";
+
+						var idList =  json[i].idEvent;
+						var goes =  (json[i].GOES != null);
+	
+						var lists=document.getElementById('test').innerHTML;	
+						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
+						lists=lists.concat(picture);
+						lists=lists.concat(");background-size:100% 100%'></div>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
+						lists = lists.concat(name +" "+surnames+ " ");
+						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
+						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
+						lists = lists.concat(name +" "+surnames+ " ");
+						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
+						lists = lists.concat(title);
+						lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
+						lists = lists.concat(text);
+						lists = lists.concat("</P>");
+						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
+						lists = lists.concat(date);
+						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
+						lists = lists.concat(startHour);
+						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(listDateClose);
+						lists = lists.concat("</b>");
+						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
+						lists = lists.concat(idList); 
+						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+			
+				    
+				    for(var j = 0; j<max; j++ ) {
+    					lists=lists.concat("<option value="+ j +">"+j+"</option>");
+ 						}
+
+						lists = lists.concat("</select> <span style='color:#ff6b24'> Invitados </span>");
+				
+				if(!goes)
+					lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='joinList(this.id);'style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Entrar en listas</span></a>");
+				else
+				    lists = lists.concat("<a href=''id='"+idList+"'class='btn pull-right' onclick='disjoinList(this.id);' style='margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;' ><span>Me Desapunto</span></a>");
+					
+					lists = lists.concat("</td></tr></tbody></table>");
+				
+							document.getElementById('test').innerHTML=lists;
+							
+							
+						
+					
+												
+							
+							
+							
+							
+						}
+
 			}
 			
 			if (num_elements){

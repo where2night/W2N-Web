@@ -345,12 +345,15 @@ function disjoinEvent (idEvent){
 							}
 						} else  if (type == 6){
 							
-						// friend go to pub
+												// friend go to pub
 						var name =  json[i].name;
 						var surnames =  json[i].surnames;
 						var localName =  json[i].localName;
 						var id_local =  json[i].idProfileLocal;
 						var link_local = "../club/profile.php?idv=" + id_local;
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+					
 
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
@@ -364,7 +367,8 @@ function disjoinEvent (idEvent){
 						var day = actualdate.substring(8,10);
 						actualdate = day+'/'+month+'/'+year;
 
-							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+name+' '+surnames+'</h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"><a href="'+link_user+'">'+name+' '+surnames+'</a></h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link_local+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
+
 
 
 	
@@ -375,19 +379,23 @@ function disjoinEvent (idEvent){
 						var localName =  json[i].localName;
 						var id_local =  json[i].idProfileLocal;
 						var link_local = "../club/profile.php?idv=" + id_local;
+                        var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
 
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> entró hace <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span><a href="'+link_user+'"> '+name+' '+surnames+' </a><span style="font-size:12px;color:orange;"> entró  <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;"><a href="'+link_user+'">'+name+' '+surnames+'</a> ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
 					
+				
 											
 							
 							
 						
 						}else  if (type == 8){
 							
-						var name =  json[i].name;
+												var name =  json[i].name;
 						var surnames =  json[i].surnames;
 						var title = json[i].title;
 						var text = json[i].text;
@@ -407,6 +415,9 @@ function disjoinEvent (idEvent){
 
 						var max=json[i].maxGuest;
 					
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
 					
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
@@ -418,13 +429,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> ");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
 						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
-						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'>");
+						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat(" </b> se apuntó a la lista <b style='color:orange'>'");
+						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
 						lists = lists.concat(title);
 						lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 						lists = lists.concat(text);
@@ -457,6 +468,9 @@ function disjoinEvent (idEvent){
 							document.getElementById('test').innerHTML=lists;
 							
 							
+						
+					
+														
 						
 					
 							
@@ -648,6 +662,9 @@ function disjoinEvent (idEvent){
 						var localName =  json[i].localName;
 						var id_local =  json[i].idProfileLocal;
 						var link_local = "../club/profile.php?idv=" + id_local;
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+					
 
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
@@ -658,10 +675,10 @@ function disjoinEvent (idEvent){
 						var actualdate=json[i].assistdate;
 						var year = actualdate.substring(0,4);
 						var month = actualdate.substring(5,7);
-						var day = actualdate.substring(8,11);
+						var day = actualdate.substring(8,10);
 						actualdate = day+'/'+month+'/'+year;
 
-							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span>'+name+' '+surnames+'<span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+name+' '+surnames+'</h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link_local+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
+							$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local al que asistirá </span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"><a href="'+link_user+'">'+name+' '+surnames+'</a></h5><p style="color:#E5E4E2;font-size:14px;">irá a <a href="'+link_local+'">'+localName+'</a> el '+actualdate+' </p><p style="color:#707070;font-size:14px;"></p></td></tr></tbody></table>');
 
 
 	
@@ -673,17 +690,20 @@ function disjoinEvent (idEvent){
 						var localName =  json[i].localName;
 						var id_local =  json[i].idProfileLocal;
 						var link_local = "../club/profile.php?idv=" + id_local;
+                        var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
 
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
 
-						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span> '+name+' '+surnames+' <span style="font-size:12px;color:orange;"> entró hace <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
+						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Check-In</span><a href="'+link_user+'"> '+name+' '+surnames+' </a><span style="font-size:12px;color:orange;"> entró  <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;"><a href="'+link_user+'">'+name+' '+surnames+'</a> ya está en <a href="'+link_local+'">'+localName+'</a> </p></td></tr></tbody></table>');
 					
-											
+				
 				
 						}else if(type==8){
 							
-						var name =  json[i].name;
+												var name =  json[i].name;
 						var surnames =  json[i].surnames;
 						var title = json[i].title;
 						var text = json[i].text;
@@ -703,6 +723,9 @@ function disjoinEvent (idEvent){
 
 						var max=json[i].maxGuest;
 					
+						var id_user = json[i].idPartierFriend;		
+						var link_user = "../user/profile.php?idv=" + id_user;
+			
 					
 						if (picture==0 || picture=="" || picture==null)
 						picture = "../images/reg2.jpg";
@@ -714,13 +737,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> ");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
 						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
-						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'>");
+						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat(" </b> se apuntó a la lista <b style='color:orange'>'");
+						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
 						lists = lists.concat(title);
 						lists = lists.concat("'</b></h5><p style='color:#707070;font-size:14px;margin-left:12%; '>");
 						lists = lists.concat(text);
@@ -752,6 +775,10 @@ function disjoinEvent (idEvent){
 				
 							document.getElementById('test').innerHTML=lists;
 							
+							
+						
+					
+														
 							
 						}
 						
