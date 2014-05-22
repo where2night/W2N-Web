@@ -72,4 +72,35 @@ $(function () {
         });
     }
 
+    //to get file list on upload finished:
+
+
+    //Restrictions
+    $('#fileupload').fileupload('option', {
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator.userAgent),
+        maxFileSize: 5000000,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+    });
+
+    /*//Adding additional form data programmatically
+    $('#fileupload').fileupload({
+        formData: {example: 'test'}
+    });*/
+
+    //Setting formData on upload start for each individual file upload
+   /* $('#fileupload').bind('fileuploadsubmit', function (e, data) {
+        var inputs = data.context.find(':input');
+        if (inputs.filter(function () {
+                return !this.value && $(this).prop('required');
+            }).first().focus().length) {
+            data.context.find('button').prop('disabled', false);
+            return false;
+        }
+        data.formData = inputs.serializeArray();
+    });*/
+
 });
