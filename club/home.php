@@ -150,7 +150,7 @@ $.ajax({
 					events = events.concat("</b> hasta  <b style='color:#34d1be'>");
 					events = events.concat(closeH);
 					events = events.concat("</b> hrs.</p>");
-					events = events.concat("<a href='events.php'><input class='btn btn-success ' type='button'value='Editar'style='margin-left:42%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'></a>");
+					//events = events.concat("<a href='events.php'><input class='btn btn-success ' type='button'value='Editar'style='margin-left:42%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;'></a>");
 					events = events.concat("</td></tr></tbody></table>");
 
 						document.getElementById('ul').innerHTML=events;				
