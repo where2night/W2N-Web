@@ -395,17 +395,20 @@ function disjoinEvent (idEvent){
 						
 						}else  if (type == 8){
 							
-												var name =  json[i].name;
+													var name =  json[i].name;
 						var surnames =  json[i].surnames;
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
-						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
 						var day = date.substring(8,11);
 						date = day+'/'+month+'/'+year;
+
+						var localName = json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
 
 						var listDateClose= json[i].dateClose;
 					
@@ -430,10 +433,9 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
-						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
-						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+ link +"'>"+ localName +"</a>");
+						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat(" <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
 						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
@@ -444,13 +446,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startH);
+						lists = lists.concat(startHour);
 						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:5%;border-radius:0px;'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -469,6 +471,8 @@ function disjoinEvent (idEvent){
 							document.getElementById('test').innerHTML=lists;
 							
 							
+					
+												
 						
 					
 														
@@ -704,17 +708,20 @@ function disjoinEvent (idEvent){
 				
 						}else if(type==8){
 							
-												var name =  json[i].name;
+											var name =  json[i].name;
 						var surnames =  json[i].surnames;
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
-						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
 						var day = date.substring(8,11);
 						date = day+'/'+month+'/'+year;
+
+						var localName = json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
 
 						var listDateClose= json[i].dateClose;
 					
@@ -739,10 +746,9 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
-						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
-						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+ link +"'>"+ localName +"</a>");
+						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat("<i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
 						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
@@ -753,13 +759,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startH);
+						lists = lists.concat(startHour);
 						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:5%;border-radius:0px;'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -778,6 +784,8 @@ function disjoinEvent (idEvent){
 							document.getElementById('test').innerHTML=lists;
 							
 							
+					
+												
 						
 					
 														

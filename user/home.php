@@ -307,6 +307,10 @@ function showMore(){
 						var day = date.substring(8,11);
 						date = day+'/'+month+'/'+year;
 
+						var localName = json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+
 						var listDateClose= json[i].dateClose;
 					
 						var year = listDateClose.substring(0,4);
@@ -330,10 +334,9 @@ function showMore(){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
-						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
-						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+ link +"'>"+ localName +"</a>");
+						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat(" <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
 						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
@@ -369,10 +372,47 @@ function showMore(){
 							document.getElementById('test').innerHTML=lists;
 							
 							
+					
+												
+							
 						
 					
 							
 							
+							
+							
+						}else if(type == 9){
+
+					var localName = json[i].localName;
+					var title = json[i].title;
+
+
+					var id_local =  json[i].idProfileLocal;
+					var link = "../club/profile.php?idv=" + id_local;
+					var text = json[i].text;
+
+					if (picture==0 || picture=="" || picture==null)
+					picture = "../images/reg2.jpg";
+
+
+						var startHour = json[i].startHour;
+
+						var date = json[i].date;
+						var year = date.substring(0,4);
+						var month = date.substring(5,7);
+						var day = date.substring(8,11);
+						date = day+'/'+month+'/'+year;
+
+						var listDateClose= json[i].dateClose;
+						var year = listDateClose.substring(0,4);
+						var month = listDateClose.substring(5,7);
+						var day = listDateClose.substring(8,11);
+						listDateClose = day+'/'+month+'/'+year;
+
+
+				
+						$('#test').append('<li class=""> <div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div> <span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> <a href="'+ link +'">'+ localName +'</a> <span style="font-size:12px;color:orange"> Publicada <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24"> '+title+'</br>el <span style="color:#34d1be">'+ date +'<span><span style="color:#ff6b24"> a las </span> <span style="color:#34d1be">'+startHour+'<span> </h5><p style="color:#707070;font-size:14px;"></p><p style="color:#E5E4E2;font-size:14px;">'+text+' </br> <span style="color:#34d1be">cierre de listas el </span>'+listDateClose+'</p></td></tr></tbody></table>');
+
 							
 							
 						}
@@ -709,6 +749,10 @@ $(document).ready(function(){
 						var day = date.substring(8,11);
 						date = day+'/'+month+'/'+year;
 
+						var localName = json[i].localName;
+						var id_local =  json[i].idProfileLocal;
+						var link = "../club/profile.php?idv=" + id_local;
+
 						var listDateClose= json[i].dateClose;
 					
 						var year = listDateClose.substring(0,4);
@@ -732,10 +776,9 @@ $(document).ready(function(){
 						lists = lists.concat("<li><div class='workflow-item hover' style='background-image:url(");
 						lists=lists.concat(picture);
 						lists=lists.concat(");background-size:100% 100%'></div>");
-						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+link_user+"'>");
-						lists = lists.concat(name +" "+surnames+ " ");
-						lists = lists.concat("</a><span style='font-size:12px;color:orange'> ");
-						lists = lists.concat(" se apuntó <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
+						lists = lists.concat("<span class='label label-dark-blue' style='font-size:12px'>Lista Local</span> <a href='"+ link +"'>"+ localName +"</a>");
+						lists = lists.concat("<span style='font-size:12px;color:orange'> ");
+						lists = lists.concat("  <i class='glyphicon glyphicon-time'style='color:#FF6B24;font-size:12px'></i> "+activityFromNow+"</span></li>");
 						lists = lists.concat("<table class='table  tablaC1'><tbody><tr><td><h5 style='color:#ff6b24'><b style='color:#34d1be'><a href='"+link_user+"'>");
 						lists = lists.concat(name +" "+surnames+ " ");
 						lists = lists.concat("</a> </b> se apuntó a la lista <b style='color:orange'>'");
