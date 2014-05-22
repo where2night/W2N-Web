@@ -20,6 +20,8 @@ function w2n_login(){
 	}else login_connect(email, password, remember);
 }
 
+
+
 function login_connect(email2, password2, remember){
 		$.ajax({
 			url: "../develop/login/login.php",
@@ -43,8 +45,11 @@ function login_connect(email2, password2, remember){
 							setCookie('w2n_token',token);
 							setCookie('w2n_type',type);
 						}
-
+						
+						restartPlayListLogin(id,token);
 						set_session_info(id, token, user_type, login_type);
+						
+						
 			 			
 					} else  
 						alert("Contraseña y/o usuario incorrectos");

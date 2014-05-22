@@ -29,6 +29,7 @@
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript" src="js/login-facebook.js"></script>
 		<script type="text/javascript" src="js/login-google.js"></script>
+		<script type="text/javascript" src="js/songs.js"></script>
 
 		<?php
 
