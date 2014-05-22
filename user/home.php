@@ -142,7 +142,7 @@ function showMore(){
 				}
 
 				/*must distinguish what type of activity relates (mentioned above), to paint in the html in the right way*/
-				if (type == 1){
+				if (type == 1|| type == 11){
 					/*1.- Created by local events that follow*/
 					var localName = json[i].localName;
 					var title = json[i].title;
@@ -168,7 +168,7 @@ function showMore(){
 
 					}
 					
-				}else if (type == 2){
+				}else if (type == 2|| type == 12){
 					/*2.- Friends we follow, change status*/
 					var name =  json[i].name;
 					var surnames =  json[i].surnames;
@@ -181,7 +181,7 @@ function showMore(){
 					
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> <a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
 
-				}else if (type == 3){
+				}else if (type == 3|| type == 13){
 					/*3.- Friends we follow, change mode*/
 					var name =  json[i].name;
 					var surnames =  json[i].surnames;
@@ -210,7 +210,7 @@ function showMore(){
 					
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span><a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
 					
-				}else if (type == 4){
+				}else if (type == 4|| type == 14){
 					/*4.-friend add to favorites a local*/
 					var name =  json[i].name;
 					var surnames =  json[i].surnames;
@@ -225,7 +225,7 @@ function showMore(){
 
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>');
 
-				}else if (type == 5){
+				}else if (type == 5|| type == 15){
 					/*5.- Events friends attending*/
 					var name =  json[i].name;
 					var surnames =  json[i].surnames;
@@ -245,7 +245,7 @@ function showMore(){
 					}else{//User doesn't go to this event, display join
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
 					}
-				}else  if (type == 6){
+				}else  if (type == 6|| type == 16){
 							
 						// friend go to pub
 						var name =  json[i].name;
@@ -273,7 +273,7 @@ function showMore(){
 
 
 	
-						} else  if (type == 7){
+						} else  if (type == 7|| type == 17){
 							
 												var name =  json[i].name;
 						var surnames =  json[i].surnames;
@@ -294,7 +294,7 @@ function showMore(){
 							
 							
 						
-						}else  if (type == 8){
+						}else  if (type == 8|| type == 18){
 							
 						var name =  json[i].name;
 						var surnames =  json[i].surnames;
@@ -381,7 +381,7 @@ function showMore(){
 							
 							
 							
-						}else if(type == 9){
+						}else if(type == 9|| type == 19){
 
 					var localName = json[i].localName;
 					var title = json[i].title;
@@ -579,7 +579,7 @@ $(document).ready(function(){
 				}
 
 				/*must distinguish what type of activity relates (mentioned above), to paint in the html in the right way*/
-				if (type == 1){
+				if (type == 1 || type == 11){
 					/*1.- Created by local events that follow*/
 					var localName = json[i].localName;
 					var title = json[i].title;
@@ -606,7 +606,7 @@ $(document).ready(function(){
 					}
 					
 
-				}else if (type == 2){
+				}else if (type == 2|| type == 12){
 					/*2.- Friends we follow, change status*/
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
@@ -620,7 +620,7 @@ $(document).ready(function(){
 					
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Estado Fiestero </span> <a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;" > Actualizó su estado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i>'+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' cambió su estado a : '+status+'</p></td></tr></tbody></table>');
 
-				}else if (type == 3){
+				}else if (type == 3|| type == 13){
 					/*3.- Friends we follow, change their mode(De tranquis,Hoy no me lio,Lo que surja,Lo daré todo,Destroyer,Yo me llamo Ralph)*/
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
@@ -648,7 +648,7 @@ $(document).ready(function(){
 					var link_user = "../user/profile.php?idv=" + id_user;
 					
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Modo Fiestero</span><a href="'+link_user+'">'+name+' '+surnames+'</a> <span style="font-size:12px;color:orange;"> Actualizó su modo <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' cambió su modo a : <span class="label label">'+modeString+'</span>	</p></td></tr></tbody></table>');
-				}else if (type == 4){
+				}else if (type == 4|| type == 14){
 					/*4.- Friend add to favorites a local*/
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
@@ -664,7 +664,7 @@ $(document).ready(function(){
 
 					$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Local favorito</span><a href="'+link_user+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange;"> Agregó un local favorito <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><p style="color:#707070;font-size:14px;">'+name+' '+surnames+' agregó a <a href="'+link+'">'+localName+' '+'</a>como local favorito</p></td></tr></tbody></table>');
 
-				}else if (type == 5){
+				}else if (type == 5|| type == 15){
 					/*5.- Events friends attending */
 					if (picture==0 || picture=="" || picture==null)
 					picture = "../images/reg2.jpg";
@@ -688,7 +688,7 @@ $(document).ready(function(){
 						$('#test').append('<li class=""><div class="workflow-item hover" style=" background-image:url('+picture+');background-size:100% 100%"></div><span class="label label-dark-blue" style="font-size:12px;">Evento al que asistirá </span><a href="'+link+'">'+name+' '+surnames+'</a><span style="font-size:12px;color:orange"> se apuntó <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> '+activityFromNow+'</span></li><table class="table  tablaC1"><tbody><tr class=""><td><h5 style="color:#ff6b24">'+title+'</h5><p style="color:#E5E4E2;font-size:14px;">'+text+'</p><p style="color:#707070;font-size:14px;"></p><button type="button" name="join-event-' + json[i].idEvent + '" class="btn pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;" onclick="clickedJoinEvent(' + "'" + json[i].idEvent + "'" + ');">Me Apunto</button></td></tr></tbody></table>');
 					}
 					
-				}else  if (type == 6){
+				}else  if (type == 6|| type == 16){
 							
 						// friend go to pub
 						var name =  json[i].name;
@@ -716,7 +716,7 @@ $(document).ready(function(){
 
 
 	
-						} else  if (type == 7){
+						} else  if (type == 7|| type == 17){
 							
 						var name =  json[i].name;
 						var surnames =  json[i].surnames;
@@ -736,7 +736,7 @@ $(document).ready(function(){
 							
 							
 						
-						}else  if (type == 8){
+						}else  if (type == 8|| type == 18){
 							
 						var name =  json[i].name;
 						var surnames =  json[i].surnames;
@@ -821,7 +821,7 @@ $(document).ready(function(){
 							
 							
 							
-						}else if(type == 9){
+						}else if(type == 9|| type == 19){
 
 					var localName = json[i].localName;
 					var title = json[i].title;
