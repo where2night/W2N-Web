@@ -301,6 +301,7 @@ function showMore(){
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
+						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
@@ -347,13 +348,13 @@ function showMore(){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startHour);
-						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(startH);
+						lists = lists.concat("</b> hrs. Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:8.5%;border-radius:0px'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -743,6 +744,7 @@ $(document).ready(function(){
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
+						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
@@ -789,13 +791,13 @@ $(document).ready(function(){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startHour);
-						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(startH);
+						lists = lists.concat("</b> hrs. Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:8.5%;border-radius:0px'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -885,7 +887,9 @@ $(document).ready(function(){
 				var localName = json[i].localName;
 				var title = json[i].title;
 				var startHour = json[i].startHour;
+				var startH = startHour.substring(0,5);
 				var closeHour = json[i].closeHour;
+				var closeH = closeHour.substring(0,5);
 				var id_local =  json[i].idProfileCreator;
 				var link = "../club/profile.php?idv=" + id_local;
 				var date = json[i].date;
@@ -921,7 +925,7 @@ $(document).ready(function(){
 				var streetNameLocal = json[i].streetNameLocal;
 				var streetNumberLocal = json[i].streetNumberLocal;
 
-				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> De '+startHour+' a </br></br> '+closeHour+' </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
+				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="font-size:16px;border-left:0px;padding-left:10%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> De <b style="color:orange">'+startH+'</b> a <b style="color:orange">'+closeH+'</b> </p><p class="location"style="word-wrap: break-word;padding-right:2px;color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-map-marker"style="color:#ff6b24;"></i>'+" "+streetNameLocal+', '+streetNumberLocal+'</p></div></div>');
 			}
 
 		},
@@ -994,7 +998,7 @@ $(document).ready(function(){
 				}
 				
 				
-				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="border-left:0px;padding-left:15%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i>Cierre Listas  </br> </br>'+dateClose+' </p></div></div>');
+				$('#nextEvents').append('<div class="event-item"style="border-color:transparent"><p class="date-label"><span class="month"style="background-color:#404040;color:#34d1be">'+m+'</span><span class="date-number"style="background-color:#000;color:#ff6b24;height:63%">'+day+'</span></p><div class="details" style="height:10%;border-radius:0px;background-color:#404040;border-color:#ff6b24"><a href="" class="title" style="font-size:16px;border-left:0px;padding-left:10%;color:#34d1be;margin-bottom:2%">'+title+'</a><p class="time" style="color:#E5E4E2;margin-left:5%"><i class="glyphicon glyphicon-time"style="color:#ff6b24;"></i> Cierre de Lista: <b style="color:orange">'+dateClose+'</b> </p></div></div>');
 			
 			}
 
