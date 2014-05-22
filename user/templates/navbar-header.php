@@ -312,10 +312,12 @@ function messages(){
 				
 					i=i+1;		
 			}
+			document.write("<li class='item-footer'><a href='../user/messages.php' style='border-bottom:4px;background-color:#000;text-shadow:none;border-color:#ff6b24;color:#34d1be;text-shadow:none;'>Ver todos los Mensajes</a></li>");
 			},
 			onerror: function(e,val){
 			alert("No se pueden saber las notificaciones");
 			}
+			
 		});
 }//end function messages()
     

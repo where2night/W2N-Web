@@ -1885,7 +1885,7 @@ label {
 	font-weight: 300;
 }
 .conversation-body > .time:before {
-	content: "\f017";
+	
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;

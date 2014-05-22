@@ -343,7 +343,7 @@
 			'<div class="modal wizard-modal" role="dialog">',
 
 				'<div class="wizard-modal-header modal-header">',
-					'<button class="wizard-close close" style="color:#ff6b24;text-shadow:none"type="button">x</button>',
+					'<a href="../user/messages.php" class="wizard-close close" style="color:#ff6b24;text-shadow:none"type="button">x</a>',
 					'<h3 class="wizard-title"></h3>',
 					'<span class="wizard-subtitle"></span>',
 				'</div>',
@@ -353,12 +353,12 @@
 				'</div>',
 
 				'<form>',
-					'<div class="wizard-cards">',
+					'<div id="messYu" class="wizard-cards" style="">',
 						'<div class="wizard-card-container">',
 						'</div>',
 						'<div class="wizard-modal-footer">',
 							'<div class="wizard-buttons-container">',
-								'<a href="../user/messages.php"><button class="btn wizard-cancel wizard-close" style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Cancelar</button></a>',
+								'<a href="../user/messages.php"><button class="btn wizard-cancel wizard-close pull-right" style="margin-right:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;"type="button">Salir</button></a>',
 								
 							'</div>',
 						'</div>',
@@ -375,7 +375,7 @@
 			progressBarCurrent: false,
 			increaseHeight: 0,
 			buttons: {
-				cancelText: "Cancelar",
+				cancelText: "Salir",
 				nextText: "Next",
 				backText: "Back",
 				submitText: "Enviar",

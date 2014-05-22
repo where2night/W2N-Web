@@ -56,6 +56,7 @@ var tok = '<?php echo $toke; ?>' ;
 			params=params.concat("/");
 			params=params.concat(tok);
 		
+		
 		var url="../develop/read/messagesSorted.php";
 			url=url.concat(params);
 		$.ajax({
@@ -80,21 +81,21 @@ var tok = '<?php echo $toke; ?>' ;
 										var link = "../user/profile.php?idv=" + id_user;
 										var num = json[i].num;
 										
-											var createdTime = json[i][0].createdTime;
+											var createdTime = json[i][num-1].createdTime;
 											var day = createdTime.substring(8,11);
 											var month = createdTime.substring(5,8);
 											var year = createdTime.substring(0,4);
 											var hour = createdTime.substring(11,14);
 											var min = createdTime.substring(14,16);
-											var men = json[i][0].message;
+											var men = json[i][num-1].message;
 											men = men.substring(0,10);
-											if (json[i][0].mode== 0){
+											if (json[i][num-1].mode== 0){
 												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-send" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}
-											else if (json[i][0].mode== 1){
+											else if (json[i][num-1].mode== 1){
 												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-envelope" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}
-											else if (json[i][0].mode== 2){
+											else if (json[i][num-1].mode== 2){
 												$('#messages-friends').append('<tr><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><img src="'+ picture +'" alt=""/><a href="'+ link +'" class="user-link"style="color:#FF6B24">'+name+" "+surnames+'</a><span class="user-subhead">Fiestero</span></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+men+"..."+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;">'+day+"-"+month+year+" "+hour+min+'</td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><i class="glyphicon glyphicon-check" style="margin-left:3%;font-size:30px"></i></td><td style="color:#000;box-shadow:none;font-size: 0.875em;background: #D1D0CE;border-top: 10px solid  #E5E4E2;vertical-align: middle;padding: 12px 8px;"><a id="'+id_user+'" onclick="openMessages(this.id);" class="btn btn-success" style="margin-left:25%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none">Abrir</a><div class="wizard" id="wizard-demo1'+id_user+'"><h1>Conversación con '+name+" "+surnames+'</h1><div id="allMessages'+id_user+'"class="wizard-card" style="overflow-y:auto !important"></div></div></td></tr>');
 											}								
 											
@@ -139,9 +140,8 @@ var tok = '<?php echo $toke; ?>' ;
 					pictureF = "../images/reg1.jpg";
 				}
 				var num = json.num;
-				
-
-				for (var i=0;i < num;i++){
+				$(ident).append('<br><br><div class="col-lg-14" style="margin-top:-5%;margin-bottom:8%;"><textarea id="messageText1" class="form-control" placeholder="Escribe tu mensaje..." rows="3" style="font-size:13px"></textarea><button id="'+id+'" onclick="sendMessage1(this.id);"class="btn pull-right"  type="button"  style="margin-top:1%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">Enviar</button></div>');
+				for (var i=num-1;i >= 0;i--){
 					var message = json[i].message;
 					var mode = json[i].mode;
 					var createdTime = json[i].createdTime;
@@ -151,19 +151,20 @@ var tok = '<?php echo $toke; ?>' ;
 					var hour = createdTime.substring(11,14);
 					var min = createdTime.substring(14,16);
 					
+					
+					
 					if (mode==0){
-						$(ident).append('<div class="conversation-item item-right clearfix"><div class="conversation-user"><img src="'+ picture +'" alt=""/></div><div class="conversation-body" style="background-color:#a7a6a4"><div class="name" style="color:#FF6B24">'+name+" "+surnames+'</div><div class="time hidden-xs">'+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
+						$(ident).append('<div class="conversation-item item-right clearfix"><div class="conversation-user"><img src="'+ picture +'" alt=""/></div><div class="conversation-body" style="background-color:#a7a6a4"><div class="name" style="color:#FF6B24">'+name+" "+surnames+'</div><div class="time hidden-xs"><i style="color:#ff6b24;font-size:11px;"class="glyphicon glyphicon-time"></i>'+" "+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
 						
 						}
 					else {
-						$(ident).append('<div class="conversation-item item-left clearfix"><div class="conversation-user"><img src="'+ pictureF +'" alt=""/></div><div class="conversation-body"style="background-color:#E5E4E2"><div class="name" style="color:#FF6B24">'+nameF+" "+surnamesF+'</div><div class="time hidden-xs">'+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
+						$(ident).append('<div class="conversation-item item-left clearfix"><div class="conversation-user"><img src="'+ pictureF +'" alt=""/></div><div class="conversation-body"style="background-color:#E5E4E2"><div class="name" style="color:#FF6B24">'+nameF+" "+surnamesF+'</div><div class="time hidden-xs"><i style="color:#ff6b24;font-size:11px;"class="glyphicon glyphicon-time"></i>'+" "+day+"-"+month+year+" "+hour+min+'</div><div class="text">'+message+'</div></div></div>');
 						
 					}
 					
 					
 				}
-					$(ident).append('<br><br><div class="col-lg-14" ><textarea id="messageText1" class="form-control" placeholder="Escribe tu mensaje..." rows="3" style="font-size:13px"></textarea></div><button id="'+id+'" onclick="sendMessage1(this.id);"class="btn pull-left"  type="button"  style="margin-top:5%;background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">Enviar</button>');
-				
+					
 				
 			},
 			onerror: function(e,val){
