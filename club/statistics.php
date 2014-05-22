@@ -684,25 +684,24 @@ else
   										</div>
   										
   										<br />
+										
+										<div id="chartCS" style="height: 300px; width: 100%;">
+  										</div>
+  	
+  										<br />
   										
   										<div id="chartMusic" style="height: 300px; width: 100%;">
   										</div>
   										
   										
-  					
-  										<br />
-  										
-  										<div id="chartCS" style="height: 300px; width: 100%;">
-  										</div>
-  	
-  										
   										<br />
   										
   										<div id="chartDrink" style="height: 300px; width: 100%;">
   										</div>
-  										
-  										
+  					
   										<br />
+  										
+  										
   										
   										<div id="chartCostumer" style="height: 300px; width: 100%;">
   										</div>

@@ -157,7 +157,7 @@ $token=$_SESSION['token'];
 														<table id="my_songs" class="table user-list">
 															<thead>
 																<tr>
-																	<a id="" class="btn btn-success" onclick="restartPlayList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:84%">Empezar set</a>
+																	<a id="" class="btn btn-success" onclick="restartPlayList();"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;margin-left:84%">Resetear Votos</a>
 																	<th><span style="color:#FF6B24;border-color:#ff6b24">Canción</span></th>									
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Nombre artista</span></th>
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>

@@ -200,9 +200,11 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		}
 
 		var openingHours = json.openingHours;
-		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
+		var starH = openingHours.substring(0,5);
+		$('[name="openingHours"]').html("<b style='color:#ff6b24;'>Apertura:</b> " + starH);
 		var closeHours = json.closeHours;
-		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
+		var closeH = closeHours.substring(0,5);
+		$('[name="closeHours"]').html("<b style='margin-left:2.5%;color:#ff6b24;'>Cierre:</b> " + closeH);
 
 		var picture = json.picture;
 		if (picture != undefined && picture.length > 0){
@@ -346,9 +348,11 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		}
 
 		var openingHours = json.openingHours;
-		$('[name="openingHours"]').html("<b>Apertura:</b> " + openingHours);
+		var starH = openingHours.substring(0,5);
+		$('[name="openingHours"]').html("<b style='color:#ff6b24;'>Apertura:</b> " + starH);
 		var closeHours = json.closeHours;
-		$('[name="closeHours"]').html("<b>Cierre:</b> " + closeHours);
+		var closeH = closeHours.substring(0,5);
+		$('[name="closeHours"]').html("<b style='margin-left:2.5%;color:#ff6b24;'>Cierre:</b> " + closeH);
 
 		var picture = json.picture;
 		//alert(picture);
@@ -609,7 +613,7 @@ $.ajax({
 
 <body> <!--onload="JavaScript:timedRefresh(30000);">-->
 <style>  
-
+ body{background-color:#000;}
  navbar-fixed-top{
 		z-index:1030;
 	  }
@@ -712,38 +716,7 @@ $.ajax({
 																		<script>
 																			eventProfileTest("<?php echo $id_event;?>");
 																		</script>
-																		<!-- Comienza Evento -->
-																	<!--	<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Evento Local</span> 
-																				<span style="font-size:12px;color:orange">publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Evento</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn03"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																		<!-- Termina Evento -->
-																		<!-- Comienza Evento -->
-																		<!--<li class="">
-																			<div class="workflow-item hover" style=" background-image:url(../images/reg2.jpg);background-size:100% 100%"></div>
-																				<span class="label label-dark-blue" style="font-size:12px;">Lista Local</span> 
-																				<span style="font-size:12px;color:orange;"> publicado <i class="glyphicon glyphicon-time"style="color:#FF6B24;font-size:12px;"></i> hace 3 min</span>
-																		</li>
-																		<table class="table  tablaC1">
-																			<tbody>
-																				<tr class="">
-																					<td><h5 style="color:#ff6b24">Título Lista</h5><p style="color:#707070;font-size:14px;"></p>
-																					<input id="btn02"  class="btn btn-success botonapuntar " type="button"value="Me Apunto"onClick="btnApuntar(this);"style="background-color:#000;border-color:#ff6b24;color:#34d1be;text-shadow:none;">
-																					</td>
-																				</tr>
-																			</tbody>
-																		</table> 
-																		<!-- Termina Evento -->
+																		
 																	</ul>
 																</div>	
 											</div>
@@ -772,7 +745,7 @@ $.ajax({
 																	<th><span style="color:#FF6B24;border-color:#ff6b24">Canción</span></th>									
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Nombre artista</span></th>
 																	<th class="text-center"><span style="color:#FF6B24;border-color:#ff6b24">Votos</span></th>
-																	<th>&nbsp;</th>
+																	
 																</tr>
 																<script>
 																	show_songs_list_profile();

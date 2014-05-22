@@ -115,6 +115,7 @@ var tok = '<?php echo $toke; ?>' ;
 			params=params.concat(id);
 		var url="../develop/read/messagesFriend.php";
 			url=url.concat(params);
+			
 		
 		$.ajax({
 			url: url,
@@ -138,7 +139,8 @@ var tok = '<?php echo $toke; ?>' ;
 					pictureF = "../images/reg1.jpg";
 				}
 				var num = json.num;
-			
+				
+
 				for (var i=0;i < num;i++){
 					var message = json[i].message;
 					var mode = json[i].mode;
@@ -174,6 +176,7 @@ var tok = '<?php echo $toke; ?>' ;
 		$.fn.wizard.logging = false;
 		var identi = "#wizard-demo1";
 		identi=identi.concat(id);
+		
 		var wizard = $(identi).wizard({
 			showCancel: true
 		});

@@ -7,7 +7,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="profile.php">
-					<i class=""><img class="menu-avatar" src="../images/profile.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Perfil Local</span>
 				</a>
 			</li>
@@ -35,7 +35,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="fans.php">
-					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Seguidores</span>
 				</a>
 			</li>
@@ -43,7 +43,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="songs.php">
-					<i class=""><img class="menu-avatar" src="../images/party4.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Canciones</span>
 				</a>
 			</li>
@@ -51,7 +51,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="statistics.php">
-					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Estadisticas</span>
 				</a>
 			</li>
@@ -59,7 +59,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="edit.php">
-					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Editar Perfil</span>
 				</a>
 			</li> 
