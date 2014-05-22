@@ -400,6 +400,7 @@ function disjoinEvent (idEvent){
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
+						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
@@ -446,13 +447,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startHour);
-						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(startH);
+						lists = lists.concat("</b> hrs. Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:10%;border-radius:0px;'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
@@ -713,6 +714,7 @@ function disjoinEvent (idEvent){
 						var title = json[i].title;
 						var text = json[i].text;
 						var startHour = json[i].startHour;
+						var startH = startHour.substring(0,5);
 						var date = json[i].date;
 						var year = date.substring(0,4);
 						var month = date.substring(5,7);
@@ -759,13 +761,13 @@ function disjoinEvent (idEvent){
 						lists = lists.concat("<p style='color:#ff6b24'>El<b style='color:#34d1be'> ");
 						lists = lists.concat(date);
 						lists = lists.concat("</b> a partir de las <b style='color:#34d1be'> "); 
-						lists = lists.concat(startHour);
-						lists = lists.concat("</b> hrs. </br> Cierre de listas el  <b style='color:#34d1be'>");
+						lists = lists.concat(startH);
+						lists = lists.concat("</b> hrs. Cierre de listas el  <b style='color:#34d1be'>");
 						lists = lists.concat(listDateClose);
 						lists = lists.concat("</b>");
 						lists = lists.concat("</br></p> <span class='glyphicon glyphicon-plus' style='color:#34d1be'> </span> <select id='guests");
 						lists = lists.concat(idList); 
-						lists = lists.concat("'style='width:15%'>  <option value='0' selected='1'></option>");
+						lists = lists.concat("'style='width:7%;border-radius:0px;'>  <option value='0' selected='1'></option>");
 			
 				    
 				    for(var j = 0; j<max; j++ ) {
