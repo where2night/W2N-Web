@@ -44,7 +44,8 @@ class UploadHandler
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/'.$_POST['id-url'],
-            'upload_url' => $this->get_full_url().'/files/',
+            'upload_url' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/'.$_POST['id-url'],
+           // 'upload_url' => $this->get_full_url().'/files/'.$_POST['id-url'],
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -1100,6 +1101,7 @@ class UploadHandler
 
     protected function generate_response($content, $print_response = true) {
         if ($print_response) {
+            $content['description'] = $_POST['title'];
             $json = json_encode($content);
             $redirect = isset($_REQUEST['redirect']) ?
                 stripslashes($_REQUEST['redirect']) : null;

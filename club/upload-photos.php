@@ -195,7 +195,7 @@ $token=$_SESSION['token'];
         </td>
         <td class="title">
         	<label>
-        		Title: 
+        		Descripción: 
         		<input name="title[]" required>
         	</label>
         </td>
@@ -203,7 +203,7 @@ $token=$_SESSION['token'];
             <p class="size">Procesando...</p>
             <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
         </td>
-        <td>
+       /* <td>
             {% if (!i && !o.options.autoUpload) { %}
                 <button class="btn btn-primary start" disabled>
                     <i class="glyphicon glyphicon-upload"></i>
@@ -216,7 +216,7 @@ $token=$_SESSION['token'];
                     <span>Cancelar</span>
                 </button>
             {% } %}
-        </td>
+        </td>*/
     </tr>
 {% } %}
 </script>
@@ -246,7 +246,7 @@ $token=$_SESSION['token'];
         <td>
             <span class="size">{%=o.formatFileSize(file.size)%}</span>
         </td>
-        <td>
+        /*<td>
             {% if (file.deleteUrl) { %}
                 <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="files/club/<?php echo $idProfile;?>/"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                     <i class="glyphicon glyphicon-trash"></i>
@@ -259,12 +259,10 @@ $token=$_SESSION['token'];
                     <span>Cancel</span>
                 </button>
             {% } %}
-        </td>
+        </td>*/
     </tr>
 {% } %}
-</script>
-
-										
+</script>									
 										
 							</div>
 						</div>
@@ -306,8 +304,12 @@ $token=$_SESSION['token'];
 <script src="js/cors/jquery.xdr-transport.js"></script>
 <![endif]-->
 <script type="text/javascript"> 
+var image_cont;
+$( document ).ready(function() {
+    image_cont = 0;
+});
 
-	function submitPhotoClub(nameFile){
+	function submitPhotoClub(nameFile, descFile){
 		var idProfile = <?php echo $_SESSION['id_user']; ?>	;
 		var token =  "<?php echo $_SESSION['token']; ?>";
 		var params = "/" + idProfile + "/" + token;
@@ -325,11 +327,11 @@ $token=$_SESSION['token'];
 				//async: false,
 				data: {
 					url:urlPhoto,
-					title:"prueba",
+					title: descFile,
 				},
 				complete: function(r){
+					image_cont = image_cont + 1;
 					var json = JSON.parse(r.responseText);	
-					
 				  	$("#dialog-goToPub-1").html("<b>Asistirás al local el " + date + "</b>");
 				},
 				onerror: function(e,val){
@@ -342,8 +344,7 @@ $token=$_SESSION['token'];
 
     $('#fileupload').bind('fileuploaddone', function (e, data) {
         $.each(data.result.files, function (index, file) {
-            alert(data.result.files[index].name);
-            submitPhotoClub(data.result.files[index].name);
+            submitPhotoClub(data.result.files[index].name, data.result.description[image_cont]);
         });
     });
 </script>
