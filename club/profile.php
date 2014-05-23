@@ -457,25 +457,14 @@ var idlocal = '<?php echo $id_event; ?>' ;
 			type: "GET",
 			complete: function(r){
 				var json = JSON.parse(r.responseText);	
-				/*<li>
-			<h3>TinySlideshow v1</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="photos/orange-fish.jpg" alt="Orange Fish"/></a>
-			<img src="thumbnails/orange-fish-thumb.jpg" class="thumbnail"/>
-		</li>*/
 			  	for (var i = 0; i < json.length; i++) { 
 				    var url = json[i].url;
-				   /* var urlArray = url.split("/");
-				    var place = url.length - 1;
-				    var arrayThumb = url.splice(place, 0, "thumbnails");
-				    var urlThumb = arrayThumb.join('/');*/
-				    var stringPre = "club/" + id + "/";
-				    var stringPos = "club/" + id + "/thumbnail/";
+				    var stringPre = "club/" + idProfile + "/";
+				    var stringPos = "club/" + idProfile + "/thumbnail/";
 				    var urlThumb = url.replace(stringPre, stringPos);
 				    var description = json[i].title;
 				    var li = '<a href="' + url + '" data-gallery>';
 				    li += '<img src="' + urlThumb + '"/> </a>';
-
 				    
 				    $("#links").append(li);
 				}
