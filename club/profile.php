@@ -463,8 +463,8 @@ var idlocal = '<?php echo $id_event; ?>' ;
 				    var stringPos = "club/" + idProfile + "/thumbnail/";
 				    var urlThumb = url.replace(stringPre, stringPos);
 				    var description = json[i].title;
-				    var li = '<a href="' + url + '" data-gallery>';
-				    li += '<img src="' + urlThumb + '"/> </a>';
+				    var li = '<a href="' + url + '" title="' + description + '" data-gallery>';
+				    li += '<img src="' + urlThumb + '" title="' + description + '"></a>';
 				    
 				    $("#links").append(li);
 				}
