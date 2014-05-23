@@ -227,9 +227,10 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		$('[name="followers"]').text(followers);
 		var goto = json.goto;
 		$('[name="goto"]').text(goto);
-		},
+		
 
 		var date = json.createdTime;
+
 		/*Calculates uptime*/
 
 		moment.lang('es', {
@@ -251,10 +252,10 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		});
 		var dateActivity = moment(date);
 		if (dateActivity.isValid()){
-		var activityFromNow = dateActivity.fromNow();
-		$("member-since").html("Miembro desde: " + activityFromNow);
+			var activityFromNow = dateActivity.fromNow();
+			$("#member-since").append("Miembro desde: " + activityFromNow);
 		}
-
+		},
 		onerror: function(e,val){
 			//alert("Contraseña y/o usuario incorrectos");
 		}
