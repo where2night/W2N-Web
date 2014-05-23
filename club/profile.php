@@ -23,6 +23,7 @@ include_once "../framework/visits.php";
 	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Estilos Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-image-gallery.min.css" rel="stylesheet">
     <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/home.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap-combined.min.css" rel="stylesheet">
@@ -34,6 +35,7 @@ include_once "../framework/visits.php";
 	<link rel="stylesheet" href="../css/club-template.css" type="text/css" /><!-- Responsive -->
 	<link rel="stylesheet" href="../css/responsive.css" type="text/css" /><!-- Responsive -->	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+	<link href="../css/TinySlideshow-master.css" rel="stylesheet" type="text/css">
 	<!-- script -->
 	
 	<script src="../js/jquery.js"></script>
@@ -50,6 +52,8 @@ include_once "../framework/visits.php";
 	<script src="../js/fillDate.js"></script>
 	<script src="../js/lists.js"></script>
 	<script src="../js/canvasjs.min.js"></script>
+	<script src="../js/bootstrap-image-gallery.min.js"></script>
+	<script src="../js/fileupload/jquery.fileupload-process.js"></script>
 
 
 <?php 
@@ -72,14 +76,13 @@ include_once "../framework/visits.php";
 
 
 <script>
-	
 
 var ide = '<?php echo $idProfile; ?>' ;
 var tok = '<?php echo $token; ?>' ;
 var ideEvent = '<?php echo $id_event; ?>' ;	
 var idlocal = '<?php echo $id_event; ?>' ;	
-</script>
 
+</script>
 
 <script type="text/javascript"> 
 	function getData(){
@@ -90,7 +93,6 @@ var idlocal = '<?php echo $id_event; ?>' ;
 	var idProfile = <?php echo $_GET['idv'];?>;
 	var id = <?php echo $_SESSION['id_user'];?>;
 	var token = "<?php echo $_SESSION['token'];?>";
-	var params = "/" + idProfile + "/" + token; 
 	var url1 = "../develop/update/";
 	var params = "/" + id + "/" + token + "/" + idProfile;
 	url1 += "local.php";
@@ -231,6 +233,9 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		}
 	});
 
+	//View photos
+	var params = "/" + id + "/" + token + "/" + idProfile;
+	var url = "../develop/actions/photoLocal.php" + params;
 
 <?php		
 	}else{//(!isset($_GET['idv']))
@@ -379,12 +384,51 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		onerror: function(e,val){
 			//alert("Contraseña y/o usuario incorrectos");
 		}
+
 	});
+
+	//View photos
+	var params = "/" + idProfile + "/" + token + "/" + idProfile;
+	var url = "../develop/actions/photoLocal.php" + params;
 
 
 <?php		
 	}//end else (!isset($_GET['idv']))
 ?>
+
+	$.ajax({
+			url:url,
+			dataType: "json",
+			type: "GET",
+			complete: function(r){
+				var json = JSON.parse(r.responseText);	
+				/*<li>
+			<h3>TinySlideshow v1</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
+			<a href="#"><img src="photos/orange-fish.jpg" alt="Orange Fish"/></a>
+			<img src="thumbnails/orange-fish-thumb.jpg" class="thumbnail"/>
+		</li>*/
+			  	for (var i = 0; i < json.length; i++) { 
+				    var url = json[i].url;
+				   /* var urlArray = url.split("/");
+				    var place = url.length - 1;
+				    var arrayThumb = url.splice(place, 0, "thumbnails");
+				    var urlThumb = arrayThumb.join('/');*/
+				    var stringPre = "club/" + id + "/";
+				    var stringPos = "club/" + id + "/thumbnail/";
+				    var urlThumb = url.replace(stringPre, stringPos);
+				    var description = json[i].title;
+				    var li = '<a href="' + url + '" data-gallery>';
+				    li += '<img src="' + urlThumb + '"/> </a>';
+
+				    
+				    $("#links").append(li);
+				}
+			},
+			onerror: function(e,val){
+				alert("Error al ver fotos");
+			}
+	});
 
 }//end getData()
     
@@ -775,7 +819,7 @@ $.ajax({
 										
 											<!-- Begin Photos -->
 											<div class="tab-pane fade" id="tab-photos">	
-											<!--	<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
+												<div class="container" style="background-color:#000;box-shadow: 1px 1px 2px 0 #ff6b24;">
 													<form class="form-inline">
 													<div class="form-group">
 														<a href="#"id="image-gallery-button" class="btn btn-success pull-right" style="background-color:#000;border-color:#ff6b24;color:#34d1be;">Ver todas</a>
@@ -783,22 +827,22 @@ $.ajax({
 													</form>
 													<br>
 												<!-- The container for the list of example images -->
-												<!-- 	<div id="links"></div>
+												 	<div id="links"></div>
 													<br>
 												</div>
 											<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-											<!-- 	<div id="blueimp-gallery" class="blueimp-gallery" >
+												<div id="blueimp-gallery" class="blueimp-gallery" >
 												<!-- The container for the modal slides -->
-												<!-- 	<div class="slides"></div>
+												 	<div class="slides"></div>
 													<!-- Controls for the borderless lightbox -->
-												<!-- 	<h3 class="title"></h3>
+													<h3 class="title"></h3>
 													<a class="prev">‹</a>
 													<a class="next">›</a>
 													<a class="close">×</a>
 													<a class="play-pause"></a>
 													<ol class="indicator"></ol>
 													<!-- The modal dialog, which will be used to wrap the lightbox content -->
-												<!-- 	<div class="modal fade" style="background-color:transparent; width:100%;height:100%;margin-top:20%;">
+												 	<div class="modal fade" style="background-color:transparent; width:100%;height:100%;margin-top:20%;">
 														<div class="modal-dialog">
 															<div class="modal-content">
 																<div class="modal-header">
@@ -814,7 +858,55 @@ $.ajax({
 															</div>
 														</div>
 													</div>
-												</div>-->
+												</div>
+
+										<!--			<ul id="slideshow">
+		<li>
+			<h3>TinySlideshow v1</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
+			<a href="#"><img src="photos/orange-fish.jpg" alt="Orange Fish"/></a>
+			<img src="thumbnails/orange-fish-thumb.jpg" class="thumbnail"/>
+		</li>
+		
+	</ul>
+	<div id="wrapper">
+		<div id="fullsize">
+			<div id="imgprev" class="imgnav" title="Previous Image"></div>
+			<div id="imglink"></div>
+			<div id="imgnext" class="imgnav" title="Next Image"></div>
+			<div id="image"></div>
+			<div id="information">
+				<h3></h3>
+				<p></p>
+			</div>
+		</div>
+		<div id="thumbnails">
+			<div id="slideleft" title="Slide Left"></div>
+			<div id="slidearea">
+				<div id="slider"></div>
+			</div>
+			<div id="slideright" title="Slide Right"></div>
+		</div>
+	</div>
+	<script src="../js/TinySlideshow-master.js"></script>
+<script type="text/javascript">
+	$T('slideshow').style.display='none';
+	$T('wrapper').style.display='block';
+	var slideshow=new TINY.slideshow("slideshow");
+	window.onload=function(){
+		slideshow.auto=true;
+		slideshow.speed=5;
+		slideshow.link="linkhover";
+		slideshow.info="information";
+		slideshow.thumbs="slider";
+		slideshow.left="slideleft";
+		slideshow.right="slideright";
+		slideshow.scrollSpeed=4;
+		slideshow.spacing=0;
+		slideshow.active="#fff";
+		slideshow.init("slideshow","image","imgprev","imgnext","imglink","slidearea");
+	}
+</script>-->
 	
 											</div>	<!-- End Photos -->
 											
@@ -882,8 +974,9 @@ $.ajax({
 	<!-- /MiPerfil --> 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 
-	<script src="../js/profile-test1.js"></script>
-	<script src="../js/profile-test2.js"></script>	<script src="../js/jquery-ui.min.js"></script>
+	<!--<script src="../js/profile-test1.js"></script>-->
+	<script src="../js/profile-test2.js"></script>	
+	<script src="../js/jquery-ui.min.js"></script>
 	<link href="../css/jquery-ui.custom1.css" rel="stylesheet" media="screen">
 
 <?php 

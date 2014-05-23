@@ -318,15 +318,15 @@ $( document ).ready(function() {
 
 		  //* <baseUrl> + /actions/photoLocal.php/<idLocalProfile>/<Token>
 		var url = "../develop/actions/photoLocal.php" + params;
-		urlPhoto = "../framework/fileupload/php/files/club/" + '<?php echo $idProfile;?>' + "/" + nameFile;
+		urlPhoto = "http://where2night.es/framework/fileupload/php/files/club/" + '<?php echo $idProfile;?>' + "/" + nameFile;
 
 		$.ajax({
 				url:url,
 				dataType: "json",
 				type: "POST",
-				//async: false,
+				async: false,
 				data: {
-					url:urlPhoto,
+					url: urlPhoto,
 					title: descFile,
 				},
 				complete: function(r){
