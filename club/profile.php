@@ -228,6 +228,33 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		var goto = json.goto;
 		$('[name="goto"]').text(goto);
 		},
+
+		var date = json.createdTime;
+		/*Calculates uptime*/
+
+		moment.lang('es', {
+			relativeTime : {
+			future : "en %s",
+			past : "hace %s",
+			s : "unos segundos",
+			m : "un minuto",
+			mm : "%d minutos",
+			h : "una hora",
+			hh : "%d horas",
+			d : "un día",
+			dd : "%d días",
+			M : "un mes",
+			MM : "%d meses",
+			y : "un año",
+			yy : "%d años"
+			}
+		});
+		var dateActivity = moment(date);
+		if (dateActivity.isValid()){
+		var activityFromNow = dateActivity.fromNow();
+		$("member-since").html("Miembro desde: " + activityFromNow);
+		}
+
 		onerror: function(e,val){
 			//alert("Contraseña y/o usuario incorrectos");
 		}
@@ -379,6 +406,33 @@ var idlocal = '<?php echo $id_event; ?>' ;
 		$('[name="followers"]').text(followers);
 		var goto = json.goto;
 		$('[name="goto"]').text(goto);
+
+		var date = json.createdTime;
+
+		/*Calculates uptime*/
+
+		moment.lang('es', {
+			relativeTime : {
+			future : "en %s",
+			past : "hace %s",
+			s : "unos segundos",
+			m : "un minuto",
+			mm : "%d minutos",
+			h : "una hora",
+			hh : "%d horas",
+			d : "un día",
+			dd : "%d días",
+			M : "un mes",
+			MM : "%d meses",
+			y : "un año",
+			yy : "%d años"
+			}
+		});
+		var dateActivity = moment(date);
+		if (dateActivity.isValid()){
+			var activityFromNow = dateActivity.fromNow();
+			$("#member-since").append("Miembro desde: " + activityFromNow);
+		}
 	
 		},
 		onerror: function(e,val){
@@ -701,7 +755,7 @@ $.ajax({
 									
 									<img name="club-image" alt="" class="profile-img img-responsive center-block banner1" style="border-color:#ff6b24;"/>
 									<div class="profile-since"style="color:#707070;margin-top:1%;margin-bottom:-2%">
-										<!--Miembro desde: Ene 2012	-->
+										<div id="member-since"></div>	
 										<ul class="fa-ul" >
 											<li  style="color:transparent;"><span style="color:#ff6b24">Seguidores: </span><span name="followers" style="color:#34d1be"> </span></li>
 											<li  style="color:transparent;"><span style="color:#ff6b24">Publicaciones: </span>
