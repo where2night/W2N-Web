@@ -25,17 +25,17 @@
 					<span>Listas</span>
 				</a>
 			</li>
-			<!--<li class="photos.php">
+			<li class="photos.php">
 				<span class="glow"></span>
-				<a href="">
-					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+				<a href="upload-photos.php">
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Fotos</span>
 				</a>
-			</li>-->
+			</li>
 			<li class="">
 				<span class="glow"></span>
 				<a href="fans.php">
-					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Seguidores</span>
 				</a>
 			</li>
@@ -43,7 +43,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="songs.php">
-					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
 					<span>Canciones</span>
 				</a>
 			</li>
@@ -51,7 +51,7 @@
 			<li class="">
 				<span class="glow"></span>
 				<a href="statistics.php">
-					<i class=""><img class="menu-avatar" src="../images/party3.jpg" /></i>
+					<i class=""><img class="menu-avatar" src="../images/party2.jpg" /></i>
 					<span>Estadisticas</span>
 				</a>
 			</li>
